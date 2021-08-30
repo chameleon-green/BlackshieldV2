@@ -1,5 +1,5 @@
 //+++++++++++++++++++++++++++++++++++++++++++++ grenade throwing meter ++++++++++++++++++++++++++++++++
-draw_text(x,y-200,is_array(ammo_type))
+draw_text(x,y-200,swinging)
 
 draw_hbox = 0
 

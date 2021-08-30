@@ -18,10 +18,10 @@ function scr_player_movement() {
 	var S = keyboard_check(ord("S"))
 	var Shift = keyboard_check(vk_shift)
 	
-	cSpeed = 30*D + -30*A //clamp hspeed for collision stuff, need a minimum
+	cSpeed = 30*D + -30*A //+ (30*swinging*image_xscale) //clamp hspeed for collision stuff, need a minimum
 	
-	var x1 = bbox_left - 10 + cSpeed
-	var x2 = bbox_right + 10 + cSpeed
+	var x1 = bbox_left - 10 + cSpeed - 30*swinging
+	var x2 = bbox_right + 10 + cSpeed + 30*swinging
 	var y1 = bbox_bottom - 5
 	var y2 = bbox_bottom + abs(cSpeed) + 15
 	col_slope = collision_rectangle(x1,y1,x2,y2,obj_slope,true,0) 

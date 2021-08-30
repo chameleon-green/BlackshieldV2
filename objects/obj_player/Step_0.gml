@@ -89,8 +89,8 @@ scr_player_movement()
 //+++++++++++++++++++++++++++++++++++++++++++++ MELEE SHIT +++++++++++++++++++++++++++++++++++++++++++++
 scr_melee_heavy()
 
-var col_right = place_meeting(bbox_right+(hspeed+4),y,obj_platform) 
-var col_left = place_meeting(bbox_left-(hspeed-4),y,obj_platform)
+//var col_right = place_meeting(bbox_right+(hspeed+4),y,obj_platform) 
+//var col_left = place_meeting(bbox_left-(hspeed-4),y,obj_platform)
 
 if(swinging = 0) {time_melee = 0}
 

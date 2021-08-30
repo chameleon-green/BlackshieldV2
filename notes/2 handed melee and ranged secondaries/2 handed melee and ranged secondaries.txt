@@ -1,0 +1,4 @@
+2 handed weapons set melee weapon to none
+check if melee weapon is array
+if not, do not animate rear arm, and set secondary rear arm animation (teacup grip, shotgun pump, etc)
+same can be done for crippled state

@@ -1,0 +1,1 @@
+if SubImg = 7 {instance_destroy(self)}

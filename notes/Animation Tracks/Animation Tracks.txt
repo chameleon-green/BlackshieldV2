@@ -1,0 +1,8 @@
+1 = Weapon idle (torso/arms usually)=
+2 = Movement (legs, like running and falling)
+3 = Shooting
+4 = Reloading
+5 = cripple idles
+6 = melee stuff
+9 = jumping
+8 = melee idle

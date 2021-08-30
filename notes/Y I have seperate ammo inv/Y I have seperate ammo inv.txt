@@ -1,0 +1,2 @@
+Ammo must exist before weapons so the weapons can read them
+therefore the ammo list must be created first

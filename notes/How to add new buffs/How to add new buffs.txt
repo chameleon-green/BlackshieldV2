@@ -1,0 +1,12 @@
+0. There can only be so many active effects at once as determined by obj_ic
+-Max_Buffs_Amount determines hard limit on max simultaneous buffs. Any higher than this and the game crashes
+-The other limit is the detection code in the obj_ic begin step event. If you exceed the limit here, the buff will be infinite
+  in duration as the timer is never started
+
+1. Update scr_boon_activate to make game understand what the buff actually does
+
+2. Update health icon object's step event to detect and create status icons
+
+
+-scr_aid_use: function to inject variables into object, shouldn't have to ever modify this when adding new buffs
+-scr_boon_activate: does the actual actions, update when new buff is added

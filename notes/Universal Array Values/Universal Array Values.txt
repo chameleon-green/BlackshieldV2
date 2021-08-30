@@ -1,0 +1,3 @@
+20 = mass of item
+22 = item type (primary, secondary, grenade, food, etc)
+8 = damage (for all weapons, exc. grenades)

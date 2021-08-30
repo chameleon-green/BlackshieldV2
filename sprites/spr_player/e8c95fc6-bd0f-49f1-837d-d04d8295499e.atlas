@@ -1,0 +1,824 @@
+
+mk2 test.png
+size: 1024,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+0000_bicep
+  rotate: true
+  xy: 236, 4
+  size: 23, 47
+  orig: 23, 47
+  offset: 0, 0
+  index: -1
+0000_foot
+  rotate: false
+  xy: 328, 6
+  size: 37, 17
+  orig: 37, 17
+  offset: 0, 0
+  index: -1
+0000_forearm
+  rotate: false
+  xy: 940, 72
+  size: 42, 18
+  orig: 42, 18
+  offset: 0, 0
+  index: -1
+0000_hand
+  rotate: false
+  xy: 455, 3
+  size: 20, 15
+  orig: 20, 15
+  offset: 0, 0
+  index: -1
+0000_head
+  rotate: true
+  xy: 898, 42
+  size: 26, 31
+  orig: 26, 31
+  offset: 0, 0
+  index: -1
+0000_holding hand
+  rotate: false
+  xy: 477, 7
+  size: 14, 11
+  orig: 14, 11
+  offset: 0, 0
+  index: -1
+0000_pelvis
+  rotate: true
+  xy: 854, 3
+  size: 35, 33
+  orig: 35, 33
+  offset: 0, 0
+  index: -1
+0000_shin
+  rotate: false
+  xy: 740, 39
+  size: 24, 52
+  orig: 24, 52
+  offset: 0, 0
+  index: -1
+0000_thigh
+  rotate: true
+  xy: 766, 49
+  size: 31, 58
+  orig: 31, 58
+  offset: 0, 0
+  index: -1
+0000_torso
+  rotate: true
+  xy: 530, 36
+  size: 51, 62
+  orig: 51, 62
+  offset: 0, 0
+  index: -1
+anim_bolter1
+  rotate: false
+  xy: 2, 3
+  size: 17, 6
+  orig: 17, 6
+  offset: 0, 0
+  index: -1
+anim_bolter2
+  rotate: false
+  xy: 285, 21
+  size: 17, 6
+  orig: 17, 6
+  offset: 0, 0
+  index: -1
+anim_bolter3
+  rotate: false
+  xy: 21, 3
+  size: 17, 6
+  orig: 17, 6
+  offset: 0, 0
+  index: -1
+anim_bolter_heavy1
+  rotate: true
+  xy: 1010, 104
+  size: 22, 8
+  orig: 22, 8
+  offset: 0, 0
+  index: -1
+anim_bolter_heavy2
+  rotate: true
+  xy: 889, 16
+  size: 22, 8
+  orig: 22, 8
+  offset: 0, 0
+  index: -1
+anim_bolter_heavy3
+  rotate: true
+  xy: 931, 46
+  size: 22, 8
+  orig: 22, 8
+  offset: 0, 0
+  index: -1
+anim_field_proteus1
+  rotate: false
+  xy: 317, 25
+  size: 114, 37
+  orig: 114, 37
+  offset: 0, 0
+  index: -1
+anim_field_proteus2
+  rotate: false
+  xy: 451, 89
+  size: 114, 37
+  orig: 114, 37
+  offset: 0, 0
+  index: -1
+anim_field_proteus3
+  rotate: false
+  xy: 567, 89
+  size: 114, 37
+  orig: 114, 37
+  offset: 0, 0
+  index: -1
+anim_pistol_sunspite1
+  rotate: false
+  xy: 499, 2
+  size: 47, 17
+  orig: 47, 17
+  offset: 0, 0
+  index: -1
+anim_pistol_sunspite2
+  rotate: false
+  xy: 529, 21
+  size: 29, 13
+  orig: 29, 13
+  offset: 0, 0
+  index: -1
+anim_plasmacannon_sol1
+  rotate: false
+  xy: 943, 92
+  size: 65, 34
+  orig: 65, 34
+  offset: 0, 0
+  index: -1
+anim_plasmacannon_sol2
+  rotate: false
+  xy: 548, 2
+  size: 43, 17
+  orig: 43, 17
+  offset: 0, 0
+  index: -1
+anim_plasmagun_thunderbolt1
+  rotate: false
+  xy: 114, 2
+  size: 60, 22
+  orig: 60, 22
+  offset: 0, 0
+  index: -1
+anim_plasmagun_thunderbolt2
+  rotate: false
+  xy: 285, 2
+  size: 41, 16
+  orig: 41, 16
+  offset: 0, 0
+  index: -1
+anim_teeth_th1
+  rotate: true
+  xy: 443, 64
+  size: 23, 85
+  orig: 23, 85
+  offset: 0, 0
+  index: -1
+anim_teeth_th2
+  rotate: true
+  xy: 855, 103
+  size: 23, 86
+  orig: 23, 86
+  offset: 0, 0
+  index: -1
+anim_teeth_th3
+  rotate: true
+  xy: 766, 103
+  size: 23, 87
+  orig: 23, 87
+  offset: 0, 0
+  index: -1
+belt
+  rotate: false
+  xy: 2, 11
+  size: 110, 115
+  orig: 110, 115
+  offset: 0, 0
+  index: -1
+belt2
+  rotate: false
+  xy: 226, 29
+  size: 89, 97
+  orig: 89, 97
+  offset: 0, 0
+  index: -1
+belt3
+  rotate: false
+  xy: 114, 26
+  size: 110, 100
+  orig: 110, 100
+  offset: 0, 0
+  index: -1
+blank
+  rotate: false
+  xy: 740, 13
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+crawl_hand
+  rotate: false
+  xy: 396, 7
+  size: 26, 16
+  orig: 26, 16
+  offset: 0, 0
+  index: -1
+flash med 1
+  rotate: false
+  xy: 433, 20
+  size: 64, 42
+  orig: 64, 42
+  offset: 0, 0
+  index: -1
+flash med 2
+  rotate: true
+  xy: 646, 35
+  size: 52, 40
+  orig: 52, 40
+  offset: 0, 0
+  index: -1
+flash med 3
+  rotate: false
+  xy: 826, 40
+  size: 48, 35
+  orig: 48, 35
+  offset: 0, 0
+  index: -1
+flash med 4
+  rotate: false
+  xy: 683, 93
+  size: 81, 33
+  orig: 81, 33
+  offset: 0, 0
+  index: -1
+flash_plasma_blue1
+  rotate: false
+  xy: 688, 48
+  size: 50, 43
+  orig: 50, 43
+  offset: 0, 0
+  index: -1
+flash_plasma_blue2
+  rotate: false
+  xy: 984, 53
+  size: 38, 37
+  orig: 38, 37
+  offset: 0, 0
+  index: -1
+flash_plasma_blue3
+  rotate: true
+  xy: 814, 3
+  size: 35, 38
+  orig: 35, 38
+  offset: 0, 0
+  index: -1
+flash_plasma_blue4
+  rotate: false
+  xy: 766, 82
+  size: 66, 19
+  orig: 66, 19
+  offset: 0, 0
+  index: -1
+front bicep
+  rotate: true
+  xy: 834, 77
+  size: 24, 52
+  orig: 24, 52
+  offset: 0, 0
+  index: -1
+rear bicep
+  rotate: true
+  xy: 834, 77
+  size: 24, 52
+  orig: 24, 52
+  offset: 0, 0
+  index: -1
+front hand
+  rotate: true
+  xy: 876, 40
+  size: 28, 20
+  orig: 28, 20
+  offset: 0, 0
+  index: -1
+holding hand
+  rotate: false
+  xy: 560, 21
+  size: 18, 13
+  orig: 18, 13
+  offset: 0, 0
+  index: -1
+mag_pistol_tigrus
+  rotate: true
+  xy: 424, 2
+  size: 16, 17
+  orig: 16, 17
+  offset: 0, 0
+  index: -1
+mag_plasma_thunderbolt
+  rotate: false
+  xy: 443, 2
+  size: 10, 16
+  orig: 10, 16
+  offset: 0, 0
+  index: -1
+mag_plasmacannon_sol
+  rotate: false
+  xy: 688, 20
+  size: 26, 26
+  orig: 26, 26
+  offset: 0, 0
+  index: -1
+mag_sickle1
+  rotate: true
+  xy: 176, 2
+  size: 22, 28
+  orig: 22, 28
+  offset: 0, 0
+  index: -1
+mag_sickle1e
+  rotate: true
+  xy: 206, 2
+  size: 22, 28
+  orig: 22, 28
+  offset: 0, 0
+  index: -1
+magazine_bolter_heavy1
+  rotate: true
+  xy: 888, 70
+  size: 31, 50
+  orig: 31, 50
+  offset: 0, 0
+  index: -1
+pauldron
+  rotate: false
+  xy: 594, 40
+  size: 50, 47
+  orig: 50, 47
+  offset: 0, 0
+  index: -1
+rear arm
+  rotate: true
+  xy: 499, 21
+  size: 41, 28
+  orig: 41, 28
+  offset: 0, 0
+  index: -1
+rear pauldron
+  rotate: true
+  xy: 766, 2
+  size: 45, 46
+  orig: 45, 46
+  offset: 0, 0
+  index: -1
+rearfist
+  rotate: true
+  xy: 716, 20
+  size: 26, 22
+  orig: 26, 22
+  offset: 0, 0
+  index: -1
+sword_chain_thunderedge
+  rotate: true
+  xy: 317, 64
+  size: 29, 124
+  orig: 29, 124
+  offset: 0, 0
+  index: -1
+sword_power_proteus
+  rotate: false
+  xy: 317, 95
+  size: 132, 31
+  orig: 132, 31
+  offset: 0, 0
+  index: -1
+throwing hand
+  rotate: false
+  xy: 367, 7
+  size: 27, 16
+  orig: 27, 16
+  offset: 0, 0
+  index: -1
+
+mk2 test2.png
+size: 256,64
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Amputations/bicep_amputated
+  rotate: false
+  xy: 2, 10
+  size: 24, 52
+  orig: 24, 52
+  offset: 0, 0
+  index: -1
+Amputations/bicep_amputated_trim_bloody
+  rotate: false
+  xy: 28, 10
+  size: 24, 52
+  orig: 24, 52
+  offset: 0, 0
+  index: -1
+Amputations/front thigh_amputated
+  rotate: false
+  xy: 124, 35
+  size: 33, 27
+  orig: 33, 27
+  offset: 0, 0
+  index: -1
+Amputations/front thigh_amputated_0000
+  rotate: false
+  xy: 91, 23
+  size: 31, 39
+  orig: 31, 39
+  offset: 0, 0
+  index: -1
+Amputations/rear thigh_amputated_0000
+  rotate: false
+  xy: 91, 23
+  size: 31, 39
+  orig: 31, 39
+  offset: 0, 0
+  index: -1
+Amputations/front thigh_trim_bloody
+  rotate: false
+  xy: 91, 2
+  size: 29, 19
+  orig: 29, 19
+  offset: 0, 0
+  index: -1
+Amputations/rear thigh_amputated
+  rotate: false
+  xy: 54, 21
+  size: 35, 41
+  orig: 35, 41
+  offset: 0, 0
+  index: -1
+Amputations/rear thigh_trim_bloody
+  rotate: false
+  xy: 159, 38
+  size: 29, 24
+  orig: 29, 24
+  offset: 0, 0
+  index: -1
+
+mk2 test3.png
+size: 512,32
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Gun Animations/anim_kalibrax
+  rotate: false
+  xy: 380, 2
+  size: 80, 22
+  orig: 80, 22
+  offset: 0, 0
+  index: -1
+Gun Animations/anim_rotor_proteus1
+  rotate: false
+  xy: 2, 5
+  size: 124, 19
+  orig: 124, 19
+  offset: 0, 0
+  index: -1
+Gun Animations/anim_rotor_proteus2
+  rotate: false
+  xy: 128, 5
+  size: 124, 19
+  orig: 124, 19
+  offset: 0, 0
+  index: -1
+Gun Animations/anim_rotor_proteus3
+  rotate: false
+  xy: 254, 5
+  size: 124, 19
+  orig: 124, 19
+  offset: 0, 0
+  index: -1
+
+mk2 test4.png
+size: 256,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Magazines/mag_belt_rotor
+  rotate: false
+  xy: 2, 2
+  size: 93, 95
+  orig: 93, 95
+  offset: 0, 0
+  index: -1
+Magazines/mag_kalibrax_1
+  rotate: false
+  xy: 97, 52
+  size: 47, 45
+  orig: 47, 45
+  offset: 0, 0
+  index: -1
+Magazines/mag_kalibrax_1e
+  rotate: false
+  xy: 146, 52
+  size: 47, 45
+  orig: 47, 45
+  offset: 0, 0
+  index: -1
+Magazines/mag_kalibrax_2
+  rotate: false
+  xy: 146, 7
+  size: 45, 43
+  orig: 45, 43
+  offset: 0, 0
+  index: -1
+Magazines/mag_kalibrax_3
+  rotate: false
+  xy: 97, 5
+  size: 47, 45
+  orig: 47, 45
+  offset: 0, 0
+  index: -1
+
+mk2 test5.png
+size: 256,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+MK2/2000_backpack
+  rotate: false
+  xy: 2, 22
+  size: 73, 33
+  orig: 73, 33
+  offset: 0, 0
+  index: -1
+MK2/2000_collar
+  rotate: false
+  xy: 158, 77
+  size: 50, 24
+  orig: 50, 24
+  offset: 0, 0
+  index: -1
+MK2/2000_eyes
+  rotate: false
+  xy: 2, 15
+  size: 19, 5
+  orig: 19, 5
+  offset: 0, 0
+  index: -1
+MK2/2000_foot
+  rotate: false
+  xy: 210, 74
+  size: 41, 20
+  orig: 41, 20
+  offset: 0, 0
+  index: -1
+MK2/2000_front forearm
+  rotate: false
+  xy: 215, 96
+  size: 37, 30
+  orig: 37, 30
+  offset: 0, 0
+  index: -1
+MK2/2000_front thigh
+  rotate: false
+  xy: 121, 77
+  size: 35, 49
+  orig: 35, 49
+  offset: 0, 0
+  index: -1
+MK2/2000_head
+  rotate: true
+  xy: 116, 2
+  size: 33, 32
+  orig: 33, 32
+  offset: 0, 0
+  index: -1
+MK2/2000_knee
+  rotate: true
+  xy: 116, 37
+  size: 36, 23
+  orig: 36, 23
+  offset: 0, 0
+  index: -1
+MK2/2000_pelvis
+  rotate: false
+  xy: 158, 103
+  size: 55, 23
+  orig: 55, 23
+  offset: 0, 0
+  index: -1
+MK2/2000_rear thigh
+  rotate: false
+  xy: 77, 75
+  size: 42, 51
+  orig: 42, 51
+  offset: 0, 0
+  index: -1
+MK2/2000_shin
+  rotate: false
+  xy: 77, 22
+  size: 37, 51
+  orig: 37, 51
+  offset: 0, 0
+  index: -1
+MK2/2000_torso
+  rotate: false
+  xy: 2, 57
+  size: 73, 69
+  orig: 73, 69
+  offset: 0, 0
+  index: -1
+
+mk2 test6.png
+size: 256,64
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+MK2/trim/2000_backpack trim
+  rotate: false
+  xy: 63, 25
+  size: 73, 33
+  orig: 73, 33
+  offset: 0, 0
+  index: -1
+MK2/trim/2000_pauldron trim
+  rotate: false
+  xy: 2, 2
+  size: 59, 56
+  orig: 59, 56
+  offset: 0, 0
+  index: -1
+MK2/trim/2000_thigh_trim
+  rotate: false
+  xy: 138, 25
+  size: 30, 33
+  orig: 30, 33
+  offset: 0, 0
+  index: -1
+
+mk2 test7.png
+size: 256,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+MK3/3000_collar
+  rotate: false
+  xy: 77, 62
+  size: 31, 11
+  orig: 31, 11
+  offset: 0, 0
+  index: -1
+MK3/3000_foot
+  rotate: true
+  xy: 55, 6
+  size: 41, 20
+  orig: 41, 20
+  offset: 0, 0
+  index: -1
+MK3/3000_front forearm
+  rotate: false
+  xy: 156, 97
+  size: 37, 29
+  orig: 37, 29
+  offset: 0, 0
+  index: -1
+MK3/3000_front thigh
+  rotate: false
+  xy: 118, 77
+  size: 36, 49
+  orig: 36, 49
+  offset: 0, 0
+  index: -1
+MK3/3000_head
+  rotate: false
+  xy: 195, 95
+  size: 34, 31
+  orig: 34, 31
+  offset: 0, 0
+  index: -1
+MK3/3000_knee
+  rotate: true
+  xy: 231, 90
+  size: 36, 23
+  orig: 36, 23
+  offset: 0, 0
+  index: -1
+MK3/3000_rear thigh
+  rotate: true
+  xy: 2, 2
+  size: 45, 51
+  orig: 45, 51
+  offset: 0, 0
+  index: -1
+MK3/3000_shin
+  rotate: false
+  xy: 77, 75
+  size: 39, 51
+  orig: 39, 51
+  offset: 0, 0
+  index: -1
+MK3/3000_torso
+  rotate: false
+  xy: 2, 49
+  size: 73, 77
+  orig: 73, 77
+  offset: 0, 0
+  index: -1
+
+mk2 test8.png
+size: 64,64
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+MK3/trim/3000_pauldron trim
+  rotate: false
+  xy: 2, 2
+  size: 59, 56
+  orig: 59, 56
+  offset: 0, 0
+  index: -1
+
+mk2 test9.png
+size: 1024,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Weapons/autocannon_kalibrax
+  rotate: false
+  xy: 425, 73
+  size: 126, 48
+  orig: 126, 48
+  offset: 0, 0
+  index: -1
+Weapons/bolter_heavy_mars
+  rotate: false
+  xy: 290, 62
+  size: 133, 59
+  orig: 133, 59
+  offset: 0, 0
+  index: -1
+Weapons/bolter_heavy_voss
+  rotate: false
+  xy: 156, 55
+  size: 132, 66
+  orig: 132, 66
+  offset: 0, 0
+  index: -1
+Weapons/bolter_phobos
+  rotate: false
+  xy: 753, 71
+  size: 79, 50
+  orig: 79, 50
+  offset: 0, 0
+  index: -1
+Weapons/bolter_stalker
+  rotate: false
+  xy: 553, 70
+  size: 98, 51
+  orig: 98, 51
+  offset: 0, 0
+  index: -1
+Weapons/pistol_bolt_tigrus
+  rotate: false
+  xy: 91, 5
+  size: 50, 39
+  orig: 50, 39
+  offset: 0, 0
+  index: -1
+Weapons/pistol_plasma_sunspite
+  rotate: false
+  xy: 834, 85
+  size: 62, 36
+  orig: 62, 36
+  offset: 0, 0
+  index: -1
+Weapons/plasmacannon_sol
+  rotate: false
+  xy: 2, 46
+  size: 152, 75
+  orig: 152, 75
+  offset: 0, 0
+  index: -1
+Weapons/plasmagun_thunderbolt
+  rotate: false
+  xy: 2, 2
+  size: 87, 42
+  orig: 87, 42
+  offset: 0, 0
+  index: -1
+Weapons/rotorcannon_proteus
+  rotate: false
+  xy: 653, 57
+  size: 98, 64
+  orig: 98, 64
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,27 @@
+
+	
+-4/24/2020 [POTENTIAL FIX]
+	Obj_enemy_bullet collision line functionality not working (?)
+	Issue ID'd: checking when to reaccelerate round is impairing functionality
+	
+	Weird fix described in obj_enemy_bullet: on impact, projectile slows down to allow
+	for hit registration and ignores col_list id check entirely (original goal was to 
+	let bullet detect what it already had already hit and then ignore it and keep moving, now 
+	bullet slows down and hit object recognizes which bullet has already hit it)
+
+-4/24/2020 [UNFIXED]
+	Heavy attack swing includes gun anim for some reason?
+	
+	
+-8/2/2020
+	memory leaks from ds_maps and lists not being destroyed, enemy and impact code being huge offenders
+	not impact code! enemy code is flawed, ENEMY IMPACT CODE is not deleting lists and a few grids. See profiler for all calls
+	
+-1/10/2021
+	ramps are generally buggy
+	enemies killed in mid air do weird shit, floating around and not playing death animation 
+	FIXED: disabled walking/sprinting when dead. gravity was tied to astar pathing as well.
+	
+-1/14/2021
+	scrolling with mousewheel in inventory when fully zoomed in cuts of bottom inventory item
+	when clicking and dragging scrollbar, bug does not occur

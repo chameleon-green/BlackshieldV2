@@ -1,0 +1,1 @@
+obj_ic.scrollbar = undefined

@@ -16,7 +16,7 @@ ds_map_add(global.stats, "Sanity", 100)
 ds_map_add(global.stats, "Corruption", 0)
 
 //this sets AA level (8) and vsync on (true), as well as hides the cursor (can be enabled later on)
-display_reset(32, false)
+display_reset(8, false)
 window_set_cursor(cr_none)
 view_multiplier = 1
 view_momentum = 0

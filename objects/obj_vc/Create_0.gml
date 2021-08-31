@@ -75,6 +75,8 @@ instance_create_depth(x,y,-40,obj_health_icon)
 instance_create_depth(126,226,-50,obj_crosshair)
 
 //+++++++++++++++++++++++++++++++++++++ PARTICLES +++++++++++++++++++++++++++++++++
+
+//----------------------------------------WRECKAGE FIRE ----------------------------
 prt_sys = part_system_create()
 prt_flame_dirty_norm = part_type_create()
 prt_flame_dirty_interior = part_type_create()
@@ -94,11 +96,16 @@ part_type_size(prt_flame_dirty_interior ,4,4,0.06,0)
 part_type_alpha3(prt_flame_dirty_interior ,0,0.7,0.1)
 part_type_gravity(prt_flame_dirty_interior ,1,90)
 part_type_life(prt_flame_dirty_interior,12,15)
-/*
-part_type_sprite(prt_flame_dirty_norm ,spr_flames_dirty,1,1,0)
-part_type_orientation(prt_flame_dirty_norm ,90,90,0,0,0)
-part_type_size(prt_flame_dirty_norm ,2,3,0.03,0)
-part_type_alpha3(prt_flame_dirty_norm ,0,0.7,0.1)
-part_type_gravity(prt_flame_dirty_norm ,0.2,90)
-part_type_life(prt_flame_dirty_norm ,40,60)
-*/
+
+//--------------------------------------------BLOOD----------------------------------
+prt_sys_blood = part_system_create()
+prt_blood1 = part_type_create()
+
+//----------------------------------------IMPACT SPARKS----------------------------
+prt_sys_spark = part_system_create()
+prt_spark1 = part_type_create()
+
+part_type_sprite(prt_spark1,spr_fragment,0,0,0)
+part_type_orientation(prt_spark1,0,0,0,0,1)
+part_type_size(prt_spark1,1,1,0,0)
+

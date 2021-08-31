@@ -140,7 +140,7 @@ wpn_ranged = choose("volleygun","hotshot","hotshot")//,"hotshot","thumper","plas
 
 	if(wpn_ranged = "hotshot") // HOTSHOT hellgun
 	{
-		ranged_damage = 30 //30
+		ranged_damage = 1 //30
 		ranged_damage_type = "thermal"
 		fuse = 0
 		max_range = 1750 * random_range(1,1.5)

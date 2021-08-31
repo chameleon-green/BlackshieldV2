@@ -206,6 +206,7 @@
     {"id":{"name":"scr_equip_armor_initial","path":"scripts/scr_equip_armor_initial/scr_equip_armor_initial.yy",},"order":8,},
     {"id":{"name":"scr_player_movement","path":"scripts/scr_player_movement/scr_player_movement.yy",},"order":5,},
     {"id":{"name":"scr_impact_npc","path":"scripts/scr_impact_npc/scr_impact_npc.yy",},"order":1,},
+    {"id":{"name":"SparkBurst","path":"scripts/SparkBurst/SparkBurst.yy",},"order":11,},
     {"id":{"name":"TEMPLATE_resistances","path":"scripts/TEMPLATE_resistances/TEMPLATE_resistances.yy",},"order":2,},
     {"id":{"name":"scr_scion_step","path":"scripts/scr_scion_step/scr_scion_step.yy",},"order":0,},
     {"id":{"name":"snd_rotor_loop","path":"sounds/snd_rotor_loop/snd_rotor_loop.yy",},"order":10,},

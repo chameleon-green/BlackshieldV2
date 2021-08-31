@@ -72,6 +72,9 @@ function scr_player_impact() {
 								var Reduced_DMG = (Damage/resist)*Damage
 								ds_grid_set(obj_ic.grd_inv_armor,ArmorID_X,8,clamp( Durability_Item-Reduced_DMG,0,9999)) //hurt our armor, mkaing sure it doesn't fall below 0
 								audio_play_sound(choose(snd_impact_metal1,snd_impact_metal2,snd_impact_metal3),1,0)
+								
+								SparkBurst(id,inst)
+								
 								instance_destroy(inst)
 								}
 					}
@@ -143,7 +146,10 @@ function scr_player_impact() {
 								{
 								var Reduced_DMG = (Damage/resist)*Damage
 								ds_grid_set(obj_ic.grd_inv_armor,ArmorID_X,8,clamp( Durability_Item-Reduced_DMG,0,9999)) //hurt our armor, mkaing sure it doesn't fall below 0					
-								audio_play_sound(choose(snd_impact_metal1,snd_impact_metal2,snd_impact_metal3),1,0)			
+								audio_play_sound(choose(snd_impact_metal1,snd_impact_metal2,snd_impact_metal3),1,0)	
+								
+								SparkBurst(id,inst)
+								
 								instance_destroy(inst)
 								}
 						}
@@ -205,6 +211,9 @@ function scr_player_impact() {
 								var Reduced_DMG = (Damage/resist)*Damage
 								ds_grid_set(obj_ic.grd_inv_armor,ArmorID_X,8,clamp( Durability_Item-Reduced_DMG,0,9999)) //hurt our armor, mkaing sure it doesn't fall below 0							
 								audio_play_sound(choose(snd_impact_metal1,snd_impact_metal2,snd_impact_metal3),1,0)
+								
+								SparkBurst(id,inst)
+								
 								instance_destroy(inst)
 								}
 						}
@@ -280,6 +289,9 @@ function scr_player_impact() {
 								var Reduced_DMG = (Damage/resist)*Damage
 								ds_grid_set(obj_ic.grd_inv_armor,ArmorID_X,8,clamp( Durability_Item-Reduced_DMG,0,9999)) //hurt our armor, mkaing sure it doesn't fall below 0
 								audio_play_sound(choose(snd_impact_metal1,snd_impact_metal2,snd_impact_metal3),1,0)
+								
+								SparkBurst(id,inst)
+								
 								instance_destroy(inst)
 								}
 						}
@@ -343,6 +355,9 @@ function scr_player_impact() {
 								var Reduced_DMG = (Damage/resist)*Damage
 								ds_grid_set(obj_ic.grd_inv_armor,ArmorID_X,8,clamp( Durability_Item-Reduced_DMG,0,9999)) //hurt our armor, mkaing sure it doesn't fall below 0						
 								audio_play_sound(choose(snd_impact_metal1,snd_impact_metal2,snd_impact_metal3),1,0)
+								
+								SparkBurst(id,inst)
+								
 								instance_destroy(inst)					
 								}
 						}
@@ -406,6 +421,9 @@ function scr_player_impact() {
 								var Reduced_DMG = (Damage/resist)*Damage
 								ds_grid_set(obj_ic.grd_inv_armor,ArmorID_X,8,clamp( Durability_Item-Reduced_DMG,0,9999)) //hurt our armor, mkaing sure it doesn't fall below 0							
 								audio_play_sound(choose(snd_impact_metal1,snd_impact_metal2,snd_impact_metal3),1,0)
+								
+								SparkBurst(id,inst)
+								
 								instance_destroy(inst)
 								}
 						}

@@ -106,6 +106,6 @@ prt_sys_spark = part_system_create()
 prt_spark1 = part_type_create()
 
 part_type_sprite(prt_spark1,spr_fragment,0,0,0)
-part_type_orientation(prt_spark1,0,0,0,0,1)
+part_type_orientation(prt_spark1,180,180,0,0,1)
 part_type_size(prt_spark1,1,1,0,0)
 

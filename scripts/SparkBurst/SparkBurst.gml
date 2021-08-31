@@ -3,15 +3,18 @@
 function SparkBurst(entity,projectile){
 
 var facing = entity.image_xscale
+var hsp = -entity.hspeed
 var xx = projectile.x
 var yy = projectile.y
+var dir = projectile.direction + 180
 var spark = obj_vc.prt_spark1
 var quant = irandom_range(2,6)
 
-part_type_direction(spark,160,200,0,8)
-part_type_speed(spark,20,30,0,0)
+part_type_direction(spark,dir-30,dir+30,0,8)
+part_type_speed(spark,20+hsp,30+hsp,0,0)
 part_type_gravity(spark,1,270)
-part_type_life(spark,5,10)
+part_type_life(spark,5,15)
+part_type_alpha3(spark,1,1,0)
 
 part_system_depth(obj_vc.prt_sys_spark, entity.depth-1)
 

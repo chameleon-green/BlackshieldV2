@@ -267,7 +267,7 @@ function scr_ammo_init() {
 	ammo_autocannon_flak[16] = 16 //icon sprite subimage
 	ammo_autocannon_flak[15] = 3//casing skin
 	ammo_autocannon_flak[14] = 1 //durability cost per shot
-	ammo_autocannon_flak[13] = 2 //damage mod
+	ammo_autocannon_flak[13] = 3 //damage mod
 	ammo_autocannon_flak[12] = 0 //penetration factor, as percent of damage dealt (50 dmg * 0.2 pen = 10 resist ignored)
 	ammo_autocannon_flak[11] = 1 //Velocity Mod
 	ammo_autocannon_flak[10] = 1.00 //ROF mod
@@ -280,6 +280,29 @@ function scr_ammo_init() {
 	ammo_autocannon_flak[3] = "Airbursts when near enemies"
 	ammo_autocannon_flak[2] = "none"
 	ammo_autocannon_flak[1] = 0.999 //fuse setting
+	
+	ammo_autocannon_highex[22] = "ammo" //this is ammo
+	ammo_autocannon_highex[21] = "dumb" //guidance type
+	ammo_autocannon_highex[20] = 1 //weight per round
+	ammo_autocannon_highex[19] = "impact" //fuse type, can be used to define scatterguns
+	ammo_autocannon_highex[18] = rounds.Yellow_Small //projectile skin
+	ammo_autocannon_highex[17] = "Autocannon HE Shells" //Name
+	ammo_autocannon_highex[16] = 20 //icon sprite subimage
+	ammo_autocannon_highex[15] = 3//casing skin
+	ammo_autocannon_highex[14] = 1 //durability cost per shot
+	ammo_autocannon_highex[13] = 2 //damage mod
+	ammo_autocannon_highex[12] = -0.5 //penetration factor, as percent of damage dealt (50 dmg * 0.2 pen = 10 resist ignored)
+	ammo_autocannon_highex[11] = 1 //Velocity Mod
+	ammo_autocannon_highex[10] = 1.00 //ROF mod
+	ammo_autocannon_highex[9] = 1.00  //range mod
+	ammo_autocannon_highex[8] = exp_scalable_frag_tiny //explosion array
+	ammo_autocannon_highex[7] = "Ammo Descriptions/desc_ammo_autocannon_highex.txt"
+	ammo_autocannon_highex[6] = "none" //special effects, burning etc
+	ammo_autocannon_highex[5] = "autocannon" //ammo type
+	ammo_autocannon_highex[4] = "physical" //damage type
+	ammo_autocannon_highex[3] = "High-ex hatred"
+	ammo_autocannon_highex[2] = "none"
+	ammo_autocannon_highex[1] = 0.999 //fuse setting
 
 	ammo_auto_ball[22] = "ammo" //this is ammo
 	ammo_auto_ball[21] = "dumb" //guidance type

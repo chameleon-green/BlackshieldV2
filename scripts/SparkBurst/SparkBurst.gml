@@ -2,13 +2,14 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function SparkBurst(entity,projectile){
 
-var facing = entity.image_xscale
 var hsp = -entity.hspeed
-var xx = projectile.x
-var yy = projectile.y
-var dir = projectile.direction + 180
+
+var dmg = projectile.damage var xx = projectile.x var yy = projectile.y var dir = projectile.direction + 180
+
 var spark = obj_vc.prt_spark1
+var dmg_ratio = clamp(dmg/500,0,1)
 var quant = irandom_range(2,6)
+
 
 part_type_direction(spark,dir-30,dir+30,0,8)
 part_type_speed(spark,20+hsp,30+hsp,0,0)

@@ -100,6 +100,7 @@ ds_list_add(list_inv_ammo,obj_vc.ammo_autocannon_standard)
 ds_list_add(list_inv_ammo,obj_vc.ammo_autocannon_flak)
 ds_list_add(list_inv_ammo,obj_vc.ammo_autocannon_hvap)
 ds_list_add(list_inv_ammo,obj_vc.ammo_autocannon_sabot)
+ds_list_add(list_inv_ammo,obj_vc.ammo_autocannon_highex)
 ds_list_add(list_inv_ammo,obj_vc.ammo_bolt_heavy_standard)
 ds_list_add(list_inv_ammo,obj_vc.ammo_missile_krak)
 

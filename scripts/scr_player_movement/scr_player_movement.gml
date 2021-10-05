@@ -77,92 +77,73 @@ y += vsp;
 	image_angle = 0
 
 	//move right
-	if D and !Shift and face_left and !col_right
-		{
+	if (D and !Shift and face_left and !col_right) {
 			hspeed = MoveSpeed/3 walking = 1 sprinting = 0
-			if col_bot {skeleton_anim_set_step(backwalk,2)}
+			if (col_bot) {skeleton_anim_set_step(backwalk,2)}
 		}
 		
-		else if D and !Shift and face_right and !col_right
-		{hspeed = MoveSpeed/2 walking = 1 sprinting = 0
-			if skeleton_animation_get_ext(2) != walk and col_bot
-			{
-			skeleton_animation_set_ext(walk, 2)
-			}
+		else if (D and !Shift and face_right and !col_right) {
+			hspeed = MoveSpeed/2 walking = 1 sprinting = 0
+			if (col_bot) {skeleton_anim_set_step(walk,2)}		
 		}		
 	
 	//move left
-	if (A and !Shift and face_right and !col_left)
-		{
+	if (A and !Shift and face_right and !col_left) {
 			hspeed = -MoveSpeed/3 walking = 1 sprinting = 0
 			if col_bot {skeleton_anim_set_step(backwalk,2)}
 		}
 				
-		else if (A and !Shift and face_left and !col_left)
-		{hspeed = -MoveSpeed/2 walking = 1 sprinting = 0
-			if skeleton_animation_get_ext(2) != walk and col_bot
-				{
-				skeleton_animation_set_ext(walk, 2)
-				}
+		else if (A and !Shift and face_left and !col_left) {
+			hspeed = -MoveSpeed/2 walking = 1 sprinting = 0
+			if (col_bot) {skeleton_anim_set_step(walk,2)}
 		}
 			
 	//sprint right
-	if (D and !A and Shift and face_left and !throwing and !col_right)
-		{
+	if (D and !A and Shift and face_left and !throwing and !col_right) {
 			hspeed = MoveSpeed/3 walking = 1 sprinting = 0
 			if col_bot {skeleton_anim_set_step(backwalk,2)}
 		}
 		
 		else if (D and Shift and face_right and !col_right and stamina > 0 and cansprint and !LegsCrippled)
 		{hspeed = MoveSpeed*1.1 sprinting = 1 walking = 0
-			if col_bot
-			{
+			if (col_bot) {
 			skeleton_animation_clear(8)
 			skeleton_anim_set_step(sprint,2)
 			}
 
 		}
-		else if (D and Shift and face_right and !col_right and stamina = 0) or (D and Shift and mouse_x > x and !col_right and cansprint = 0)
-		{hspeed = MoveSpeed/2 walking = 1 sprinting = 0
-			if skeleton_animation_get_ext(2) != walk and col_bot
-			{
-			skeleton_animation_set_ext(walk, 2)
-			}
+		else if (D and Shift and face_right and !col_right and stamina = 0) or (D and Shift and mouse_x > x and !col_right and cansprint = 0) {
+			hspeed = MoveSpeed/2 walking = 1 sprinting = 0
+			if (col_bot) {skeleton_anim_set_step(walk,2)}
 		}		
 
 	//sprint left
 	if !D and A and Shift and face_right and !throwing and !col_left
 		{
 			hspeed = -MoveSpeed/3 walking = 1 sprinting = 0
-			if col_bot {skeleton_anim_set_step(backwalk,2)}
+			if (col_bot) {skeleton_anim_set_step(backwalk,2)}
 		}
 		
 		else if A and Shift and face_left and !col_left and stamina > 0 and cansprint and !LegsCrippled
 		{hspeed = -MoveSpeed*1.1 sprinting = 1 walking = 0
-			if col_bot
-			{
+			if (col_bot) {
 			skeleton_animation_clear(8)
 			skeleton_anim_set_step(sprint,2)
 			}
 		}
 
 	
-		else if (A and Shift and face_left and !col_left and stamina = 0) or (A and Shift and mouse_x < x and !col_left and cansprint = 0)
-		{hspeed = -MoveSpeed/2 walking = 1 sprinting = 0
-			if skeleton_animation_get_ext(2) != walk and col_bot
-				{
-				skeleton_animation_set_ext(walk, 2)
-				}
+		else if (A and Shift and face_left and !col_left and stamina = 0) or (A and Shift and mouse_x < x and !col_left and cansprint = 0) {
+			hspeed = -MoveSpeed/2 walking = 1 sprinting = 0
+			if (col_bot) {skeleton_anim_set_step(walk,2)}
 		}
 
 	//if we're still, reset to idle anim
-	if (hspeed = 0 and col_bot and !stunned)
-		{
+	if (hspeed = 0 and col_bot and !stunned) {
 		skeleton_animation_clear(2)
 		}
 
-	else if(hspeed = 0 and !col_bot or !col_bot and !stunned)
-		{
+	else if(hspeed = 0 and !col_bot or !col_bot and !stunned) {
 			air_timer += 1 //adds a slight delay to the air idle animation transition, was causing weird stuff when climbing slopes
 			if(air_timer >= 10) {
 				skeleton_animation_clear(2)
@@ -175,8 +156,7 @@ y += vsp;
 
 
 	//sets idles
-	if (skeleton_animation_get_ext(1) != anim_array[5] and wpn_ranged[22] = "primary")
-		{
+	if (skeleton_animation_get_ext(1) != anim_array[5] and wpn_ranged[22] = "primary") {
 		skeleton_animation_set_ext(anim_array[5],1)
 		}
 

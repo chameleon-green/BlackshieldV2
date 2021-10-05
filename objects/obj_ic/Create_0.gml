@@ -103,6 +103,8 @@ ds_list_add(list_inv_ammo,obj_vc.ammo_autocannon_sabot)
 ds_list_add(list_inv_ammo,obj_vc.ammo_autocannon_highex)
 ds_list_add(list_inv_ammo,obj_vc.ammo_bolt_heavy_standard)
 ds_list_add(list_inv_ammo,obj_vc.ammo_missile_krak)
+ds_list_add(list_inv_ammo,obj_vc.ammo_plasma_standard)
+
 
 grd_inv_ammo = ds_grid_create(inventory_size,11)
 pa = 0
@@ -131,6 +133,9 @@ ds_list_add(test,obj_vc.autocannon_kalibrax)
 ds_list_add(test,obj_vc.pistol_bolt_tigrus)
 ds_list_add(test,obj_vc.sword_chain_thunderedge)
 ds_list_add(test,obj_vc.missile_astartes)
+ds_list_add(test,obj_vc.rotorcannon_proteus)
+ds_list_add(test,obj_vc.sword_power_proteus)
+ds_list_add(test,obj_vc.plasmagun_thunderbolt)
 
 inventory = ds_grid_create(inventory_size,12)
 p = 0

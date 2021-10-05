@@ -14,7 +14,7 @@ col_bot = place_meeting(x,y+1+clamp(vsp,0,70),obj_platform) or place_meeting(x,y
  }
  
  
-if (col_bot and skeleton_animation_get_ext(9) != "jump_normal") {vsp = 0 move_contact_solid(270,-1) air_timer = 0}
+if (col_bot and skeleton_animation_get_ext(9) != "jump_normal") {vsp = 0  air_timer = 0 move_contact_solid(270,-1)}
 
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++ INJURIES AND DELTA HP ++++++++++++++++++++

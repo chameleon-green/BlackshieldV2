@@ -19,13 +19,15 @@ if(IsWeapon)
 	type = array[22]
 	dmg = array[8]
 	ROF = array[7]
+	ROFText = string(round(3600/array[7])) + "RPM"
 	accuracy = array[5]
 	velocity = array[3]
 	capacity = array[6]
-	value = 404
 	weight = array[20]
 	max_durability = array[2]
 	durability = ds_grid_get(grid,xxx,8) //round( (ds_grid_get(obj_ic.inventory,xxx,8) / array[2]) * 100 )
+	basevalue = sqr(clamp(array[8],19,4000)) * (1/array[7])
+	value = round( clamp(durability/max_durability,0.2,1) * basevalue )
 	image = array[11]
 	amount = ds_grid_get(grid,xxx,2)
 	

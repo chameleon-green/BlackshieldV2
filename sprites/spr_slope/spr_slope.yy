@@ -1,6 +1,6 @@
 {
   "bboxMode": 1,
-  "collisionKind": 4,
+  "collisionKind": 0,
   "type": 0,
   "origin": 6,
   "preMultiplyAlpha": false,
@@ -67,6 +67,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"4cfb5612-2e37-48be-8e6b-97965e22807c","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "Terrain",
     "path": "folders/Sprites/Terrain.yy",

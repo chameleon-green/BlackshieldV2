@@ -137,10 +137,10 @@ if
 			if(width > 200 or height > 200) {iscale = (200/width)*scale}
 			//else{iscale = scale}
 			
-			draw_text_transformed_colour(xx+385*scale,yy+260*scale,dmg,scale*1.125,scale*1.25,0,color,color,color,color,255)
-			draw_text_transformed_colour(xx+385*scale,yy+295*scale,ROF,scale*1.125,scale*1.25,0,color,color,color,color,255)
-			draw_text_transformed_colour(xx+385*scale,yy+330*scale,accuracy,scale*1.125,scale*1.25,0,color,color,color,color,255)
-			draw_text_transformed_colour(xx+385*scale,yy+365*scale,velocity,scale*1.125,scale*1.25,0,color,color,color,color,255)
+			draw_text_transformed_colour(xx+382*scale,yy+260*scale,dmg,scale*1.125,scale*1.25,0,color,color,color,color,255)
+			draw_text_transformed_colour(xx+382*scale,yy+299*scale,ROFText,scale*0.77,scale*0.95,0,color,color,color,color,255)
+			draw_text_transformed_colour(xx+382*scale,yy+330*scale,accuracy,scale*1.125,scale*1.25,0,color,color,color,color,255)
+			draw_text_transformed_colour(xx+382*scale,yy+365*scale,velocity,scale*1.125,scale*1.25,0,color,color,color,color,255)
 		
 			draw_text_transformed_colour(xx+470*scale,yy+260*scale,capacity,scale*1.125,scale*1.25,0,color,color,color,color,255)
 			draw_text_transformed_colour(xx+470*scale,yy+295*scale,value,scale*1.125,scale*1.25,0,color,color,color,color,255)

@@ -16,6 +16,7 @@ part_type_speed(spark,20+hsp,30+hsp,0,0)
 part_type_gravity(spark,1,270)
 part_type_life(spark,5,15)
 part_type_alpha3(spark,1,1,0)
+part_type_scale(spark,0.75,0.75)
 
 part_system_depth(obj_vc.prt_sys_spark, entity.depth-1)
 

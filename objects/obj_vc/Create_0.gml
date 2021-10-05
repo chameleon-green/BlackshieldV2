@@ -1,5 +1,7 @@
 /// @description Player attributes 
 //create table of attributes
+
+
 global.AI_Enabled = 1
 global.stats = ds_map_create()
 

@@ -13,8 +13,8 @@ image_angle = direction
 
 var xx = x+lengthdir_x(base_speed,direction)
 var yy = y+lengthdir_y(base_speed,direction)
-var col = collision_line(x,y,xx,yy,obj_platform,true,0)
-var col_enemy = collision_line(x,y,xx,yy,obj_enemy,false,0)
+var col = collision_line(x,y,xx,yy,obj_platform,true,1)
+var col_enemy = collision_line(x,y,xx,yy,obj_enemy,false,1)
 
 
 if(proximity > 0)
@@ -51,6 +51,10 @@ if(col)
 	var dirt = point_direction(x,y,xx,yy)
 	var dist = distance_to_object(col)
 	move_contact_solid(dirt,base_speed/2)
+	//var xxx = x+lengthdir_x(dist,direction)
+	//var yyy = y+lengthdir_y(dist,direction)
+	//x = xxx
+	//y = yyy
 	instance_destroy()
 }
 

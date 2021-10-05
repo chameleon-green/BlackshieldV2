@@ -174,7 +174,7 @@ function scr_weapon_arrays() {
 	missile_astartes[10] =  ammo_missile_krak //default ammo type, for to brand new weapon
 	missile_astartes[9] = 30 //Y offset for crosshair, used for low/high slung weapons
 	missile_astartes[8] = 800 //DMG
-	missile_astartes[7] = 10 //ROF
+	missile_astartes[7] = 100 //ROF
 	missile_astartes[6] = 1 //magazine size
 	missile_astartes[5] = 0.5 //spread
 	missile_astartes[4] = 1000 //range
@@ -254,7 +254,7 @@ function scr_weapon_arrays() {
 	rotorcannon_proteus[11] = 8 //subimage for item screen (spr_items)
 	rotorcannon_proteus[10] = ammo_auto_ball //default ammo type, for to brand new weapon
 	rotorcannon_proteus[9] = -400 //Y offset for crosshair, used for low/high slung weapons
-	rotorcannon_proteus[8] = 15 //DMG
+	rotorcannon_proteus[8] = 14 //DMG
 	rotorcannon_proteus[7] = 1 //ROF
 	rotorcannon_proteus[6] = 1000 //magazine size
 	rotorcannon_proteus[5] = 0.75 //spread

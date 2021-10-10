@@ -86,6 +86,18 @@ if(sub_button_ammo)
 	if(cID != -1) {cID.refresh = 1}
 	}
 
+if(sub_button_mats) 
+	{
+	image_index = 7
+	subscreen_items = "mats"
+	screen = "items"
+	draw_items = 1
+	refresh = 1
+	global.Selected = undefined
+	if(scrollbar != undefined) {scrollbar.offset = 85} //LimitOffset1
+	if(cID != -1) {cID.refresh = 1}
+	}
+
 //------------------------------------------ EQUIP STUFF WHEN NOT IN CONTAINER------------------------------------
 if(ItemDefined and !Boxing)	{
 	
@@ -237,7 +249,7 @@ if(button_skills) {
 //--------------------------------------------------- LOGS BUTTON ----------------------------------------
 
 if(button_log) {
-	image_index = 7 
+	image_index = 8 
 	screen = "log"
 	refresh = 1
 	global.Selected = undefined

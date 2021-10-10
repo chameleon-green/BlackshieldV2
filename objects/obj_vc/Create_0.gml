@@ -31,19 +31,20 @@ camera_xspd = 0
 
 
 //define sound groups, firemode arrays and animation group arrays (nested stuff)
-script_execute(scr_soundgroups_init)
-script_execute(scr_firemodes_animations_flashes)
-script_execute(scr_explosion_init)
-script_execute(scr_ammo_init)
-script_execute(scr_armor_init)
+scr_soundgroups_init()
+scr_firemodes_animations_flashes()
+scr_explosion_init()
+scr_ammo_init()
+scr_armor_init()
 scr_aid_init()
+scr_ability_init()
 
 //start defining weapons in arrays, oh boy
-script_execute(scr_weapon_arrays)
+scr_weapon_arrays()
 
 
 //get our enumarators going, to translate array data into useable stuff
-script_execute(scr_enums)
+scr_enums()
 
 
 //spread and ammo vars

@@ -1,5 +1,6 @@
 //reset collision check for mouse (crosshair)
 
+
 global.GUI = active
 col = active
 
@@ -82,6 +83,9 @@ sub_button_ammo =  cx > (x+121*scale) and
 				   cy < (y+64*scale) and
 				   screen = "items" and
 					 col
+sub_button_mats =  point_in_rectangle(cx, cy, x+159*scale, y+34*scale, x+189*scale, y+64*scale)
+					and screen = "items"
+					and col
 
 equip_button_items = cx > (x+353*scale) and  //345,218
 				   cx < (x+431*scale) and
@@ -356,12 +360,25 @@ draw_text_transformed_color(x+564*image_xscale,y+232*image_yscale,"Drop",image_x
 
 }
 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++ DRAW MATERIALS SCREEN ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+if(screen = "items" and subscreen_items = "mats" and visible) 
+
+draw_sprite_ext(spr_scrollbar,0,x+11*image_xscale,y+70*image_yscale,image_xscale,image_yscale,0,c_white,255)
+{
+if(scrollbar = undefined) {scrollbar = instance_create_depth(x+11*scale,y+70*scale,depth-1,obj_scrollbar)}
+scrollbar.visible = 1
+}
+
 //+++++++++++++++++++++++++++++++++++++++++++++++++ CONTAINERS AND SHOPPING +++++++++++++++++++++++++++++++++++++++++++++
 
 if(shopping or containering) {
-	draw_sprite_ext(spr_inventory_bg,8,x+613*image_xscale,y,image_xscale,image_yscale,0,c_white,255)
+	draw_sprite_ext(spr_inventory_bg,9,x+613*image_xscale,y,image_xscale,image_yscale,0,c_white,255)
 	draw_set_halign(fa_center)
 	draw_text_transformed_color(x+775*scale,y+35*scale,cString,scale,scale,0,c_yellow,c_yellow,c_yellow,c_yellow,1)
 	draw_set_halign(fa_left)
 	draw_sprite_ext(spr_scrollbar,0,x+936*image_xscale,y+70*image_yscale,image_xscale,image_yscale,0,c_white,255)
 }
+
+
+draw_text(x,y+60,InvWeight)

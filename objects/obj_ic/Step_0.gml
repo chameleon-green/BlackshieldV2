@@ -18,7 +18,7 @@ if(ds_grid_value_exists(grd_inv_ammo,0,0,inventory_size,4,obj_player.ammo_type))
 
 //-------------------------------------------Create item GUI----------------------------------------------
 
-if(refresh = 1) {iwn = -2 iar = -2 iam = -2 iad = -2 GunSpacing = 0 ArmorSpacing = 0 AmmoSpacing = 0 AidSpacing = 0 refresh = 0}
+if(refresh = 1) {iwn = -2 iar = -2 iam = -2 iad = -2 GunSpacing = 0 ArmorSpacing = 0 AmmoSpacing = 0 AidSpacing = 0 WeightCount = 0 refresh = 0}
 var IsGun = ds_grid_get(inventory,iwn,4) = "primary" or ds_grid_get(inventory,iwn,4) = "secondary" or ds_grid_get(inventory,iwn,4) = "melee" or ds_grid_get(inventory,iwn,4) = "grenade" 	
 var WeaponScreen = screen = "items" and subscreen_items = "weapons" 
 var AmmoScreen = screen = "items" and subscreen_items = "ammo" 
@@ -143,8 +143,6 @@ if(pickup = 1)
 	pickup = 0
 	
 }
-
-
 
 
 

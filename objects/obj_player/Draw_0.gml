@@ -1,5 +1,5 @@
 //+++++++++++++++++++++++++++++++++++++++++++++ grenade throwing meter ++++++++++++++++++++++++++++++++
-draw_text(x,y-200,swinging)
+draw_text(x,y-200,active_ab1[6])
 
 draw_hbox = 0
 

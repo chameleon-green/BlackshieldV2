@@ -34,3 +34,5 @@ amount = undefined
 image_xscale = scale
 image_yscale = scale
 
+step_toggle = 0
+

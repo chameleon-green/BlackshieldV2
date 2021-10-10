@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Active Abilities.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scr_thawk_cluster",
+  "name": "FireSupport",
   "tags": [],
   "resourceType": "GMScript",
 }

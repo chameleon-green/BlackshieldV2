@@ -1,18 +1,31 @@
-function scr_thawk_cluster(slot){
+function scr_thawk_cluster(array=undefined){
 
-var timer1 = variable_instance_get(self,"ab_timer" + string(slot) + "a")
-var timer2 = variable_instance_get(self,"ab_timer" + string(slot) + "b")
-var variable = "ability_toggle" + string(slot)
+if(array = undefined) {exit}
 
-var bomb = timer_tick(timer1,false)
-var sound = timer_tick(timer2,false)
-var cx = obj_crosshair.x
-var cy = obj_crosshair.y
-var px = x
+var timer1 = array[@ 11]
+var timer2 = array[@ 10]
+var timer3 = array[@ 9]
+
+var bomb = timer_tick(timer1,false) //delay before bombs drop
+var sound = timer_tick(timer2,false) //trigger our jet noise
+var coord = timer_tick(timer3,false) //timer for locking in mouse coords
+
+//----------------------------------------------- the meat ---------------------------------------------
 
 if(sound) {audio_play_sound(snd_thawk_flyby,1,0) px = x}
 
+if(coord) {
+	array[@ 5] = obj_crosshair.x 
+	array[@ 4] = obj_crosshair.y
+	array[@ 3] = x
+}
+
+
 if(bomb) {
+
+var cx = array[@ 5]
+var cy = array[@ 4]
+var px = array[@ 3]
 
 var Quant = 6 //number of bombs
 var YOffset = 400 //vertical offset between bombs
@@ -46,15 +59,17 @@ for(var i=0; i<Quant; i++){
 		crit = 0
 	}//instance create
 
-if(i = Quant) {exit}
-
 }//icheck
 
-variable_instance_set(self,variable,0)
-timer_reset(timer1,true)
-timer_reset(timer2,true)
+array[@ 0] = 0
+timer_reset(array[@ 11],true)
+timer_reset(array[@ 10],true)
+timer_reset(array[@ 9],true)
+array[@ 5] = 0
+array[@ 4] = 0
+array[@ 3] = 0
+return true
 
 }//bomb timer check
-
 
 }

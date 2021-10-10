@@ -19,7 +19,7 @@ CarryWeight = obj_player.CarryWeight
 //activate inventory
 if(keyboard_check_pressed(vk_tab)) 
 	{
-	if(!visible) {visible = 1}
+	if(!visible) {visible = 1 refresh = 1}
 	active +=1 
 	draw_items = active //for some reason this doesn't work with the create event
 	}

@@ -10,6 +10,7 @@ if(col and E and !OIC.active) {
 	if(Cdist < 300) {
 	OIC.active = 1
 	OIC.containering = 1
+	OIC.refresh = 1
 	OIC.visible = 1
 	OIC.cID = id
 	OIC.cString = cString

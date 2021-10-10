@@ -74,7 +74,12 @@ draw_text_ext_transformed(x-197*scale,y-23*scale,Ones,30*scale,250*scale,scale,s
 
 }
 
+//++++++++++++++++++++++++++++++++++++++ COOLDOWNS ++++++++++++++++++++++++++++++++++++
 
+var timer = obj_player.active_ab1[6]
+var ratio = 1-timer[0]/timer[1]
+
+draw_sprite_ext(spr_cdrec,0,x-51*scale,y+64*scale,scale,scale*ratio,0,c_white,0.5)
 
 
 draw_self()

@@ -1,6 +1,3 @@
-ab_timer1a = timer_create(200)
-ab_timer1b = timer_create(2)
-ability_toggle1 = 0
 
 /*
 skeleton_animation_mix("roll_fast", "sprint_full_rifle", 0.5)
@@ -201,5 +198,17 @@ skeleton_animation_set(anim_array[5])
 spreadAngle = 0
 
 
+
+//+++++++++++++++++++++++++++++++++++++ ACTIVE ABILITIES +++++++++++++++++++++++++++++++++++++++++
+
+//defines ability 1 (this is where you get things like icons, functions, details about ability)
+pl_ability1 = obj_vc.ab_thawk_run
+cooldown1 = 0
+
+//defines data processing array for ability 1 (timers, internal varibles etc)
+active_ab1 = array_create(13,0)
+for(var i = 11; i>5; i--) {active_ab1[i] = timer_create(pl_ability1[i])}
+for(var i = 4; i>0; i--) {active_ab1[i] = pl_ability1[i]}
+active_ab1[0] = 0 //ability toggle
 
 

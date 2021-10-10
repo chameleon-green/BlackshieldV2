@@ -10,31 +10,34 @@ var IsMelee = (array[22] = "melee")
 var IsGrenade = (array[22] = "grenade")
 visible = 1
 
-if(IsWeapon)
-
-	{
+if(IsWeapon){
 	var xxx = ds_grid_value_x(grid,0,0,max_size,9,unique_id)
-	name = array[17]
-	mass = array[20]
-	type = array[22]
-	dmg = array[8]
-	ROF = array[7]
-	ROFText = string(round(3600/array[7])) + "RPM"
-	accuracy = array[5]
-	velocity = array[3]
-	capacity = array[6]
-	weight = array[20]
-	max_durability = array[2]
-	durability = ds_grid_get(grid,xxx,8) //round( (ds_grid_get(obj_ic.inventory,xxx,8) / array[2]) * 100 )
-	basevalue = sqr(clamp(array[8],19,4000)) * (1/array[7])
-	value = round( clamp(durability/max_durability,0.2,1) * basevalue )
-	image = array[11]
+	if(step_toggle = 0){
+		name = array[17]
+		mass = array[20]
+		type = array[22]
+		dmg = array[8]
+		ROF = array[7]
+		ROFText = string(round(3600/array[7])) + "RPM"
+		accuracy = array[5]
+		velocity = array[3]
+		capacity = array[6]
+		weight = array[20]	
+		durability = ds_grid_get(grid,xxx,8)
+		max_durability = array[2]
+		basevalue = sqr(clamp(array[8],19,4000)) * (1/array[7])
+		image = array[11]
+	}
+
+	if(is_real(durability) and is_real(max_durability)) {var ratio = durability/max_durability} else{var ratio = 1}
+	value = round(ratio * basevalue)
 	amount = ds_grid_get(grid,xxx,2)
+	
+	step_toggle = 1
 	
 	}
 
-if(IsAmmo)
-	{
+if(IsAmmo){
 	name = array[17]
 	type = array[22]
 	stats = array[3]
@@ -88,6 +91,8 @@ if(IsArmor)
 	durability = ds_grid_get(grid,xxx,8)
 	image = array[2]
 	amount = ds_grid_get(grid,xxx,2)
+	
+	if(is_real(durability) and is_real(max_durability)) {var ratio = durability/max_durability} else{var ratio = 1}
 	}
 
 if(IsAid)
@@ -218,6 +223,6 @@ if(creator.iar = -1 and IsArmor and obj_ic.subscreen_items ="armor") {instance_d
 if(creator.iad = -1 and IsAid and obj_ic.subscreen_items ="aid") {instance_destroy() global.Selected = undefined}
 
 
-
+if(visible = 0) {instance_destroy(self)}
 
 

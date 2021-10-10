@@ -2,7 +2,7 @@
 //last two arguments, prevgrid and uniqueID, are optional and used for tracking ammo in guns
 
 
-function scr_add_item(item,quantity,durability,grid,inventory_size,prev_grid,uniqueID){
+function scr_add_item(item,quantity,durability,grid,inventory_size,prev_grid=undefined,uniqueID=undefined){
 
 //crashproofing: end if the item input or grid is invalid
 if(!is_array(item) or !ds_exists(grid,ds_type_grid)) {exit}
@@ -33,7 +33,7 @@ var ammoLoaded = item[10]
 }
 
 ds_grid_set(grid,i,0,item) //item
-ds_grid_set(grid,i,1,item[23]) //mass
+ds_grid_set(grid,i,1,item[20]) //mass
 ds_grid_set(grid,i,2,1) //quantity (should always be 1 for weapons except grenades)
 ds_grid_set(grid,i,3,item[23]) //stack mass
 ds_grid_set(grid,i,4,item[22]) //type, prim/secondary, melee, ammo, etc
@@ -56,7 +56,7 @@ var ExistingAmmo = ds_grid_value_exists(grid,0,0,inventory_size,4,item)
 	
 	else{
 	ds_grid_set(grid,i,0,item) //item
-	ds_grid_set(grid,i,1,item[23]) //mass
+	ds_grid_set(grid,i,1,item[20]) //mass
 	ds_grid_set(grid,i,2,quantity) //quantity (should always be 1 for weapons except grenades)
 	ds_grid_set(grid,i,3,item[23]) //stack mass
 	ds_grid_set(grid,i,4,item[22]) //type, prim/secondary, melee, ammo, etc
@@ -69,7 +69,7 @@ var ExistingAmmo = ds_grid_value_exists(grid,0,0,inventory_size,4,item)
 
 if(IsArmor) {
 ds_grid_set(grid,i,0,item) //item
-ds_grid_set(grid,i,1,item[23]) //mass
+ds_grid_set(grid,i,1,item[20]) //mass
 ds_grid_set(grid,i,2,0) //FAIL STATE 1 unused
 ds_grid_set(grid,i,3,0) //FAIL STATE 2 unused
 ds_grid_set(grid,i,4,item[22]) //type, prim/secondary, melee, ammo, etc
@@ -123,18 +123,21 @@ var ExistingAid = ds_grid_value_exists(grid,0,0,inventory_size,12,item)
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ REMOVE ITEMS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-function scr_remove_item(unique_id,grid,inventory_size){
+function scr_remove_item(unique_id,grid,inventory_size,instance = undefined){
+
+if(instance != undefined) {instance_destroy(instance)}
 
 var i = 0 //incrementor
 var size_y = ds_grid_height(grid)-1 //gets max size of ds_grid width
 var id_exists = ds_grid_value_exists(grid,0,0,inventory_size-1,size_y,unique_id) //does the ID even exist in our grid?
 if(id_exists) {var column = ds_grid_value_x(grid,0,0,inventory_size-1,size_y,unique_id)} else{exit} //if it exists, find column it is in. if not, exit
 
-
 repeat(size_y) { //loops through setting value to 0, based on max width of ds_grid and given column to delete
 ds_grid_set(grid,column,i,0) 
 i+=1
 }
+
+
 
 
 }//func end

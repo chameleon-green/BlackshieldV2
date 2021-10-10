@@ -72,6 +72,11 @@ RarmWarning2 = undefined
 RarmWarning3 = undefined
 EKG = undefined
 
+InvWeightAdder = 0
+InvWeight = 0
+WeightCount = 0
+WeightTimer = timer_create(30)
+
 //+++++++++++++++++++++++++++++++++++++++++++++++ Buff and active effects stuff ++++++++++++++++++++++++++++
 Buffs_Max_Amount = 20 //how many buffs we can have at once.
 BuffsGrid = ds_grid_create(Buffs_Max_Amount,5) //makes our dsgrid to store buffs in
@@ -130,12 +135,12 @@ test = ds_list_create()
 ds_list_add(test,obj_vc.bolter_phobos)
 ds_list_add(test,obj_vc.bolter_heavy_voss)
 ds_list_add(test,obj_vc.autocannon_kalibrax)
-ds_list_add(test,obj_vc.pistol_bolt_tigrus)
-ds_list_add(test,obj_vc.sword_chain_thunderedge)
-ds_list_add(test,obj_vc.missile_astartes)
-ds_list_add(test,obj_vc.rotorcannon_proteus)
-ds_list_add(test,obj_vc.sword_power_proteus)
-ds_list_add(test,obj_vc.plasmagun_thunderbolt)
+//ds_list_add(test,obj_vc.pistol_bolt_tigrus)
+//ds_list_add(test,obj_vc.sword_chain_thunderedge)
+//ds_list_add(test,obj_vc.missile_astartes)
+//ds_list_add(test,obj_vc.rotorcannon_proteus)
+//ds_list_add(test,obj_vc.sword_power_proteus)
+//ds_list_add(test,obj_vc.plasmagun_thunderbolt)
 
 inventory = ds_grid_create(inventory_size,12)
 p = 0

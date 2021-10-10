@@ -180,16 +180,15 @@ canequip = 0
 
 //+++++++++++++++++++++++++++++++++++++++++ ACTIVE ABILITIES +++++++++++++++++++++++++++++++++++++++++
 
-if(keyboard_check_pressed(ord("1"))) {
-ability_toggle1 = 1
-}
 
-if(ability_toggle1) {
-	scr_thawk_cluster(1)
-}
+if(keyboard_check_pressed(ord("1")) and !cooldown1) {active_ab1[0] = 1 timer_reset(active_ab1[6],1)}
 
+if(active_ab1[0] = 1) {
+	var Script = pl_ability1[0]
+	cooldown1 = script_execute(Script,active_ab1)
+	}
 
-
+if(cooldown1) {cooldown1 = !timer_tick(active_ab1[6],true)}
 
 
 

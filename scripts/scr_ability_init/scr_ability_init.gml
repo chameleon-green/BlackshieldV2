@@ -8,7 +8,7 @@ function scr_ability_init(){
 ab_thawk_run[14] = 0 //sprite for icon
 ab_thawk_run[13] = 0 //frame for icon
 ab_thawk_run[12] = 3 //number of uses
-ab_thawk_run[11] = 200 //timer 1 (bomb delay)
+ab_thawk_run[11] = 500 //timer 1 (bomb delay)
 ab_thawk_run[10] = 2 //timer 2 (sound trigger)
 ab_thawk_run[9] = 2 //timer 3 (coordinate trigger)
 ab_thawk_run[8] = 0 //timer 4

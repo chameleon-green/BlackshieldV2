@@ -34,12 +34,13 @@ if(reset) {timer_reset(MYTIMER)}
 
 //------------------------------------------------- CREATE TIMER --------------------------------------
 //creates a timer with a given duration in frames. store it in a variable in creation event
-function timer_create(duration){ 
+function timer_create(duration,histart=0){ 
 
 var Timer;
 
 Timer[1] = duration
-Timer[0] = 0
+if(histart) {Timer[0] = duration+1}
+else if (histart = 0) {Timer[0] = 0}
 
 return Timer
 }

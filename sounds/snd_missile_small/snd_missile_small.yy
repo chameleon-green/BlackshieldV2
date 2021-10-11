@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_missile_small.wav",
-  "duration": 2.921916,
+  "duration": 2.916916,
   "parent": {
     "name": "Missiles",
     "path": "folders/Sounds/Missiles.yy",

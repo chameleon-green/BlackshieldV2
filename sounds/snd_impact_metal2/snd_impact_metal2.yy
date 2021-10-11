@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_impact_metal2.wav",
-  "duration": 0.595907,
+  "duration": 0.590907,
   "parent": {
     "name": "Impacts",
     "path": "folders/Sounds/Impacts.yy",

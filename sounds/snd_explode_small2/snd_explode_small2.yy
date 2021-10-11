@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_explode_small2",
-  "duration": 4.186375,
+  "duration": 4.181375,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",

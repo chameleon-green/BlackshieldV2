@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_grenade_smoke_burst.wav",
-  "duration": 2.008197,
+  "duration": 2.003197,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",

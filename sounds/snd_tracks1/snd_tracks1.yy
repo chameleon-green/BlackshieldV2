@@ -13,8 +13,8 @@
   "soundFile": "snd_tracks1.wav",
   "duration": 11.2376528,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "Vehicles",
+    "path": "folders/Sounds/Vehicles.yy",
   },
   "resourceVersion": "1.0",
   "name": "snd_tracks1",

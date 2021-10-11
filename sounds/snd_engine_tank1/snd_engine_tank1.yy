@@ -11,10 +11,10 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_engine_tank1.wav",
-  "duration": 8.69763,
+  "duration": 8.69263,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "Vehicles",
+    "path": "folders/Sounds/Vehicles.yy",
   },
   "resourceVersion": "1.0",
   "name": "snd_engine_tank1",

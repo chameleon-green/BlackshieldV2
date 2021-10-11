@@ -27,16 +27,16 @@ var cx = array[@ 5]
 var cy = array[@ 4]
 var px = array[@ 3]
 
-var Quant = 6 //number of bombs
+var Quant = 2 //number of bombs
 var YOffset = 400 //vertical offset between bombs
-var XOffset = 150*image_xscale//horizontal offset between bombs
+var XOffset = 300//150*image_xscale//horizontal offset between bombs
 
-var DIR = point_direction(px+(Quant*XOffset)/2,(Quant*YOffset)/2,cx,cy) + irandom_range(-1,1)
+var DIR = 270//point_direction(px+(Quant*XOffset)/2,(Quant*YOffset)/2,cx,cy) + irandom_range(-1,1)
 
-for(var i=0; i<Quant; i++){
+for(var i=-1; i<Quant; i++){
 
-	var YY = 0+Quant*YOffset
-	with (instance_create_depth(x+(XOffset*i),YY-(YOffset*i),depth,obj_bullet)) {
+	var YY = 0
+	with (instance_create_depth(cx+(XOffset*-i),YY+(YOffset*(i+1)),depth,obj_bullet)) {
 		
 		ammo = "none"
 		wpn_ranged = "none"
@@ -48,14 +48,14 @@ for(var i=0; i<Quant; i++){
 		hp = 2500
 		damage = 2500
 		base_damage = 2500
-		penetration = 1000
+		penetration = 500
 		damage_type = "physical"
 		fuse = 0.999
 		guidance = "none"
 		explosion_type = obj_vc.exp_scalable_frag_huge
 	
 		gravity = 0//random_range(1,1)
-		base_speed = 80-(3*i)
+		base_speed = 60//-(3*i)
 		crit = 0
 	}//instance create
 

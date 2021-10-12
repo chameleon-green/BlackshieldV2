@@ -1,5 +1,4 @@
+killtick = 1
 
 
 
-
-instance_destroy()

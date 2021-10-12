@@ -15,9 +15,13 @@ var coord = timer_tick(timer3,false) //timer for locking in mouse coords
 if(sound) {audio_play_sound(snd_thawk_flyby,1,0) px = x}
 
 if(coord) {
+	var line = ds_list_create()
+	collision_line_list(obj_crosshair.x,obj_crosshair.y,obj_crosshair.x,obj_crosshair.y+10000,obj_platform,1,false,line,true)
+	var nearest = ds_list_find_value(line,0)
 	array[@ 5] = obj_crosshair.x 
-	array[@ 4] = obj_crosshair.y
+	array[@ 4] = nearest.y
 	array[@ 3] = x
+	ds_list_destroy(line)
 }
 
 
@@ -27,16 +31,20 @@ var cx = array[@ 5]
 var cy = array[@ 4]
 var px = array[@ 3]
 
-var Quant = 2 //number of bombs
+var ApproachAng = 15 //approach angle of bombs
+var Quant = 5 //number of bombs
 var YOffset = 400 //vertical offset between bombs
-var XOffset = 300//150*image_xscale//horizontal offset between bombs
+var XOffset = 175//150*image_xscale//horizontal offset between bombs
+var ydif = abs(cy)
+var drift = tan(degtorad(ApproachAng))*ydif
 
-var DIR = 270//point_direction(px+(Quant*XOffset)/2,(Quant*YOffset)/2,cx,cy) + irandom_range(-1,1)
 
-for(var i=-1; i<Quant; i++){
+var DIR = 270 + ApproachAng
+
+for(var i=-2; i<Quant; i++){
 
 	var YY = 0
-	with (instance_create_depth(cx+(XOffset*-i),YY+(YOffset*(i+1)),depth,obj_bullet)) {
+	with (instance_create_depth(cx+(XOffset*-i)-drift/2,YY+(YOffset*(i+2)),depth,obj_bullet)) {
 		
 		ammo = "none"
 		wpn_ranged = "none"

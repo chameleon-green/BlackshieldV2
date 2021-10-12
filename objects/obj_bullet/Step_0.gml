@@ -89,3 +89,7 @@ if(guidance = "Laser"){
 
 //+++++++++++++++++++++++++++++ sound +++++++++++++++++++++++++++
 audio_emitter_position(s_emit,x,y,0)
+
+//--------------------------------- kill timer --------------------------
+if(killtick) {kill = timer_tick(killtimer,1)}
+if(kill) {instance_destroy(self)}

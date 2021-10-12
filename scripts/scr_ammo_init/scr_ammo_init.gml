@@ -4,7 +4,7 @@ function scr_ammo_init() {
 
 	ammo_bolt_standard[22] = "ammo" //this is ammo
 	ammo_bolt_standard[21] = "dumb" //guidance type
-	ammo_bolt_standard[20] = 0.01 //weight per round
+	ammo_bolt_standard[20] = 0.25 //weight per round
 	ammo_bolt_standard[19] = "impact" //fuse type, can be used to define scatterguns
 	ammo_bolt_standard[18] = rounds.Yellow_Small //projectile skin
 	ammo_bolt_standard[17] = "Standard Bolt Rounds" //Name
@@ -27,7 +27,7 @@ function scr_ammo_init() {
 
 	ammo_bolt_kraken[22] = "ammo" //this is ammo
 	ammo_bolt_kraken[21] = "dumb" //guidance type
-	ammo_bolt_kraken[20] = 0.015 //weight per round
+	ammo_bolt_kraken[20] = 0.28 //weight per round
 	ammo_bolt_kraken[19] = "impact" //fuse type, can be used to define scatterguns
 	ammo_bolt_kraken[18] = rounds.Red_Small //projectile skin
 	ammo_bolt_kraken[17] = "Kraken Bolt Rounds" //Name
@@ -50,7 +50,7 @@ function scr_ammo_init() {
 
 	ammo_bolt_metalstorm[22] = "ammo" //this is ammo
 	ammo_bolt_metalstorm[21] = "dumb" //guidance type
-	ammo_bolt_metalstorm[20] = 0.015 //weight per round
+	ammo_bolt_metalstorm[20] = 0.27 //weight per round
 	ammo_bolt_metalstorm[19] = "prox100" //fuse type, can be used to define scatterguns
 	ammo_bolt_metalstorm[18] = rounds.Orange_Small //projectile skin
 	ammo_bolt_metalstorm[17] = "Metalstorm Bolt Rounds" //Name
@@ -73,7 +73,7 @@ function scr_ammo_init() {
 
 	ammo_bolt_hellfire[22] = "ammo" //this is ammo
 	ammo_bolt_hellfire[21] = "dumb" //guidance type
-	ammo_bolt_hellfire[20] = 0.015 //weight per round
+	ammo_bolt_hellfire[20] = 0.23 //weight per round
 	ammo_bolt_hellfire[19] = "impact" //fuse type, can be used to define scatterguns
 	ammo_bolt_hellfire[18] = rounds.Green_Small //projectile skin
 	ammo_bolt_hellfire[17] = "Hellfire Bolt Rounds" //Name
@@ -117,7 +117,7 @@ function scr_ammo_init() {
 
 	ammo_bolt_heavy_standard[22] = "ammo" //this is ammo
 	ammo_bolt_heavy_standard[21] = "dumb" //guidance type
-	ammo_bolt_heavy_standard[20] = 0.02 //weight per round
+	ammo_bolt_heavy_standard[20] = 0.75 //weight per round
 	ammo_bolt_heavy_standard[19] = "impact" //fuse type, can be used to define scatterguns
 	ammo_bolt_heavy_standard[18] = rounds.Yellow_Small //projectile skin
 	ammo_bolt_heavy_standard[17] = "Standard Bolt Shells" //Name
@@ -142,7 +142,7 @@ function scr_ammo_init() {
 
 	ammo_missile_krak[22] = "ammo" //this is ammo
 	ammo_missile_krak[21] = "laser" //guidance type
-	ammo_missile_krak[20] = 1 //weight per round
+	ammo_missile_krak[20] = 6 //weight per round
 	ammo_missile_krak[19] = "impact" //fuse type, can be used to define scatterguns
 	ammo_missile_krak[18] = 10 //projectile skin
 	ammo_missile_krak[17] = "Krak Missiles" //Name
@@ -167,7 +167,7 @@ function scr_ammo_init() {
 
 	ammo_plasma_standard[22] = "ammo" //this is ammo
 	ammo_plasma_standard[21] = "dumb" //guidance type
-	ammo_plasma_standard[20] = 0.02 //weight per round
+	ammo_plasma_standard[20] = 0.05 //weight per round
 	ammo_plasma_standard[19] = "impact" //fuse type, can be used to define scatterguns
 	ammo_plasma_standard[18] = rounds.Blue_Small //projectile skin
 	ammo_plasma_standard[17] = "Standard Plasma Ammo" //Name
@@ -191,7 +191,7 @@ function scr_ammo_init() {
 	//+++++++++++++++++++++++++++++++++++++++++++++++ Auto/Stub Weapons ++++++++++++++++++++++++++++++++++++++++++++
 	ammo_autocannon_standard[22] = "ammo" //this is ammo
 	ammo_autocannon_standard[21] = "dumb" //guidance type
-	ammo_autocannon_standard[20] = 1 //weight per round
+	ammo_autocannon_standard[20] = 2.5 //weight per round
 	ammo_autocannon_standard[19] = "impact" //fuse type, can be used to define scatterguns
 	ammo_autocannon_standard[18] = rounds.Yellow_Small //projectile skin
 	ammo_autocannon_standard[17] = "Autocannon Shells" //Name
@@ -214,7 +214,7 @@ function scr_ammo_init() {
 	
 	ammo_autocannon_hvap[22] = "ammo" //this is ammo
 	ammo_autocannon_hvap[21] = "dumb" //guidance type
-	ammo_autocannon_hvap[20] = 1 //weight per round
+	ammo_autocannon_hvap[20] = 2.5 //weight per round
 	ammo_autocannon_hvap[19] = "impact" //fuse type, can be used to define scatterguns
 	ammo_autocannon_hvap[18] = rounds.Yellow_Small //projectile skin
 	ammo_autocannon_hvap[17] = "Autocannon HVAP Shells" //Name
@@ -237,7 +237,7 @@ function scr_ammo_init() {
 	
 	ammo_autocannon_sabot[22] = "ammo" //this is ammo
 	ammo_autocannon_sabot[21] = "dumb" //guidance type
-	ammo_autocannon_sabot[20] = 1 //weight per round
+	ammo_autocannon_sabot[20] = 2.25 //weight per round
 	ammo_autocannon_sabot[19] = "impact" //fuse type, can be used to define scatterguns
 	ammo_autocannon_sabot[18] = rounds.Yellow_Small //projectile skin
 	ammo_autocannon_sabot[17] = "Autocannon APFSDS Shells" //Name
@@ -260,7 +260,7 @@ function scr_ammo_init() {
 
 	ammo_autocannon_flak[22] = "ammo" //this is ammo
 	ammo_autocannon_flak[21] = "dumb" //guidance type
-	ammo_autocannon_flak[20] = 1 //weight per round
+	ammo_autocannon_flak[20] = 2.75 //weight per round
 	ammo_autocannon_flak[19] = "prox130" //fuse type, can be used to define scatterguns
 	ammo_autocannon_flak[18] = rounds.Yellow_Small //projectile skin
 	ammo_autocannon_flak[17] = "Autocannon Flak Shells" //Name
@@ -283,7 +283,7 @@ function scr_ammo_init() {
 	
 	ammo_autocannon_highex[22] = "ammo" //this is ammo
 	ammo_autocannon_highex[21] = "dumb" //guidance type
-	ammo_autocannon_highex[20] = 1 //weight per round
+	ammo_autocannon_highex[20] = 2.3 //weight per round
 	ammo_autocannon_highex[19] = "impact" //fuse type, can be used to define scatterguns
 	ammo_autocannon_highex[18] = rounds.Yellow_Small //projectile skin
 	ammo_autocannon_highex[17] = "Autocannon HE Shells" //Name
@@ -306,7 +306,7 @@ function scr_ammo_init() {
 
 	ammo_auto_ball[22] = "ammo" //this is ammo
 	ammo_auto_ball[21] = "dumb" //guidance type
-	ammo_auto_ball[20] = 0.01 //weight per round
+	ammo_auto_ball[20] = 0.04 //weight per round
 	ammo_auto_ball[19] = "impact" //fuse type, can be used to define scatterguns
 	ammo_auto_ball[18] = rounds.Yellow_Small //projectile skin
 	ammo_auto_ball[17] = "Autogun Ball Rounds" //Name

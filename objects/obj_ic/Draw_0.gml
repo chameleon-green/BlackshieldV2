@@ -219,7 +219,7 @@ if(containering and GSelected != undefined) {
 	}
 
 draw_sprite_ext(spr_inventory_screen,0,x+470*image_xscale,y+143*image_yscale,image_xscale,image_yscale,0,c_white,255)
-draw_sprite_ext(spr_inventory_wep_stats,2,x+472*image_xscale,y+300*image_yscale,image_xscale,image_yscale,0,c_white,255)
+draw_sprite_ext(spr_inventory_wep_stats,5,x+472*image_xscale,y+313*image_yscale,image_xscale,image_yscale,0,c_white,255)
 draw_sprite_ext(spr_scrollbar,0,x+11*image_xscale,y+70*image_yscale,image_xscale,image_yscale,0,c_white,255)
 //draw equip button
 draw_sprite_ext(spr_button,frame,x+388*image_xscale,y+245*image_yscale,image_xscale,image_yscale,0,c_white,255)
@@ -362,10 +362,10 @@ draw_text_transformed_color(x+564*image_xscale,y+232*image_yscale,"Drop",image_x
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++ DRAW MATERIALS SCREEN ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-if(screen = "items" and subscreen_items = "mats" and visible) 
+if(screen = "items" and subscreen_items = "mats" and visible){ 
 
 draw_sprite_ext(spr_scrollbar,0,x+11*image_xscale,y+70*image_yscale,image_xscale,image_yscale,0,c_white,255)
-{
+
 if(scrollbar = undefined) {scrollbar = instance_create_depth(x+11*scale,y+70*scale,depth-1,obj_scrollbar)}
 scrollbar.visible = 1
 }

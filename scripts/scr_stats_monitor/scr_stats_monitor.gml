@@ -22,7 +22,7 @@ function scr_stats_monitor() {
 	LCK = baseLCK + modLCK
 
 
-	CarryWeight = STR*2 //200 max carryweight
+	CarryWeight = STR*3.5 //350 max carryweight
 	MaxWill = WIL*2 //200 max will
 	baseMaxHP = clamp( round( (baseEND*7) + (baseLCK/4) + (baseWIL/2) ), 1, 100000)//775 max HP needed to calculate limb health
 	MaxHP = clamp( round( (END*7) + (LCK/4) + (WIL/2) ), 1, 100000)//775 max HP

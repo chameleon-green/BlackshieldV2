@@ -82,6 +82,11 @@ var ratio = 1-timer[0]/timer[1]
 draw_sprite_ext(spr_abilities_firesupport,2,x-51*scale,y+65*scale,scale,scale,0,c_white,1)
 draw_sprite_ext(spr_abilities_firesupport,0,x-51*scale,y+64*scale,scale,scale*ratio,0,c_white,0.75)
 
+if(ratio > 0 and ratio < 1){
+	draw_set_halign(fa_center)
+	var text = ratio*(timer[1]/120)
+	draw_text_ext_transformed_color(x-51*scale,y+15*scale,round(text),129,129,scale*1.5,scale*1.5,0,c_white,c_white,c_white,c_white,255)
+}
 draw_sprite_ext(spr_abilities_firesupport,1,x+17*scale,y+65*scale,scale,scale,0,c_white,1)
 draw_sprite_ext(spr_abilities_firesupport,1,x+85*scale,y+65*scale,scale,scale,0,c_white,1)
 draw_sprite_ext(spr_abilities_firesupport,1,x+153*scale,y+65*scale,scale,scale,0,c_white,1)

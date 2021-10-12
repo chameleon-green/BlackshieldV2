@@ -1,3 +1,6 @@
+killtimer = timer_create(1000)
+killtick = 0
+kill = 0
 
 scale = 1
 frame = 0 //for animating contrails on rockets

@@ -98,24 +98,16 @@ btoggle[ibt] = 0;
 //note that this is needed as lists cannot contain relevant data such as quantities and durability
 
 
-//++++++++++++++++++++++++++++++++++++++++ ammo inv
+//++++++++++++++++++++++++++++++++++++++++ ammo inv ++++++++++++++++++++++++++++++++++++
 list_inv_ammo = ds_list_create()
 
-ds_list_add(list_inv_ammo,obj_vc.ammo_autocannon_standard)
-ds_list_add(list_inv_ammo,obj_vc.ammo_autocannon_flak)
-ds_list_add(list_inv_ammo,obj_vc.ammo_autocannon_hvap)
-ds_list_add(list_inv_ammo,obj_vc.ammo_autocannon_sabot)
-ds_list_add(list_inv_ammo,obj_vc.ammo_autocannon_highex)
-ds_list_add(list_inv_ammo,obj_vc.ammo_bolt_heavy_standard)
-ds_list_add(list_inv_ammo,obj_vc.ammo_missile_krak)
-ds_list_add(list_inv_ammo,obj_vc.ammo_plasma_standard)
 
 
 grd_inv_ammo = ds_grid_create(inventory_size,11)
 pa = 0
 scr_inventory_ammo()
 
-//+++++++++++++++++++++++++++++++++++++++++ armor inv
+//+++++++++++++++++++++++++++++++++++++++++ armor inv +++++++++++++++++++++++++++++++++
 list_inv_armor = ds_list_create()
 ds_list_add(list_inv_armor,obj_vc.armor_torso_2000)
 ds_list_add(list_inv_armor,obj_vc.armor_head_2000)
@@ -130,31 +122,18 @@ scr_inventory_armor()
 armor_equip_button_status = ""
 
 
-//++++++++++++++++++++++++++++++++++++++++ weapon inv
+//++++++++++++++++++++++++++++++++++++++++ weapon inv ++++++++++++++++++++++++++++++++
 test = ds_list_create()
 ds_list_add(test,obj_vc.bolter_phobos)
-ds_list_add(test,obj_vc.bolter_heavy_voss)
-ds_list_add(test,obj_vc.autocannon_kalibrax)
-//ds_list_add(test,obj_vc.pistol_bolt_tigrus)
-//ds_list_add(test,obj_vc.sword_chain_thunderedge)
-//ds_list_add(test,obj_vc.missile_astartes)
-//ds_list_add(test,obj_vc.rotorcannon_proteus)
-//ds_list_add(test,obj_vc.sword_power_proteus)
-//ds_list_add(test,obj_vc.plasmagun_thunderbolt)
+
 
 inventory = ds_grid_create(inventory_size,12)
 p = 0
 scr_inventory_weapons()
 
-//++++++++++++++++++++++++++++++++++++++++ aid inv 
+//++++++++++++++++++++++++++++++++++++++++ aid inv +++++++++++++++++++++++++++++++
 
 list_inv_aid = ds_list_create()
-ds_list_add(list_inv_aid,obj_vc.med_shot_hp)
-ds_list_add(list_inv_aid,obj_vc.med_shot_stam)
-ds_list_add(list_inv_aid,obj_vc.med_shot_will)
-ds_list_add(list_inv_aid,obj_vc.med_kit_1)
-ds_list_add(list_inv_aid,obj_vc.rep_kit_1)
-ds_list_add(list_inv_aid,obj_vc.frenzon_pure)
 
 grd_inv_aid = ds_grid_create(inventory_size,11)
 pd = 0

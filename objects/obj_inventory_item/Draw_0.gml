@@ -220,7 +220,13 @@ if
 			var xxx = 471*scale
 			var yyy = 142*scale
 			
-			draw_text_transformed_colour(xx+368*scale,yy+276*scale,stats,scale*0.7,scale*0.7,0,color,color,color,color,255)
+			draw_text_transformed_colour(xx+368*scale,yy+335*scale,stats,scale*0.7,scale*0.7,0,color,color,color,color,255)
+			
+			draw_text_transformed_colour(xx+385*scale,yy+276*scale,stats,scale*0.7,scale*0.7,0,color,color,color,color,255) //dmg mod
+			draw_text_transformed_colour(xx+385*scale,yy+276*scale,stats,scale*0.7,scale*0.7,0,color,color,color,color,255) //dmg type
+			draw_text_transformed_colour(xx+385*scale,yy+276*scale,stats,scale*0.7,scale*0.7,0,color,color,color,color,255) //penetration
+			draw_text_transformed_colour(xx+385*scale,yy+306*scale,stats,scale*0.7,scale*0.7,0,color,color,color,color,255) //weight
+			draw_text_transformed_colour(xx+385*scale,yy+306*scale,stats,scale*0.7,scale*0.7,0,color,color,color,color,255) //cost
 			
 			gpu_set_fog(1,c_outline,0,0)
 			draw_sprite_ext(spr_items_ammo,icon,xx+xxx+2*scale,yy+yyy+2*scale,scale*2,scale*2,0,c_white,255)

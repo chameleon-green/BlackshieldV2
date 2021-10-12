@@ -76,6 +76,7 @@ timer_reset(array[@ 9],true)
 array[@ 5] = 0
 array[@ 4] = 0
 array[@ 3] = 0
+array[@ 12] = array[@ 12]-1 //consumes a use of ability
 return true
 
 }//bomb timer check

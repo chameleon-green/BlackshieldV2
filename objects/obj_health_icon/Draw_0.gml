@@ -76,20 +76,31 @@ draw_text_ext_transformed(x-197*scale,y-23*scale,Ones,30*scale,250*scale,scale,s
 
 //++++++++++++++++++++++++++++++++++++++ COOLDOWNS ++++++++++++++++++++++++++++++++++++
 
+
+//------------------------------------------ cooldown 1 -------------------------------------
+var array = obj_player.pl_ability1
 var timer = obj_player.active_ab1[6]
 var ratio = 1-timer[0]/timer[1]
+var uses = obj_player.active_ab1[12]
 
-draw_sprite_ext(spr_abilities_firesupport,2,x-51*scale,y+65*scale,scale,scale,0,c_white,1)
-draw_sprite_ext(spr_abilities_firesupport,0,x-51*scale,y+64*scale,scale,scale*ratio,0,c_white,0.75)
+draw_sprite_ext(spr_abilities_firesupport,array[13],x-51*scale,y+65*scale,scale,scale,0,c_white,1) //icon
+draw_sprite_ext(spr_abilities_firesupport,0,x-51*scale,y+64*scale,scale,scale*ratio,0,c_white,0.75) //CD black
 
 if(ratio > 0 and ratio < 1){
 	draw_set_halign(fa_center)
-	var text = ratio*(timer[1]/120)
-	draw_text_ext_transformed_color(x-51*scale,y+15*scale,round(text),129,129,scale*1.5,scale*1.5,0,c_white,c_white,c_white,c_white,255)
+	var timer_text = ratio*(timer[1]/120)
+	draw_text_ext_transformed_color(x-51*scale,y+15*scale,round(timer_text),129,129,scale*1.5,scale*1.5,0,c_white,c_white,c_white,c_white,255)
 }
+
+draw_text_ext_transformed_color(x-31*scale,y+45*scale,uses,129,129,scale*0.8,scale*0.8,0,c_white,c_white,c_white,c_white,255) //uses left
+
+//------------------------------------------ cooldown 2 -------------------------------------
+
 draw_sprite_ext(spr_abilities_firesupport,1,x+17*scale,y+65*scale,scale,scale,0,c_white,1)
 draw_sprite_ext(spr_abilities_firesupport,1,x+85*scale,y+65*scale,scale,scale,0,c_white,1)
 draw_sprite_ext(spr_abilities_firesupport,1,x+153*scale,y+65*scale,scale,scale,0,c_white,1)
+
+
 
 //+++++++++++++++++++++++++++++++++++++ DRAW SELF AND BAR TEXT +++++++++++++++++++++++++++++++++++++
 

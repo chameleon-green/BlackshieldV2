@@ -127,7 +127,7 @@ test = ds_list_create()
 ds_list_add(test,obj_vc.bolter_phobos)
 
 
-inventory = ds_grid_create(inventory_size,12)
+inventory = ds_grid_create(inventory_size,14)
 p = 0
 scr_inventory_weapons()
 

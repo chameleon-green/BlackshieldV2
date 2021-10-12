@@ -207,11 +207,11 @@ cooldown1 = 0
 
 //defines data processing array for ability 1 (timers, internal varibles etc)
 active_ab1 = array_create(13,0)
+
+active_ab1[12] = pl_ability1[12] //uses left
 for(var i = 11; i>6; i--) {active_ab1[i] = timer_create(pl_ability1[i])}
 active_ab1[6] = timer_create(pl_ability1[6],1)
 for(var i = 5; i>0; i--) {active_ab1[i] = pl_ability1[i]}
-
-
 active_ab1[0] = 0 //ability toggle
 
 

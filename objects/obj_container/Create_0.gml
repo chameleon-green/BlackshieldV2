@@ -39,6 +39,7 @@ scr_add_item(obj_vc.armor_torso_2000,1,1000,grd_inv_armor,inventory_size)
 
 scr_add_item(obj_vc.ammo_auto_ball,1000,0,grd_inv_ammo,inventory_size)
 scr_add_item(obj_vc.ammo_bolt_standard,1000,0,grd_inv_ammo,inventory_size)
+scr_add_item(obj_vc.ammo_autocannon_highex,1000,0,grd_inv_ammo,inventory_size)
 
 scr_add_item(obj_vc.med_shot_hp,1000,0,grd_inv_aid,inventory_size)
 

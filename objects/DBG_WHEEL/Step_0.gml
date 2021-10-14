@@ -2,8 +2,8 @@
 	
 //++++++++++++++++++++++++++++++++++++++++++++ Variables +++++++++++++++++++++++++++++++
 
-	var D = creator.Right
-	var A = creator.Left
+	var D = creator.Right //keyboard_check(ord("D"))//
+	var A = creator.Left //keyboard_check(ord("A"))//
 	//var S = keyboard_check(ord("S"))
 	//var Shift = keyboard_check(vk_shift)
 	
@@ -11,7 +11,7 @@
 	
 	var x1 = bbox_left - 10 + hspeed
 	var x2 = bbox_right + 10 + hspeed
-	var y1 = bbox_bottom - 5
+	var y1 = bbox_bottom - 10
 	var y2 = bbox_bottom + abs(cSpeed) + 15
 	col_slope = collision_rectangle(x1,y1,x2,y2,obj_slope,true,0) 
 	
@@ -36,10 +36,14 @@
   } 
   
  //+++++++++++++++++++++++++++++++++++++++++++++++ Movin'+++++++++++++++++++++++++++++++++++++++++++++++
- 
- hspeed = creator.hspeed
-//if D and !col_right {hspeed = 12}
-//if A and !col_left {hspeed = -12}
+/* 
+ hspeed = 0
+if D and !col_right {hspeed = 12}
+if A and !col_left {hspeed = -12}
+if D{hspeed = 12}
+if A{hspeed = -12}
+*/
+hspeed = creator.hspeed
 
 if(col_top) {vsp = 0}
 

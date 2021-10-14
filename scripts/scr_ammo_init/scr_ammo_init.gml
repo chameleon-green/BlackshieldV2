@@ -291,7 +291,7 @@ function scr_ammo_init() {
 	ammo_autocannon_highex[15] = 3//casing skin
 	ammo_autocannon_highex[14] = 1 //durability cost per shot
 	ammo_autocannon_highex[13] = 2 //damage mod
-	ammo_autocannon_highex[12] = -0.5 //penetration factor, as percent of damage dealt (50 dmg * 0.2 pen = 10 resist ignored)
+	ammo_autocannon_highex[12] = -2.5 //penetration factor, as percent of damage dealt (50 dmg * 0.2 pen = 10 resist ignored)
 	ammo_autocannon_highex[11] = 1 //Velocity Mod
 	ammo_autocannon_highex[10] = 1.00 //ROF mod
 	ammo_autocannon_highex[9] = 1.00  //range mod

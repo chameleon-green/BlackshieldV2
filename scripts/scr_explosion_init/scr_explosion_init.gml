@@ -29,7 +29,7 @@ function scr_explosion_init() {
 	exp_scalable_frag_tiny[3] = 4 //explosion size
 	exp_scalable_frag_tiny[2] = 13 //frag lifetime
 	exp_scalable_frag_tiny[1] = c_dkgray //smoke color
-	exp_scalable_frag_tiny[0] = 20 //frag count
+	exp_scalable_frag_tiny[0] = 30 //frag count
 	
 	
 	exp_scalable_frag_small[4] = snd_explode_small1

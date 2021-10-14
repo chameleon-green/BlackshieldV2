@@ -161,49 +161,68 @@ if(ItemDefined and !Boxing)	{
 if(ItemDefined and Boxing){
 	
 	var InBox = (Creator != id) //is this item in a box and not our inventory?
+	var Shop = (cID.IDarray[10] = "shop")
 	var ArmorList = ds_list_create()
 	ds_list_add(ArmorList,"pie",obj_player.torso_id,obj_player.head_id,obj_player.armL_id,obj_player.armR_id,obj_player.legL_id,obj_player.legR_id)
 	var ArmorEquipped = ds_list_find_index(ArmorList,GSID)
 	
+	if(Shop) {
+		var ShopCurrency = cID.IDarray[4]  
+		var Cash = variable_instance_get(obj_player,ShopCurrency)
+		var ItemCost = GSelected.value
+		}
+	
 	if(InBox) {
 		if(equip_button_items and Item[22] != "grenade")
 			{
-			scr_add_item(Item,1,GSelected.durability,inventory,inventory_size,Grid,GSID)
-			scr_remove_item(GSID,Grid,inventory_size)
-			global.Selected = undefined
-			audio_play_sound(snd_rackslide,1,0)
-			cID.refresh = 1
-			refresh = 1
+				if(!Shop or (Shop and Cash > ItemCost)){
+					scr_add_item(Item,1,GSelected.durability,inventory,inventory_size,Grid,GSID)
+					scr_remove_item(GSID,Grid,inventory_size)
+					global.Selected = undefined
+					cID.refresh = 1
+					refresh = 1
+					if(Shop) {variable_instance_set(obj_player,ShopCurrency,Cash-ItemCost) audio_play_sound(snd_kaching,1,0)}
+					else{audio_play_sound(snd_rackslide,1,0)}
+				}
 			}
 		if(equip_button_armor and !ArmorEquipped)
 			{
-			scr_add_item(Item,1,GSelected.durability,grd_inv_armor,inventory_size)
-			scr_remove_item(GSID,Grid,inventory_size)
-			global.Selected = undefined
-			audio_play_sound(snd_rackslide,1,0)
-			cID.refresh = 1
-			refresh = 1
+				if(!Shop or (Shop and Cash > ItemCost)){
+					scr_add_item(Item,1,GSelected.durability,grd_inv_armor,inventory_size)
+					scr_remove_item(GSID,Grid,inventory_size)
+					global.Selected = undefined
+					cID.refresh = 1
+					refresh = 1
+					if(Shop) {variable_instance_set(obj_player,ShopCurrency,Cash-ItemCost) audio_play_sound(snd_kaching,1,0)}
+					else{audio_play_sound(snd_rackslide,1,0)}
+				}
 			}
 	}//InBox end bracket
 	
 	if(!InBox) { //is it in our inventory?
 		if(equip_button_items and GSID != obj_player.primary_id and GSID != obj_player.secondary_id and Item[22] != "grenade")
 			{
-			scr_add_item(Item,1,GSelected.durability,cID.grd_inv_weps,inventory_size,Grid,GSID)
-			scr_remove_item(GSID,Grid,inventory_size)
-			global.Selected = undefined
-			audio_play_sound(snd_rackslide,1,0)
-			cID.refresh = 1
-			refresh = 1
+				if(!Shop or (Shop and Cash > ItemCost)){
+					scr_add_item(Item,1,GSelected.durability,cID.grd_inv_weps,inventory_size,Grid,GSID)
+					scr_remove_item(GSID,Grid,inventory_size)
+					global.Selected = undefined
+					cID.refresh = 1
+					refresh = 1
+					if(Shop) {variable_instance_set(obj_player,ShopCurrency,Cash+ItemCost) audio_play_sound(snd_kaching,1,0)}
+					else{audio_play_sound(snd_rackslide,1,0)}
+				}
 			}	
 		if(equip_button_armor and !ArmorEquipped)
 			{
-			scr_add_item(Item,1,GSelected.durability,cID.grd_inv_armor,inventory_size)
-			scr_remove_item(GSID,Grid,inventory_size)
-			global.Selected = undefined
-			audio_play_sound(snd_rackslide,1,0)
-			cID.refresh = 1
-			refresh = 1
+				if(!Shop or (Shop and Cash > -1)){
+					scr_add_item(Item,1,GSelected.durability,cID.grd_inv_armor,inventory_size)
+					scr_remove_item(GSID,Grid,inventory_size)
+					global.Selected = undefined
+					cID.refresh = 1
+					refresh = 1
+					if(Shop) {variable_instance_set(obj_player,ShopCurrency,Cash+ItemCost) audio_play_sound(snd_kaching,1,0)}
+					else{audio_play_sound(snd_rackslide,1,0)}
+				}
 			}
 	}//not inbox end bracket
 	
@@ -211,16 +230,19 @@ if(ItemDefined and Boxing){
 		{
 		if(quantitybar = undefined) {quantitybar = instance_create_depth(x,y,1,obj_quantity_box)}
 		with quantitybar {creator = other.id}
+		with quantitybar {shop = Shop}
 		}
 	if(equip_button_aid)
 		{
 		if(quantitybar = undefined) {quantitybar = instance_create_depth(x,y,1,obj_quantity_box)}
 		with quantitybar {creator = other.id}
+		with quantitybar {shop = Shop}
 		}
 	if(equip_button_items and Item[22] = "grenade")
 		{
 		if(quantitybar = undefined) {quantitybar = instance_create_depth(x,y,1,obj_quantity_box)}
 		with quantitybar {creator = other.id}	
+		with quantitybar {shop = Shop}
 		}	
 
 ds_list_destroy(ArmorList)
@@ -261,6 +283,7 @@ if(button_log) {
 if((drop_button_items or drop_button_armor or drop_button_armor or drop_button_aid or drop_button_ammo) and ItemDefined) {
 				
 		if (
+		(GSelected.creator != id and Shop) or
 		obj_player.primary_id = GSID or
 		obj_player.secondary_id = GSID or
 		obj_player.melee_id = GSID or

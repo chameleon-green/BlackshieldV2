@@ -8,15 +8,17 @@ if(col and E and !OIC.active) {
 	var Cdist = abs(point_distance(obj_player.x,obj_player.y,x,y))
 	
 	if(Cdist < 300) {
+	OIC.cID = id
 	OIC.active = 1
 	OIC.containering = 1
 	OIC.refresh = 1
 	OIC.visible = 1
-	OIC.cID = id
 	OIC.cString = cString
+	OIC.screen = "items"
+	OIC.image_index = 3 
 	
 	sound_close_toggle = 1
-	audio_play_sound(snd_hardcase_open,1,0)
+	audio_play_sound(opensound,1,0)
 	}
 	
 active = 1 //why is this outside of distance check...?
@@ -140,5 +142,5 @@ if(OIC.active = 0){
 	ds_list_delete(list_items_mine,0)	
 	}
 	
-	if(sound_close_toggle = 1) {audio_play_sound(snd_hardcase_close,1,0) sound_close_toggle = 0}
+	if(sound_close_toggle = 1) {audio_play_sound(closesound,1,0) sound_close_toggle = 0}
 }

@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Items and Abilities",
-    "path": "folders/Scripts/Array Initializers/Items and Abilities.yy",
+    "name": "Array Initializers",
+    "path": "folders/Scripts/Array Initializers.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scr_weapon_arrays",
+  "name": "scr_containers_shops_init",
   "tags": [],
   "resourceType": "GMScript",
 }

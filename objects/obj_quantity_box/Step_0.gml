@@ -1,6 +1,7 @@
 Percent = Scroller.Percent
 Quantity = round(MaxQuantity*Percent)
 
+
 //Button coordinate checks
 var LMB = mouse_check_button(mb_left)
 Exit = point_in_rectangle(obj_crosshair.x,obj_crosshair.y,x+185*scale,y+5*scale,x+207*scale,y+25*scale) and !LMB
@@ -18,6 +19,8 @@ if(global.Selected != undefined) {
 		var inv_sze = Creator.inventory_size
 		
 		MaxQuantity = GSelected.amount
+		
+		Cost = Quantity*GSelected.value
 }
 
 

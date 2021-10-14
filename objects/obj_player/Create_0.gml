@@ -54,6 +54,14 @@ powered = 0
 vsp = 0
 grav = 1.5
 
+//++++++++++++++++++++++++++++++++++++++++++++++++++++ DOLLAH BILLS DOLLAH DOLLAH BILLS ++++++++++++++++++++++++++++
+
+thrones = 10000 //imperial thrones 
+adam = 10000 //adamantium
+octate = 10000 //tau octate
+teef = 10000 //ork teef
+repu = 10000 //reputation
+
 //++++++++++++++++++++++++++++++++++++++++++++++++++++ARMOR AND BODY VARS++++++++++++++++++++++++++++++++++++++++++++
 IFF = "player01" //our IFF code, to differentiate projectiles
 

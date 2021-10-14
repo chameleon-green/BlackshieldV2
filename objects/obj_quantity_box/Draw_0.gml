@@ -22,13 +22,22 @@ var TakeFrame = 4
 var CancelFrame = 0
 var TakeColor = c_dkgray
 var CancelColor = c_dkgray
-var TakeString = "Store"
+if(!shop) {var TakeString = "Store"} else{var TakeString = "Sell"}
+
 
 var GSelected = global.Selected 
 if(global.Selected != undefined) {
 	var Creator = GSelected.creator
 	var Boxing = (Creator != creator)//this item is not in our inventory
-	if(Boxing) {TakeString = "Take"}
+	if(Boxing and !shop) {TakeString = "Take"}
+	if(Boxing and shop) {TakeString = "Buy"}
+	
+	if(shop) {
+	draw_set_halign(fa_center)
+	draw_text_ext_transformed_color(x+98*scale,y+78*scale,Cost,0,900000,scale,scale,0,c_yellow,c_yellow,c_yellow,c_yellow,1)
+	if(Boxing) {draw_text_ext_transformed_color(x+98*scale,y+58*scale,"Cost:",0,900000,scale,scale,0,c_yellow,c_yellow,c_yellow,c_yellow,1)}
+	if(!Boxing) {draw_text_ext_transformed_color(x+98*scale,y+58*scale,"Value:",0,900000,scale,scale,0,c_yellow,c_yellow,c_yellow,c_yellow,1)}
+	}
 }
 
 if(Exit) {image_index = 1} else{image_index = 0}
@@ -40,6 +49,8 @@ draw_sprite_ext(spr_button,TakeFrame,x+38*scale,y+80*scale,scale,scale,0,c_white
 draw_sprite_ext(spr_button,CancelFrame,x+165*scale,y+80*scale,scale,scale,0,c_white,1) //take button
 draw_text_ext_transformed_color(x+38*scale,y+68*scale,TakeString,0,900000,scale,scale,0,TakeColor,TakeColor,TakeColor,TakeColor,1)
 draw_text_ext_transformed_color(x+165*scale,y+68*scale,"Cancel",0,900000,scale,scale,0,CancelColor,CancelColor,CancelColor,CancelColor,1)
+
+
 
 /*
 draw_rectangle(x+185*scale,y+5*scale,x+207*scale,y+25*scale,1) //exit button hitbox

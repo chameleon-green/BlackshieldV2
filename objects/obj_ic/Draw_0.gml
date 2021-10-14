@@ -155,6 +155,13 @@ drop_button_aid = point_in_rectangle(cx, cy, x+543*scale, y+235*scale, x+598*sca
 
 
 //++++++++++++++++++++++++++++++++++++++++++++++ DRAW WEAPONS SCREEN RIGHT SIDE UI +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+var equip = "Equip"
+if(containering and GSelected != undefined) {
+	if(GSelected.creator != id and cID.IDarray[10] = "container") {equip = "Take"}
+	if(GSelected.creator != id and cID.IDarray[10] = "shop") {equip = "Buy"}
+	if(GSelected.creator = id and cID.IDarray[10] = "container") {equip = "Store"}
+	if(GSelected.creator = id and cID.IDarray[10] = "shop") {equip = "Sell"}
+}
 
 if(screen = "items" and subscreen_items = "weapons" and visible) 
 
@@ -164,7 +171,6 @@ if(scrollbar != undefined) {scrollbar.visible = 1}
 
 var frame = 0 var frame2 = 2 var frame3 = 4
 var color = c_dkgray var color1 = c_dkgray var color2 = c_dkgray
-var equip = "Equip"
 draw_set_halign(fa_center)
 
 if(equip_button_items) {color = c_yellow frame = 1}
@@ -172,10 +178,6 @@ if(desc_button_items) {color1 = c_yellow frame2 = 3}
 if(drop_button_items) {color2 = c_yellow frame3 = 5}
 
 if((GSID = obj_player.primary_id or GSID = obj_player.secondary_id or GSID = obj_player.melee_id or GSID = obj_player.grenade_id) and !ShopOffset) {equip = "Equipped" color = c_yellow frame = 1}
-if(containering and GSelected != undefined) {
-	if(GSelected.creator != id) {equip = "Take"}
-	if(GSelected.creator = id) {equip = "Store"}
-	}
 
 draw_sprite_ext(spr_inventory_screen,0,x+470*image_xscale,y+143*image_yscale,image_xscale,image_yscale,0,c_white,255)
 draw_sprite_ext(spr_inventory_wep_stats,0,x+473*image_xscale,y+307*image_yscale,image_xscale,image_yscale,0,c_white,255)
@@ -213,10 +215,6 @@ if(desc_button_ammo) {color1 = c_yellow frame2 = 3}
 if(drop_button_ammo) {color2 = c_yellow frame3 = 5}
 
 if(item_selected = obj_player.ammo_type) {equip = "Equipped" color = c_yellow frame = 1}
-if(containering and GSelected != undefined) {
-	if(GSelected.creator != id) {equip = "Take"}
-	if(GSelected.creator = id) {equip = "Store"}
-	}
 
 draw_sprite_ext(spr_inventory_screen,0,x+470*image_xscale,y+143*image_yscale,image_xscale,image_yscale,0,c_white,255)
 draw_sprite_ext(spr_inventory_wep_stats,5,x+472*image_xscale,y+313*image_yscale,image_xscale,image_yscale,0,c_white,255)
@@ -252,8 +250,10 @@ if(desc_button_armor) {color1 = c_yellow frame2 = 3}
 if(drop_button_armor) {color2 = c_yellow frame3 = 5}
 
 if(containering and GSelected != undefined) {
-	if(GSelected.creator != id) {armor_equip_button_status = "Take"}
-	if(GSelected.creator = id) {armor_equip_button_status = "Store"}
+	if(GSelected.creator != id and cID.IDarray[10] = "container") {armor_equip_button_status = "Take"}
+	if(GSelected.creator != id and cID.IDarray[10] = "shop") {armor_equip_button_status = "Buy"}
+	if(GSelected.creator = id and cID.IDarray[10] = "container") {armor_equip_button_status = "Store"}
+	if(GSelected.creator = id and cID.IDarray[10] = "shop") {armor_equip_button_status = "Sell"}
 	}
 
 if(	GSID = obj_player.head_id or 
@@ -339,12 +339,6 @@ if(equip_button_aid) {color = c_yellow frame = 1}
 if(desc_button_aid) {color1 = c_yellow frame2 = 3}
 if(drop_button_aid) {color2 = c_yellow frame3 = 5}
 
-if(containering and GSelected != undefined) {
-	if(GSelected.creator != id) {equip = "Take"}
-	if(GSelected.creator = id) {equip = "Store"}
-	}
-
-
 draw_sprite_ext(spr_inventory_screen,0,x+470*image_xscale,y+143*image_yscale,image_xscale,image_yscale,0,c_white,255)
 draw_sprite_ext(spr_inventory_wep_stats,2,x+472*image_xscale,y+300*image_yscale,image_xscale,image_yscale,0,c_white,255)
 draw_sprite_ext(spr_scrollbar,0,x+11*image_xscale,y+70*image_yscale,image_xscale,image_yscale,0,c_white,255)
@@ -382,3 +376,5 @@ if(shopping or containering) {
 
 
 draw_text(x,y+60,InvWeight)
+
+draw_text(x+100*scale,y+60,obj_player.thrones)

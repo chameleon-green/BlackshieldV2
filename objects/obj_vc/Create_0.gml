@@ -42,6 +42,8 @@ scr_ability_init()
 //start defining weapons in arrays, oh boy
 scr_weapon_arrays()
 
+//consoles and shops
+scr_containers_shops_init()
 
 //get our enumarators going, to translate array data into useable stuff
 scr_enums()

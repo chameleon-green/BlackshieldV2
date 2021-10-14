@@ -1,5 +1,13 @@
+IDarray = variable_instance_get(obj_vc,Type)
+
+sprite_index = IDarray[9]
+image_index = IDarray[8]
+cString = IDarray[5]
+opensound = IDarray[7]
+closesound = IDarray[6]
+
+
 image_speed = 0
-cString = "Dildo Storage Crate #69"
 //depth = -9000000
 
 active = 0

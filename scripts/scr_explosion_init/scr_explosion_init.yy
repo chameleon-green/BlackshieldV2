@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Array Initializers",
-    "path": "folders/Scripts/Array Initializers.yy",
+    "name": "Particles, Sound, Anims",
+    "path": "folders/Scripts/Array Initializers/Particles, Sound, Anims.yy",
   },
   "resourceVersion": "1.0",
   "name": "scr_explosion_init",

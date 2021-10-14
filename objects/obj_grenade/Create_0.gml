@@ -20,3 +20,6 @@ armed = 0
 alarm[0] = random_range(array[grenade.Fuse]*0.8,array[grenade.Fuse]*1.2) //fuse time
 alarm[1] = 1 //arming time for grenade to recognize variables if its an impact one
 
+originx = x
+originy = y
+

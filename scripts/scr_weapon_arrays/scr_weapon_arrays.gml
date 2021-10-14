@@ -67,7 +67,7 @@ function scr_weapon_arrays() {
 	bolter_phobos[11] = 0 //subimage for item screen (spr_items)
 	bolter_phobos[10] = ammo_bolt_standard //default ammo type, for to brand new weapon
 	bolter_phobos[9] = -125 //Y offset for crosshair, used for low/high slung weapons
-	bolter_phobos[8] = 40 //dmg
+	bolter_phobos[8] = 15//40 //dmg
 	bolter_phobos[7] = 7 //ROF
 	bolter_phobos[6] = 20 //magazine size
 	bolter_phobos[5] = 1.2 //spread 1.4

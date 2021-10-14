@@ -38,12 +38,15 @@ function scr_player_movement() {
 
 //SEE BEGIN STEP EVENT FOR GRAVITY AND OTHER SLOPE STUFF
 
+
+
   if(col_slope) {
 	
 	var Grade = abs(col_slope.image_yscale)/abs(col_slope.image_xscale)//determines slope of slope
 	Climb = ceil(abs(hspeed))*ceil(Grade*1.6) + grav*2 //calculates climb amount via slope*1.6 and gravity*2 and movespeed
 	y -= Climb 
 
+	//mask_index = 1
   } 
  
  //++++++++++++++++++++++++++++++++++++++++++++++++ JUMPING ++++++++++++++++++++++++++++++++
@@ -78,6 +81,7 @@ y += vsp;
 
 	//move right
 	if (D and !Shift and face_left and !col_right) {
+		
 			hspeed = MoveSpeed/3 walking = 1 sprinting = 0
 			if (col_bot) {skeleton_anim_set_step(backwalk,2)}
 		}

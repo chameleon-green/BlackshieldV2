@@ -11,7 +11,7 @@ var col =  place_meeting(x+hspeed,y+vspeed,obj_platform)//collision_line(x,y,x+h
 if(colv) {
 	if(sticky = 1) {speed = 0 gravity = 0 angular_speed = 0 grav = 0} else {
 	gravity = 0
-	vspeed = (-vspeed*0.25) - abs(hspeed*0.1)
+	vspeed = (-vspeed*0.5) - abs(hspeed*0.1)
 	hspeed = hspeed * 0.35
 	angular_speed = (angular_speed*0.5)
 	}
@@ -62,3 +62,4 @@ if(speed < 1 and !sticky)
 angle += angular_speed
 if(abs(vspeed) < 1) {vspeed = 0} //stops "vibrating" grenades
 
+if(place_meeting(x,y,obj_platform) and abs(speed) > 2) {move_outside_solid(point_direction(x,y,originx,originy),5)}

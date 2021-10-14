@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_kaching.wav",
-  "duration": 3.041833,
+  "duration": 1.242521,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",

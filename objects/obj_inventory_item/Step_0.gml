@@ -23,12 +23,13 @@ if(IsWeapon){
 		velocity = array[3]
 		capacity = array[6]
 		weight = array[20]	
-		durability = ds_grid_get(grid,xxx,8)
+		
 		max_durability = array[2]
 		basevalue = sqr(clamp(array[8],19,4000)) * (1/array[7])
 		image = array[11]
 	}
-
+	durability = ds_grid_get(grid,xxx,8)
+	
 	if(is_real(durability) and is_real(max_durability)) {var ratio = durability/max_durability} else{var ratio = 1}
 	value = round(ratio * basevalue)
 	amount = ds_grid_get(grid,xxx,2)

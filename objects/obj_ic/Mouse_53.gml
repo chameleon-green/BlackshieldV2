@@ -27,8 +27,7 @@ if(desc_button_ammo and ItemDefined) //and !desc_box)
 
 //-----------------------------------ITEMS BUTTON--------------------------------------------------------------------
 
-if(button_items and screen != "items") 
-	{
+if(button_items and screen != "items") {
 	image_index = 3 
 	subscreen_items = "weapons"
 	screen = "items"
@@ -38,8 +37,7 @@ if(button_items and screen != "items")
 	if(cID != -1) {cID.refresh = 1}
 	}
 
-if(sub_button_weapons) 
-	{
+if(sub_button_weapons) {
 	image_index = 3 
 	subscreen_items = "weapons"
 	screen = "items"
@@ -50,8 +48,7 @@ if(sub_button_weapons)
 	if(cID != -1) {cID.refresh = 1}
 	}
 
-if(sub_button_armor) 
-	{
+if(sub_button_armor) {
 	image_index = 4 
 	subscreen_items = "armor"
 	screen = "items"
@@ -62,8 +59,7 @@ if(sub_button_armor)
 	if(cID != -1) {cID.refresh = 1}
 	}
 
-if(sub_button_aid) 
-	{
+if(sub_button_aid) {
 	image_index = 5 
 	subscreen_items = "aid"
 	screen = "items"
@@ -74,8 +70,7 @@ if(sub_button_aid)
 	if(cID != -1) {cID.refresh = 1}
 	}
 
-if(sub_button_ammo) 
-	{
+if(sub_button_ammo) {
 	image_index = 6
 	subscreen_items = "ammo"
 	screen = "items"
@@ -86,8 +81,7 @@ if(sub_button_ammo)
 	if(cID != -1) {cID.refresh = 1}
 	}
 
-if(sub_button_mats) 
-	{
+if(sub_button_mats) {
 	image_index = 7
 	subscreen_items = "mats"
 	screen = "items"
@@ -97,6 +91,25 @@ if(sub_button_mats)
 	if(scrollbar != undefined) {scrollbar.offset = 85} //LimitOffset1
 	if(cID != -1) {cID.refresh = 1}
 	}
+	
+//----------------------------------------------- REPAIR BUTTON ----------------------------------------
+
+if(repair_button and global.Selected != undefined and KitCount > 0){
+	
+	var rxxx = ds_grid_value_x(grd_inv_aid,0,0,inventory_size,11,obj_vc.rep_kit_1)
+	var rep_amount = ds_grid_get(grd_inv_aid,rxxx,2)
+	
+	var ItemXX = ds_grid_value_x(Grid,0,0,inventory_size,11,GSID) //get X of item based on ID
+	var Dura = ds_grid_get(Grid,ItemXX,8) //get durability of item based on X
+	var ArrayVal = 12*(string_count("armor",Item[22]))
+	var maxD = Item[2+ArrayVal] //get max durability
+	var MoDura = Dura + 250//Dura + (maxD*0.25) //set the repaired value, equal to current durability + 25% of max
+		
+	ds_grid_set(Grid,ItemXX,8,clamp(MoDura,0,maxD)) //repair item, clamping at max durability
+		
+	ds_grid_set(grd_inv_aid,rxxx,2,rep_amount-1) //remove 1 rep kit
+	audio_play_sound(snd_repair_1,100,0)
+}
 
 //------------------------------------------ EQUIP STUFF WHEN NOT IN CONTAINER------------------------------------
 if(ItemDefined and !Boxing)	{
@@ -305,4 +318,6 @@ if((drop_button_items or drop_button_armor or drop_button_armor or drop_button_a
 			Creator.refresh = 1
 		}
 }
+
+
 

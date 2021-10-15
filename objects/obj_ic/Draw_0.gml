@@ -152,6 +152,11 @@ drop_button_aid = point_in_rectangle(cx, cy, x+543*scale, y+235*scale, x+598*sca
 					and screen = "items"
 					and subscreen_items = "aid" and
 					 col
+					 
+repair_button = point_in_rectangle(cx, cy, x+567*scale,y+191*scale,x+595*scale,y+211*scale)
+					and screen = "items"
+					and (subscreen_items = "armor" or subscreen_items = "weapons") and
+					 col
 
 //+++++++++++++++++++++++++++++++++++++++++++ DEFINE EQUIP BUTTON TEXT+++++++++ ++++++++++++++++++++++++++++++
 
@@ -165,6 +170,7 @@ if(containering and GSelected != undefined) {
 	if(GSelected.creator = id and Container) {equip = "Store"}
 	if(GSelected.creator = id and Shop) {equip = "Sell"}
 }
+
 
 
 //++++++++++++++++++++++++++++++++++++++++++++++ DRAW WEAPONS SCREEN RIGHT SIDE UI +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -323,6 +329,19 @@ scr_status_stats_text()
 
 }
 
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ REPAIR BUTTON +++++++++++++++++++++++++++++++++++++
+
+if(screen = "items" and (subscreen_items = "weapons" or subscreen_items = "armor")) {
+		
+	var KitColor = c_dkgray
+	if(repair_button) {KitColor = c_yellow}
+	draw_set_halign(fa_center)
+	draw_sprite_ext(spr_inventory_screen,9+repair_button,x+470*image_xscale,y+143*image_yscale,scale,scale,0,c_white,1)
+	draw_text_ext_transformed_color(x+588*scale,y+190.5*scale,clamp(KitCount,0,9),1,400,scale*0.9,scale*0.9,0,KitColor,KitColor,KitColor,KitColor,1)
+	//draw_rectangle(x+567*scale,y+191*scale,x+595*scale,y+211*scale,1)
+	}
+
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++ DRAW AID SCREEN ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 if(screen = "items" and subscreen_items = "aid" and visible) 
@@ -381,6 +400,7 @@ if(shopping or containering) {
 		var Cash = variable_instance_get(obj_player,cID.IDarray[4])
 		var Text = Cash //"You Have: " + string(Cash)
 		draw_set_halign(fa_left)
-		draw_text_ext_transformed_color(x+344*scale,y+76*scale,Text,1,12000,scale*0.75,scale*0.75,0,c_yellow,c_yellow,c_yellow,c_yellow,1)
+		draw_sprite_ext(spr_inventory_screen,8,x+470*image_xscale,y+143*image_yscale,scale,scale,0,c_white,1)
+		draw_text_ext_transformed_color(x+350*scale,y+76*scale,Text,1,12000,scale*0.75,scale*0.75,0,c_yellow,c_yellow,c_yellow,c_yellow,1)
 	}
 }

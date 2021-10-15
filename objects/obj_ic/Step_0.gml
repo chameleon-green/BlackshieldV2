@@ -114,7 +114,14 @@ if(pickup = 1){
 	pickup = 0
 }
 
+//++++++++++++++++++++++++++++++++++++++++++++ REPAIR KIT COUNT ++++++++++++++++++++++++++++++++++++
 
+	var HasRepKit = (ds_grid_value_exists(grd_inv_aid,0,0,inventory_size,11,obj_vc.rep_kit_1)) 
+	if(HasRepKit) {
+	var rxxx = ds_grid_value_x(grd_inv_aid,0,0,inventory_size,11,obj_vc.rep_kit_1)
+	KitCount = ds_grid_get(grd_inv_aid,rxxx,2)
+	} 
+	else{KitCount = 0}
 
 
 

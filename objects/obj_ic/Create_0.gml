@@ -35,7 +35,6 @@ containering = 0
 cID = -1 //container ID of selected container
 cString = 0 //string for merchant/container name
 
-
 pickup = 0 //are we touching an item?
 pickupitem = undefined
 pickupamount = undefined
@@ -76,6 +75,8 @@ InvWeightAdder = 0
 InvWeight = 0
 WeightCount = 0
 WeightTimer = timer_create(30)
+
+KitCount = 0
 
 //+++++++++++++++++++++++++++++++++++++++++++++++ Buff and active effects stuff ++++++++++++++++++++++++++++
 Buffs_Max_Amount = 20 //how many buffs we can have at once.
@@ -134,6 +135,8 @@ scr_inventory_weapons()
 //++++++++++++++++++++++++++++++++++++++++ aid inv +++++++++++++++++++++++++++++++
 
 list_inv_aid = ds_list_create()
+
+ds_list_add(list_inv_aid,obj_vc.rep_kit_1)
 
 grd_inv_aid = ds_grid_create(inventory_size,11)
 pd = 0

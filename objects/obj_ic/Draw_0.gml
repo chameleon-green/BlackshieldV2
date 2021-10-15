@@ -153,16 +153,21 @@ drop_button_aid = point_in_rectangle(cx, cy, x+543*scale, y+235*scale, x+598*sca
 					and subscreen_items = "aid" and
 					 col
 
+//+++++++++++++++++++++++++++++++++++++++++++ DEFINE EQUIP BUTTON TEXT+++++++++ ++++++++++++++++++++++++++++++
 
-//++++++++++++++++++++++++++++++++++++++++++++++ DRAW WEAPONS SCREEN RIGHT SIDE UI +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var equip = "Equip"
+if(screen = "items" and subscreen_items = "aid") {equip = "Use"}
 if(containering and GSelected != undefined) {
-	if(GSelected.creator != id and cID.IDarray[10] = "container") {equip = "Take"}
-	if(GSelected.creator != id and cID.IDarray[10] = "shop") {equip = "Buy"}
-	if(GSelected.creator = id and cID.IDarray[10] = "container") {equip = "Store"}
-	if(GSelected.creator = id and cID.IDarray[10] = "shop") {equip = "Sell"}
+	var Shop = (cID.IDarray[10] = "shop")
+	var Container = (cID.IDarray[10] = "container")
+	if(GSelected.creator != id and Container) {equip = "Take"}
+	if(GSelected.creator != id and Shop) {equip = "Buy"}
+	if(GSelected.creator = id and Container) {equip = "Store"}
+	if(GSelected.creator = id and Shop) {equip = "Sell"}
 }
 
+
+//++++++++++++++++++++++++++++++++++++++++++++++ DRAW WEAPONS SCREEN RIGHT SIDE UI +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 if(screen = "items" and subscreen_items = "weapons" and visible) 
 
 {
@@ -205,7 +210,6 @@ scrollbar.visible = 1
 var frame = 0
 var frame2 = 2
 var frame3 = 4
-var equip = "Equip"
 draw_set_halign(fa_center)
 var color = c_dkgray
 var color1 = c_dkgray
@@ -214,7 +218,7 @@ if(equip_button_ammo) {color = c_yellow frame = 1}
 if(desc_button_ammo) {color1 = c_yellow frame2 = 3}
 if(drop_button_ammo) {color2 = c_yellow frame3 = 5}
 
-if(item_selected = obj_player.ammo_type) {equip = "Equipped" color = c_yellow frame = 1}
+if(item_selected = obj_player.ammo_type and !containering) {equip = "Equipped" color = c_yellow frame = 1}
 
 draw_sprite_ext(spr_inventory_screen,0,x+470*image_xscale,y+143*image_yscale,image_xscale,image_yscale,0,c_white,255)
 draw_sprite_ext(spr_inventory_wep_stats,5,x+472*image_xscale,y+313*image_yscale,image_xscale,image_yscale,0,c_white,255)
@@ -330,7 +334,6 @@ scrollbar.visible = 1
 var frame = 0
 var frame2 = 2
 var frame3 = 4
-var equip = "Use"
 draw_set_halign(fa_center)
 var color = c_dkgray
 var color1 = c_dkgray
@@ -367,14 +370,17 @@ scrollbar.visible = 1
 //+++++++++++++++++++++++++++++++++++++++++++++++++ CONTAINERS AND SHOPPING +++++++++++++++++++++++++++++++++++++++++++++
 
 if(shopping or containering) {
+	var Shop = (cID.IDarray[10] = "shop")
 	draw_sprite_ext(spr_inventory_bg,9,x+613*image_xscale,y,image_xscale,image_yscale,0,c_white,255)
 	draw_set_halign(fa_center)
 	draw_text_transformed_color(x+775*scale,y+35*scale,cString,scale,scale,0,c_yellow,c_yellow,c_yellow,c_yellow,1)
 	draw_set_halign(fa_left)
 	draw_sprite_ext(spr_scrollbar,0,x+936*image_xscale,y+70*image_yscale,image_xscale,image_yscale,0,c_white,255)
+
+	if(Shop and screen = "items") {
+		var Cash = variable_instance_get(obj_player,cID.IDarray[4])
+		var Text = Cash //"You Have: " + string(Cash)
+		draw_set_halign(fa_left)
+		draw_text_ext_transformed_color(x+344*scale,y+76*scale,Text,1,12000,scale*0.75,scale*0.75,0,c_yellow,c_yellow,c_yellow,c_yellow,1)
+	}
 }
-
-
-draw_text(x,y+60,InvWeight)
-
-draw_text(x+100*scale,y+60,obj_player.thrones)

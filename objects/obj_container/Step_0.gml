@@ -15,6 +15,7 @@ if(col and E and !OIC.active) {
 	OIC.visible = 1
 	OIC.cString = cString
 	OIC.screen = "items"
+	OIC.subscreen_items = "weapons"
 	OIC.image_index = 3 
 	
 	sound_close_toggle = 1

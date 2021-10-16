@@ -330,7 +330,7 @@
     {"folderPath":"folders/Objects/Projectiles, Particles, Gibs.yy","order":3,"resourceVersion":"1.0","name":"Projectiles, Particles, Gibs","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Rooms.yy","order":220,"resourceVersion":"1.0","name":"Rooms","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Notes.yy","order":221,"resourceVersion":"1.0","name":"Notes","tags":[],"resourceType":"GMFolder",},
-    {"folderPath":"folders/Extensions.yy","order":222,"resourceVersion":"1.0","name":"Extensions","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Animation Curves/Extensions.yy","order":0,"resourceVersion":"1.0","name":"Extensions","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sequences.yy","order":210,"resourceVersion":"1.0","name":"Sequences","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Animation Curves.yy","order":211,"resourceVersion":"1.0","name":"Animation Curves","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Scripts/Melee.yy","order":5,"resourceVersion":"1.0","name":"Melee","tags":[],"resourceType":"GMFolder",},

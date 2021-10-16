@@ -160,6 +160,7 @@ repair_button = point_in_rectangle(cx, cy, x+567*scale,y+191*scale,x+595*scale,y
 
 //+++++++++++++++++++++++++++++++++++++++++++ DEFINE EQUIP BUTTON TEXT+++++++++ ++++++++++++++++++++++++++++++
 
+var Shop = 0
 var equip = "Equip"
 if(screen = "items" and subscreen_items = "aid") {equip = "Use"}
 if(containering and GSelected != undefined) {
@@ -332,15 +333,20 @@ scr_status_stats_text()
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ REPAIR BUTTON +++++++++++++++++++++++++++++++++++++
 
-if(screen = "items" and (subscreen_items = "weapons" or subscreen_items = "armor")) {
-		
-	var KitColor = c_dkgray
-	if(repair_button) {KitColor = c_yellow}
-	draw_set_halign(fa_center)
-	draw_sprite_ext(spr_inventory_screen,9+repair_button,x+470*image_xscale,y+143*image_yscale,scale,scale,0,c_white,1)
-	draw_text_ext_transformed_color(x+588*scale,y+190.5*scale,clamp(KitCount,0,9),1,400,scale*0.9,scale*0.9,0,KitColor,KitColor,KitColor,KitColor,1)
-	//draw_rectangle(x+567*scale,y+191*scale,x+595*scale,y+211*scale,1)
+if(screen = "items" and (subscreen_items = "weapons" or subscreen_items = "armor") and GSelected != undefined) {
+	var IsMine = (GSelected.creator = id)
+	var Sum = IsMine+Shop+containering-Shop*2
+	var CanRepair = (Sum > 0)
+	
+	if(GSelected.type != "grenade" and CanRepair){	
+		var KitColor = c_dkgray
+		if(repair_button) {KitColor = c_yellow}
+		draw_set_halign(fa_center)
+		draw_sprite_ext(spr_inventory_screen,9+repair_button,x+470*image_xscale,y+143*image_yscale,scale,scale,0,c_white,1)
+		draw_text_ext_transformed_color(x+588*scale,y+190.5*scale,clamp(KitCount,0,9),1,400,scale*0.9,scale*0.9,0,KitColor,KitColor,KitColor,KitColor,1)
+		//draw_rectangle(x+567*scale,y+191*scale,x+595*scale,y+211*scale,1)
 	}
+}
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++ DRAW AID SCREEN ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

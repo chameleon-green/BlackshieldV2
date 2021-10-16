@@ -2,6 +2,8 @@
 
 var Boxing = (shopping or containering)
 var ItemDefined = (global.Selected != undefined)
+var Shop = 0
+if(Boxing) {Shop = (cID.IDarray[10] = "shop")}
 
 if(ItemDefined) { //set Gselected local variables related to accessing boxes and such
 		
@@ -95,6 +97,11 @@ if(sub_button_mats) {
 //----------------------------------------------- REPAIR BUTTON ----------------------------------------
 
 if(repair_button and global.Selected != undefined and KitCount > 0){
+	var IsMine = (GSelected.creator = id)
+	var Sum = IsMine+Shop+containering-Shop*2
+	var CanRepair = (Sum > 0)
+	
+	if(GSelected.type != "grenade" and CanRepair){
 	
 	var rxxx = ds_grid_value_x(grd_inv_aid,0,0,inventory_size,11,obj_vc.rep_kit_1)
 	var rep_amount = ds_grid_get(grd_inv_aid,rxxx,2)
@@ -109,6 +116,7 @@ if(repair_button and global.Selected != undefined and KitCount > 0){
 		
 	ds_grid_set(grd_inv_aid,rxxx,2,rep_amount-1) //remove 1 rep kit
 	audio_play_sound(snd_repair_1,100,0)
+	}
 }
 
 //------------------------------------------ EQUIP STUFF WHEN NOT IN CONTAINER------------------------------------
@@ -174,7 +182,6 @@ if(ItemDefined and !Boxing)	{
 if(ItemDefined and Boxing){
 	
 	var InBox = (Creator != id) //is this item in a box and not our inventory?
-	var Shop = (cID.IDarray[10] = "shop")
 	var ArmorList = ds_list_create()
 	ds_list_add(ArmorList,"pie",obj_player.torso_id,obj_player.head_id,obj_player.armL_id,obj_player.armR_id,obj_player.legL_id,obj_player.legR_id)
 	var ArmorEquipped = ds_list_find_index(ArmorList,GSID)

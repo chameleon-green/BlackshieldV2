@@ -39,10 +39,32 @@ if(IsWeapon){
 	}
 
 if(IsAmmo){
-	name = array[17]
-	type = array[22]
-	stats = array[3]
-	icon = array[16]
+	
+	if(step_toggle = 0){
+		var _Letters = array[4]
+		var Letters2 = "NUL"
+		if(_Letters = "physical") {var Letters2 = "PHYS"}
+		if(_Letters = "thermal") {var Letters2 = "THER"}
+		if(_Letters = "cryo") {var Letters2 = "CRYO"}
+		if(_Letters = "corrosive") {var Letters2 = "CORR"}
+		if(_Letters = "radiation") {var Letters2 = "RADI"}
+		if(_Letters = "electric") {var Letters2 = "ELEC"}
+		if(_Letters = "biohazard") {var Letters2 = "BIHZ"}
+		if(_Letters = "warp") {var Letters2 = "WARP"}
+	
+		name = array[17]
+		type = array[22]
+		icon = array[16]
+	
+		notes = array[3]
+		dmgmod = string(array[13]) + "x " + Letters2
+		penmod = string(array[12]*100) + "%"
+		rofmod = string(array[13]) + "x"
+		velmod = string(array[11]) + "x"
+		mass = array[20]
+		value = 1
+	}
+	
 	var xxxx = ds_grid_value_x(grid,0,0,max_size,4,unique_id)
 	amount = ds_grid_get(grid,xxxx,2)
 	

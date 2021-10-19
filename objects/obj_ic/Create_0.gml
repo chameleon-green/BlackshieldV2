@@ -71,7 +71,7 @@ RarmWarning2 = undefined
 RarmWarning3 = undefined
 EKG = undefined
 
-InvWeightAdder = 0
+InvWeightAdder = array_create(4,0)
 InvWeight = 0
 WeightCount = 0
 WeightTimer = timer_create(30)

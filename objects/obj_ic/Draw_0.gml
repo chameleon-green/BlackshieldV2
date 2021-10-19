@@ -411,8 +411,57 @@ if(shopping or containering) {
 	}
 }
 
-var Weight = string(InvWeight)
-var Capacity = string(obj_player.CarryWeight)
-var String = Weight + "/" + Capacity
 
+//++++++++++++++++++++++++++++++++++++++++++++ WEIGHT BAR AND DISPLAY ++++++++++++++++++++++++++++++++++++
+
+var Weight = InvWeight
+var Capacity = obj_player.CarryWeight
+var String = string(Weight) + "/" + string(Capacity)
+var WindowScale = scale*1.33
+var Wx = 500 var Wy = -35
+
+draw_set_halign(fa_center)
 draw_text_ext_transformed_color(x+570*scale,y+40*scale,String,1,12000,scale*0.75,scale*0.75,0,c_yellow,c_yellow,c_yellow,c_yellow,1)
+
+//------------------------------------------- draw bars and window ------------------------------------------
+if(Weight <= Capacity){
+var ArmorWeight = Weight-InvWeightAdder[0]-InvWeightAdder[2]-InvWeightAdder[3]
+var WpBarScale = (InvWeightAdder[0]/Capacity) //weapons bar scale
+var ArBarScale = (ArmorWeight/Capacity) //armor bar scale
+var AmBarScale = (InvWeightAdder[2]/Capacity) //ammo bar scale
+var AiBarScale = (InvWeightAdder[3]/Capacity) //aid bar scale
+}
+
+if(Weight > Capacity){
+var ArmorWeight = Weight-InvWeightAdder[0]-InvWeightAdder[2]-InvWeightAdder[3]
+var WpBarScale = (InvWeightAdder[0]/Weight) //weapons bar scale
+var ArBarScale = (ArmorWeight/Weight) //armor bar scale
+var AmBarScale = (InvWeightAdder[2]/Weight)
+var AiBarScale = (InvWeightAdder[3]/Weight)
+}
+
+draw_sprite_ext(spr_inventory_wep_stats,6,x+Wx*scale,y+Wy*scale,WindowScale,WindowScale,0,c_white,1)
+
+var BarX = x+(Wx-191)*WindowScale
+var ArX = BarX+(134*WpBarScale)*WindowScale //armor bar x offset
+var AmX = BarX+(134*WpBarScale+134*ArBarScale)*WindowScale //ammo bar x offset
+var AiX = BarX+(134*WpBarScale+134*ArBarScale+134*AmBarScale)*WindowScale //aid bar x offset
+var WpCol = c_yellow var ArCol = c_red 
+var AmCol = c_lime var AiCol = c_aqua
+
+draw_sprite_ext(spr_bars,7,BarX,y+((Wy-3.5)*WindowScale),WpBarScale*WindowScale,WindowScale,0,WpCol,1)
+draw_sprite_ext(spr_bars,7,ArX,y+((Wy-3.5)*WindowScale),ArBarScale*WindowScale,WindowScale,0,ArCol,1)
+draw_sprite_ext(spr_bars,7,AmX,y+((Wy-3.5)*WindowScale),AmBarScale*WindowScale,WindowScale,0,AmCol,1)
+draw_sprite_ext(spr_bars,7,AiX,y+((Wy-3.5)*WindowScale),AiBarScale*WindowScale,WindowScale,0,AiCol,1)
+
+
+var WpT = string(InvWeightAdder[0])+" ("+string(round(WpBarScale*100))+"%"+")"
+var ArT = string(ArmorWeight)+" ("+string(round(ArBarScale*100))+"%"+")"
+var AmT = string(InvWeightAdder[2])+" ("+string(round(AmBarScale*100))+"%"+")"
+var AiT = string(InvWeightAdder[3])+" ("+string(round(AiBarScale*100))+"%"+")"
+
+draw_text_ext_transformed_color(x+375*WindowScale,y-52*WindowScale,"Weight Breakdown",1,12000,WindowScale*0.5,WindowScale*0.5,0,c_yellow,c_yellow,c_yellow,c_yellow,1)
+draw_text_ext_transformed_color(x+338*WindowScale,y-25*WindowScale,"Arms: "+WpT,1,12000,WindowScale*0.4,WindowScale*0.45,0,WpCol,WpCol,WpCol,WpCol,1)
+draw_text_ext_transformed_color(x+413*WindowScale,y-25*WindowScale,"Armor: "+ArT,1,12000,WindowScale*0.4,WindowScale*0.45,0,ArCol,ArCol,ArCol,ArCol,1)
+draw_text_ext_transformed_color(x+338*WindowScale,y-13*WindowScale,"Ammo: "+AmT,1,12000,WindowScale*0.4,WindowScale*0.45,0,AmCol,AmCol,AmCol,AmCol,1)
+draw_text_ext_transformed_color(x+413*WindowScale,y-13*WindowScale,"Aid: "+AiT,1,12000,WindowScale*0.4,WindowScale*0.45,0,AiCol,AiCol,AiCol,AiCol,1)

@@ -1,10 +1,10 @@
-if(active = 1)
-{
-visible = 1
-var vx = camera_get_view_x(view_camera[0]);
-var vy = camera_get_view_y(view_camera[0]);
-x = vx + (285 + 150*obj_player.powered)*obj_vc.view_multiplier
-y = vy + 125*obj_vc.view_multiplier
+if(active = 1){
+	if(is_array(obj_player.armor_torso_item)) {var powered = obj_player.armor_torso_item[11] = "power"} else{var powered = 0}
+	visible = 1
+	var vx = camera_get_view_x(view_camera[0]);
+	var vy = camera_get_view_y(view_camera[0]);
+	x = vx + (285 + 150*powered)*obj_vc.view_multiplier
+	y = vy + 125*obj_vc.view_multiplier
 }
 
 else{visible = 0 x = 0 y = 0}
@@ -37,41 +37,38 @@ draw_sprite_ext(spr_bars,2,x-75*scale,y-14*scale,scale*WillLength,scale,0,c_whit
 
 //++++++++++++++++++++++++++++++++++++++++ DRAW REACTOR GAGUE+++++++++++++++++++++++++++++++++++++++++++++++
 
-if(obj_player.powered = 1)
-{
+if(is_array(obj_player.armor_torso_item)){
+	if(obj_player.armor_torso_item[11] = "power") {
 
-var rot = clamp(-(obj_player.armor_heat/obj_player.armor_maxheat)*180,0-180,0)
+	var rot = clamp(-(obj_player.armor_heat/obj_player.armor_maxheat)*180,0-180,0)
 
-draw_sprite_ext(spr_health_icon,1,x-232*scale,y,scale,scale,0,c_white,1) //undergage
-draw_sprite_ext(spr_health_icon,3,x-237.75*scale,y-12*scale,scale,scale,rot,c_white,1) //needle
-draw_sprite_ext(spr_health_icon,2,x-232*scale,y,scale,scale,0,c_white,1) //overgage
-draw_set_color(c_black)
+	draw_sprite_ext(spr_health_icon,1,x-232*scale,y,scale,scale,0,c_white,1) //undergage
+	draw_sprite_ext(spr_health_icon,3,x-237.75*scale,y-12*scale,scale,scale,rot,c_white,1) //needle
+	draw_sprite_ext(spr_health_icon,2,x-232*scale,y,scale,scale,0,c_white,1) //overgage
+	draw_set_color(c_black)
 
-if(obj_player.reactor_output >= 100) 
-{
-var Hundreds = string_char_at(obj_player.reactor_output, 1)
-var Tens = string_char_at(obj_player.reactor_output, 2)
-var Ones = string_char_at(obj_player.reactor_output, 3)
-draw_text_ext_transformed(x-225*scale,y-23*scale,Hundreds,30*scale,250*scale,scale,scale,0) //output level
-draw_text_ext_transformed(x-211*scale,y-23*scale,Tens,30*scale,250*scale,scale,scale,0) //output level
-draw_text_ext_transformed(x-197*scale,y-23*scale,Ones,30*scale,250*scale,scale,scale,0) //output level
-}
-if(obj_player.reactor_output <= 99 and obj_player.reactor_output >= 10) 
-{
-var Tens = string_char_at(obj_player.reactor_output, 1)
-var Ones = string_char_at(obj_player.reactor_output, 2)
-draw_text_ext_transformed(x-225*scale,y-23*scale,0,30*scale,250*scale,scale,scale,0) //output level
-draw_text_ext_transformed(x-211*scale,y-23*scale,Tens,30*scale,250*scale,scale,scale,0) //output level
-draw_text_ext_transformed(x-197*scale,y-23*scale,Ones,30*scale,250*scale,scale,scale,0) //output level
-}
-if(obj_player.reactor_output < 10)
-{
-var Ones = string_char_at(obj_player.reactor_output, 1)
-draw_text_ext_transformed(x-225*scale,y-23*scale,0,30*scale,250*scale,scale,scale,0) //output level
-draw_text_ext_transformed(x-211*scale,y-23*scale,0,30*scale,250*scale,scale,scale,0) //output level
-draw_text_ext_transformed(x-197*scale,y-23*scale,Ones,30*scale,250*scale,scale,scale,0) //output level
-}
-
+		if(obj_player.reactor_output >= 100) {
+		var Hundreds = string_char_at(obj_player.reactor_output, 1)
+		var Tens = string_char_at(obj_player.reactor_output, 2)
+		var Ones = string_char_at(obj_player.reactor_output, 3)
+		draw_text_ext_transformed(x-225*scale,y-23*scale,Hundreds,30*scale,250*scale,scale,scale,0) //output level
+		draw_text_ext_transformed(x-211*scale,y-23*scale,Tens,30*scale,250*scale,scale,scale,0) //output level
+		draw_text_ext_transformed(x-197*scale,y-23*scale,Ones,30*scale,250*scale,scale,scale,0) //output level
+		}
+		if(obj_player.reactor_output <= 99 and obj_player.reactor_output >= 10) {
+		var Tens = string_char_at(obj_player.reactor_output, 1)
+		var Ones = string_char_at(obj_player.reactor_output, 2)
+		draw_text_ext_transformed(x-225*scale,y-23*scale,0,30*scale,250*scale,scale,scale,0) //output level
+		draw_text_ext_transformed(x-211*scale,y-23*scale,Tens,30*scale,250*scale,scale,scale,0) //output level
+		draw_text_ext_transformed(x-197*scale,y-23*scale,Ones,30*scale,250*scale,scale,scale,0) //output level
+		}
+		if(obj_player.reactor_output < 10) {
+		var Ones = string_char_at(obj_player.reactor_output, 1)
+		draw_text_ext_transformed(x-225*scale,y-23*scale,0,30*scale,250*scale,scale,scale,0) //output level
+		draw_text_ext_transformed(x-211*scale,y-23*scale,0,30*scale,250*scale,scale,scale,0) //output level
+		draw_text_ext_transformed(x-197*scale,y-23*scale,Ones,30*scale,250*scale,scale,scale,0) //output level
+		}
+	}
 }
 
 //++++++++++++++++++++++++++++++++++++++ COOLDOWNS ++++++++++++++++++++++++++++++++++++
@@ -139,14 +136,12 @@ draw_sprite_ext(spr_status_body,29,xx+17*scale,yy+41*scale,scale,scale,0,obj_ic.
 draw_sprite_ext(spr_status_body,30,xx+17*scale,yy+41*scale,scale,scale,0,obj_ic.CRLeg,255) //draw right leg
 
 
-if(blink and overheat)
-{
+if(blink and overheat){
 draw_sprite_ext(spr_blink,0,x-267*scale,y-39.5*scale,scale,scale,0,c_white,255)
 }
 
 override = obj_player.armor_override
-if(override)
-{
+if(override){
 draw_sprite_ext(spr_blink,0,x-244*scale,y+37*scale,scale,scale,0,c_white,255)
 }
 

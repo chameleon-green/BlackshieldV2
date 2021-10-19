@@ -5,10 +5,9 @@ function scr_armor_durability_heat() {
 		var ArmorID_X = ds_grid_value_x(obj_ic.grd_inv_armor,0,0,obj_ic.inventory_size,14,head_id)
 		var Durability_Item = ds_grid_get(obj_ic.grd_inv_armor,ArmorID_X,8)
 		var Durability_Max = armor_head_item[14]
-	
 		var Head_Heat = armor_head_item[18]
 		var Head_Dissipation = armor_head_item[19]
-	
+		
 		ar_body_head = Durability_Item/Durability_Max
 		}
 	else{
@@ -32,7 +31,7 @@ function scr_armor_durability_heat() {
 	
 		ar_body_torso = Durability_Item/Durability_Max
 	
-		if(armor_torso_item[11] = "power") {powered = 1}
+		if(armor_torso_item[11] = "power" and reactor_output > 0) {powered = 1} else{powered = 0}
 	
 		if(ar_body_torso < 0.25 and ar_body_torso > 0) {reactor_output = 50}
 		if(ar_body_torso = 0 or ar_body_torso < 0) {reactor_output = 0}
@@ -111,7 +110,7 @@ function scr_armor_durability_heat() {
 	
 		var LegL_Heat = armor_legL_item[18]
 		var LegL_Dissipation = armor_legL_item[19]
-	
+
 		ar_body_lleg = Durability_Item/Durability_Max
 		}
 	else{ //If no torso armor is equipped, remove armor sprites, set heat generation and reactor power to 0

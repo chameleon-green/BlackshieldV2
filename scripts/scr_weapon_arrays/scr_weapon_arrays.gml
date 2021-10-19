@@ -68,7 +68,7 @@ function scr_weapon_arrays() {
 	bolter_phobos[10] = ammo_bolt_standard //default ammo type, for to brand new weapon
 	bolter_phobos[9] = -125 //Y offset for crosshair, used for low/high slung weapons
 	bolter_phobos[8] = 40//40 //dmg
-	bolter_phobos[7] = 7 //ROF
+	bolter_phobos[7] = 9 //ROF
 	bolter_phobos[6] = 20 //magazine size
 	bolter_phobos[5] = 1.2 //spread 1.4
 	bolter_phobos[4] = 55 //range
@@ -122,7 +122,7 @@ function scr_weapon_arrays() {
 	bolter_heavy_voss[10] = ammo_bolt_heavy_standard //default ammo type, for to brand new weapon 
 	bolter_heavy_voss[9] = -90 //Y offset for crosshair, used for low/high slung weapons
 	bolter_heavy_voss[8] = 65 //DMG
-	bolter_heavy_voss[7] = 8 //ROF 8
+	bolter_heavy_voss[7] = 7 //ROF 8
 	bolter_heavy_voss[6] = 40 //magazine size 40
 	bolter_heavy_voss[5] = 1.4 //spread
 	bolter_heavy_voss[4] = 75 //range

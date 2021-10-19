@@ -410,3 +410,9 @@ if(shopping or containering) {
 		draw_text_ext_transformed_color(x+350*scale,y+76*scale,Text,1,12000,scale*0.75,scale*0.75,0,c_yellow,c_yellow,c_yellow,c_yellow,1)
 	}
 }
+
+var Weight = string(InvWeight)
+var Capacity = string(obj_player.CarryWeight)
+var String = Weight + "/" + Capacity
+
+draw_text_ext_transformed_color(x+570*scale,y+40*scale,String,1,12000,scale*0.75,scale*0.75,0,c_yellow,c_yellow,c_yellow,c_yellow,1)

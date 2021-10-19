@@ -22,7 +22,7 @@ function scr_stats_monitor() {
 	LCK = baseLCK + modLCK
 
 
-	CarryWeight = STR*3.5 //350 max carryweight
+	CarryWeight = STR*4 + END*0.5 + WIL*0.25 //475 max carryweight
 	MaxWill = WIL*2 //200 max will
 	baseMaxHP = clamp( round( (baseEND*7) + (baseLCK/4) + (baseWIL/2) ), 1, 100000)//775 max HP needed to calculate limb health
 	MaxHP = clamp( round( (END*7) + (LCK/4) + (WIL/2) ), 1, 100000)//775 max HP
@@ -65,7 +65,7 @@ function scr_stats_monitor() {
 	var legR_Mod = BaseSpeed*0.2*legR_Power_Armored*!powered //subtract an additional 20% of speed if one leg is armored but no power
 	var AdjustedSpeed = (BaseSpeed - legL_Mod - legR_Mod) * reactor_power //adjust final speed with reactor modifier
 
-	MoveSpeed = clamp(AdjustedSpeed,0,38) / (LegsCrippled + 1) //clamp movespeed to min and max
+	var WeightlessMoveSpeed = clamp(AdjustedSpeed,0,38) / (LegsCrippled + 1) //clamp movespeed to min and max
 
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++ HP STUFF +++++++++++++++++++++++++++++++++++++++++++
 	hp_body_head_max = baseMaxHP*0.11
@@ -90,6 +90,19 @@ function scr_stats_monitor() {
 
 	baseBleed = END*3 + ceil(LCK/3)
 	basePoison = END*3 + ceil(LCK/3)
+	
+	//++++++++++++++++++++++++++++++++++++++++++++++ CARRY WEIGHT STUFF +++++++++++++++++++++++++++++++++++++++
+	if(instance_exists(obj_ic)){
+		var Weight = obj_ic.InvWeight
+		var Capacity = CarryWeight
+		var Ratio = (Weight/Capacity)*100
+		var ExponentDenom = power(2,(Ratio/30))
+		var Modifier = 1-(1/ExponentDenom)
+		var FinalMod = 1-(Modifier/2)
+		
+		MoveSpeed = WeightlessMoveSpeed*FinalMod
+		if(Weight > Capacity) {cansprint = 0} else{cansprint = 1}
+	}
 
 
 

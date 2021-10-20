@@ -75,6 +75,7 @@ InvWeightAdder = array_create(4,0)
 InvWeight = 0
 WeightCount = 0
 WeightTimer = timer_create(30)
+SpeedPenalty = 0
 
 KitCount = 0
 

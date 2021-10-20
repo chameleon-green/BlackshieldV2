@@ -99,6 +99,7 @@ function scr_stats_monitor() {
 		var ExponentDenom = power(2,(Ratio/30))
 		var Modifier = 1-(1/ExponentDenom)
 		var FinalMod = 1-(Modifier/2)
+		obj_ic.SpeedPenalty = string(100*(Modifier/2)) + "%"
 		
 		MoveSpeed = WeightlessMoveSpeed*FinalMod
 		if(Weight > Capacity) {cansprint = 0} else{cansprint = 1}

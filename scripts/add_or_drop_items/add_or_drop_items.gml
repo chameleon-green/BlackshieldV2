@@ -127,6 +127,21 @@ function scr_remove_item(unique_id,grid,inventory_size,instance = undefined){
 
 if(instance != undefined) {instance_destroy(instance)}
 
+var xxx = ds_grid_value_x(grid,0,0,inventory_size,12,unique_id)
+var item = ds_grid_get(grid,xxx,0)
+var type = item[22]
+
+
+if(type = "grenade" and unique_id = obj_player.grenade_id){
+	obj_player.grenade_id = 0
+	obj_player.wpn_grenade = 0
+}
+
+
+if(item = obj_player.ammo_type) {global.mags = 0}
+
+
+
 var i = 0 //incrementor
 var size_y = ds_grid_height(grid)-1 //gets max size of ds_grid width
 var id_exists = ds_grid_value_exists(grid,0,0,inventory_size-1,size_y,unique_id) //does the ID even exist in our grid?

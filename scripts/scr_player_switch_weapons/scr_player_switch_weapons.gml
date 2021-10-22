@@ -21,13 +21,11 @@ function scr_player_switch_weapons() {
 	skeleton_animation_clear(8)
 
 	//logs ammo in magazine to inventory ds_grid as well as last ammo type used
-	if(wpn_ranged = obj_vc.wpn_primary and primary_id != 0)
-		{
+	if(wpn_ranged = obj_vc.wpn_primary and primary_id != 0){
 			ds_grid_set(obj_ic.inventory, ds_grid_value_x(obj_ic.inventory,0,0,obj_ic.inventory_size,9,primary_id), 6, global.ammo)
 			ds_grid_set(obj_ic.inventory, ds_grid_value_x(obj_ic.inventory,0,0,obj_ic.inventory_size,9,primary_id), 7, ammo_type_primary)
 		}
-	if(wpn_ranged = obj_vc.wpn_sidearm and secondary_id !=0)
-		{
+	if(wpn_ranged = obj_vc.wpn_sidearm and secondary_id !=0){
 			ds_grid_set(obj_ic.inventory, ds_grid_value_x(obj_ic.inventory,0,0,obj_ic.inventory_size,9,secondary_id), 6, global.ammo)
 			ds_grid_set(obj_ic.inventory, ds_grid_value_x(obj_ic.inventory,0,0,obj_ic.inventory_size,9,secondary_id), 7, ammo_type_secondary)
 		}

@@ -1,10 +1,7 @@
 //reset collision check for mouse (crosshair)
 
-
 global.GUI = active
 col = active
-
-
 
 //makes inventory visible and sets location on screen
 var ShopOffset = (shopping or containering)
@@ -42,8 +39,6 @@ scale = (1.5-(0.1*ShopOffset))*obj_vc.view_multiplier //1.5
 image_xscale = scale
 image_yscale = scale
 draw_self()
-
-
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ BUTTONS DEFINED ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

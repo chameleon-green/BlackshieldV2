@@ -307,9 +307,9 @@ if((drop_button_items or drop_button_armor or drop_button_armor or drop_button_a
 		obj_player.primary_id = GSID or
 		obj_player.secondary_id = GSID or
 		obj_player.melee_id = GSID or
-		obj_player.grenade_id = GSID or
-		obj_player.ammo_type_secondary = Item or
-		obj_player.ammo_type_primary = Item or
+		//obj_player.grenade_id = GSID or
+		//obj_player.ammo_type_secondary = Item or
+		//obj_player.ammo_type_primary = Item or
 		obj_player.head_id = GSID or
 		obj_player.torso_id = GSID or
 		obj_player.armL_id = GSID or

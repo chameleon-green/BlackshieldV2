@@ -51,7 +51,6 @@ if(global.Selected != undefined) {
 					scr_add_item(Item,Quantity,1,CGrid,inv_sze)	
 					if(Quantity = GSelected.amount) {scr_remove_item(GSID,Grid,inv_sze)}
 					else{ds_grid_set(Grid,gx,2,GSelected.amount-Quantity)}
-					if(Item = obj_player.ammo_type) {global.mags -= Quantity}
 					global.Selected = undefined 
 					cID.refresh = 1 creator.refresh = 1	
 					if(shop) {variable_instance_set(obj_player,ShopCurrency,Cash+ItemCost) audio_play_sound(snd_kaching,1,0)}

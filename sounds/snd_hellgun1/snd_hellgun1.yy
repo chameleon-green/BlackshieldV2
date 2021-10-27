@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_hellgun1",
-  "duration": 0.523458,
+  "duration": 0.518458,
   "parent": {
     "name": "Laser Weapons",
     "path": "folders/Sounds/Laser Weapons.yy",

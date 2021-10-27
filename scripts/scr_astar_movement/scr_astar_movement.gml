@@ -45,7 +45,7 @@ StartNodeTimer += 1
 NewPathTimer += 1
 NewPath = 0
 if(fleeing and flee_path_toggle) {TargetNodeTimer = 51 NewPath = 1 flee_path_toggle = 0}  //instant new path when we are fleeing
-if(!fleeing) {target = obj_player} else{target = obj_exfil}
+if(!fleeing) {target = obj_player} else{target = instance_nearest(x,y,obj_exfil)}
 
 //this is the vertical center of the object. allows us to use objects with origins in other places.
 var _height = abs(bbox_top-bbox_bottom)
@@ -228,7 +228,7 @@ if(!dead and Move and NodeNext != 0)
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++ COLLISIONS FOR STOPPING STACKING ++++++++++++++++++++++
 
-if(hspeed != 0 and !dead) {
+if(hspeed != 0 and !dead and !fleeing) {
 	var npc = collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_enemy,false,true)
 
 	if(npc) {

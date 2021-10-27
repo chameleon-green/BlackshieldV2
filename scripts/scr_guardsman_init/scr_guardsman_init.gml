@@ -1,4 +1,4 @@
-function scr_scion_init() {
+function scr_guardsman_init() {
 
 //++++++++++++++++++++++++++++++++++++++++++++ UNIVERSAL TRAITS +++++++++++++++++++++++++++++++++++++
 
@@ -7,11 +7,11 @@ function scr_scion_init() {
 	depth = -12
 	mask_index = spr_hitbox_human_small
 	
-	Type = "ig_stormtrooper" //what is this?
+	Type = "ig_trooper" //what is this?
 	AI_Type = "humanoid" //broad category of AI type (humanoid, beast, turret, vehicle)
 	Disposition = "hostile" //shoot on sight? animal?
 	Tactics = choose("ranged2","ranged2") //shooty or choppy
-	max_morale = irandom_range(18,21) //-1 = fearless
+	max_morale = irandom_range(5,8) //-1 = fearless
 	morale = max_morale
 	IFF = "hostile_imperial"
 
@@ -41,7 +41,6 @@ function scr_scion_init() {
 	anim_backwalk = "backwalk_rifle"
 	anim_die = choose("die_1","die_2")
 
-	if (!collision_line(x,y,x,y+500,obj_platform,0,1)) {state = "dropping" canmove = 0}
 
 	grav = 1.5//1.5 //essential to pathing and gravity
 	vsp = 0 ///essential to pathing and gravity
@@ -103,11 +102,11 @@ function scr_scion_init() {
 //+++++++++++++++++++++++++++++++++++++++++++++ RESISTANCES +++++++++++++++++++++++++++++++++++++++
 	HPBarTimer = 0 //timer for hp bar fade effect
 	
-	ReductionMod = 2 //resistance multiplier for hurting projectiles. helps with over penetration killing whole rows of weak enemies
 	
-	HeadHp = 20
-	TorsoHp = 40
-	LegsHp = 40
+	
+	HeadHp = 12
+	TorsoHp = 25
+	LegsHp = 25
 	
 	var HeadMax = HeadHp
 	var TorsoMax = TorsoHp
@@ -116,13 +115,13 @@ function scr_scion_init() {
 	MaxHP = HeadMax + TorsoMax + LegsMax
 	hp = TorsoHp + HeadHp + LegsHp
 
-	HeadDurabilityMax = 200
+	HeadDurabilityMax = 175
 	HeadDurability = HeadDurabilityMax
 
-	TorsoDurabilityMax = 600
+	TorsoDurabilityMax = 500
 	TorsoDurability = TorsoDurabilityMax
 
-	LegsDurabilityMax = 400
+	LegsDurabilityMax = 250
 	LegsDurability = LegsDurabilityMax
 
 //++++++++++++++++++++++++++++++++++++++++++++++ LOOT ITEMS ++++++++++++++++++++++++++++++++++++++++++
@@ -130,25 +129,25 @@ function scr_scion_init() {
 	Loot_Table = ds_grid_create(10,2) //x = how many items, y = 1 for amounts
 		ds_grid_add(Loot_Table,0,0,"ITEM")
 		ds_grid_add(Loot_Table,0,1,"AMOUNT")
-	XPValue = 5
+	XPValue = 2
 	XPToggle = 1
 
 //++++++++++++++++++++++++++++++++++++++++++++++ GEAR ITEMS ++++++++++++++++++++++++++++++++++++++++++++
 
-wpn_ranged = choose("volleygun","hotshot","hotshot")//,"hotshot","thumper","plasma","melta","volley","volley")
+wpn_ranged = choose("lasgun")//,"hotshot","thumper","plasma","melta","volley","volley")
 	wpn_melee  = "knife"
 	wpn_grenade = "frag"
 	Crouch = 0
 
-	if(wpn_ranged = "hotshot") // HOTSHOT hellgun
+	if(wpn_ranged = "lasgun") // HOTSHOT hellgun
 	{
-		ranged_damage = 30 //30
+		ranged_damage = 17 //30
 		ranged_damage_type = "thermal"
 		fuse = 0
 		max_range = 1750 * random_range(1,1.5)
-		rof = 7
+		rof = 6
 		velocity = 150
-		penetration = 0.5
+		penetration = 0.1
 		round_grav = 0
 		explosion_type = -1
 		spread = 1.25
@@ -159,100 +158,15 @@ wpn_ranged = choose("volleygun","hotshot","hotshot")//,"hotshot","thumper","plas
 		magazine = "infinite"
 	
 		//anim_reload = ""
-		anim_firing = "fire_rifle"
-		anim_idle = "idle_hotshot"
+		anim_firing = "fire_rifle2"
+		anim_idle = "idle_lasgun"
 		anim_reload = "none"
-		attachment_gun = "hotshot"
+		attachment_gun = "lasgun_kantrael"
 	
 		skeleton_attachment_set("gun",attachment_gun)
 	
-		base_burst_size = 3
-		base_cooldown_length = 50
-	
-		sound[5] = snd_lasgun1
-		sound[4] = snd_lasgun2
-		sound[3] = snd_lasgun3
-		sound[2] = undefined
-		sound[1] = undefined
-		sound[0] = undefined
-	
-		flash[3] = "flash_red1"
-		flash[2] = "flash_red2"
-		flash[1] = "flash_red3"
-		flash[0] = "flash_red4"
-	}
-
-	if(wpn_ranged = "volleygun") //HOTSHOT VOLLEYGUN
-	{
-		ranged_damage = 28 //28
-		ranged_damage_type = "thermal"
-		fuse = 0
-		max_range = 2500 * random_range(1,1.3)
-		rof = 4
-		velocity = 150
-		penetration = 0.5
-		round_grav = 0
-		explosion_type = -1
-		spread = 1.25
-	
-		projectile_type = "beam"
-		projectile_skin = 8
-	
-		magazine = "infinite"
-	
-		//anim_reload = ""
-		anim_firing = "fire_rifle"
-		anim_idle = "idle_volleygun"
-		anim_reload = "none"
-		attachment_gun = "volleygun_ryza"
-	
-		skeleton_attachment_set("gun",attachment_gun)
-	
-		base_burst_size = 12
-		base_cooldown_length = 75
-	
-		sound[5] = snd_lasgun1
-		sound[4] = snd_lasgun2
-		sound[3] = snd_lasgun3
-		sound[2] = undefined
-		sound[1] = undefined
-		sound[0] = undefined
-	
-		flash[3] = "flash_red1"
-		flash[2] = "flash_red2"
-		flash[1] = "flash_red3"
-		flash[0] = "flash_red4"
-	}
-
-	if(wpn_ranged = "thumper") //NOOBTOOB
-	{
-		scr_explosion_init()
-		ranged_damage = 50
-		ranged_damage_type = "physical"
-		fuse = 0.9
-		max_range = 2200 * random_range(1,1.3)
-		rof = 50
-		velocity = 40
-		penetration = 0
-		round_grav = 0.15
-		explosion_type = exp_bolt_small_frag10
-		spread = 1
-	
-		projectile_type = "grenade"
-		projectile_skin = 9
-	
-		magazine = 6
-	
-		//anim_reload = ""
-		anim_firing = "fire_thumper_voss"
-		anim_idle = "idle_thumper_voss"
-		anim_reload = "none"
-		attachment_gun = "thumper_voss"
-	
-		skeleton_attachment_set("gun",attachment_gun)
-	
-		base_burst_size = 1
-		base_cooldown_length = 100
+		base_burst_size = 4
+		base_cooldown_length = 60
 	
 		sound[5] = snd_hellgun1
 		sound[4] = snd_hellgun2
@@ -261,22 +175,64 @@ wpn_ranged = choose("volleygun","hotshot","hotshot")//,"hotshot","thumper","plas
 		sound[1] = undefined
 		sound[0] = undefined
 	
-		flash[3] = -1
-		flash[2] = -1
-		flash[1] = -1
-		flash[0] = -1
+		flash[3] = "flash_red1"
+		flash[2] = "flash_red2"
+		flash[1] = "flash_red3"
+		flash[0] = "flash_red4"
 	}
-
+	
 	burst_size = base_burst_size
 	cooldown_length = base_cooldown_length
+	
+//+++++++++++++++++++++++++++++++++++++++++++++++ OUTFIT +++++++++++++++++++++++++++++++++++++++++++++
+
+
+outfit[0][0] = "head"
+outfit[1][0] = "torso"
+outfit[2][0] = "front bicep"
+outfit[3][0] = "rear bicep"
+outfit[4][0] = "front forearm"
+outfit[5][0] = "rear forearm"
+outfit[6][0] = "pelvis"
+outfit[7][0] = "front thigh"
+outfit[8][0] = "rear thigh"
+outfit[9][0] = "front calf"
+outfit[10][0] = "rear calf"
+outfit[11][0] = "front foot"
+outfit[12][0] = "rear foot"
+outfit[13][0] = "backpack"
+outfit[14][0] = "front hand"
+outfit[15][0] = "holding hand"
+
+outfit[0][1] = "head_flak"
+outfit[1][1] = "torso_flak"
+outfit[2][1] = "front bicep_flak"
+outfit[3][1] = "rear bicep_flak"
+outfit[4][1] = "forearm_flak"
+outfit[5][1] = "forearm_flak"
+outfit[6][1] = "pelvis_flak"
+outfit[7][1] = "front thigh_flak"
+outfit[8][1] = "rear thigh_flak"
+outfit[9][1] = "calf_flak"
+outfit[10][1] = "calf_flak"
+outfit[11][1] = "front foot_flak"
+outfit[12][1] = "rear foot_flak"
+outfit[13][1] = -1
+outfit[14][1] = "front hand_flak"
+outfit[15][1] = "holding hand_flak"
+
+
+for(var i = 0; i < array_length(outfit); i++){
+	skeleton_attachment_set(outfit[i][0],outfit[i][1])
+}
 
 //+++++++++++++++++++++++++++++++++++++++++++++ RELEVANT SCRIPTS ++++++++++++++++++++++++++++++++++++++++
 	
-	StepScript = scr_scion_step
-	AnimUpdateScript = scr_scion_animation_update
-	AnimEventScript = scr_scion_event
+	StepScript = scr_guardsman_step
+	AnimUpdateScript = scr_guardsman_animation_update
+	AnimEventScript = scr_guardsman_event
 	DestroyScript = scr_infantry_generic_destroy
-	DrawScript = scr_scion_draw
-	BeginStepScript = scr_scion_begin_step
+	DrawScript = scr_guardsman_draw
+	BeginStepScript = scr_guardsman_begin_step
 
 }

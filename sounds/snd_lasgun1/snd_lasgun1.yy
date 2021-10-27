@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_lasgun1.mp3",
-  "duration": 0.797,
+  "duration": 0.792,
   "parent": {
     "name": "Laser Weapons",
     "path": "folders/Sounds/Laser Weapons.yy",

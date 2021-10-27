@@ -1,4 +1,4 @@
-function scr_scion_step() {
+function scr_guardsman_step() {
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DEATH AND TAXES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 dead = (state = "dying" or state = "dead")
@@ -90,33 +90,6 @@ if(instance_exists(target) and !dead)
 	if(!sprinting and !walking and state != "dying" and state != "dead") {skeleton_animation_clear(2) canshoot = 1}
 	if(!sprinting) {canshoot = 1}
 
-
-
-	if(state = "dropping") 
-	{
-	canshoot = 0
-	canmove = 0
-	if(skeleton_animation_get() != "grav_dive")
-		{skeleton_animation_set("grav_dive")}
-	
-	if(collision_line(x,y,x,y+1750+vsp,obj_platform,0,1))
-		{ 
-		state = "flipping"
-		if(skeleton_animation_get() != "grav_burn")
-		{skeleton_animation_set("grav_burn") }
-		canshoot = 0
-		canmove = 0
-		//image_angle = -15 * image_xscale
-		}
-	}
-
-	if(state = "floating" and v_terminal > 6)
-	{
-		v_terminal -= 0.75
-		vsp -= 0.75
-	}
-
-
 	
 	if(firing and !dead)
 	{
@@ -182,7 +155,7 @@ if(instance_exists(target) and !dead)
 		
 			var rand = choose(5,4,3)
 			audio_falloff_set_model(audio_falloff_linear_distance)
-			var fuck = audio_play_sound_at(snd_lasgun1,x,y,0,20,2500,1,0,1)
+			var fuck = audio_play_sound_at(snd_hellgun1,x,y,0,20,2500,1,0,1)
 			}	
 		if(rof_timer > rof) 
 		{
@@ -209,25 +182,14 @@ if(instance_exists(target) and !dead)
 		cooldown_length = base_cooldown_length*random_range(0.3,1.5)
 	}
 
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ GRAVITY +++++++++++++++++++++++++++++++++++++++++++++++++
-
-	if(state = "floating") 
-		{
-		state = "idle" 
-		image_angle = 0 
-		skeleton_animation_clear(all) 
-		canmove = 1
-		skeleton_attachment_set("gravchute", -1)
-		v_terminal = 32
-		}
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++ RESISTANCES +++++++++++++++++++++++++++++++++++++++++++++++++
 
 	hp = TorsoHp + HeadHp + LegsHp
 
 	var Dura_Head = HeadDurability/HeadDurabilityMax
-	HeadPhys = round(15 * Dura_Head) //10
-	HeadTher = round(15 * Dura_Head)
+	HeadPhys = round(7 * Dura_Head) //10
+	HeadTher = round(7 * Dura_Head)
 	HeadCryo = round(5 * Dura_Head)
 	HeadCorr = round(5 * Dura_Head)
 	HeadRadi = round(5 * Dura_Head)
@@ -236,8 +198,8 @@ if(instance_exists(target) and !dead)
 	HeadWarp = round(0 * Dura_Head)
 
 	var Dura_Torso = TorsoDurability/TorsoDurabilityMax
-	TorsoPhys = round(20 * Dura_Torso) //20
-	TorsoTher = round(30 * Dura_Torso)
+	TorsoPhys = round(10 * Dura_Torso) //20
+	TorsoTher = round(15 * Dura_Torso)
 	TorsoCryo = round(10 * Dura_Torso)
 	TorsoCorr = round(5 * Dura_Torso)
 	TorsoRadi = round(5 * Dura_Torso)
@@ -246,8 +208,8 @@ if(instance_exists(target) and !dead)
 	TorsoWarp = round(0 * Dura_Torso)
 
 	var Dura_Legs = LegsDurability/LegsDurabilityMax
-	LegsPhys = round(15 * Dura_Legs) //15
-	LegsTher = round(20 * Dura_Legs)
+	LegsPhys = round(8 * Dura_Legs) //15
+	LegsTher = round(10 * Dura_Legs)
 	LegsCryo = round(5 * Dura_Legs)
 	LegsCorr = round(5 * Dura_Legs)
 	LegsRadi = round(5 * Dura_Legs)
@@ -304,16 +266,18 @@ if(!dead and !invulnerable)
 						
 							if(Damage > resist) //if incoming damage defeats our armor, hurt the limb and play a squishy noise. reduce projectile hp
 								{
+								
+								var Ratio = ((resist+inst.penetration)/Damage)*1.5
+								var reduction = 1-Ratio
+								var moddedhp = clamp(inst.hp*reduction,0,inst.hp)
+								if(moddedhp < inst.hp) {inst.hp = moddedhp} else{inst.hp -= resist*1.5}
+								
 								HeadDurability =  clamp(HeadDurability - Damage,0,99999) //hurt our armor, mkaing sure it doesn't fall below 0
 								HeadHp -= (Damage - resist) 
 							
 								audio_play_sound(choose(snd_impact_metal1,snd_impact_metal2,snd_impact_metal3),1,0)
 								audio_play_sound(choose(snd_impact_flesh1,snd_impact_flesh2,snd_impact_flesh3),1,0)
-								
-								var Ratio = ((resist+inst.penetration)/Damage)*1.5
-								var reduction = 1-Ratio
-								var moddedhp = clamp(inst.hp*reduction,0,inst.hp)
-								if(moddedhp < inst.hp) {inst.hp = moddedhp} else{inst.hp -= resist*1.5}		
+											
 								}
 							if(Damage <= resist) //if our armor defeats the damage, play a clank noise, and delete the projectile
 								{
@@ -355,18 +319,19 @@ if(!dead and !invulnerable)
 							
 							if(Damage > resist) //if incoming damage defeats our armor, hurt the limb and play a squishy noise. reduce projectile hp
 								{
-								TorsoDurability =  clamp(TorsoDurability - Damage,0,99999) //hurt our armor, mkaing sure it doesn't fall below 0
-								TorsoHp -= (Damage - resist) 
-								//hp -= (Damage - resist) 
-							
-								audio_play_sound(choose(snd_impact_metal1,snd_impact_metal2,snd_impact_metal3),1,0)
-								audio_play_sound(choose(snd_impact_flesh1,snd_impact_flesh2,snd_impact_flesh3),1,0)
 								
 								var Ratio = ((resist+inst.penetration)/Damage)*1.5
 								var reduction = 1-Ratio
 								var moddedhp = clamp(inst.hp*reduction,0,inst.hp)
 								if(moddedhp < inst.hp) {inst.hp = moddedhp} else{inst.hp -= resist*1.5}
 								
+								TorsoDurability =  clamp(TorsoDurability - Damage,0,99999) //hurt our armor, mkaing sure it doesn't fall below 0
+								TorsoHp -= (Damage - resist) 
+								//hp -= (Damage - resist) 
+							
+								audio_play_sound(choose(snd_impact_metal1,snd_impact_metal2,snd_impact_metal3),1,0)
+								audio_play_sound(choose(snd_impact_flesh1,snd_impact_flesh2,snd_impact_flesh3),1,0)
+						
 								}
 							if(Damage <= resist) //if our armor defeats the damage, play a clank noise, and delete the projectile
 								{
@@ -409,18 +374,18 @@ if(!dead and !invulnerable)
 							
 							if(Damage > resist) //if incoming damage defeats our armor, hurt the limb and play a squishy noise. reduce projectile hp
 								{
+								
+								var Ratio = ((resist+inst.penetration)/Damage)*1.5
+								var reduction = 1-Ratio
+								var moddedhp = clamp(inst.hp*reduction,0,inst.hp)
+								if(moddedhp < inst.hp) {inst.hp = moddedhp} else{inst.hp -= resist*1.5}
+								
 								LegsDurability =  clamp(LegsDurability - Damage,0,99999) //hurt our armor, mkaing sure it doesn't fall below 0
 								LegsHp -= (Damage - resist) 
 								//hp -= (Damage - resist) 
 							
 								audio_play_sound(choose(snd_impact_metal1,snd_impact_metal2,snd_impact_metal3),1,0)
 								audio_play_sound(choose(snd_impact_flesh1,snd_impact_flesh2,snd_impact_flesh3),1,0)
-								
-								var Ratio = ((resist+inst.penetration)/Damage)*1.5
-								var reduction = 1-Ratio
-								var moddedhp = clamp(inst.hp*reduction,0,inst.hp)
-								if(moddedhp < inst.hp) {inst.hp = moddedhp} else{inst.hp -= resist*1.5}
-							
 								}
 							if(Damage <= resist) //if our armor defeats the damage, play a clank noise, and delete the projectile
 								{
@@ -447,20 +412,4 @@ ds_list_destroy(leg_list)
 
 if(is_real(magazine) and magazine <= 0) {canshoot = 0}
 
-/*
-if(state = "dead") {
-	if(ds_exists(PathList,ds_type_list)) {ds_list_destroy(PathList)}
-	if(ds_exists(closed_list,ds_type_list)) {ds_list_destroy(closed_list)}
-
-	if(ds_exists(col_list,ds_type_list)) {ds_list_destroy(col_list)}
-	if(ds_exists(PerksList,ds_type_list)) {ds_list_destroy(PerksList)}
-	if(ds_exists(Keywords,ds_type_list)) {ds_list_destroy(Keywords)}
-
-	if(ds_exists(Loot_Table,ds_type_grid)) {ds_grid_destroy(Loot_Table)}
-	
-	//if(ds_exists(head_list,ds_type_list)) {ds_list_destroy(head_list)}
-	//if(ds_exists(torso_list,ds_type_list)) {ds_list_destroy(torso_list)}
-	//if(ds_exists(leg_list,ds_type_list)) {ds_list_destroy(leg_list)}
-	}
-*/
 }

@@ -1,7 +1,7 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function scr_scion_destroy()
-{
+function scr_infantry_generic_destroy(){
+	
 	if(ds_exists(PathList,ds_type_list)) {ds_list_destroy(PathList)}
 	if(ds_exists(closed_list,ds_type_list)) {ds_list_destroy(closed_list)}
 

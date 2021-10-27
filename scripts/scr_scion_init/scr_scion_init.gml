@@ -130,6 +130,8 @@ function scr_scion_init() {
 	Loot_Table = ds_grid_create(10,2) //x = how many items, y = 1 for amounts
 		ds_grid_add(Loot_Table,0,0,"ITEM")
 		ds_grid_add(Loot_Table,0,1,"AMOUNT")
+	XPValue = 5
+	XPToggle = 1
 
 //++++++++++++++++++++++++++++++++++++++++++++++ GEAR ITEMS ++++++++++++++++++++++++++++++++++++++++++++
 

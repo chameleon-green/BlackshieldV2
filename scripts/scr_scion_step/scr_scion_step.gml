@@ -20,6 +20,8 @@ skeleton_anim_set_step(anim_die,2)
 // morale reductions when dead
 if(dead and death_morale_toggle = 1){
 
+if(XPToggle) {XPToggle = 0 obj_player.thrones+=XPValue}
+
 death_morale_toggle = 0
 var Drange = 2000 //range that morale affects allies
 var Dlist = ds_list_create() //list of nearby allies

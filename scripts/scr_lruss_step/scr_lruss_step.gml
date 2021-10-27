@@ -13,7 +13,8 @@ if(hp <= 0) {
 	var ix = bone_get_x("flames_interior") var iy = bone_get_y("flames_interior")
 	part_emitter_region(prt_sys,prt_e_engine,ex-off,ex+off,ey-off,ey+off,ps_shape_ellipse,ps_distr_gaussian)
 	part_emitter_region(prt_sys,prt_e_turret,tx-off,tx+off,ty-off,ty+off,ps_shape_ellipse,ps_distr_gaussian)
-	part_emitter_region(prt_sys,prt_e_interior,ix-off,ix+off,iy-off,iy+off,ps_shape_ellipse,ps_distr_gaussian)	
+	part_emitter_region(prt_sys,prt_e_interior,ix-off,ix+off,iy-off,iy+off,ps_shape_ellipse,ps_distr_gaussian)
+	if(XPToggle) {XPToggle = 0 obj_player.thrones+=XPValue}
 }
 
 if(!dead){

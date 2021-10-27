@@ -123,6 +123,7 @@
     {"id":{"name":"snd_plasma_magout","path":"sounds/snd_plasma_magout/snd_plasma_magout.yy",},"order":4,},
     {"id":{"name":"snd_hellgun1","path":"sounds/snd_hellgun1/snd_hellgun1.yy",},"order":0,},
     {"id":{"name":"snd_plasma_grenade","path":"sounds/snd_plasma_grenade/snd_plasma_grenade.yy",},"order":5,},
+    {"id":{"name":"snd_shop_beep","path":"sounds/snd_shop_beep/snd_shop_beep.yy",},"order":36,},
     {"id":{"name":"snd_hellgun2","path":"sounds/snd_hellgun2/snd_hellgun2.yy",},"order":1,},
     {"id":{"name":"snd_hellgun3","path":"sounds/snd_hellgun3/snd_hellgun3.yy",},"order":2,},
     {"id":{"name":"snd_lasgun1","path":"sounds/snd_lasgun1/snd_lasgun1.yy",},"order":3,},

@@ -1,11 +1,16 @@
 depth = -9
 
+var Fuse = clamp(base_damage*fuse + crit*(base_damage*fuse),0,base_damage)
+
 if(hp <= 0) {instance_destroy()}
-if(hp < (base_damage*fuse)) {instance_destroy()}
+if(hp < Fuse) {instance_destroy()}
 
-damage = clamp(hp,0,40000000000)
+if(is_array(ammo)){
+if(!crit) {damage = clamp(hp,0,40000000000)*ammo[13]} else{damage = clamp(hp,0,40000000000)*critmod*ammo[13]}
+}
+else{damage = clamp(hp,0,40000000000)}
 
-//depth = creator.depth+1
+
 visible = 1
 speed = base_speed
 image_angle = direction

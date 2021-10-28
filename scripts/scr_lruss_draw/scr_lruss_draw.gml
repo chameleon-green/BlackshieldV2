@@ -9,8 +9,8 @@ draw_self()
 
 
 //draw_text(x,y-600,depth)
-draw_text(x,y-600,HullPhys)
-draw_text(x,y-650,layer_get_name(layer))
+//draw_text(x,y-600,HullPhys)
+//draw_text(x,y-650,layer_get_name(layer))
 	
 	/*
 	var xL = bbox_left var xR = bbox_right

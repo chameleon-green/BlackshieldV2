@@ -1,4 +1,11 @@
-
+if(active) {
+	if(scrollbar = undefined) {
+	scrollbar = instance_create_depth(x+11,y+70,obj_ic.depth-1,obj_scrollbar) 
+	with(scrollbar){creator = other.id visible = 1}
+	}
+if(scrollbar != undefined) {scrollbar.visible = 1}	
+}
+if(!active and scrollbar != undefined) {instance_destroy(scrollbar) scrollbar = undefined}
 
 if(col) {
 	var Cdist = abs(point_distance(obj_player.x,obj_player.y,x,y))

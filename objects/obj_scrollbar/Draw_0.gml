@@ -1,9 +1,9 @@
 scale = obj_ic.scale
 
-if(obj_ic.subscreen_items = "weapons") {Counter = obj_ic.CountGun}
-if(obj_ic.subscreen_items = "armor") {Counter = obj_ic.CountArmor}
-if(obj_ic.subscreen_items = "ammo") {Counter = obj_ic.CountAmmo}
-if(obj_ic.subscreen_items = "aid") {Counter = obj_ic.CountAid}
+if(obj_ic.subscreen_items = "weapons") {Counter = creator.CountGun}
+if(obj_ic.subscreen_items = "armor") {Counter = creator.CountArmor}
+if(obj_ic.subscreen_items = "ammo") {Counter = creator.CountAmmo}
+if(obj_ic.subscreen_items = "aid") {Counter = creator.CountAid}
 
 DisplacementMod = clamp(Counter/8,1,999999999999999) //how far should the items move relative to the scroll? allows for very long item lists
 BarLength = 280 - ( clamp(Counter-8,0,99999999999999) * (38/DisplacementMod) )  //  40/4, 4 being the multiplier found in obj_inventory_item
@@ -23,7 +23,8 @@ if(y > LimitY2) {y = LimitY2}
 
 //++++++++++++++++++++++++++++++++++++++++++++ SCROLLY STUFF ++++++++++++++++++++++++++++++++++++++++
 
-x = obj_ic.x+11*scale
+if(creator.object_index = obj_container){x = obj_ic.x+936*scale}
+else{x = obj_ic.x+11*scale}
 if(!Dragging and !Scrolling) {y = obj_ic.y + offset*scale} //if we are not dragging, set the bar position (offset by wherever it lies vertically) modified by zoom
 
 

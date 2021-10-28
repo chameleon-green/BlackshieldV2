@@ -1,4 +1,5 @@
 IDarray = variable_instance_get(obj_vc,Type)
+scrollbar = undefined
 
 sprite_index = IDarray[9]
 image_index = IDarray[8]

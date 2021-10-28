@@ -1,7 +1,5 @@
 //reset collision check for mouse (crosshair)
 
-
-
 global.GUI = active
 col = active
 
@@ -177,10 +175,12 @@ if(containering and GSelected != undefined) {
 
 
 //++++++++++++++++++++++++++++++++++++++++++++++ DRAW WEAPONS SCREEN RIGHT SIDE UI +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-if(screen = "items" and subscreen_items = "weapons" and visible) 
+if(screen = "items" and subscreen_items = "weapons" and visible) {
 
-{
-if(scrollbar = undefined) {scrollbar = instance_create_depth(x+11*scale,y+70*scale,depth-1,obj_scrollbar)}
+if(scrollbar = undefined) {
+	scrollbar = instance_create_depth(x+11,y+70,obj_ic.depth-1,obj_scrollbar) 
+	with(scrollbar){creator = other.id visible = 1}
+	}
 if(scrollbar != undefined) {scrollbar.visible = 1}
 
 var frame = 0 var frame2 = 2 var frame3 = 4
@@ -212,11 +212,13 @@ draw_text_transformed_color(x+564*image_xscale,y+226*image_yscale,"Drop",image_x
 
 //++++++++++++++++++++++++++++++++++++++++++++++ DRAW AMMO SCREEN RIGHT SIDE UI +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-if(screen = "items" and subscreen_items = "ammo" and visible) 
-
-{
-if(scrollbar = undefined) {scrollbar = instance_create_depth(x+11*scale,y+70*scale,depth-1,obj_scrollbar)}
-scrollbar.visible = 1
+if(screen = "items" and subscreen_items = "ammo" and visible) {
+	
+if(scrollbar = undefined) {
+	scrollbar = instance_create_depth(x+11,y+70,obj_ic.depth-1,obj_scrollbar) 
+	with(scrollbar){creator = other.id visible = 1}
+	}
+if(scrollbar != undefined) {scrollbar.visible = 1}
 
 var frame = 0
 var frame2 = 2
@@ -247,10 +249,13 @@ draw_text_transformed_color(x+564*image_xscale,y+232*image_yscale,"Drop",image_x
 
 //++++++++++++++++++++++++++++++++++++++++++++++ DRAW ARMOR SCREEN RIGHT SIDE UI ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-if(screen = "items" and subscreen_items = "armor" and visible) 
-{
-if(scrollbar = undefined) {scrollbar = instance_create_depth(x+11*scale,y+70*scale,depth-1,obj_scrollbar)}
-scrollbar.visible = 1
+if(screen = "items" and subscreen_items = "armor" and visible) {
+
+if(scrollbar = undefined) {
+	scrollbar = instance_create_depth(x+11,y+70,obj_ic.depth-1,obj_scrollbar) 
+	with(scrollbar){creator = other.id visible = 1}
+	}
+if(scrollbar != undefined) {scrollbar.visible = 1}
 
 var frame = 0
 var frame2 = 2
@@ -354,11 +359,13 @@ if(screen = "items" and (subscreen_items = "weapons" or subscreen_items = "armor
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++ DRAW AID SCREEN ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-if(screen = "items" and subscreen_items = "aid" and visible) 
+if(screen = "items" and subscreen_items = "aid" and visible) {
 
-{
-if(scrollbar = undefined) {scrollbar = instance_create_depth(x+11*scale,y+70*scale,depth-1,obj_scrollbar)}
-scrollbar.visible = 1
+if(scrollbar = undefined) {
+	scrollbar = instance_create_depth(x+11,y+70,obj_ic.depth-1,obj_scrollbar) 
+	with(scrollbar){creator = other.id visible = 1}
+	}
+if(scrollbar != undefined) {scrollbar.visible = 1}
 
 var frame = 0
 var frame2 = 2
@@ -392,8 +399,11 @@ if(screen = "items" and subscreen_items = "mats" and visible){
 
 draw_sprite_ext(spr_scrollbar,0,x+11*image_xscale,y+70*image_yscale,image_xscale,image_yscale,0,c_white,255)
 
-if(scrollbar = undefined) {scrollbar = instance_create_depth(x+11*scale,y+70*scale,depth-1,obj_scrollbar)}
-scrollbar.visible = 1
+if(scrollbar = undefined) {
+	scrollbar = instance_create_depth(x+11,y+70,obj_ic.depth-1,obj_scrollbar) 
+	with(scrollbar){creator = other.id visible = 1}
+	}
+if(scrollbar != undefined) {scrollbar.visible = 1}
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++ CONTAINERS AND SHOPPING +++++++++++++++++++++++++++++++++++++++++++++
@@ -422,7 +432,8 @@ if(shopping or containering) {
 if(screen = "items" and subscreen_items != "currency") {
 	var Weight = InvWeight
 	var Capacity = obj_player.CarryWeight
-	var String = string(Weight) + "/" + string(Capacity)
+	if(Weight < 1000) {var String = string(round(Weight)) + "/" + string(Capacity)} 
+	else{var String = string_char_at(string(Weight),1) + "." + string_char_at(string(Weight),2) + +"k" + "/" + string(Capacity)}
 	var WindowScale = scale*1.33
 	var Wx = 500 var Wy = -35
 

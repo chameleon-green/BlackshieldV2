@@ -1,1 +1,1 @@
-obj_ic.scrollbar = undefined
+creator.scrollbar = undefined

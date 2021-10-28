@@ -34,7 +34,7 @@ if(morale < max_morale and morale > 0 and !dead)
 	draw_sprite_ext(spr_bars,6,xx,top,length,1,0,c_white,1)
 	}
 	
-	draw_text(x,y-200,canmove)
+
 	//draw_text(x-50,y-200,"right " +string(Right))
 	//draw_text(x,y-200,"up " + string(Up))
 	//draw_text(x+50,y-200,Right)

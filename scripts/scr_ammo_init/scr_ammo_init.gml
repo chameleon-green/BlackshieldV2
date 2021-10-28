@@ -13,7 +13,7 @@ function scr_ammo_init() {
 	ammo_bolt_standard[15] = 0 //casing skin
 	ammo_bolt_standard[14] = 1 //durability cost per shot
 	ammo_bolt_standard[13] = 1.00 //damage mod
-	ammo_bolt_standard[12] = 0.1 //penetration factor, as percent of damage dealt (50 dmg * 0.2 pen = 10 resist ignored)
+	ammo_bolt_standard[12] = 0.01 //penetration factor, as percent of damage dealt (50 dmg * 0.2 pen = 10 resist ignored)
 	ammo_bolt_standard[11] = 1 //Velocity Mod
 	ammo_bolt_standard[10] = 1.00 //ROF mod
 	ammo_bolt_standard[9] = 1.00  //range mod
@@ -24,7 +24,7 @@ function scr_ammo_init() {
 	ammo_bolt_standard[4] = "physical" //damage type
 	ammo_bolt_standard[3] = "Standard bolt rounds. 1x physical damage."
 	ammo_bolt_standard[2] = "none" //contrail
-	ammo_bolt_standard[1] = 0 //fuse sensitivity
+	ammo_bolt_standard[1] = 0.3 //fuse sensitivity
 	ds_list_add(ListComAM,ammo_bolt_standard[27]+".ammo_bolt_standard")
 
 	ammo_bolt_kraken[27] = "175.common"
@@ -37,7 +37,7 @@ function scr_ammo_init() {
 	ammo_bolt_kraken[16] = 1 //icon sprite subimage
 	ammo_bolt_kraken[15] = 1 //casing skin
 	ammo_bolt_kraken[14] = 1 //durability cost per shot
-	ammo_bolt_kraken[13] = 1.25 //damage mod
+	ammo_bolt_kraken[13] = 1.33 //damage mod
 	ammo_bolt_kraken[12] = 0.33 //penetration factor, as percent of damage dealt (50 dmg * 0.2 pen = 10 resist ignored)
 	ammo_bolt_kraken[11] = 1.6 //Velocity Mod
 	ammo_bolt_kraken[10] = 0.8 //ROF mod
@@ -49,7 +49,7 @@ function scr_ammo_init() {
 	ammo_bolt_kraken[4] = "physical" //damage type
 	ammo_bolt_kraken[3] = "Armor-piercing kraken rounds"
 	ammo_bolt_kraken[2] = "none" //contrail
-	ammo_bolt_kraken[1] = 0 //fuse sensitivity
+	ammo_bolt_kraken[1] = 0.2 //fuse sensitivity
 	ds_list_add(ListComAM,ammo_bolt_kraken[27]+".ammo_bolt_kraken")
 
 	ammo_bolt_metalstorm[27] = "175.common"
@@ -142,7 +142,7 @@ function scr_ammo_init() {
 	ammo_bolt_heavy_standard[4] =  "physical" //damage type
 	ammo_bolt_heavy_standard[3] = "Standard heavy bolt shells"
 	ammo_bolt_heavy_standard[2] =  "none" //contrail
-	ammo_bolt_heavy_standard[1] = 0 //fuse sensitivity
+	ammo_bolt_heavy_standard[1] = 0.25 //fuse sensitivity
 	ds_list_add(ListComAM,ammo_bolt_heavy_standard[27]+".ammo_bolt_heavy_standard")
 	
 	//-----------------------------------------missile weapons--------------------------------------
@@ -196,7 +196,7 @@ function scr_ammo_init() {
 	ammo_plasma_standard[4] = "thermal"
 	ammo_plasma_standard[3] = "Standard flasks of plasma fuel"
 	ammo_plasma_standard[2] = "none" //contrails
-	ammo_plasma_standard[1] = 0 //fuse setting
+	ammo_plasma_standard[1] = 0.5 //fuse setting
 	ds_list_add(ListComAM,ammo_plasma_standard[27]+".ammo_plasma_standard")
 
 	//+++++++++++++++++++++++++++++++++++++++++++++++ Auto/Stub Weapons ++++++++++++++++++++++++++++++++++++++++++++
@@ -223,7 +223,7 @@ function scr_ammo_init() {
 	ammo_autocannon_standard[4] = "physical" //damage type
 	ammo_autocannon_standard[3] = "Standard autocannon slugs"
 	ammo_autocannon_standard[2] = "none" //contrails
-	ammo_autocannon_standard[1] = 0 //fuse setting
+	ammo_autocannon_standard[1] = 0.2 //fuse setting
 	ds_list_add(ListComAM,ammo_autocannon_standard[27]+".ammo_autocannon_standard")
 	
 	ammo_autocannon_hvap[27] = "100.common" //this is ammo
@@ -248,7 +248,7 @@ function scr_ammo_init() {
 	ammo_autocannon_hvap[4] = "physical" //damage type
 	ammo_autocannon_hvap[3] = "Hypervelocity armor-piercing rounds"
 	ammo_autocannon_hvap[2] = "none" //contrails
-	ammo_autocannon_hvap[1] = 0 //fuse setting
+	ammo_autocannon_hvap[1] = 0.15 //fuse setting
 	ds_list_add(ListComAM,ammo_autocannon_hvap[27]+".ammo_autocannon_hvap")
 	
 	ammo_autocannon_sabot[27] = "100.common" //this is ammo
@@ -271,7 +271,7 @@ function scr_ammo_init() {
 	ammo_autocannon_sabot[4] = "physical" //damage type
 	ammo_autocannon_sabot[3] = "Sabot-discarding autocannon rounds"
 	ammo_autocannon_sabot[2] = "none" //contrails
-	ammo_autocannon_sabot[1] = 0 //fuse setting
+	ammo_autocannon_sabot[1] = 0.1 //fuse setting
 	ds_list_add(ListComAM,ammo_autocannon_sabot[27]+".ammo_autocannon_sabot")
 
 	ammo_autocannon_flak[27] = "100.common" //this is ammo
@@ -344,7 +344,7 @@ function scr_ammo_init() {
 	ammo_auto_ball[4] = "physical" //damage type
 	ammo_auto_ball[3] = "Standard autogun ball rounds"
 	ammo_auto_ball[2] = "none"
-	ammo_auto_ball[1] = 0 //fuse setting
+	ammo_auto_ball[1] = 0.1 //fuse setting
 	ds_list_add(ListComAM,ammo_auto_ball[27]+".ammo_auto_ball")
 	
 	ammo_auto_ball1 = 

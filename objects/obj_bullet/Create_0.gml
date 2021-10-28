@@ -31,7 +31,7 @@ image_speed = 0
 //sets damage and pen values
 if(crit = 1) {
 	damage = wpn_ranged[wpn_ranged.Damage]*critmod*ammo[13] 
-	base_damage = wpn_ranged[wpn_ranged.Damage]*critmod*ammo[13]
+	base_damage = wpn_ranged[wpn_ranged.Damage]*ammo[13]
 	}
 else {
 	damage = wpn_ranged[wpn_ranged.Damage]*ammo[13] 
@@ -41,7 +41,8 @@ else {
 penetration = wpn_ranged[wpn_ranged.Damage]*ammo[12]
 explosion_type = ammo[ammo.Explosion_Type]
 
-hp = damage
+max_hp = wpn_ranged[wpn_ranged.Damage]
+hp = wpn_ranged[wpn_ranged.Damage]
 
 //sets velocity
 base_speed = wpn_ranged[wpn_ranged.Velocity]*ammo[ammo.Velocity_Mod]

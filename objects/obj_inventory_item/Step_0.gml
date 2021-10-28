@@ -62,7 +62,7 @@ if(IsAmmo){
 		rofmod = string(array[13]) + "x"
 		velmod = string(array[11]) + "x"
 		mass = array[20]
-		value = 1
+		value = ceil(array[13]*(array[12]*2 + array[20]*3 + real(string_digits(array[27]))/50) )
 	}
 	
 	var xxxx = ds_grid_value_x(grid,0,0,max_size,4,unique_id)

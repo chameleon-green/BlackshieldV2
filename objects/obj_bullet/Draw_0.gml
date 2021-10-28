@@ -1,6 +1,7 @@
 draw_self()
 
 
+
 if(is_array(ammo))
 {
 	

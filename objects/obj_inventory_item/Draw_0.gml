@@ -4,9 +4,11 @@ image_yscale = scale
 
 
 //+++++++++++++++++++++++++++++++++++++++ SCROLLBAR STUFF, MOVE AND HIDE SELF ++++++++++++++++++++++++++
+if(creator.scrollbar != undefined){
 
+var MyScrollbar = creator.scrollbar
 x = obj_ic.x+x_offset*scale
-y = obj_ic.y+((70+(38*item_order))*scale) + ( -(obj_scrollbar.offset - 85)*scale )*obj_scrollbar.DisplacementMod
+y = obj_ic.y+((70+(38*item_order))*scale) + ( -(MyScrollbar.offset - 85)*scale )*MyScrollbar.DisplacementMod
 
 displacement = (y - obj_ic.y)/scale
 var Disp_Diff = 68 - displacement
@@ -28,8 +30,9 @@ if(!draw_full and visible)
 			if(abs(Disp_Diff2) > 16) {Draw_Text = 0}
 		}
 	}
+}
 
-if(place_meeting(x,y,obj_crosshair)) {global.GUI = 1 col = 1}
+if(place_meeting(x,y,obj_crosshair)) {col = 1}
 
 //++++++++++++++++++++++++++++++++++ STUFF ++++++++++++++++++++++++++++++++++++++++++++++++++++
 

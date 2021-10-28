@@ -28,6 +28,8 @@ active = 1 //why is this outside of distance check...?
 if(OIC.active = 0) {active = 0}
 
 if(active) {
+	
+	
 if(refresh = 1) {
 	iwn = -2 iar = -2 iam = -2 iad = -2 GunSpacing = 0 ArmorSpacing = 0 AmmoSpacing = 0 AidSpacing = 0 refresh = 0
 	scr_grid_alphabetize(grd_inv_weps,17)

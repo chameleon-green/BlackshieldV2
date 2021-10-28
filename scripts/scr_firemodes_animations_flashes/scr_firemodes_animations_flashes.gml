@@ -49,6 +49,9 @@ function scr_firemodes_animations_flashes() {
 	firemode_auto[1] = "Auto"
 	firemode_auto[0] = "Auto"
 	
+	firemode_hilo[1] = "High"
+	firemode_hilo[0] = "Low"
+	
 	firemode_missile_laser[1] = "Laser"
 	firemode_missile_laser[0] = "Single"
 	

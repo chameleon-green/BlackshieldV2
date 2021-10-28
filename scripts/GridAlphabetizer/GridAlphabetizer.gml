@@ -71,7 +71,7 @@ function scr_grid_alphabetize(grid,TitleIndex,IDIndex=9){
 //------------------------------------------ RETURN STUFF ---------------------------------
 
 
-
+/*
 for(var d=0; d<ds_list_size(TitleList); d++){
 	draw_text(x,(y-00)+20*d,ds_list_find_value(TitleList,d))
 }
@@ -79,7 +79,7 @@ for(var d=0; d<ds_list_size(TitleList); d++){
 for(var e=0; e<ds_list_size(StatsList); e++){
 	draw_text(x+3400,(y-00)+20*e,ds_list_find_value(StatsList,e))
 }
-
+*/
 ds_list_destroy(TitleList)
 ds_list_destroy(StatsList)
 ds_grid_copy(grid,TempGrid)

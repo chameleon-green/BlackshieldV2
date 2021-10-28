@@ -22,25 +22,37 @@ var IsAid = (item[22] = "med") or (item[22] = "food")
 
 if(IsGun) {
 
-if(prev_grid != undefined) {
-var xx = ds_grid_value_x(prev_grid,0,0,inventory_size,12,uniqueID)
-var roundsLeft = ds_grid_get(prev_grid,xx,6)
-var ammoLoaded = ds_grid_get(prev_grid,xx,7)
-}
-else{
-var roundsLeft = 0
-var ammoLoaded = item[10]
+	if(prev_grid != undefined) {
+	var xx = ds_grid_value_x(prev_grid,0,0,inventory_size,12,uniqueID)
+	var roundsLeft = ds_grid_get(prev_grid,xx,6)
+	var ammoLoaded = ds_grid_get(prev_grid,xx,7)
+	}
+	else{
+	var roundsLeft = 0
+	var ammoLoaded = item[10]
+	}
+
+	ds_grid_set(grid,i,0,item) //item
+	ds_grid_set(grid,i,1,item[20]) //mass
+	ds_grid_set(grid,i,2,1) //quantity (should always be 1 for weapons except grenades)
+	ds_grid_set(grid,i,3,item[23]) //stack mass
+	ds_grid_set(grid,i,4,item[22]) //type, prim/secondary, melee, ammo, etc
+	ds_grid_set(grid,i,6,roundsLeft) //rounds left in magazine
+	ds_grid_set(grid,i,7,ammoLoaded) //currently loaded ammo, brand new gun uses default
+	if(durability = -1) {ds_grid_set(grid,i,8,item[2])} else {ds_grid_set(grid,i,8,clamp(durability,0,item[2]))}  //remaining durability, making sure it cannot exceed item's max
+	ds_grid_set(grid,i,9,scr_item_id_gen()) //unique ID identifier
 }
 
-ds_grid_set(grid,i,0,item) //item
-ds_grid_set(grid,i,1,item[20]) //mass
-ds_grid_set(grid,i,2,1) //quantity (should always be 1 for weapons except grenades)
-ds_grid_set(grid,i,3,item[23]) //stack mass
-ds_grid_set(grid,i,4,item[22]) //type, prim/secondary, melee, ammo, etc
-ds_grid_set(grid,i,6,roundsLeft) //rounds left in magazine
-ds_grid_set(grid,i,7,ammoLoaded) //currently loaded ammo, brand new gun uses default
-ds_grid_set(grid,i,8,clamp(durability,0,item[2])) //remaining durability, making sure it cannot exceed item's max
-ds_grid_set(grid,i,9,scr_item_id_gen()) //unique ID identifier
+if(IsMelee) {
+	ds_grid_set(grid,i,0,item) //item
+	ds_grid_set(grid,i,1,item[23]) //mass
+	ds_grid_set(grid,i,2,1) //quantity (should always be 1 for weapons except grenades)
+	ds_grid_set(grid,i,3,item[23]) //stack mass
+	ds_grid_set(grid,i,4,item[22]) //type, prim/secondary, melee, ammo, etc
+	ds_grid_set(grid,i,6,0) 
+	ds_grid_set(grid,i,7,0) 
+	if(durability = -1) {ds_grid_set(grid,i,8,item[15])} else {ds_grid_set(grid,i,8,clamp(durability,0,item[15]))}  //remaining durability, making sure it cannot exceed item's max
+	ds_grid_set(grid,i,9,scr_item_id_gen()) //unique ID identifier
 }
 
 if(IsGrenade) {
@@ -75,7 +87,7 @@ ds_grid_set(grid,i,3,0) //FAIL STATE 2 unused
 ds_grid_set(grid,i,4,item[22]) //type, prim/secondary, melee, ammo, etc
 ds_grid_set(grid,i,6,0) //FAIL STATE 3 unused
 ds_grid_set(grid,i,7,item[10]) //UNUSED
-ds_grid_set(grid,i,8,clamp(durability,0,item[14])) //remaining durability, making sure it cannot exceed item's max
+if(durability = -1) {ds_grid_set(grid,i,8,item[14])} else {ds_grid_set(grid,i,8,clamp(durability,0,item[14]))}  //remaining durability, making sure it cannot exceed item's max
 ds_grid_set(grid,i,9,scr_item_id_gen()) //unique ID identifier
 }
 

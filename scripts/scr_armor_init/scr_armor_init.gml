@@ -1,6 +1,7 @@
 function scr_armor_init() {
 	//++++++++++++++++++++++++++++++++++++++++++++ MKII POWER ARMOR ++++++++++++++++++++++++++++++++++++++++++++
-
+	
+	armor_torso_2000[27] = "200.common"
 	armor_torso_2000[26] = "2000_pelvis" //backpack trim slot
 	armor_torso_2000[25] = "2000_backpack trim" //backpack trim slot
 	armor_torso_2000[24] = "2000_backpack" //backpack slot
@@ -29,6 +30,7 @@ function scr_armor_init() {
 	armor_torso_2000[1] = "2000_torso" //attachment name for skeleton 
 	armor_torso_2000[0] = "MKII 'Crusade' Pattern Cuirass" //name
 
+	armor_head_2000[27] = "200.common"
 	armor_head_2000[23] = "2000_eyes" //eye slot
 	armor_head_2000[22] = "armor_head" //what is this?
 	armor_head_2000[21] = "Armor Descriptions/desc_armor_mk2helm.txt"
@@ -54,6 +56,7 @@ function scr_armor_init() {
 	armor_head_2000[1] = "2000_head" //attachment name for skeleton 
 	armor_head_2000[0] = "MKII 'Crusade' Pattern Helm" //name
 
+	armor_armL_2000[27] = "200.common"
 	armor_armL_2000[24] = "front hand" //hand sprite
 	armor_armL_2000[23] = "2000_front forearm" //forearm sprite
 	armor_armL_2000[22] = "armor_armL" //what is this?
@@ -80,6 +83,7 @@ function scr_armor_init() {
 	armor_armL_2000[1] = "2000_pauldron trim" //attachment name for skeleton 
 	armor_armL_2000[0] = "MKII 'Crusade' Pattern Left Vambrace" //name
 
+	armor_armR_2000[27] = "200.common"
 	armor_armR_2000[24] = "holding hand" //hand sprite
 	armor_armR_2000[23] = "rear forearm" //forearm sprite
 	armor_armR_2000[22] = "armor_armR" //what is this?
@@ -107,8 +111,7 @@ function scr_armor_init() {
 	armor_armR_2000[0] = "MKII 'Crusade' Pattern Right Vambrace" //name
 	armor_legL_2000[22] = "armor_legL" //what is this?
 
-
-	armor_legL_2000[27] = "2000_thigh_trim"
+	armor_legL_2000[27] = "200.common"
 	armor_legL_2000[26] = "2000_thigh"
 	armor_legL_2000[25] = "2000_knee"
 	armor_legL_2000[24] = "2000_shin"
@@ -137,6 +140,7 @@ function scr_armor_init() {
 	armor_legL_2000[1] = "" //attachment name for skeleton 
 	armor_legL_2000[0] = "MKII 'Crusade' Pattern Left Greave" //name
 
+	armor_legR_2000[27] = "200.common"
 	armor_legR_2000[26] = "2000_thigh"
 	armor_legR_2000[25] = "2000_knee"
 	armor_legR_2000[24] = "2000_shin"

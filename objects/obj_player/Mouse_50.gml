@@ -47,7 +47,7 @@ if (
 	!sprinting and
 	!crawling and
 	!reloading and 
-	(Firemode = "Auto" or Firemode = "Supercharge")   and 
+	(Firemode = "Auto" or Firemode = "Supercharge" or Firemode = "High" or Firemode = "Low")   and 
 	cycle = 1 and
 	!global.GUI and
 	(!overheat + (Firemode = "Supercharge" or Spinny)) 
@@ -57,6 +57,7 @@ if (
 
 //gets position of muzzleflash and weapon action to determine position of bullets and casings
 	var Supercharge = (Firemode = "Supercharge")
+	var Hi = (Firemode = "High") var Lo = (Firemode = "Low") 
 	var map = ds_map_create()
 	skeleton_bone_state_get("muzzleflash", map)
 	//sets coordinates for bullet creation. It makes them 30 pixels behind flash, to prevent shooting 
@@ -80,6 +81,8 @@ if (
 	{
 	if(aud_spin = 0) {aud_spin = audio_play_sound(array[0], 1, 1)}
 	if(aud_spin2 = 0) {aud_spin2 = audio_play_sound(array[1], 1, 1)}
+	audio_sound_pitch(aud_spin,1/(1.5*Lo+Hi))
+	audio_sound_pitch(aud_spin2,1/(1.5*Lo+Hi))
 	}
 	
 	skeleton_slot_color_set("slot_flash",flash_array[4],1)
@@ -134,7 +137,7 @@ if (
 	}
 
 
-	alarm[0] = (wpn_ranged[wpn_ranged.ROF]/ammo_type[ammo.ROF_Mod]) / (1+(Firemode = "Supercharge"))
+	alarm[0] = (wpn_ranged[wpn_ranged.ROF]/ammo_type[ammo.ROF_Mod]) / (1+(Firemode = "Supercharge")) + Lo*2
 	alarm[2] = 1
 	if(!Spinny) {alarm[1] = skeleton_animation_get_frames(skeleton_animation_get_ext(3)) - 2}
 	else{skeleton_anim_set_step(anim_array[4],3)}

@@ -69,11 +69,12 @@ function scr_player_switch_weapons() {
 		obj_player.wpn_melee = selected 
 		obj_player.melee_id = GSID
 	}
-
+	
+	if( type != "melee"){
 	var AmmoExists = ds_grid_value_exists(obj_ic.grd_inv_ammo,0,0,obj_ic.inventory_size,4,ammoLastUsed)
 	var AmmoX = ds_grid_value_x(obj_ic.grd_inv_ammo,0,0,obj_ic.inventory_size,9,ammo_type)
 	if(AmmoExists) {global.mags = ds_grid_get(obj_ic.grd_inv_ammo,AmmoX,2)} else{global.mags = 0}
-
+	}
 
 	//gets idle anim and sets it
 	var anim_array = wpn_ranged[wpn_ranged.Animations]
@@ -86,7 +87,6 @@ function scr_player_switch_weapons() {
 
 	//sets default firemode
 	var farray = wpn_ranged[wpn_ranged.Firemode]
-	var mode1 = farray[1]
 	var mode0 = farray[0]
 	Firemode = mode0
 

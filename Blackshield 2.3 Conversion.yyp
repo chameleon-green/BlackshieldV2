@@ -63,6 +63,7 @@
     {"id":{"name":"temp_controls_sign","path":"sprites/temp_controls_sign/temp_controls_sign.yy",},"order":3,},
     {"id":{"name":"spr_collision_mask_human","path":"sprites/spr_collision_mask_human/spr_collision_mask_human.yy",},"order":1,},
     {"id":{"name":"spr_fragment","path":"sprites/spr_fragment/spr_fragment.yy",},"order":2,},
+    {"id":{"name":"InventoryGenerator","path":"scripts/InventoryGenerator/InventoryGenerator.yy",},"order":13,},
     {"id":{"name":"spr_grenade","path":"sprites/spr_grenade/spr_grenade.yy",},"order":5,},
     {"id":{"name":"spr_scion","path":"sprites/spr_scion/spr_scion.yy",},"order":11,},
     {"id":{"name":"scr_infantry_generic_destroy","path":"scripts/scr_infantry_generic_destroy/scr_infantry_generic_destroy.yy",},"order":9,},

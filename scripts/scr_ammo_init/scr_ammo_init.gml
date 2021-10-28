@@ -1,7 +1,8 @@
 function scr_ammo_init() {
 
 	//-----------------------------------------boltguns--------------------------------------
-
+	
+	ammo_bolt_standard[27] = "150.common"
 	ammo_bolt_standard[22] = "ammo" //this is ammo
 	ammo_bolt_standard[21] = "dumb" //guidance type
 	ammo_bolt_standard[20] = 0.25 //weight per round
@@ -21,10 +22,12 @@ function scr_ammo_init() {
 	ammo_bolt_standard[6] = "none" //special effects, burning etc
 	ammo_bolt_standard[5] = "bolt_small" //ammo type
 	ammo_bolt_standard[4] = "physical" //damage type
-	ammo_bolt_standard[3] = "1x Physical Damage"
+	ammo_bolt_standard[3] = "Standard bolt rounds. 1x physical damage."
 	ammo_bolt_standard[2] = "none" //contrail
 	ammo_bolt_standard[1] = 0 //fuse sensitivity
+	ds_list_add(ListComAM,ammo_bolt_standard[27]+".ammo_bolt_standard")
 
+	ammo_bolt_kraken[27] = "175.common"
 	ammo_bolt_kraken[22] = "ammo" //this is ammo
 	ammo_bolt_kraken[21] = "dumb" //guidance type
 	ammo_bolt_kraken[20] = 0.28 //weight per round
@@ -44,12 +47,12 @@ function scr_ammo_init() {
 	ammo_bolt_kraken[6] = "none" //special effects, burning etc
 	ammo_bolt_kraken[5] = "bolt_small"
 	ammo_bolt_kraken[4] = "physical" //damage type
-	ammo_bolt_kraken[3] = "+60% Velocity \n-20% ROF \n+10% Range"
+	ammo_bolt_kraken[3] = "Armor-piercing kraken rounds"
 	ammo_bolt_kraken[2] = "none" //contrail
 	ammo_bolt_kraken[1] = 0 //fuse sensitivity
+	ds_list_add(ListComAM,ammo_bolt_kraken[27]+".ammo_bolt_kraken")
 
-	ammo_bolt_metalstorm[22] = "ammo" //this is ammo
-	ammo_bolt_metalstorm[21] = "dumb" //guidance type
+	ammo_bolt_metalstorm[27] = "175.common"
 	ammo_bolt_metalstorm[20] = 0.27 //weight per round
 	ammo_bolt_metalstorm[19] = "prox100" //fuse type, can be used to define scatterguns
 	ammo_bolt_metalstorm[18] = rounds.Orange_Small //projectile skin
@@ -67,10 +70,12 @@ function scr_ammo_init() {
 	ammo_bolt_metalstorm[6] = "none" //special effects, burning etc
 	ammo_bolt_metalstorm[5] = "bolt_small"
 	ammo_bolt_metalstorm[4] = "physical" //damage type
-	ammo_bolt_metalstorm[3] = "-20% velocity \n-30% ROF \nIncreased round fragmentation for AOE"
+	ammo_bolt_metalstorm[3] = "Proximity-fused fragmentation warheads."
 	ammo_bolt_metalstorm[2] = "none" //contrail
 	ammo_bolt_metalstorm[1] = 0.5 //fuse sensitivity. detonates when 50% damage has been resisted in this case
-
+	ds_list_add(ListComAM,ammo_bolt_metalstorm[27]+".ammo_bolt_metalstorm")
+	
+	ammo_bolt_hellfire[27] = "175.common"
 	ammo_bolt_hellfire[22] = "ammo" //this is ammo
 	ammo_bolt_hellfire[21] = "dumb" //guidance type
 	ammo_bolt_hellfire[20] = 0.23 //weight per round
@@ -90,10 +95,10 @@ function scr_ammo_init() {
 	ammo_bolt_hellfire[6] = "none" //special effects, burning etc
 	ammo_bolt_hellfire[5] = "bolt_small"
 	ammo_bolt_hellfire[4] = "biohazard" //damage type
-	ammo_bolt_hellfire[3] = "2.5x Biohazard Damage"
+	ammo_bolt_hellfire[3] = "Radically increased biohazard damage."
 	ammo_bolt_hellfire[2] = "none" //contrail
-	ammo_bolt_hellfire[1] = 0 //fuse sensitivity
-
+	ammo_bolt_hellfire[1] = 0.95 //fuse sensitivity
+	ds_list_add(ListComAM,ammo_bolt_hellfire[27]+".ammo_bolt_hellfire")
 
 	/*
 	ammo_bolt_dragonfire[12]
@@ -114,7 +119,8 @@ function scr_ammo_init() {
 	*/
 
 	//-----------------------------------------heavy bolters--------------------------------------
-
+	
+	ammo_bolt_heavy_standard[27] = "150.common"
 	ammo_bolt_heavy_standard[22] = "ammo" //this is ammo
 	ammo_bolt_heavy_standard[21] = "dumb" //guidance type
 	ammo_bolt_heavy_standard[20] = 0.75 //weight per round
@@ -134,12 +140,14 @@ function scr_ammo_init() {
 	ammo_bolt_heavy_standard[6] = "none" //special effects, burning etc
 	ammo_bolt_heavy_standard[5] = "bolt_large"
 	ammo_bolt_heavy_standard[4] =  "physical" //damage type
-	ammo_bolt_heavy_standard[3] = "65mm RHAd Penetration"
+	ammo_bolt_heavy_standard[3] = "Standard heavy bolt shells"
 	ammo_bolt_heavy_standard[2] =  "none" //contrail
 	ammo_bolt_heavy_standard[1] = 0 //fuse sensitivity
+	ds_list_add(ListComAM,ammo_bolt_heavy_standard[27]+".ammo_bolt_heavy_standard")
 	
 	//-----------------------------------------missile weapons--------------------------------------
-
+	
+	ammo_missile_krak[27] = "175.common" //this is ammo
 	ammo_missile_krak[22] = "ammo" //this is ammo
 	ammo_missile_krak[21] = "laser" //guidance type
 	ammo_missile_krak[20] = 6 //weight per round
@@ -162,9 +170,11 @@ function scr_ammo_init() {
 	ammo_missile_krak[3] = "Shaped charge anti-tank missiles"
 	ammo_missile_krak[2] = ctrail_small1 //contrail, if we have one
 	ammo_missile_krak[1] = 0.999 //fuse setting, hp percent to trigger kaboom (0 = no fuse, destroyed when outta HP)
+	ds_list_add(ListComAM,ammo_missile_krak[27]+".ammo_missile_krak")
 	
 	//-----------------------------------------plasma weapons--------------------------------------
-
+	
+	ammo_plasma_standard[27] = "250.common"
 	ammo_plasma_standard[22] = "ammo" //this is ammo
 	ammo_plasma_standard[21] = "dumb" //guidance type
 	ammo_plasma_standard[20] = 0.05 //weight per round
@@ -184,11 +194,14 @@ function scr_ammo_init() {
 	ammo_plasma_standard[6] = "none" //special effects, burning etc
 	ammo_plasma_standard[5] = "plasma_small"
 	ammo_plasma_standard[4] = "thermal"
-	ammo_plasma_standard[3] = "180mm RHAd Penetration"
+	ammo_plasma_standard[3] = "Standard flasks of plasma fuel"
 	ammo_plasma_standard[2] = "none" //contrails
 	ammo_plasma_standard[1] = 0 //fuse setting
+	ds_list_add(ListComAM,ammo_plasma_standard[27]+".ammo_plasma_standard")
 
 	//+++++++++++++++++++++++++++++++++++++++++++++++ Auto/Stub Weapons ++++++++++++++++++++++++++++++++++++++++++++
+	
+	ammo_autocannon_standard[27] = "75.common" //this is ammo
 	ammo_autocannon_standard[22] = "ammo" //this is ammo
 	ammo_autocannon_standard[21] = "dumb" //guidance type
 	ammo_autocannon_standard[20] = 2.5 //weight per round
@@ -211,7 +224,9 @@ function scr_ammo_init() {
 	ammo_autocannon_standard[3] = "Standard autocannon slugs"
 	ammo_autocannon_standard[2] = "none" //contrails
 	ammo_autocannon_standard[1] = 0 //fuse setting
+	ds_list_add(ListComAM,ammo_autocannon_standard[27]+".ammo_autocannon_standard")
 	
+	ammo_autocannon_hvap[27] = "100.common" //this is ammo
 	ammo_autocannon_hvap[22] = "ammo" //this is ammo
 	ammo_autocannon_hvap[21] = "dumb" //guidance type
 	ammo_autocannon_hvap[20] = 2.5 //weight per round
@@ -234,9 +249,9 @@ function scr_ammo_init() {
 	ammo_autocannon_hvap[3] = "Hypervelocity armor-piercing rounds"
 	ammo_autocannon_hvap[2] = "none" //contrails
 	ammo_autocannon_hvap[1] = 0 //fuse setting
+	ds_list_add(ListComAM,ammo_autocannon_hvap[27]+".ammo_autocannon_hvap")
 	
-	ammo_autocannon_sabot[22] = "ammo" //this is ammo
-	ammo_autocannon_sabot[21] = "dumb" //guidance type
+	ammo_autocannon_sabot[27] = "100.common" //this is ammo
 	ammo_autocannon_sabot[20] = 2.25 //weight per round
 	ammo_autocannon_sabot[19] = "impact" //fuse type, can be used to define scatterguns
 	ammo_autocannon_sabot[18] = rounds.Yellow_Small //projectile skin
@@ -257,9 +272,9 @@ function scr_ammo_init() {
 	ammo_autocannon_sabot[3] = "Sabot-discarding autocannon rounds"
 	ammo_autocannon_sabot[2] = "none" //contrails
 	ammo_autocannon_sabot[1] = 0 //fuse setting
+	ds_list_add(ListComAM,ammo_autocannon_sabot[27]+".ammo_autocannon_sabot")
 
-	ammo_autocannon_flak[22] = "ammo" //this is ammo
-	ammo_autocannon_flak[21] = "dumb" //guidance type
+	ammo_autocannon_flak[27] = "100.common" //this is ammo
 	ammo_autocannon_flak[20] = 2.75 //weight per round
 	ammo_autocannon_flak[19] = "prox130" //fuse type, can be used to define scatterguns
 	ammo_autocannon_flak[18] = rounds.Yellow_Small //projectile skin
@@ -280,7 +295,9 @@ function scr_ammo_init() {
 	ammo_autocannon_flak[3] = "Airbursts when near enemies"
 	ammo_autocannon_flak[2] = "none"
 	ammo_autocannon_flak[1] = 0.999 //fuse setting
+	ds_list_add(ListComAM,ammo_autocannon_flak[27]+".ammo_autocannon_flak")
 	
+	ammo_autocannon_highex[27] = "100.common" //this is ammo
 	ammo_autocannon_highex[22] = "ammo" //this is ammo
 	ammo_autocannon_highex[21] = "dumb" //guidance type
 	ammo_autocannon_highex[20] = 2.3 //weight per round
@@ -300,10 +317,12 @@ function scr_ammo_init() {
 	ammo_autocannon_highex[6] = "none" //special effects, burning etc
 	ammo_autocannon_highex[5] = "autocannon" //ammo type
 	ammo_autocannon_highex[4] = "physical" //damage type
-	ammo_autocannon_highex[3] = "High-ex hatred"
+	ammo_autocannon_highex[3] = "High-explosive autocannon rounds"
 	ammo_autocannon_highex[2] = "none"
 	ammo_autocannon_highex[1] = 0.999 //fuse setting
+	ds_list_add(ListComAM,ammo_autocannon_highex[27]+".ammo_autocannon_highex")
 
+	ammo_auto_ball[27] = "000.common" //this is ammo
 	ammo_auto_ball[22] = "ammo" //this is ammo
 	ammo_auto_ball[21] = "dumb" //guidance type
 	ammo_auto_ball[20] = 0.04 //weight per round
@@ -323,8 +342,14 @@ function scr_ammo_init() {
 	ammo_auto_ball[6] = "none" //special effects, burning etc
 	ammo_auto_ball[5] = "autogun" //ammo type
 	ammo_auto_ball[4] = "physical" //damage type
-	ammo_auto_ball[3] = ""
+	ammo_auto_ball[3] = "Standard autogun ball rounds"
 	ammo_auto_ball[2] = "none"
 	ammo_auto_ball[1] = 0 //fuse setting
-
+	ds_list_add(ListComAM,ammo_auto_ball[27]+".ammo_auto_ball")
+	
+	ammo_auto_ball1 = 
+	{
+		ROF : 20
+	}
+	
 }

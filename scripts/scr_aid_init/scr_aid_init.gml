@@ -1,20 +1,6 @@
 function scr_aid_init() {
-	AID_DEBUG[23] = "Medical Descriptions/desc_med_somatogen.txt"
-	AID_DEBUG[22] = "med" //type of aid
-	AID_DEBUG[21] = "sets you on fire" //name of item
-	AID_DEBUG[20] = 0.5 //mass of aid
-	AID_DEBUG[19] = 0 //subimage for UI use (upscaled)
-	AID_DEBUG[18] = 1 //subimage for non-UI use (tiny)
-	AID_DEBUG[17] = spr_items_med//sprite index to use
-	AID_DEBUG[16] = "BURN.020.001" //MAKE SURE THESE ARE UNIQUE BETWEEN ITEMS, ACTS AS ID buff #1 type, strength and duration encoded as string
-	AID_DEBUG[15] = "none" //buff #2 type, strength and duration encoded as string
-	AID_DEBUG[14] = "none" //buff #3 type, strength and duration encoded as string
-	AID_DEBUG[13] = "none" //buff #4 type, strength and duration encoded as string
-	AID_DEBUG[12] = ""
-	AID_DEBUG[11] = ""
-	AID_DEBUG[10] = ""
-	AID_DEBUG[9] = 900 //base cost
-
+	
+	med_shot_hp[27] = "125.common"
 	med_shot_hp[23] = "Medical Descriptions/desc_med_somatogen.txt"
 	med_shot_hp[22] = "med" //type of aid
 	med_shot_hp[21] = "Somatogen" //name of item
@@ -29,8 +15,9 @@ function scr_aid_init() {
 	med_shot_hp[12] = ""
 	med_shot_hp[11] = ""
 	med_shot_hp[10] = ""
-	med_shot_hp[9] = 1000 //base cost
+	med_shot_hp[9] = 130 //base cost
 
+	med_shot_stam[27] = "50.common"
 	med_shot_stam[23] = "Medical Descriptions/desc_med_satrophine.txt"
 	med_shot_stam[22] = "med" //type of aid
 	med_shot_stam[21] = "Satrophine" //name of item
@@ -45,8 +32,9 @@ function scr_aid_init() {
 	med_shot_stam[12] = ""
 	med_shot_stam[11] = ""
 	med_shot_stam[10] = ""
-	med_shot_stam[9] = 1200 //base cost
+	med_shot_stam[9] = 120 //base cost
 
+	med_shot_will[27] = "50.common"
 	med_shot_will[23] = "Medical Descriptions/desc_med_amylladox.txt"
 	med_shot_will[22] = "med" //type of aid
 	med_shot_will[21] = "Amylladox" //name of item
@@ -61,8 +49,9 @@ function scr_aid_init() {
 	med_shot_will[12] = ""
 	med_shot_will[11] = ""
 	med_shot_will[10] = ""
-	med_shot_will[9] = 900 //base cost
+	med_shot_will[9] = 100 //base cost
 
+	med_kit_1[27] = "100.common"
 	med_kit_1[23] = "Medical Descriptions/desc_med_kit_1.txt"
 	med_kit_1[22] = "med" //type of aid
 	med_kit_1[21] = "Medikit" //name of item
@@ -77,8 +66,9 @@ function scr_aid_init() {
 	med_kit_1[12] = ""
 	med_kit_1[11] = ""
 	med_kit_1[10] = ""
-	med_kit_1[9] = 900 //base cost
+	med_kit_1[9] = 300 //base cost
 
+	frenzon_pure[27] = "600.rare"
 	frenzon_pure[23] = "Medical Descriptions/desc_med_frenzon.txt"
 	frenzon_pure[22] = "med" //type of aid
 	frenzon_pure[21] = "Frenzon" //name of item
@@ -93,8 +83,9 @@ function scr_aid_init() {
 	frenzon_pure[12] = ""
 	frenzon_pure[11] = ""
 	frenzon_pure[10] = ""
-	frenzon_pure[9] = 900 //base cost
+	frenzon_pure[9] = 500 //base cost
 
+	rep_kit_1[27] = "100.common"
 	rep_kit_1[23] = "Medical Descriptions/desc_rep_kit_1.txt"
 	rep_kit_1[22] = "med" //type of aid
 	rep_kit_1[21] = "Repair Kit" //name of item
@@ -109,6 +100,6 @@ function scr_aid_init() {
 	rep_kit_1[12] = ""
 	rep_kit_1[11] = ""
 	rep_kit_1[10] = ""
-	rep_kit_1[9] = 1200 //base cost
+	rep_kit_1[9] = 300 //base cost
 
 }

@@ -1,5 +1,7 @@
 function scr_weapon_arrays() {
 	//-----------------------------------------bolt pistols--------------------------------------
+	
+	pistol_bolt_tigrus[27] = "150.common"
 	pistol_bolt_tigrus[23] = "desc_blank.txt"
 	pistol_bolt_tigrus[22] = "secondary" //what kind of weapon is this?
 	pistol_bolt_tigrus[21] = firemode_pistol //firemode array (see script)
@@ -24,8 +26,10 @@ function scr_weapon_arrays() {
 	pistol_bolt_tigrus[2] = 1000 //durability max
 	pistol_bolt_tigrus[1] = 0
 	pistol_bolt_tigrus[0] = -1
-
+	ds_list_add(ListComWP,pistol_bolt_tigrus[27]+".pistol_bolt_tigrus")
+	
 	//-----------------------------------------plasma pistols--------------------------------------
+	pistol_plasma_sunspite[27] = "250.common"
 	pistol_plasma_sunspite[23] = "desc_blank.txt"
 	pistol_plasma_sunspite[22] = "secondary" //what kind of weapon is this?
 	pistol_plasma_sunspite[21] = firemode_plasma_semi
@@ -50,8 +54,11 @@ function scr_weapon_arrays() {
 	pistol_plasma_sunspite[2] = 1000 //durability max
 	pistol_plasma_sunspite[1] = 4 //cooling rate
 	pistol_plasma_sunspite[0] = 160 //heat cap
+	ds_list_add(ListComWP,pistol_plasma_sunspite[27]+".pistol_plasma_sunspite")
 
 	//-----------------------------------------boltguns--------------------------------------
+	
+	bolter_phobos[27] = "150.common"
 	bolter_phobos[23] = "desc_blank.txt"
 	bolter_phobos[22] = "primary" //what kind of weapon is this?
 	bolter_phobos[21] = firemode_rifle //firemode array (see script)
@@ -76,8 +83,11 @@ function scr_weapon_arrays() {
 	bolter_phobos[2] = 1000 //durability max
 	bolter_phobos[1] = 0
 	bolter_phobos[0] = -1
+	ds_list_add(ListComWP,bolter_phobos[27]+".bolter_phobos")
 
 	//-----------------------------------------plasma guns--------------------------------------
+	
+	plasmagun_thunderbolt[27] = "250.common"
 	plasmagun_thunderbolt[23] = "desc_blank.txt"
 	plasmagun_thunderbolt[22] = "primary" //what kind of weapon is this?
 	plasmagun_thunderbolt[21] = firemode_plasma_auto //firemode array (see script)
@@ -102,10 +112,13 @@ function scr_weapon_arrays() {
 	plasmagun_thunderbolt[2] = 1000 //durability max
 	plasmagun_thunderbolt[1] = 8 //cooling rate
 	plasmagun_thunderbolt[0] = 360 //heat cap
+	ds_list_add(ListComWP,plasmagun_thunderbolt[27]+".plasmagun_thunderbolt")
 
 
 
 	//-----------------------------------------heavy bolters--------------------------------------
+	
+	bolter_heavy_voss[27] = "165.common"
 	bolter_heavy_voss[23] = "desc_blank.txt"
 	bolter_heavy_voss[22] = "primary" //what kind of weapon is this?
 	bolter_heavy_voss[21] = firemode_rifle //firemode array (see script)
@@ -130,7 +143,10 @@ function scr_weapon_arrays() {
 	bolter_heavy_voss[2] = 1000 //durability max
 	bolter_heavy_voss[1] = 0
 	bolter_heavy_voss[0] = -1
+	ds_list_add(ListComWP,bolter_heavy_voss[27]+".bolter_heavy_voss")
+	
 
+	bolter_heavy_mars[27] = "175.common"
 	bolter_heavy_mars[23] = "desc_blank.txt"
 	bolter_heavy_mars[22] = "primary" //what kind of weapon is this?
 	bolter_heavy_mars[21] = firemode_rifle //firemode array (see script)
@@ -155,9 +171,11 @@ function scr_weapon_arrays() {
 	bolter_heavy_mars[2] = 1000 //durability max
 	bolter_heavy_mars[1] = 0
 	bolter_heavy_mars[0] = -1
+	ds_list_add(ListComWP,bolter_heavy_mars[27]+".bolter_heavy_mars")
 	
 	//-----------------------------------------missile launchers--------------------------------------
 	
+	missile_astartes[27] = "175.common"
 	missile_astartes[23] = "desc_blank.txt"
 	missile_astartes[22] = "primary" //what kind of weapon is this?
 	missile_astartes[21] = firemode_missile_laser //firemode array (see script)
@@ -182,9 +200,12 @@ function scr_weapon_arrays() {
 	missile_astartes[2] = 1000 //durability max
 	missile_astartes[1] = 0
 	missile_astartes[0] = -1
+	ds_list_add(ListComWP,missile_astartes[27]+".missile_astartes")
+	
 
 	//-----------------------------------------plasma cannons--------------------------------------
 	
+	plasmacannon_sol[27] = "275.common"
 	plasmacannon_sol[23] = "desc_blank.txt"
 	plasmacannon_sol[22] = "primary" //what kind of weapon is this?
 	plasmacannon_sol[21] = firemode_plasma_semi //firemode array (see script)
@@ -209,9 +230,12 @@ function scr_weapon_arrays() {
 	plasmacannon_sol[2] = 1000 //durability max
 	plasmacannon_sol[1] = 15
 	plasmacannon_sol[0] = 15.1
+	ds_list_add(ListComWP,plasmacannon_sol[27]+".plasmacannon_sol")
+	
 
 	//-----------------------------------------autocannons--------------------------------------
 
+	autocannon_kalibrax[27] = "75.common"
 	autocannon_kalibrax[23] = "desc_blank.txt"
 	autocannon_kalibrax[22] = "primary" //what kind of weapon is this?
 	autocannon_kalibrax[21] = firemode_rifle //firemode array (see script)
@@ -236,12 +260,14 @@ function scr_weapon_arrays() {
 	autocannon_kalibrax[2] = 1000 //durability max
 	autocannon_kalibrax[1] = 0
 	autocannon_kalibrax[0] = -1
+	ds_list_add(ListComWP,autocannon_kalibrax[27]+".autocannon_kalibrax")
 	
 	//-----------------------------------------rotor cannons--------------------------------------
-
+	
+	rotorcannon_proteus[27] = "90.common"
 	rotorcannon_proteus[23] = "desc_blank.txt"
 	rotorcannon_proteus[22] = "primary" //what kind of weapon is this?
-	rotorcannon_proteus[21] = firemode_auto //firemode array (see script)
+	rotorcannon_proteus[21] = firemode_hilo //firemode array (see script)
 	rotorcannon_proteus[20] = 60 //weight
 	rotorcannon_proteus[19] = rotorcannon_proteus_anim //animations array (see script)
 	rotorcannon_proteus[18] = sndg_rotorcannon //sound array
@@ -261,10 +287,12 @@ function scr_weapon_arrays() {
 	rotorcannon_proteus[4] = 160 //range
 	rotorcannon_proteus[3] = 55 //muzzle velocity
 	rotorcannon_proteus[2] = 1000 //durability max
-	rotorcannon_proteus[1] = 12
-	rotorcannon_proteus[0] = 2200
+	rotorcannon_proteus[1] = 8
+	rotorcannon_proteus[0] = 1800
+	ds_list_add(ListComWP,rotorcannon_proteus[27]+".rotorcannon_proteus")
 	//-----------------------------------------chainswords--------------------------------------
-
+	
+	sword_chain_thunderedge[27] = "150.common"
 	sword_chain_thunderedge[25] = "Weapon Descriptions/Chain Weapons/desc_sword_chain_thunderedge.txt"
 	sword_chain_thunderedge[24] = 0 //subimage for display
 	sword_chain_thunderedge[23] = 20 //weight
@@ -286,7 +314,9 @@ function scr_weapon_arrays() {
 	sword_chain_thunderedge[7] = "physical.100" //damage type one and percent of total
 	sword_chain_thunderedge[6] = "none" //damage type two and percent of total
 	sword_chain_thunderedge[5] = "none" //damage type three and percent of total
+	ds_list_add(ListComWP,sword_chain_thunderedge[27]+".sword_chain_thunderedge")
 
+	sword_power_proteus[27] = "250.common"
 	sword_power_proteus[25] = "Weapon Descriptions/Power Weapons/desc_sword_power_proteus.txt"
 	sword_power_proteus[24] = 1 //subimage for display
 	sword_power_proteus[23] = 16 //weight
@@ -308,11 +338,13 @@ function scr_weapon_arrays() {
 	sword_power_proteus[7] = "physical.80" //damage type one and percent of total
 	sword_power_proteus[6] = "electric.20" //damage type two and percent of total
 	sword_power_proteus[5] = "none" //damage type three and percent of total
+	ds_list_add(ListComWP,sword_power_proteus[27]+".sword_power_proteus")
 
 
 
 	//----------------------------------------Grenades-------------------------------------------
 	
+	grenade_frag_astartes[27] = "150.common"
 	grenade_frag_astartes[23] = "desc_blank.txt"
 	grenade_frag_astartes[22] = "grenade"
 	grenade_frag_astartes[21] = "grenade" 
@@ -337,7 +369,9 @@ function scr_weapon_arrays() {
 	grenade_frag_astartes[2] = exp_scalable_frag_med //explosion type
 	grenade_frag_astartes[1] = "physical" //damage type
 	grenade_frag_astartes[0] = 700 //damage
+	ds_list_add(ListComWP,grenade_frag_astartes[27]+".grenade_frag_astartes")
 	
+	grenade_smoke_astartes[27] = "150.common"
 	grenade_smoke_astartes[23] = "desc_blank.txt"
 	grenade_smoke_astartes[22] = "grenade" //what kind of weapon is this?
 	grenade_smoke_astartes[21] = "grenade" 
@@ -362,6 +396,7 @@ function scr_weapon_arrays() {
 	grenade_smoke_astartes[2] = exp_scalable_smoke_small //explosion type
 	grenade_smoke_astartes[1] = "physical" //damage type
 	grenade_smoke_astartes[0] = 0
+	ds_list_add(ListComWP,grenade_smoke_astartes[27]+".grenade_smoke_astartes")
 
 
 }

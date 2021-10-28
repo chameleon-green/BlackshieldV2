@@ -25,7 +25,7 @@ if(IsWeapon){
 		weight = array[20]	
 		
 		max_durability = array[2]
-		basevalue = sqr(clamp(array[8],19,4000)) * (1/array[7])
+		basevalue = sqr(clamp(array[8],19,4000)) * (1/array[7]) + capacity/5
 		image = array[11]
 	}
 	durability = ds_grid_get(grid,xxx,8)

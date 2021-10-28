@@ -31,6 +31,8 @@ if(col) {
 		
 }
 
+
+
 /*
 draw_text(x,y-100,ds_grid_get(grd_inv_armor,0,0))
 draw_text(x,y-120,ds_grid_get(grd_inv_ammo,1,0))

@@ -28,7 +28,13 @@ active = 1 //why is this outside of distance check...?
 if(OIC.active = 0) {active = 0}
 
 if(active) {
-if(refresh = 1) {iwn = -2 iar = -2 iam = -2 iad = -2 GunSpacing = 0 ArmorSpacing = 0 AmmoSpacing = 0 AidSpacing = 0 refresh = 0}
+if(refresh = 1) {
+	iwn = -2 iar = -2 iam = -2 iad = -2 GunSpacing = 0 ArmorSpacing = 0 AmmoSpacing = 0 AidSpacing = 0 refresh = 0
+	scr_grid_alphabetize(grd_inv_weps,17)
+	scr_grid_alphabetize(grd_inv_armor,0)
+	scr_grid_alphabetize(grd_inv_ammo,17,4)
+	scr_grid_alphabetize(grd_inv_aid,21)
+	}
 var WeaponScreen = obj_ic.screen = "items" and obj_ic.subscreen_items = "weapons" 
 var AmmoScreen = obj_ic.screen = "items" and obj_ic.subscreen_items = "ammo" 
 var ArmorScreen = obj_ic.screen = "items" and obj_ic.subscreen_items = "armor"

@@ -133,6 +133,7 @@
     {"id":{"name":"snd_hellgun3","path":"sounds/snd_hellgun3/snd_hellgun3.yy",},"order":2,},
     {"id":{"name":"snd_lasgun1","path":"sounds/snd_lasgun1/snd_lasgun1.yy",},"order":3,},
     {"id":{"name":"spr_hitbox_human_small","path":"sprites/spr_hitbox_human_small/spr_hitbox_human_small.yy",},"order":2,},
+    {"id":{"name":"GridAlphabetizer","path":"scripts/GridAlphabetizer/GridAlphabetizer.yy",},"order":12,},
     {"id":{"name":"scr_scion_draw","path":"scripts/scr_scion_draw/scr_scion_draw.yy",},"order":3,},
     {"id":{"name":"snd_lasgun2","path":"sounds/snd_lasgun2/snd_lasgun2.yy",},"order":4,},
     {"id":{"name":"snd_lasgun3","path":"sounds/snd_lasgun3/snd_lasgun3.yy",},"order":5,},

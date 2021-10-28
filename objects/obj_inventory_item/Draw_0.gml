@@ -326,17 +326,17 @@ if
 			draw_text_transformed_colour(xx+470*scale,yy+262*scale,damage_type,scale*1,scale*1.125,0,color,color,color,color,255)
 			draw_text_transformed_colour(xx+555*scale,yy+260*scale,penetration,scale*1.125,scale*1.25,0,color,color,color,color,255)
 			//draw durability, weight and cost
-			draw_text_transformed_colour(xx+385*scale,yy+295*scale,mass,scale*1.125,scale*1.25,0,color,color,color,color,255)
-			draw_text_transformed_colour(xx+470*scale,yy+295*scale,value,scale*1.125,scale*1.25,0,color,color,color,color,255)
-			
-			draw_text_transformed_colour(xx+370*scale,yy+333*scale,blurb,scale*0.75,scale*0.75,0,color,color,color,color,255)
+			draw_text_transformed_colour(xx+385*scale,yy+291*scale,mass,scale*1.125,scale*1.25,0,color,color,color,color,255)
+			draw_text_transformed_colour(xx+470*scale,yy+291*scale,value,scale*1.125,scale*1.25,0,color,color,color,color,255)
+			draw_set_halign(fa_left)
+			draw_text_transformed_colour(xx+370*scale,yy+328*scale,blurb,scale*0.75,scale*0.75,0,color,color,color,color,255)
 			
 			//draw 4 offset sprites solid color (using fog) to make glowing outline
 			gpu_set_fog(1,c_outline,0,0)
-			draw_sprite_ext(spr_grenade,image,xx+477*scale,yy+148*scale,iscale,iscale,0,c_white,255)
+			draw_sprite_ext(spr_grenade,image,xx+477*scale,yy+147*scale,iscale,iscale,0,c_white,255)
 			draw_sprite_ext(spr_grenade,image,xx+473*scale,yy+144*scale,iscale,iscale,0,c_white,255)
 			draw_sprite_ext(spr_grenade,image,xx+477*scale,yy+144*scale,iscale,iscale,0,c_white,255)
-			draw_sprite_ext(spr_grenade,image,xx+473*scale,yy+148*scale,iscale,iscale,0,c_white,255)
+			draw_sprite_ext(spr_grenade,image,xx+473*scale,yy+147*scale,iscale,iscale,0,c_white,255)
 			gpu_set_fog(0,c_white,0,0)
 			
 			//finally, draw the weapon image itself

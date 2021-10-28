@@ -12,7 +12,13 @@ if(ds_grid_value_exists(grd_inv_ammo,0,0,inventory_size,4,obj_player.ammo_type))
 		
 //-------------------------------------------Create item GUI----------------------------------------------
 
-if(refresh = 1) {iwn = -2 iar = -2 iam = -2 iad = -2 GunSpacing = 0 ArmorSpacing = 0 AmmoSpacing = 0 AidSpacing = 0 WeightCount = 0 refresh = 0}
+if(refresh = 1) {
+	iwn = -2 iar = -2 iam = -2 iad = -2 GunSpacing = 0 ArmorSpacing = 0 AmmoSpacing = 0 AidSpacing = 0 WeightCount = 0 refresh = 0
+	scr_grid_alphabetize(inventory,17)
+	scr_grid_alphabetize(grd_inv_armor,0)
+	scr_grid_alphabetize(grd_inv_ammo,17,4)
+	scr_grid_alphabetize(grd_inv_aid,21)
+	}
 var WeaponScreen = screen = "items" and subscreen_items = "weapons" 
 var AmmoScreen = screen = "items" and subscreen_items = "ammo" 
 var ArmorScreen = screen = "items" and subscreen_items = "armor"

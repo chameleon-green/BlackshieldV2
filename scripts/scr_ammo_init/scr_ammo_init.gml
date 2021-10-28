@@ -7,7 +7,7 @@ function scr_ammo_init() {
 	ammo_bolt_standard[20] = 0.25 //weight per round
 	ammo_bolt_standard[19] = "impact" //fuse type, can be used to define scatterguns
 	ammo_bolt_standard[18] = rounds.Yellow_Small //projectile skin
-	ammo_bolt_standard[17] = "Standard Bolt Rounds" //Name
+	ammo_bolt_standard[17] = "Boltgun Rounds" //Name
 	ammo_bolt_standard[16] = 0 //icon sprite subimage
 	ammo_bolt_standard[15] = 0 //casing skin
 	ammo_bolt_standard[14] = 1 //durability cost per shot
@@ -30,7 +30,7 @@ function scr_ammo_init() {
 	ammo_bolt_kraken[20] = 0.28 //weight per round
 	ammo_bolt_kraken[19] = "impact" //fuse type, can be used to define scatterguns
 	ammo_bolt_kraken[18] = rounds.Red_Small //projectile skin
-	ammo_bolt_kraken[17] = "Kraken Bolt Rounds" //Name
+	ammo_bolt_kraken[17] = "Boltgun Kraken Rounds" //Name
 	ammo_bolt_kraken[16] = 1 //icon sprite subimage
 	ammo_bolt_kraken[15] = 1 //casing skin
 	ammo_bolt_kraken[14] = 1 //durability cost per shot
@@ -53,7 +53,7 @@ function scr_ammo_init() {
 	ammo_bolt_metalstorm[20] = 0.27 //weight per round
 	ammo_bolt_metalstorm[19] = "prox100" //fuse type, can be used to define scatterguns
 	ammo_bolt_metalstorm[18] = rounds.Orange_Small //projectile skin
-	ammo_bolt_metalstorm[17] = "Metalstorm Bolt Rounds" //Name
+	ammo_bolt_metalstorm[17] = "Boltgun Metalstorm Rounds" //Name
 	ammo_bolt_metalstorm[16] = 6 //icon sprite subimage
 	ammo_bolt_metalstorm[15] = 0 //casing skin
 	ammo_bolt_metalstorm[14] = 1 //durability cost per shot
@@ -76,7 +76,7 @@ function scr_ammo_init() {
 	ammo_bolt_hellfire[20] = 0.23 //weight per round
 	ammo_bolt_hellfire[19] = "impact" //fuse type, can be used to define scatterguns
 	ammo_bolt_hellfire[18] = rounds.Green_Small //projectile skin
-	ammo_bolt_hellfire[17] = "Hellfire Bolt Rounds" //Name
+	ammo_bolt_hellfire[17] = "Boltgun Hellfire Rounds" //Name
 	ammo_bolt_hellfire[16] = 2 //icon sprite subimage
 	ammo_bolt_hellfire[15] = 1 //casing skin
 	ammo_bolt_hellfire[14] = 1 //durability cost per shot
@@ -120,7 +120,7 @@ function scr_ammo_init() {
 	ammo_bolt_heavy_standard[20] = 0.75 //weight per round
 	ammo_bolt_heavy_standard[19] = "impact" //fuse type, can be used to define scatterguns
 	ammo_bolt_heavy_standard[18] = rounds.Yellow_Small //projectile skin
-	ammo_bolt_heavy_standard[17] = "Standard Bolt Shells" //Name
+	ammo_bolt_heavy_standard[17] = "Heavy Bolter Shells" //Name
 	ammo_bolt_heavy_standard[16] = 12 //icon sprite subimage
 	ammo_bolt_heavy_standard[15] = 2 //casing skin
 	ammo_bolt_heavy_standard[14] = 1 //durability cost per shot
@@ -145,7 +145,7 @@ function scr_ammo_init() {
 	ammo_missile_krak[20] = 6 //weight per round
 	ammo_missile_krak[19] = "impact" //fuse type, can be used to define scatterguns
 	ammo_missile_krak[18] = 10 //projectile skin
-	ammo_missile_krak[17] = "Krak Missiles" //Name
+	ammo_missile_krak[17] = "Missile, Krak Warhead" //Name
 	ammo_missile_krak[16] = 14 //icon sprite subimage
 	ammo_missile_krak[15] = "none"
 	ammo_missile_krak[14] = 5 //durability cost per shot
@@ -170,7 +170,7 @@ function scr_ammo_init() {
 	ammo_plasma_standard[20] = 0.05 //weight per round
 	ammo_plasma_standard[19] = "impact" //fuse type, can be used to define scatterguns
 	ammo_plasma_standard[18] = rounds.Blue_Small //projectile skin
-	ammo_plasma_standard[17] = "Standard Plasma Ammo" //Name
+	ammo_plasma_standard[17] = "Plasma Fuel" //Name
 	ammo_plasma_standard[16] = 14 //icon sprite subimage
 	ammo_plasma_standard[15] = "none"
 	ammo_plasma_standard[14] = 4 //durability cost per shot

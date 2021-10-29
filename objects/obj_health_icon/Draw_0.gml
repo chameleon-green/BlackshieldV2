@@ -3,13 +3,13 @@ if(active = 1){
 	visible = 1
 	var vx = camera_get_view_x(view_camera[0]);
 	var vy = camera_get_view_y(view_camera[0]);
-	x = vx + (285 + 150*powered)*obj_vc.view_multiplier
-	y = vy + 125*obj_vc.view_multiplier
+	x = vx + (250 + 120*powered)*obj_vc.view_multiplier
+	y = vy + 100*obj_vc.view_multiplier
 }
 
 else{visible = 0 x = 0 y = 0}
 
-scale = 1.5*obj_vc.view_multiplier
+scale = 1.25*obj_vc.view_multiplier
 image_xscale = scale
 image_yscale = scale
 

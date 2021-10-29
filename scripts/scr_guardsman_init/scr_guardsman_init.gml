@@ -20,6 +20,8 @@ function scr_guardsman_init() {
 	Keywords = ds_list_create() //list of keywords for perks and such
 		ds_list_add(Keywords,"Imperial")
 		ds_list_add(Keywords,"Human")
+	remove_timer = timer_create(150,0)
+	remove = 0
 		
 //++++++++++++++++++++++++++++++++++++++++++ MOVEMENT +++++++++++++++++++++++++++++++++++++++++++
 

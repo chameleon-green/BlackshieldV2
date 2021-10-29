@@ -21,6 +21,7 @@ if(yy > 1536) {yy = 1536}
 if(yy < 384) {yy = 384}
 
 camera_set_view_size(view_camera[0],xx,yy)
+camera_set_view_border(view_camera[0],xx/2,yy/2)
 
 view_multiplier = xx/1366
 
@@ -45,26 +46,27 @@ if(equalize = 1)
 //track xhair and player
 if(instance_exists(obj_player) and instance_exists(obj_crosshair))
 	{
-	var cx = obj_crosshair.x - camera_get_view_x(view_camera[0])
-	var cy = obj_crosshair.y - camera_get_view_y(view_camera[0])
 	
-	var pl_mult = 2
-	var mouse_mult = 3
+	var pl_mult = 3
+	var mouse_mult = 4
 	var total_mult = pl_mult+mouse_mult
+	var ply = obj_player.bbox_top - obj_player.bbox_bottom + obj_player.y
+	
 	
 	x = (obj_player.x*pl_mult + mouse_x*mouse_mult)/total_mult
-	y = (obj_player.y*pl_mult + mouse_y*mouse_mult)/total_mult
-	camera_set_view_target(view_camera[0],obj_player.id)
+	y = (ply*pl_mult + mouse_y*mouse_mult)/total_mult
+	
+	//var track = obj_player.id
+	var track = id
+	
+	if(!global.GUI) {camera_set_view_target(view_camera[0],track)}
+	else{camera_set_view_target(view_camera[0],noone)}
 	
 	
-	/*
-	if(!edgeL and !edgeR) {x = (obj_player.x + mouse_x + mouse_x)/3}
-	var Threshold = xx*0.25
-	var edgeL = (window_mouse_get_x() >= (xx - Threshold))
-	var edgeR = (window_mouse_get_x() <= Threshold)
-	if(edgeL) {x+=Threshold/4}
-	if(edgeR) {x-=Threshold/4}
-	*/
+	
+	
+	
+	
 	}
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ PARALLAX SCROLLING

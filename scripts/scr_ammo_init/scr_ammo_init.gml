@@ -24,7 +24,7 @@ function scr_ammo_init() {
 	ammo_bolt_standard[4] = "physical" //damage type
 	ammo_bolt_standard[3] = "Standard bolt rounds. 1x physical damage."
 	ammo_bolt_standard[2] = "none" //contrail
-	ammo_bolt_standard[1] = 0.3 //fuse sensitivity
+	ammo_bolt_standard[1] = 0.5 //fuse sensitivity
 	ds_list_add(ListComAM,ammo_bolt_standard[27]+".ammo_bolt_standard")
 
 	ammo_bolt_kraken[27] = "175.common"

@@ -46,7 +46,8 @@ if(sub_button_weapons) {
 	draw_items = 1
 	refresh = 1
 	global.Selected = undefined
-	if(scrollbar != undefined) {scrollbar.offset = 85} //LimitOffset1
+	if(scrollbar != undefined) {scrollbar.offset = 85}
+	if(Boxing) {if(cID.scrollbar != undefined) {var Scroll = cID.scrollbar Scroll.offset = 85}}
 	if(cID != -1) {cID.refresh = 1}
 	}
 
@@ -58,6 +59,7 @@ if(sub_button_armor) {
 	refresh = 1
 	global.Selected = undefined
 	if(scrollbar != undefined) {scrollbar.offset = 85} //LimitOffset1
+	if(Boxing) {if(cID.scrollbar != undefined) {var Scroll = cID.scrollbar Scroll.offset = 85}}
 	if(cID != -1) {cID.refresh = 1}
 	}
 
@@ -69,6 +71,7 @@ if(sub_button_aid) {
 	refresh = 1
 	global.Selected = undefined
 	if(scrollbar != undefined) {scrollbar.offset = 85} //LimitOffset1
+	if(Boxing) {if(cID.scrollbar != undefined) {var Scroll = cID.scrollbar Scroll.offset = 85}}
 	if(cID != -1) {cID.refresh = 1}
 	}
 
@@ -80,6 +83,7 @@ if(sub_button_ammo) {
 	refresh = 1
 	global.Selected = undefined
 	if(scrollbar != undefined) {scrollbar.offset = 85} //LimitOffset1
+	if(Boxing) {if(cID.scrollbar != undefined) {var Scroll = cID.scrollbar Scroll.offset = 85}}
 	if(cID != -1) {cID.refresh = 1}
 	}
 
@@ -91,6 +95,7 @@ if(sub_button_mats) {
 	refresh = 1
 	global.Selected = undefined
 	if(scrollbar != undefined) {scrollbar.offset = 85} //LimitOffset1
+	if(Boxing) {if(cID.scrollbar != undefined) {var Scroll = cID.scrollbar Scroll.offset = 85}}
 	if(cID != -1) {cID.refresh = 1}
 	}
 	

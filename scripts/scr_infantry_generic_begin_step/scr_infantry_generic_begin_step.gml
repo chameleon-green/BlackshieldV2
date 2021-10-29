@@ -1,6 +1,6 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function scr_scion_begin_step(){
+function scr_infantry_generic_begin_step(){
 
 var cSpeed = 40*(Left or Right) //clamp hspeed for collision stuff, need a minimum
 

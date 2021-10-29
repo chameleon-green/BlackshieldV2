@@ -232,7 +232,7 @@ for(var i = 0; i < array_length(outfit); i++){
 	AnimUpdateScript = scr_guardsman_animation_update
 	AnimEventScript = scr_guardsman_event
 	DestroyScript = scr_infantry_generic_destroy
-	DrawScript = scr_guardsman_draw
-	BeginStepScript = scr_guardsman_begin_step
+	DrawScript = scr_infantry_generic_draw
+	BeginStepScript = scr_infantry_generic_begin_step
 
 }

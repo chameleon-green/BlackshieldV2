@@ -276,7 +276,7 @@ wpn_ranged = choose("volleygun","hotshot","hotshot")//,"hotshot","thumper","plas
 	AnimUpdateScript = scr_scion_animation_update
 	AnimEventScript = scr_scion_event
 	DestroyScript = scr_infantry_generic_destroy
-	DrawScript = scr_scion_draw
-	BeginStepScript = scr_scion_begin_step
+	DrawScript = scr_infantry_generic_draw
+	BeginStepScript = scr_infantry_generic_begin_step
 
 }

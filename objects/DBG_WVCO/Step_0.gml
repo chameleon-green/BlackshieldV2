@@ -19,6 +19,6 @@ if(wavestart) {
 	wavecount += 1
 	wavestart = 0
 	timer_reset(break_timer,0)
-	repeat (5) {instance_create_depth(112,3700,1,obj_enemy)}
-	repeat (5) {instance_create_depth(11900,3700,1,obj_enemy)}
+	repeat (10) {instance_create_depth(112,3700,1,obj_enemy)}
+	repeat (10) {instance_create_depth(11900,3700,1,obj_enemy)}
 	}

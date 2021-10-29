@@ -27,7 +27,7 @@ function scr_scion_init() {
 
 	state = "idle"
 
-	move_speed = 5*random_range(0.7,1.5)
+	move_speed = 4*random_range(0.7,1.5)
 	sprinting = 0
 	walking = 0
 
@@ -90,6 +90,7 @@ function scr_scion_init() {
 	
 	target = 0
 	
+	LOSandRange = 0
 	aware = 0
 	radius_detection = 24000
 	canshoot = 1

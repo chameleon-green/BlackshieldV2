@@ -88,6 +88,7 @@ function scr_scion_init() {
 	
 	target = 0
 	
+	aware = 0
 	radius_detection = 24000
 	canshoot = 1
 	rof_timer = 0

@@ -88,7 +88,7 @@ global.Selected = undefined//we have not clicked an item to view in our inventor
 instance_create_depth(x,y,-4000,obj_ic)
 wpn_primary = ds_grid_get(obj_ic.inventory,0,0)
 wpn_sidearm  = undefined
-wpn_melee = sword_power_proteus
+wpn_melee = sword_chain_thunderedge
 wpn_ranged  = wpn_primary
 wpn_grenade = grenade_smoke_astartes
 

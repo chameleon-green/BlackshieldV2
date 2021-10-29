@@ -89,7 +89,7 @@ function scr_lruss_init(){
 
 //+++++++++++++++++++++++++++++++++++++++++++ COMBAT STATS +++++++++++++++++++++++++++++++++++++++++++
 	dead = 0 death_morale_toggle = 1 fleeing = 0 flee_path_toggle = 1 dying = 0 death_anim_timer = 0 death_depth_toggle = 1
-	radius_detection = 24000 target = 0
+	radius_detection = 24000 target = 0 aware = 1
 	
 	canshoot_cannon = 1
 	firing_cannon = 0

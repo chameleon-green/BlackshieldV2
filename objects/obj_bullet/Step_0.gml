@@ -1,6 +1,6 @@
 depth = -9
 
-var Fuse = clamp(base_damage*fuse + crit*(base_damage*fuse),0,base_damage)
+var Fuse = max_hp*fuse
 
 if(hp <= 0) {instance_destroy()}
 if(hp < Fuse) {instance_destroy()}

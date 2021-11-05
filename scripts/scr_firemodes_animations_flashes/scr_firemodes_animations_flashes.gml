@@ -13,6 +13,12 @@ function scr_firemodes_animations_flashes() {
 
 
 	//---------------------------------------- define flash arrays ------------------------------------
+	flash_none[4] = make_colour_rgb(255, 230, 90)
+	flash_none[3] = -1
+	flash_none[2] = -1
+	flash_none[1] = -1
+	flash_none[0] = -1
+	
 	flash_standard_medium[4] = make_colour_rgb(255, 230, 90)
 	flash_standard_medium[3] = "flash med 4"
 	flash_standard_medium[2] = "flash med 3"
@@ -66,6 +72,17 @@ function scr_firemodes_animations_flashes() {
 	bolter_phobos_anim[2] = "sprint_full_rifle"
 	bolter_phobos_anim[1] = "walk_rifle"
 	bolter_phobos_anim[0] = "backwalk_rifle"
+	
+	//flamers
+	flamer_astartes_anim[7] = "spindown_flamer_astartes"  
+	flamer_astartes_anim[6] = "spinup_flamer_astartes"
+	flamer_astartes_anim[5] = "idle_flamer_astartes"  
+	flamer_astartes_anim[4] = "firing_flamer_astartes"
+	flamer_astartes_anim[3] = "reload_flamer_astartes"
+	flamer_astartes_anim[2] = "sprint_full_rifle"
+	flamer_astartes_anim[1] = "walk_rifle"
+	flamer_astartes_anim[0] = "backwalk_rifle"
+
 
 	//plasma guns
 	plasmagun_thunderbolt_anim[5] = "idle_plasmagun_thunderbolt"

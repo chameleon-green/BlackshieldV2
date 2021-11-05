@@ -20,12 +20,14 @@ function scr_guardsman_init() {
 	Keywords = ds_list_create() //list of keywords for perks and such
 		ds_list_add(Keywords,"Imperial")
 		ds_list_add(Keywords,"Human")
+	remove_timer = timer_create(150,0)
+	remove = 0
 		
 //++++++++++++++++++++++++++++++++++++++++++ MOVEMENT +++++++++++++++++++++++++++++++++++++++++++
 
 	state = "idle"
 
-	move_speed = 5*random_range(0.7,1.5)
+	move_speed = 3.5*random_range(0.9,1.5)
 	sprinting = 0
 	walking = 0
 
@@ -87,6 +89,7 @@ function scr_guardsman_init() {
 	
 	target = 0
 	
+	LOSandRange = 0
 	aware = 1
 	radius_detection = 24000
 	canshoot = 1

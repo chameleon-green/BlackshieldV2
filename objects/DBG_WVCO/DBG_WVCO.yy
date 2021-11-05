@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_container",
-    "path": "sprites/spr_container/spr_container.yy",
+    "name": "spr_console",
+    "path": "sprites/spr_console/spr_console.yy",
   },
   "solid": false,
   "visible": true,

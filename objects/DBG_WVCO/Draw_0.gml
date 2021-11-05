@@ -16,7 +16,7 @@ if(col) {
 
 draw_self()
 
-if(col) {
+if(col and wavecount < 1) {
 	var Cdist = abs(point_distance(obj_player.x,obj_player.y,x,y))
 	if(Cdist < 300) {
 		var text = "Press E to begin"
@@ -32,6 +32,6 @@ if(col) {
 
 draw_set_halign(fa_center)
 var BreakLeft = "Time Until Next Wave: " + string(round(30-break_timer[0]/120))
-var WaveCount = "Wave: " + string(wavecount)
+if(wavecount > 0) {var WaveCount = "Wave: " + string(wavecount)} else {var WaveCount = ""}
 if(break_timer[0] > 0){draw_text_color(x,bbox_top-30,BreakLeft,c_outline,c_outline,c_outline,c_outline,1)}
 draw_text_color(x,bbox_top-50,WaveCount,c_outline,c_outline,c_outline,c_outline,1)

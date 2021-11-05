@@ -15,6 +15,7 @@ if((Injury and Numbers = "" and col) or (text = "ARMOR DAMAGE" and col)) {draw_s
 
 draw_self()
 
+
 //++++++++++++++++++++++++++++++++++++++++++++++++ SET POINTER SUBIMAGE BASED ON EFFECT ++++++++++++++++++++++++++++++
 if(variable = "HeadWarning") {draw_sprite_ext(spr_warning_pointer,3,x+15*scale,y+17*scale,scale,scale,0,color,1)}
 if(variable = "HeadWarning2") {draw_sprite_ext(spr_warning_pointer,3,x+15*scale,y+17*scale,-scale,scale,0,color,1)}
@@ -58,3 +59,6 @@ draw_set_halign(fa_left)
 draw_text_ext_transformed_color(x-36*scale,y-17.5*scale,text,1,999999,tscale,tscale,0,tcolor,tcolor,tcolor,tcolor,1)
 draw_text_ext_transformed_color(x-23*scale,y-3*scale,text2,18,999999,tscale2,tscale,0,tcolor,tcolor,tcolor,tcolor,1)
 
+if(rep_amount != undefined){
+draw_text(x,y,rep_amount)
+}

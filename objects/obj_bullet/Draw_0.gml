@@ -1,6 +1,13 @@
-draw_self()
 
 
+if(flames) {
+	var xoffset = lengthdir_x(2*image_xscale,direction)
+	var yoffset = lengthdir_y(2*image_xscale,direction)
+	draw_sprite_ext(sprite_index,image_index,x+xoffset,y+yoffset,image_xscale,image_yscale,image_angle,c_white,image_alpha)
+	draw_sprite_ext(sprite_index,image_index,x-xoffset,y-yoffset,image_xscale,image_yscale,image_angle,c_white,image_alpha)
+}
+
+if(!flames) {draw_self()}
 
 if(is_array(ammo))
 {

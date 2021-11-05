@@ -49,6 +49,7 @@ for(var i=-2; i<Quant; i++){
 		ammo = "none"
 		wpn_ranged = "none"
 		
+		flames = 0
 		IFF = "none"
 		sprite_index = spr_projectiles_large
 		image_index = 1

@@ -54,4 +54,9 @@ function scr_soundgroups_init() {
 	sndg_rotorcannon[1] = snd_rotor_fire_loop
 	sndg_rotorcannon[0] = snd_rotor_loop 
 	
+	sndg_flamer_med1[3] = snd_flamer_windown
+	sndg_flamer_med1[2] = snd_flamer_windup
+	sndg_flamer_med1[1] = snd_flamer_fire_loop
+	sndg_flamer_med1[0] = -1
+	
 }

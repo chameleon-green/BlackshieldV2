@@ -9,7 +9,7 @@ if(start and start_toggle) {wavestart = 1 start_toggle = 0}
 //---------------------------------------- wave logic check -----------------------------
 
 //if waves are enabled and we have 0 enemies, wavestart relies on break timer
-if(wave_toggle = 1 and instance_number(obj_enemy ) = 0){
+if(wave_toggle = 1 and instance_number(obj_enemy ) = 0 and wavecount > 0){
 	
 	wavestart = timer_tick(break_timer,1)	
 }

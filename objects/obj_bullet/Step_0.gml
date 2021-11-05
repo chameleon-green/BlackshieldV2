@@ -1,5 +1,6 @@
 depth = -9
 
+
 var Fuse = max_hp*fuse
 
 if(hp <= 0) {instance_destroy()}
@@ -14,7 +15,23 @@ else{damage = clamp(hp,0,40000000000)}
 visible = 1
 speed = base_speed
 image_angle = direction
-//gravity = base_gravity
+
+
+
+//-----------------
+if(flames = 1) {
+	speed = 24
+	if(image_index >= flameframes) {instance_destroy(self)}
+	if(image_index/flameframes > 0.7) {lethal = 0}
+
+	gravity_direction = 270
+	gravity = -0.04 * cycle_speed
+
+	image_yscale = clamp(image_yscale*(1 + 0.05*cycle_speed),0,9) //set to 1.5 for fun 0.03
+	image_xscale = (image_xscale * (1 + 0.01*cycle_speed) )*1 //set to 1.5 for fun 0.005
+	image_alpha = image_alpha * (1 - 0.03*cycle_speed)
+}
+//----------------
 
 var xx = x+lengthdir_x(base_speed,direction)
 var yy = y+lengthdir_y(base_speed,direction)

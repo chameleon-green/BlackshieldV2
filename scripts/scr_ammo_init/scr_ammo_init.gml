@@ -116,7 +116,36 @@ function scr_ammo_init() {
 	ammo_bolt_scorpius[12]
 
 	ammo_bolt_banestrike[12]
+	
+	
 	*/
+	
+	//-----------------------------------------flamers--------------------------------------
+	
+	ammo_flamer_standard[27] = "150.common"
+	ammo_flamer_standard[22] = "ammo" //this is ammo
+	ammo_flamer_standard[21] = "flame" //guidance type
+	ammo_flamer_standard[20] = 0.02 //weight per round
+	ammo_flamer_standard[19] = "impact" //fuse type, can be used to define scatterguns
+	ammo_flamer_standard[18] = "flame" //projectile skin
+	ammo_flamer_standard[17] = "Flamer Fuel" //Name
+	ammo_flamer_standard[16] = 21 //icon sprite subimage
+	ammo_flamer_standard[15] = "none" //casing skin
+	ammo_flamer_standard[14] = 0.04 //durability cost per shot
+	ammo_flamer_standard[13] = 1.00 //damage mod
+	ammo_flamer_standard[12] = 0.00 //penetration factor, as percent of damage dealt (50 dmg * 0.2 pen = 10 resist ignored)
+	ammo_flamer_standard[11] = 1 //Velocity Mod
+	ammo_flamer_standard[10] = 1.00 //ROF mod
+	ammo_flamer_standard[9] = 1.00  //range mod
+	ammo_flamer_standard[8] = "none" //explosion array
+	ammo_flamer_standard[7] = "Ammo Descriptions/desc_ammo_bolt_round_standard.txt"
+	ammo_flamer_standard[6] = "none" //special effects, burning etc
+	ammo_flamer_standard[5] = "flamer fuel" //ammo type
+	ammo_flamer_standard[4] = "thermal" //damage type
+	ammo_flamer_standard[3] = "Standard flamer fuel"
+	ammo_flamer_standard[2] = "none" //contrail
+	ammo_flamer_standard[1] = 0 //fuse sensitivity
+	ds_list_add(ListComAM,ammo_flamer_standard[27]+".ammo_flamer_standard")
 
 	//-----------------------------------------heavy bolters--------------------------------------
 	

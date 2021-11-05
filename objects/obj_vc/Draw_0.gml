@@ -1,4 +1,4 @@
-draw_self()
+//draw_self()
 //InventoryGenerator("none",ListComAM,100,1)
 
 

@@ -1,3 +1,4 @@
+
 killtimer = timer_create(1000)
 killtick = 0
 kill = 0
@@ -25,8 +26,14 @@ if(critroll <= obj_player.CritChance) {crit = 1}
 
 
 //Sets projectile skin
+flames = 0
+if(is_real(ammo[ammo.Projectile_Skin])){
 image_index = ammo[ammo.Projectile_Skin]
 image_speed = 0
+}
+else{
+	if(ammo[ammo.Projectile_Skin] = "flame") {flames = 1}
+}
 
 //sets damage and pen values
 if(crit = 1) {
@@ -57,3 +64,30 @@ rocket_toggle = 1
 s_emit = audio_emitter_create()
 audio_falloff_set_model(audio_falloff_linear_distance)
 audio_emitter_falloff(s_emit, 200, 3000, 1)
+
+//++++++++++++++++++++++++++++++++++++++++++++ FLAME STUFF +++++++++++++++++++++++++++++++++++
+
+
+
+if(flames = 1){
+	
+crit = 0
+
+sprite_index = spr_flames_dirty59
+flameframes =  13//(sprite_get_number(spr_flames_dirty) - 1) 
+sprite = spr_flames_dirty59
+cycle_speed = 1
+sprite_set_speed(sprite,flameframes*cycle_speed,spritespeed_framespersecond)
+hspeed = 24
+
+
+lethal = 1
+
+image_xscale = clamp(5*cycle_speed,4,99)                //5
+image_yscale = clamp(1.5*cycle_speed,1,99)
+depth = -10
+image_alpha = 1
+
+
+image_speed = 1
+}

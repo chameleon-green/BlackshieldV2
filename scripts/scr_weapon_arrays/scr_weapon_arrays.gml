@@ -105,8 +105,8 @@ function scr_weapon_arrays() {
 	flamer_astartes[9] = -125 //Y offset for crosshair, used for low/high slung weapons
 	flamer_astartes[8] = 10//40 //dmg
 	flamer_astartes[7] = 2 //ROF 9
-	flamer_astartes[6] = 2000 //magazine size
-	flamer_astartes[5] = 0.25// //spread 1.2
+	flamer_astartes[6] = 150 //magazine size
+	flamer_astartes[5] = 0.45// //spread 1.2
 	flamer_astartes[4] = 55 //range
 	flamer_astartes[3] = 24 //muzzle velocity
 	flamer_astartes[2] = 1000 //durability max

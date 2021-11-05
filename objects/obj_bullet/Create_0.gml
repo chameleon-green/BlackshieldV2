@@ -64,7 +64,7 @@ rocket_toggle = 1
 s_emit = audio_emitter_create()
 audio_falloff_set_model(audio_falloff_linear_distance)
 audio_emitter_falloff(s_emit, 200, 3000, 1)
-
+impact_sound = 1
 //++++++++++++++++++++++++++++++++++++++++++++ FLAME STUFF +++++++++++++++++++++++++++++++++++
 
 
@@ -80,12 +80,12 @@ cycle_speed = 1
 sprite_set_speed(sprite,flameframes*cycle_speed,spritespeed_framespersecond)
 hspeed = 24
 
-
+impact_sound = 0
 lethal = 1
 
 image_xscale = clamp(5*cycle_speed,4,99)                //5
 image_yscale = clamp(1.5*cycle_speed,1,99)
-depth = -10
+depth = -13
 image_alpha = 1
 
 

@@ -93,7 +93,7 @@ wpn_ranged  = wpn_primary
 wpn_grenade = grenade_smoke_astartes
 
 global.EnmLayer = layer_create(-12,"enmlayer")
-global.PPlayer = layer_create(-13,"pplayer")
+global.PPlayer = layer_create(-14,"pplayer")
 
 var Player = instance_create_layer(x,y,global.PPlayer,obj_player)
 playerid = Player.id
@@ -106,6 +106,8 @@ instance_create_depth(126,226,-50,obj_crosshair)
 prt_sys = part_system_create()
 prt_flame_dirty_norm = part_type_create()
 prt_flame_dirty_interior = part_type_create()
+
+part_system_depth(prt_sys,playerid.depth-1)
 
 part_type_sprite(prt_flame_dirty_norm,spr_flames_dirty,1,1,0)
 part_type_direction(prt_flame_dirty_norm,90,90,0,8)

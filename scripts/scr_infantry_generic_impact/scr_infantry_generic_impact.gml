@@ -71,7 +71,7 @@ if(!dead and !invulnerable)
 								if(inst.impact_sound){
 								audio_play_sound(choose(snd_impact_metal1,snd_impact_metal2,snd_impact_metal3),1,0)
 								}
-								instance_destroy(inst)
+								inst.hp = 0
 								}
 					}
 				}
@@ -129,7 +129,7 @@ if(!dead and !invulnerable)
 								audio_play_sound(choose(snd_impact_metal1,snd_impact_metal2,snd_impact_metal3),1,0)
 								}
 								
-								instance_destroy(inst)
+								inst.hp = 0
 								}
 					}
 				
@@ -187,7 +187,7 @@ if(!dead and !invulnerable)
 								if(inst.impact_sound){
 								audio_play_sound(choose(snd_impact_metal1,snd_impact_metal2,snd_impact_metal3),1,0)
 								}
-								instance_destroy(inst)
+								inst.hp = 0
 								}
 					}
 			
@@ -198,6 +198,21 @@ if(!dead and !invulnerable)
 ds_list_destroy(head_list)
 ds_list_destroy(torso_list)
 ds_list_destroy(leg_list)	
+
+if(place_meeting(x,y,obj_groundfire)){
+	
+	var inst = instance_nearest(x,y,obj_groundfire)
+	var resist = (HeadTher + TorsoTher + LegsTher)/3
+	var dmg = inst.damage - resist
+	var dmgfinal = clamp(dmg,0.25,inst.damage)
+	var pick = irandom_range(1,3)
+	
+	if(pick = 1) {HeadHp-=dmgfinal}
+	if(pick = 2) {TorsoHp-=dmgfinal}
+	if(pick = 3) {LegsHp-=dmgfinal}
+}	
+
+
 }
 
 

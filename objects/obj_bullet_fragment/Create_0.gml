@@ -13,7 +13,7 @@ alarm[1] = 4
 //richochets before accelerating them
 
 
-
+impact_sound = 1
 
 oX = x
 oY = y

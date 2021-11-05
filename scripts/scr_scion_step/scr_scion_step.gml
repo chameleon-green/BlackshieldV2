@@ -5,11 +5,6 @@ dead = (state = "dying" or state = "dead")
 
 if(hp <= 0 and state != "dead") {state = "dying"}
 
-if(dead) {
-	remove = timer_tick(remove_timer,1)
-	if(remove) {instance_destroy(self)}
-}
-
 if(state = "dying")
 {
 skeleton_animation_clear(all)

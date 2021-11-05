@@ -81,17 +81,13 @@ if (
 	{
 	if(aud_spin = 0) {aud_spin = audio_play_sound(array[0], 1, 1)}
 	if(aud_spin2 = 0) {aud_spin2 = audio_play_sound(array[1], 1, 1)}
-	if(Hi or Lo){
 	audio_sound_pitch(aud_spin,1/(1.5*Lo+Hi))
 	audio_sound_pitch(aud_spin2,1/(1.5*Lo+Hi))
 	}
-	}
 	
-	if(flash_array[1] != -1){
 	skeleton_slot_color_set("slot_flash",flash_array[4],1)
 	skeleton_attachment_set("slot_flash", flash_array[i])
 	skeleton_attachment_set("slot_flash_core", flash_array[i] + " core")
-	}
 	
 	var create = instance_create_depth(xx,yy-1*crouching,depth+1, obj_bullet)
 	var DIR = angle + !image_xscale*(180-(2*angle)) + spreadAngle*1.5

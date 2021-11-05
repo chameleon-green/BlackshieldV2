@@ -1,4 +1,4 @@
-if(is_array(explosion_type)){
+
 
 if(explosion_type[3] = "no")
 {
@@ -27,8 +27,6 @@ with (instance_create_depth(xx,yy,-10,obj_explosion_scalable))
    damage_type = other.damage_type
    IFF = other.IFF
    }
-}
-
 }
 
 if(audio_exists(rocket_sound)) {audio_stop_sound(rocket_sound)}

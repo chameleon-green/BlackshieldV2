@@ -75,44 +75,15 @@ function scr_weapon_arrays() {
 	bolter_phobos[10] = ammo_bolt_standard //default ammo type, for to brand new weapon
 	bolter_phobos[9] = -125 //Y offset for crosshair, used for low/high slung weapons
 	bolter_phobos[8] = 40//40 //dmg
-	bolter_phobos[7] = 9 //ROF 9
+	bolter_phobos[7] = 9 //ROF
 	bolter_phobos[6] = 20 //magazine size
-	bolter_phobos[5] = 1.2// //spread 1.2
+	bolter_phobos[5] = 1.2 //spread 1.4
 	bolter_phobos[4] = 55 //range
 	bolter_phobos[3] = 50 //muzzle velocity
 	bolter_phobos[2] = 1000 //durability max
 	bolter_phobos[1] = 0
 	bolter_phobos[0] = -1
 	ds_list_add(ListComWP,bolter_phobos[27]+".bolter_phobos")
-	
-	//-----------------------------------------flamers--------------------------------------
-	
-	flamer_astartes[27] = "150.common"
-	flamer_astartes[23] = "desc_blank.txt"
-	flamer_astartes[22] = "primary" //what kind of weapon is this?
-	flamer_astartes[21] = firemode_auto //firemode array (see script)
-	flamer_astartes[20] = 18 //weight
-	flamer_astartes[19] = flamer_astartes_anim //animations array (see script)
-	flamer_astartes[18] = sndg_flamer_med1 //sound array
-	flamer_astartes[17] = "Astartes Pattern Flamer" //name
-	flamer_astartes[16] = "flamer_astartes" //weapon attachment sprite
-	flamer_astartes[15] = "mag_flamer1" //magazine attachment sprite
-	flamer_astartes[14] = "flamer fuel" //ammo type
-	flamer_astartes[13] =  90 //angular offset
-	flamer_astartes[12] = flash_none //flash type
-	flamer_astartes[11] = 0 //subimage for item screen (spr_items)
-	flamer_astartes[10] = ammo_flamer_standard //default ammo type, for to brand new weapon
-	flamer_astartes[9] = -125 //Y offset for crosshair, used for low/high slung weapons
-	flamer_astartes[8] = 10//40 //dmg
-	flamer_astartes[7] = 2 //ROF 9
-	flamer_astartes[6] = 150 //magazine size
-	flamer_astartes[5] = 0.45// //spread 1.2
-	flamer_astartes[4] = 55 //range
-	flamer_astartes[3] = 24 //muzzle velocity
-	flamer_astartes[2] = 1000 //durability max
-	flamer_astartes[1] = 0
-	flamer_astartes[0] = -1
-	ds_list_add(ListComWP,flamer_astartes[27]+".flamer_astartes")
 
 	//-----------------------------------------plasma guns--------------------------------------
 	

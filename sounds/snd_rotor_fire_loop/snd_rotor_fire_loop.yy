@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_rotor_fire_loop.wav",
-  "duration": 6.034263,
+  "duration": 6.039263,
   "parent": {
     "name": "Auto Weapons",
     "path": "folders/Sounds/Auto Weapons.yy",

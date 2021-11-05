@@ -478,13 +478,6 @@ size: 512,32
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-Gun Animations/anim_flamer
-  rotate: false
-  xy: 462, 7
-  size: 14, 17
-  orig: 14, 17
-  offset: 0, 0
-  index: -1
 Gun Animations/anim_kalibrax
   rotate: false
   xy: 380, 2
@@ -524,13 +517,6 @@ Magazines/mag_belt_rotor
   xy: 2, 21
   size: 93, 95
   orig: 93, 95
-  offset: 0, 0
-  index: -1
-Magazines/mag_flamer_1
-  rotate: false
-  xy: 195, 99
-  size: 36, 17
-  orig: 36, 17
   offset: 0, 0
   index: -1
 Magazines/mag_kalibrax_1
@@ -796,23 +782,16 @@ Weapons/bolter_heavy_voss
   index: -1
 Weapons/bolter_phobos
   rotate: false
-  xy: 544, 21
+  xy: 872, 71
   size: 79, 50
   orig: 79, 50
   offset: 0, 0
   index: -1
 Weapons/bolter_stalker
   rotate: false
-  xy: 786, 70
+  xy: 672, 70
   size: 98, 51
   orig: 98, 51
-  offset: 0, 0
-  index: -1
-Weapons/flamer_astartes
-  rotate: false
-  xy: 672, 70
-  size: 112, 51
-  orig: 112, 51
   offset: 0, 0
   index: -1
 Weapons/missile_astartes
@@ -823,15 +802,15 @@ Weapons/missile_astartes
   offset: 0, 0
   index: -1
 Weapons/pistol_bolt_tigrus
-  rotate: true
-  xy: 625, 21
+  rotate: false
+  xy: 91, 5
   size: 50, 39
   orig: 50, 39
   offset: 0, 0
   index: -1
 Weapons/pistol_plasma_sunspite
-  rotate: true
-  xy: 986, 59
+  rotate: false
+  xy: 953, 85
   size: 62, 36
   orig: 62, 36
   offset: 0, 0
@@ -852,7 +831,7 @@ Weapons/plasmagun_thunderbolt
   index: -1
 Weapons/rotorcannon_proteus
   rotate: false
-  xy: 886, 57
+  xy: 772, 57
   size: 98, 64
   orig: 98, 64
   offset: 0, 0

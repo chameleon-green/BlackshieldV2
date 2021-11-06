@@ -103,9 +103,9 @@ function scr_weapon_arrays() {
 	flamer_astartes[11] = 0 //subimage for item screen (spr_items)
 	flamer_astartes[10] = ammo_flamer_standard //default ammo type, for to brand new weapon
 	flamer_astartes[9] = -125 //Y offset for crosshair, used for low/high slung weapons
-	flamer_astartes[8] = 10//40 //dmg
-	flamer_astartes[7] = 2 //ROF 9
-	flamer_astartes[6] = 150 //magazine size
+	flamer_astartes[8] = 14  //dmg
+	flamer_astartes[7] = 3 //ROF 9
+	flamer_astartes[6] = 100 //magazine size
 	flamer_astartes[5] = 0.45// //spread 1.2
 	flamer_astartes[4] = 55 //range
 	flamer_astartes[3] = 24 //muzzle velocity

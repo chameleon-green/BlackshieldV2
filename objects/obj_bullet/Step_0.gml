@@ -51,20 +51,22 @@ if(proximity > 0){
 
 //standard collisions
 if(col_enemy){	
-	if(col_enemy.dead = 0){
-	
-	visible = 0
-	gravity = 0
-	speed = clamp(abs(col_enemy.hspeed),20,1000) //halts projectile on impact to allow collision to process
 	
 	if(flames = 1) {
-	var pick = irandom_range(1,15)
-	if(pick = 1 and lethal = 1){instance_create_depth(col_enemy.x,col_enemy.bbox_bottom,depth-1,obj_groundfire)}
+		var pick = irandom_range(1,9)
+		if(pick = 1 and lethal = 1){
+		var dmg = damage
+		with(instance_create_depth(col_enemy.x,col_enemy.bbox_bottom,depth-1,obj_groundfire)){damage = dmg}
+		}
 	}
+	
+	if(col_enemy.dead = 0){
+	
+		visible = 0 gravity = 0
+		speed = clamp(abs(col_enemy.hspeed),20,1000) //halts projectile on impact to allow collision to process
 	//var width = abs(col_enemy.bbox_left - col_enemy.bbox_right) //gets width of collision object
 	//var dirt = point_direction(x,y,xx,yy) //gets direction projectile is heading
 	//var dist = distance_to_object(col_enemy) + width //for some reason this accelerates the projectile through the target while still giving enough time to process impacts?
-	
 	//x = x+lengthdir_x(dist,dirt)  //sets x and y according to weird distance calc, slowing the projectile down to allow for it to register
 	//y = y+lengthdir_y(dist,dirt) 
 	}
@@ -79,7 +81,8 @@ if(col){
 	//var yyy = y+lengthdir_y(dist,direction)
 	//x = xxx
 	//y = yyy
-	if(flames = 1) {instance_create_depth(x,y,depth-1,obj_groundfire)}
+	var dmg = damage
+	if(flames = 1) {with(instance_create_depth(x,y,depth-1,obj_groundfire)){damage = dmg}}
 	instance_destroy()
 }
 

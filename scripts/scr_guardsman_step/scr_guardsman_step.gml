@@ -22,28 +22,9 @@ canmove = 0
 skeleton_anim_set_step(anim_die,2)
 }
 
-// morale reductions when dead
-if(dead and death_morale_toggle = 1){
 
-if(XPToggle) {XPToggle = 0 obj_player.thrones+=XPValue}
 
-death_morale_toggle = 0
-var Drange = 2000 //range that morale affects allies
-var Dlist = ds_list_create() //list of nearby allies
-var Dcount = collision_circle_list(x,y-10,Drange,obj_enemy,false,true,Dlist,false)	//ds_list_size(Dlist) //count of nearby allies
-
-//draw_text(x,y-50,Dcount)
-	
-	if(Dcount > 0){
-	for (var i = 0; i < Dcount; i++){
-		var inst = Dlist[|i]
-		if(inst.dead = 0) {inst.morale -= 1}
-		}
-	}
-ds_list_destroy(Dlist)
-}
-
-//+++++++++++++++++++++++++++++++++++++++++ COMBAT AI ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//+++++++++++++++++++++++++++++++++++++++++ COMBAT AI AND MORALE++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 	var AI_Enabled = 1 
 	//if(instance_exists(obj_vc)) {AI_Enabled = global.AI_Enabled}
@@ -52,10 +33,7 @@ ds_list_destroy(Dlist)
 	
 	if(LOSandRange and canshoot and !dead and !fleeing) {firing = 1} else{firing = 0}
 	
-	if(morale < max_morale and !dead and morale > max_morale/4 ) {morale += max_morale/12000} //morale above 25%? regen normally
-	if(morale <= max_morale/4 and !LOSandRange) {morale += max_morale/12000} //morale below 25%? regen only when out of LOS of player
-	if(morale >= max_morale) {fleeing = 0 flee_path_toggle = 1} //morale at or above max? stop fleeing, enable path toggle
-	if(morale <= 0 and !dead) {fleeing = 1} //morale less than 0? flee!
+	scr_infantry_generic_morale()
 
 //++++++++++++++++++++++++++++++++++++++++++++ MOVEMENT +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

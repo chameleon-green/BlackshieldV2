@@ -195,6 +195,7 @@
     {"id":{"name":"scr_player_quick_swap","path":"scripts/scr_player_quick_swap/scr_player_quick_swap.yy",},"order":3,},
     {"id":{"name":"nodes_calculate_cost_array","path":"scripts/nodes_calculate_cost_array/nodes_calculate_cost_array.yy",},"order":1,},
     {"id":{"name":"scr_inventory_shover","path":"scripts/scr_inventory_shover/scr_inventory_shover.yy",},"order":4,},
+    {"id":{"name":"scr_infantry_generic_morale","path":"scripts/scr_infantry_generic_morale/scr_infantry_generic_morale.yy",},"order":4,},
     {"id":{"name":"scr_switcharmor","path":"scripts/scr_switcharmor/scr_switcharmor.yy",},"order":5,},
     {"id":{"name":"scr_statusbody_colorcontrol","path":"scripts/scr_statusbody_colorcontrol/scr_statusbody_colorcontrol.yy",},"order":0,},
     {"id":{"name":"scr_status_body_warnings","path":"scripts/scr_status_body_warnings/scr_status_body_warnings.yy",},"order":1,},

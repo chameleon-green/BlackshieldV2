@@ -204,8 +204,10 @@ if(place_meeting(x,y,obj_groundfire)){
 	var inst = instance_nearest(x,y,obj_groundfire)
 	var resist = (HeadTher + TorsoTher + LegsTher)/3
 	var dmg = inst.damage - resist
-	var dmgfinal = clamp(dmg,0.25,inst.damage)
+	var dmgfinal = clamp(dmg,0.17,inst.damage)
 	var pick = irandom_range(1,3)
+	
+	morale -= (max_morale/1700)*6
 	
 	if(pick = 1) {HeadHp-=dmgfinal}
 	if(pick = 2) {TorsoHp-=dmgfinal}

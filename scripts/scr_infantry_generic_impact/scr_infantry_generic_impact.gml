@@ -199,20 +199,7 @@ ds_list_destroy(head_list)
 ds_list_destroy(torso_list)
 ds_list_destroy(leg_list)	
 
-if(place_meeting(x,y,obj_groundfire)){
-	
-	var inst = instance_nearest(x,y,obj_groundfire)
-	var resist = (HeadTher + TorsoTher + LegsTher)/3
-	var dmg = inst.damage - resist
-	var dmgfinal = clamp(dmg,0.17,inst.damage)
-	var pick = irandom_range(1,3)
-	
-	morale -= (max_morale/1700)*6
-	
-	if(pick = 1) {HeadHp-=dmgfinal}
-	if(pick = 2) {TorsoHp-=dmgfinal}
-	if(pick = 3) {LegsHp-=dmgfinal}
-}	
+
 
 
 }

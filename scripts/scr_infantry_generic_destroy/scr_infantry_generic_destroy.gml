@@ -10,4 +10,5 @@ function scr_infantry_generic_destroy(){
 	if(ds_exists(Keywords,ds_type_list)) {ds_list_destroy(Keywords)}
 
 	if(ds_exists(Loot_Table,ds_type_grid)) {ds_grid_destroy(Loot_Table)}
+	if(booster != undefined) {instance_destroy(booster) booster = undefined}
 }

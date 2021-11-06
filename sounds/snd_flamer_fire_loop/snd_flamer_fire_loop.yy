@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_flamer_fire_loop.wav",
-  "duration": 2.792358,
+  "duration": 1.079433,
   "parent": {
     "name": "Flame Weapons",
     "path": "folders/Sounds/Flame Weapons.yy",

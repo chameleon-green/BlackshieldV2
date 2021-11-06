@@ -1,5 +1,3 @@
-//script_execute(MyType)
-scr_scion_init()
-//scr_lruss_init()
-//scr_guardsman_init()
-
+init_check = 1
+leader = undefined
+weapon = undefined

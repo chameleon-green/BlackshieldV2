@@ -1,5 +1,8 @@
-if(StepScript != 0){
-script_execute(StepScript)
+
+if(variable_instance_exists(id,"StepScript")){
+	
+	if(StepScript != 0){
+	script_execute(StepScript)
+	}
 }
 
-//skeleton_anim_set_step("move_forward",2)

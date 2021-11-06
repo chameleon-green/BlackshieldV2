@@ -190,7 +190,8 @@ if(instance_exists(target) and !dead)
 		cooldown_timer = 0 
 		canshoot = 1 
 		burst_size = clamp(base_burst_size + irandom_range(-5,5),1,20)
-		cooldown_length = base_cooldown_length*random_range(0.3,1.5)
+		var ratio = distance_to_object(obj_player)/max_range //enemies will shoot faster the closer you get
+		cooldown_length = (base_cooldown_length*2*ratio)*random_range(0.6,1.2)
 	}
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ GRAVITY +++++++++++++++++++++++++++++++++++++++++++++++++

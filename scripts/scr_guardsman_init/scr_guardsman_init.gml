@@ -1,7 +1,11 @@
-function scr_guardsman_init() {
+// Script assets have changed for v2.3.0 see
+// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
+
+function scr_guardsman_init(weapon="lasgun") {
 
 //++++++++++++++++++++++++++++++++++++++++++++ UNIVERSAL TRAITS +++++++++++++++++++++++++++++++++++++
-
+	
+	
 	Sprite = spr_scion
 	sprite_index = (Sprite)
 	depth = -12
@@ -11,7 +15,8 @@ function scr_guardsman_init() {
 	AI_Type = "humanoid" //broad category of AI type (humanoid, beast, turret, vehicle)
 	Disposition = "hostile" //shoot on sight? animal?
 	Tactics = choose("ranged2","ranged2") //shooty or choppy
-	max_morale = irandom_range(5,8) //-1 = fearless
+	var rand = irandom_range(5,8)
+	max_morale = rand + rand*0.5*leader
 	morale = max_morale
 	IFF = "hostile_imperial"
 
@@ -23,6 +28,11 @@ function scr_guardsman_init() {
 	remove_timer = timer_create(150,0)
 	remove = 0
 		
+	if(leader) {
+		booster = instance_create_depth(x,y,depth,obj_morale_booster)
+		with(booster) {creator = id}
+	}
+	else{booster = undefined}
 //++++++++++++++++++++++++++++++++++++++++++ MOVEMENT +++++++++++++++++++++++++++++++++++++++++++
 
 	state = "idle"
@@ -98,15 +108,15 @@ function scr_guardsman_init() {
 	cooldown_timer = 0
 	spreadAngle = 0
 	firing = 0
+	reloading = 0
 	direc = 0
-
+	
 	invulnerable = 0
 	
 	hitbox_offset = irandom_range(10,30) //xoffset for hitboxes, helps with stacking enemies getting hit by same bullet
 //+++++++++++++++++++++++++++++++++++++++++++++ RESISTANCES +++++++++++++++++++++++++++++++++++++++
+	
 	HPBarTimer = 0 //timer for hp bar fade effect
-	
-	
 	
 	HeadHp = 12
 	TorsoHp = 25
@@ -138,39 +148,40 @@ function scr_guardsman_init() {
 
 //++++++++++++++++++++++++++++++++++++++++++++++ GEAR ITEMS ++++++++++++++++++++++++++++++++++++++++++++
 
-wpn_ranged = choose("lasgun")//,"hotshot","thumper","plasma","melta","volley","volley")
+	wpn_ranged = argument0 //,"hotshot","thumper","plasma","melta","volley","volley")
 	wpn_melee  = "knife"
 	wpn_grenade = "frag"
 	Crouch = 0
 
 	if(wpn_ranged = "lasgun") // HOTSHOT hellgun
 	{
-		ranged_damage = 17 //30
+		ranged_damage = 16 //30
 		ranged_damage_type = "thermal"
 		fuse = 0
-		max_range = 1750 * random_range(1,1.5)
+		max_range = 1550 * random_range(1,1.5)
 		rof = 6
 		velocity = 150
 		penetration = 0.1
 		round_grav = 0
 		explosion_type = -1
-		spread = 1.25
+		spread = 1.3
 	
 		projectile_type = "beam"
 		projectile_skin = 8
-	
-		magazine = "infinite"
+		
+		magazine_cap = 60
+		magazine = 60
 	
 		//anim_reload = ""
 		anim_firing = "fire_rifle2"
 		anim_idle = "idle_lasgun"
-		anim_reload = "none"
+		anim_reload = "reload_lasgun"
 		attachment_gun = "lasgun_kantrael"
 	
 		skeleton_attachment_set("gun",attachment_gun)
 	
-		base_burst_size = 4
-		base_cooldown_length = 60
+		base_burst_size = 6
+		base_cooldown_length = 40
 	
 		sound[5] = snd_hellgun1
 		sound[4] = snd_hellgun2
@@ -185,11 +196,52 @@ wpn_ranged = choose("lasgun")//,"hotshot","thumper","plasma","melta","volley","v
 		flash[0] = "flash_red4"
 	}
 	
+	if(wpn_ranged = "bolter") //bolter
+	{
+		ranged_damage = 30 
+		ranged_damage_type = "physical"
+		fuse = 0.75
+		max_range = 1800 * random_range(1,1.5)
+		rof = 9
+		velocity = 70
+		penetration = 0.1
+		round_grav = 0
+		explosion_type = obj_vc.exp_bolt_small
+		spread = 1.5
+	
+		projectile_type = "normal"
+		projectile_skin = 0
+		
+		magazine_cap = 20
+		magazine = 20
+	
+		anim_firing = "fire_bolter_munitorum"
+		anim_idle = "idle_bolter_munitorum"
+		anim_reload = "reload_bolter_munitorum"
+		attachment_gun = "bolter_munitorum"
+	
+		skeleton_attachment_set("gun",attachment_gun)
+	
+		base_burst_size = 2
+		base_cooldown_length = 20
+	
+		sound[5] = snd_bolter_light1
+		sound[4] = snd_bolter_light2
+		sound[3] = snd_bolter_light3
+		sound[2] = undefined
+		sound[1] = undefined
+		sound[0] = undefined
+	
+		flash[3] = "flash_red1"
+		flash[2] = "flash_red2"
+		flash[1] = "flash_red3"
+		flash[0] = "flash_red4"
+	}
+	
 	burst_size = base_burst_size
 	cooldown_length = base_cooldown_length
 	
 //+++++++++++++++++++++++++++++++++++++++++++++++ OUTFIT +++++++++++++++++++++++++++++++++++++++++++++
-
 
 outfit[0][0] = "head"
 outfit[1][0] = "torso"
@@ -208,9 +260,9 @@ outfit[13][0] = "backpack"
 outfit[14][0] = "front hand"
 outfit[15][0] = "holding hand"
 
-outfit[0][1] = "head_flak"
+outfit[0][1] = "head_flak" 
 outfit[1][1] = "torso_flak"
-outfit[2][1] = "front bicep_flak"
+outfit[2][1] = "front bicep_flak" 
 outfit[3][1] = "rear bicep_flak"
 outfit[4][1] = "forearm_flak"
 outfit[5][1] = "forearm_flak"
@@ -225,11 +277,13 @@ outfit[13][1] = -1
 outfit[14][1] = "front hand_flak"
 outfit[15][1] = "holding hand_flak"
 
+if(leader) {outfit[0][1] = "head_flak_sarge"}
+if(leader) {outfit[2][1] = "front bicep_flak_sarge"}
 
 for(var i = 0; i < array_length(outfit); i++){
 	skeleton_attachment_set(outfit[i][0],outfit[i][1])
-}
-
+	}
+	
 //+++++++++++++++++++++++++++++++++++++++++++++ RELEVANT SCRIPTS ++++++++++++++++++++++++++++++++++++++++
 	
 	StepScript = scr_guardsman_step
@@ -240,3 +294,4 @@ for(var i = 0; i < array_length(outfit); i++){
 	BeginStepScript = scr_infantry_generic_begin_step
 
 }
+

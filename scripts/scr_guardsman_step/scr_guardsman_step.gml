@@ -73,6 +73,19 @@ if(instance_exists(target) and !dead)
 	if(!sprinting and !walking and state != "dying" and state != "dead") {skeleton_animation_clear(2) canshoot = 1}
 	if(!sprinting) {canshoot = 1}
 
+//++++++++++++++++++++++++++++++++++++++++++++++++++++ SHOOTY STUFF +++++++++++++++++++++++++++++++++++++++++
+
+	if(is_real(magazine)){
+		if(magazine <=0 and !fleeing){
+			reloading = 1
+			firing = 0
+			skeleton_animation_clear(3)
+		}
+	}
+	
+	if(reloading = 1){
+		skeleton_anim_set_step(anim_reload,4)
+	}
 	
 	if(firing and !dead)
 	{
@@ -137,8 +150,9 @@ if(instance_exists(target) and !dead)
 			
 		
 			var rand = choose(5,4,3)
+			var SND = sound[rand]
 			audio_falloff_set_model(audio_falloff_linear_distance)
-			var fuck = audio_play_sound_at(snd_hellgun1,x,y,0,20,2500,1,0,1)
+			var fuck = audio_play_sound_at(SND,x,y,0,20,2500,1,0,1)
 			}	
 		if(rof_timer > rof) 
 		{
@@ -162,7 +176,8 @@ if(instance_exists(target) and !dead)
 		cooldown_timer = 0 
 		canshoot = 1 
 		burst_size = clamp(base_burst_size + irandom_range(-5,5),1,20)
-		cooldown_length = base_cooldown_length*random_range(0.3,1.5)
+		var ratio = distance_to_object(obj_player)/max_range //enemies will shoot faster the closer you get
+		cooldown_length = (base_cooldown_length*2*ratio)*random_range(0.6,1.2)
 	}
 
 

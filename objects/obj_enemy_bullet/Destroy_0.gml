@@ -10,10 +10,21 @@ if(projectile_type = "beam")
 
 if(is_array(explosion_type)){
 	
-	with(instance_create_depth(x,y,depth-1,obj_explosion_scalable)){
+	
+	if(explosion_type[3] = "no"){
+		with(instance_create_depth(x,y,depth-1,obj_explosion)){
 		creator = other.id;
 		damage = other.damage
 		explosion_type = other.explosion_type
 		damage_type = other.damage_type
+		}
+	}
+	else{
+		with(instance_create_depth(x,y,depth-1,obj_explosion_scalable)){
+		creator = other.id;
+		damage = other.damage
+		explosion_type = other.explosion_type
+		damage_type = other.damage_type
+		}
 	}
 }

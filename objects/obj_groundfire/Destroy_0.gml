@@ -1,0 +1,1 @@
+part_emitter_destroy(prt_sys,emitter)

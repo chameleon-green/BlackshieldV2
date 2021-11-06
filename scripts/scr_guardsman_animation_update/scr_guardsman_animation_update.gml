@@ -3,7 +3,7 @@ function scr_guardsman_animation_update()
 
 	//aware = 1 LOSandRange = 1 //DELETE ME
 	
-	if(state != "dying" and state != "dead")
+	if(state != "dying" and state != "dead" and !reloading)
 	{
 	
 	skeleton_attachment_set("gun",attachment_gun)

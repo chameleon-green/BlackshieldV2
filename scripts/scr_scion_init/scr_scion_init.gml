@@ -1,4 +1,4 @@
-function scr_scion_init() {
+function scr_scion_init(weapon) {
 
 //++++++++++++++++++++++++++++++++++++++++++++ UNIVERSAL TRAITS +++++++++++++++++++++++++++++++++++++
 
@@ -11,7 +11,8 @@ function scr_scion_init() {
 	AI_Type = "humanoid" //broad category of AI type (humanoid, beast, turret, vehicle)
 	Disposition = "hostile" //shoot on sight? animal?
 	Tactics = choose("ranged2","ranged2") //shooty or choppy
-	max_morale = irandom_range(18,21) //-1 = fearless
+	var rand = irandom_range(18,21)
+	max_morale = rand + rand*0.5*leader
 	morale = max_morale
 	IFF = "hostile_imperial"
 
@@ -22,6 +23,12 @@ function scr_scion_init() {
 		ds_list_add(Keywords,"Human")
 	remove_timer = timer_create(150,0)
 	remove = 0
+	
+	if(leader) {
+		booster = instance_create_depth(x,y,depth,obj_morale_booster)
+		with(booster) {creator = id}
+	}
+	else{booster = undefined}
 		
 //++++++++++++++++++++++++++++++++++++++++++ MOVEMENT +++++++++++++++++++++++++++++++++++++++++++
 
@@ -139,7 +146,7 @@ function scr_scion_init() {
 
 //++++++++++++++++++++++++++++++++++++++++++++++ GEAR ITEMS ++++++++++++++++++++++++++++++++++++++++++++
 
-wpn_ranged = choose("volleygun","hotshot","hotshot")//,"hotshot","thumper","plasma","melta","volley","volley")
+wpn_ranged = argument0//choose("volleygun","hotshot","hotshot")//,"hotshot","thumper","plasma","melta","volley","volley")
 	wpn_melee  = "knife"
 	wpn_grenade = "frag"
 	Crouch = 0

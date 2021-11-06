@@ -1,0 +1,1 @@
+if(creator != undefined) {x=creator.x y=creator.y}

@@ -62,6 +62,8 @@ for(var i=-2; i<Quant; i++){
 		fuse = 0.999
 		guidance = "none"
 		explosion_type = obj_vc.exp_scalable_frag_huge
+		
+		image_xscale = 1 image_yscale = 1
 	
 		gravity = 0//random_range(1,1)
 		base_speed = 60//-(3*i)

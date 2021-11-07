@@ -19,6 +19,9 @@ var event = ds_map_find_value(event_data, "name")
 	audio_play_sound_at(snd_battlecannon,ex,ey,0,700,5000,1,0,1)
 	
 	with(instance_create_depth(ex,ey,depth+1,obj_enemy_bullet)) {
+		xcreator = ex
+		ycreator = ey
+		dcreator = Dir
 		speed = other.primary[26]
 		base_speed = other.primary[26]
 		direction = Dir  
@@ -35,6 +38,7 @@ var event = ds_map_find_value(event_data, "name")
 		penetration = other.primary[25]
 		explosion_type = other.primary[23]
 		fuse = other.primary[31]
+		max_range = other.primary[28]
 		}
 	
 	ds_map_destroy(emap)

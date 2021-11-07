@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Pathfinding",
-    "path": "folders/Scripts/Enemy Definitions/@General Use Scripts/Pathfinding.yy",
+    "name": "Chimera",
+    "path": "folders/Scripts/Enemy Definitions/Chimera.yy",
   },
   "resourceVersion": "1.0",
-  "name": "nodes_in_los",
+  "name": "scr_chimera_animation_update",
   "tags": [],
   "resourceType": "GMScript",
 }

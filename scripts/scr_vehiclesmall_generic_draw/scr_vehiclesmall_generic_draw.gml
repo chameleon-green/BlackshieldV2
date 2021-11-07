@@ -1,6 +1,6 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function scr_lruss_draw(){
+function scr_vehiclesmall_generic_draw(){
 
 
 if(particle_timer >= particle_max_timer*2 and layer =-1) {layer_destroy(mylayer)}

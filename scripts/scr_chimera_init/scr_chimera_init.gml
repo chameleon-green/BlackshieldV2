@@ -1,10 +1,10 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function scr_lruss_init(){
+function scr_chimera_init(){
 
 //++++++++++++++++++++++++++++++++++++++++++++ UNIVERSAL TRAITS +++++++++++++++++++++++++++++++++++++
 
-	Sprite = spr_lruss
+	Sprite = spr_chimera
 	sprite_index = (Sprite)
 	mask_index = Sprite
 	
@@ -12,7 +12,7 @@ function scr_lruss_init(){
 	layer = mylayer
 	
 	
-	Type = "ig_lruss" //what is this?
+	Type = "ig_chimera" //what is this?
 	AI_Type = "vehicle" //broad category of AI type (humanoid, beast, turret, vehicle)
 	Disposition = "hostile" //shoot on sight? animal?
 	Tactics = choose("ranged2","ranged2") //shooty or choppy
@@ -30,7 +30,7 @@ function scr_lruss_init(){
 
 	state = "idle"
 
-	move_speed = 8*random_range(0.8,1.2)
+	move_speed = 10*random_range(0.8,1.2)
 	sprinting = 0
 	walking = 0
 
@@ -40,7 +40,7 @@ function scr_lruss_init(){
 
 	anim_walk = "move_forward"
 	anim_sprint = "move_forward"
-	anim_backwalk = "move_forward"
+	anim_backwalk = "move_backward"
 	anim_die = choose("die_1","die_2")
 	
 	Left = 0
@@ -117,9 +117,9 @@ function scr_lruss_init(){
 //+++++++++++++++++++++++++++++++++++++++++++++ RESISTANCES +++++++++++++++++++++++++++++++++++++++
 	HPBarTimer = 0 //timer for hp bar fade effect
 	
-	TurretHp = 800
-	HullHp = 1200
-	TracksHp = 400
+	TurretHp = 500
+	HullHp = 800
+	TracksHp = 300
 	
 	var TurretMax = TurretHp
 	var HullMax = HullHp
@@ -147,43 +147,43 @@ function scr_lruss_init(){
 
 //++++++++++++++++++++++++++++++++++++++++++++++ GEAR ITEMS ++++++++++++++++++++++++++++++++++++++++++++
 
-wpn_ranged = choose("battlecannon")
+wpn_ranged = choose("multilaser")
 wpn_ranged_hull = choose("hbolter")
 	Crouch = 0
 
-	if(wpn_ranged = "battlecannon") //big boomer
+	if(wpn_ranged = "multilaser") //zap zap zap
 	{	
 		primary[31] = 0.97 //fuse, as portion of base damage. This weapon will detonate at 90% hp
-		primary[30] = 600 //damage
-		primary[29] = "physical" //dmg type
-		primary[28] = 3500 * random_range(0.8,1.5) //maxrange
-		primary[27] = 400 //rof
-		primary[26] = 80 //velocity
+		primary[30] = 35 //damage
+		primary[29] = "thermal" //dmg type
+		primary[28] = 600 * random_range(0.8,1.5) //maxrange
+		primary[27] = 6 //rof
+		primary[26] = 160 //velocity
 		primary[25] = 0 //penetration
 		primary[24] = 0 //round gravity
-		primary[23] = obj_vc.exp_scalable_frag_large
-		primary[22] = 2 //spread
-		primary[21] = "normal" //projectile type, beam etc
-		primary[20] = 0 //projectile skin
+		primary[23] = "none"
+		primary[22] = 1.5 //spread
+		primary[21] = "beam" //projectile type, beam etc
+		primary[20] = 8 //projectile skin
 		primary[19] = "infinite" //mag size
 		
 		primary[18] = "none" //reload anim
-		primary[17] = "fire_battlecannon" //fire anim
-		primary[16] = "idle_battlecannon" //idle anim
-		primary[15] = "battlecannon" //gun attachment
+		primary[17] = "fire_multilaser" //fire anim
+		primary[16] = "idle_multilaser" //idle anim
+		primary[15] = "multilaser" //gun attachment
 	
 		skeleton_attachment_set("cannonbarrel",primary[15])
 
-		primary[14] = 1 //base burst size
-		primary[13] = 400*random_range(0.8,1.2) //cooldown 
-		primary[12] = snd_battlecannon //fire sound
-		primary[11] = snd_battlecannon //fire sound
-		primary[10] = snd_battlecannon //fire sound
-		primary[9] = snd_battlecannon //fire sound
-		primary[8] = "flash_big1" //flash
-		primary[7] = "flash_big1" //flash
-		primary[6] = "flash_big1" //flash
-		primary[5] = "flash_big1" //flash		
+		primary[14] = 15 //base burst size
+		primary[13] = 80*random_range(0.8,1.2) //cooldown 
+		primary[12] = snd_lasgun1 //fire sound
+		primary[11] = snd_lasgun2 //fire sound
+		primary[10] = snd_lasgun3 //fire sound
+		primary[9] = snd_lasgun1 //fire sound
+		primary[8] = "flash red 1" //flash
+		primary[7] = "flash red 2" //flash
+		primary[6] = "flash red 3" //flash
+		primary[5] = "flash red 4" //flash		
 	}
 
 	burst_size_cannon = primary[14]
@@ -191,10 +191,10 @@ wpn_ranged_hull = choose("hbolter")
 	
 	if(wpn_ranged_hull = "hbolter") // S5 AP4 HEAVY3
 	{	
-		secondary[31] = 0.3
+		secondary[31] = 0.3 //fuse
 		secondary[30] = 45 //damage
 		secondary[29] = "physical" //dmg type
-		secondary[28] = 2800 * random_range(1,1.5) //maxrange
+		secondary[28] = 600 * random_range(1,1.5) //maxrange
 		secondary[27] = 8//rof
 		secondary[26] = 50 //velocity
 		secondary[25] = 0.25 //penetration
@@ -213,14 +213,14 @@ wpn_ranged_hull = choose("hbolter")
 		skeleton_attachment_set("hullgun",secondary[15])
 		skeleton_animation_set_ext(secondary[16],4)
 
-		secondary[14] = 13 //base burst size
+		secondary[14] = 9 //base burst size
 		secondary[13] = 150*random_range(0.8,1.2) //cooldown 
 		secondary[12] = snd_bolter_heavy1 //fire sound
 		secondary[11] = snd_bolter_heavy2 //fire sound
 		secondary[10] = snd_bolter_heavy3 //fire sound
 		secondary[9] = snd_bolter_heavy4 //fire sound
 		secondary[8] = "flash1" //flash
-		secondary[7] = "flash 2" //flash
+		secondary[7] = "flash2" //flash
 		secondary[6] = "flash3" //flash
 		secondary[5] = "flash4" //flash		
 	}
@@ -228,10 +228,17 @@ wpn_ranged_hull = choose("hbolter")
 	burst_size_hull = secondary[14]
 	cooldown_length_hull = secondary[13]
 	
+//+++++++++++++++++++++++++++++++++++++++++++++ TRANSPORT STUFF ++++++++++++++++++++++++++++++++++++++
+deploy_timer = timer_create(300,0)
+
+	
 //++++++++++++++++++++++++++++++++++++++++++++++ SOUND STUFF +++++++++++++++++++++++++++++++++++++++++++++
 
 sound_engine = snd_engine_tank1
 sound_tracks = snd_tracks1
+sound_ramp = snd_engine_tank1
+
+
 
 tracks_snd_value = 0
 engine_snd_value = 0
@@ -239,11 +246,13 @@ engine_snd_value = 0
 engine_sound_toggle = 1
 tracks_sound_toggle = 1
 burning_sound_toggle = 1
+r_emit = audio_emitter_create()
 e_emit = audio_emitter_create()
 t_emit = audio_emitter_create()
 audio_falloff_set_model(audio_falloff_linear_distance)
 audio_emitter_falloff(e_emit, 800, 6000, 1)
 audio_emitter_falloff(t_emit, 800, 6000, 1)
+audio_emitter_falloff(e_emit, 800, 6000, 1)
 
 //++++++++++++++++++++++++++++++++++++++++++++++ PARTICLE STUFF +++++++++++++++++++++++++++++++++++++++++++++
 prt_sys = part_system_create()
@@ -258,9 +267,9 @@ particle_max_timer = irandom_range(800,1200)
 
 //+++++++++++++++++++++++++++++++++++++++++++++ RELEVANT SCRIPTS ++++++++++++++++++++++++++++++++++++++++
 	
-	StepScript = scr_lruss_step
-	AnimUpdateScript = scr_lruss_animation_update
-	AnimEventScript = scr_lruss_event
+	StepScript = scr_chimera_step
+	AnimUpdateScript = scr_chimera_animation_update
+	AnimEventScript = scr_chimera_event
 	DestroyScript = scr_vehiclesmall_generic_destroy
 	DrawScript = scr_vehiclesmall_generic_draw
 	BeginStepScript = 0

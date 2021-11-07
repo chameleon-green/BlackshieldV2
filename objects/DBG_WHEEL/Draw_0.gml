@@ -1,6 +1,6 @@
 
-draw_self()
-draw_text(x,bbox_top,col_slope)
+//draw_self()
+//draw_text(x,bbox_top,col_slope)
 
 /*
 var x1 = bbox_left - 10 + hspeed

@@ -1,9 +1,10 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function scr_lruss_step(){
+function scr_chimera_step(){
 
 
 target = obj_player
+
 if(hp <= 0) {
 	dead = 1 
 	dying = 1
@@ -24,15 +25,45 @@ var canx = bone_get_x("cannonbarrel")
 var cany = bone_get_y("cannonbarrel")
 LOSandRangeCannon = check_los_and_range(1,canx,cany,target,obj_platform,primary[28])
 firing_cannon = 0
+skeleton_attachment_set("cannonflash",-1)
 if(canshoot_cannon and LOSandRangeCannon and !out_of_ele_cannon) {firing_cannon = 1} 
 
 if(firing_cannon = 1){
-	skeleton_anim_set_step(primary[17],3)
+	skeleton_anim_set_step(primary[17],4)
+	rof_timer_cannon+=1
+	if(rof_timer_cannon >= primary[27]){
+		burst_count_cannon+=1
+		rof_timer_cannon = 0
+		var i = irandom_range(1,4)
+		var snd = audio_play_sound_at(primary[8+i],canx,cany,0,300,3000,1,0,1)
+		audio_sound_gain(snd,2,0)
+		skeleton_attachment_set("cannonflash",primary[4+i])
+		
+		var Dir = angle + !image_xscale*(180 - 2*angle) + random_range(-primary[22],primary[22]) + ((image_angle-360)*image_xscale)*image_xscale
+		with(instance_create_depth(canx,cany,depth+1,obj_enemy_bullet)) {
+		xcreator = canx
+		ycreator = cany
+		dcreator = Dir
+		speed = other.primary[26]
+		base_speed = other.primary[26]
+		direction = Dir  
+		image_angle = Dir
+		image_index = 0 
+		image_speed = 0
+		hp = other.primary[30]
+		base_gravity = 0 
+		projectile_type = other.primary[21]
+		IFF = "hostile_imperial"
+		damage_type = other.primary[29]
+		damage = other.primary[30]
+		base_damage = other.primary[30]
+		penetration = other.primary[25]
+		explosion_type = other.primary[23]
+		fuse = other.primary[31] //this weapon does not explode, so it will die at 100% hp loss
+		max_range = other.primary[28]
+		}
+	}
 }
-
-if(cannon_timer >= skeleton_animation_get_frames(primary[17])) {cannon_timer = 0}
-if(skeleton_animation_get_ext(3) = primary[17]) {cannon_timer += 1} else{cannon_timer = 0}
-if(firing_cannon = 0 and cannon_timer >= skeleton_animation_get_frames(primary[17])) {skeleton_animation_clear(3)}
 
 
 if(burst_count_cannon >= primary[14]){
@@ -80,14 +111,14 @@ if(firing_hull = 1){
 		image_speed = 0
 		hp = other.secondary[30]
 		base_gravity = 0 
-		projectile_type = "normal"
+		projectile_type = other.secondary[21]
 		IFF = "hostile_imperial"
-		damage_type = "physical"
+		damage_type = other.secondary[29]
 		damage = other.secondary[30]
 		base_damage = other.secondary[30]
 		penetration = other.secondary[25]
 		explosion_type = other.secondary[23]
-		fuse = 0 //this weapon does not explode, so it will die at 100% hp loss
+		fuse = other.secondary[31]
 		max_range = other.secondary[28]
 		}
 	}
@@ -112,6 +143,11 @@ if(cooldown_timer2 >= cooldown_length_hull){
 	hullfire_timer = 0
 }
 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DEPLOY TROOPS ++++++++++++++++++++++++++++++++++++++++
+deploy = 1
+if(deploy = 1){
+	skeleton_anim_set_step("ramp_deploy",5)
+}
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ EXHAUST ANIMATIONS +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 var emap = ds_map_create()
@@ -119,7 +155,7 @@ skeleton_bone_state_get("exhaust",emap)
 var ex = ds_map_find_value(emap,"worldX") + irandom_range(-15,15)
 var ey = ds_map_find_value(emap,"worldY") + irandom_range(-20,20)
 var Pitch = abs(hspeed)/12
-var Mass = irandom_range(4,7)*(1+(Pitch/5))
+var Mass = irandom_range(4,5)*(1+(Pitch/5))
 
 with(instance_create_depth(ex,ey,depth-1,oprt_dust_ball)) {direction = 90+(45*other.image_xscale) mass = Mass max_scale = 1+Pitch}
 
@@ -136,30 +172,32 @@ if(tracks_sound_toggle = 1) {tracks_sound_toggle = 0 tracks_snd_value = audio_pl
 audio_sound_pitch(engine_snd_value,clamp(Pitch,0.2,0.8))
 audio_sound_pitch(tracks_snd_value,clamp(Pitch,0.3,1))
 
+
 var Spd = hspeed*image_xscale
 if(Spd < 0) {skeleton_anim_set_step("move_backward",1) audio_emitter_gain(t_emit,1)}
 if(Spd > 0) {skeleton_anim_set_step("move_forward",1) audio_emitter_gain(t_emit,1)}
 if(Spd = 0) {skeleton_animation_clear(1) audio_emitter_gain(t_emit,0)}
+
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++ RESISTANCES +++++++++++++++++++++++++++++++++++++++++++++++++
 
 	hp = HullHp + TurretHp + TracksHp
 
 	var Dura_Turret = clamp(TurretDurability/TurretDurabilityMax,0.25,5)
-	TurretPhys = round(800 * Dura_Turret) //10
-	TurretTher = round(1100 * Dura_Turret)
-	TurretCryo = round(500 * Dura_Turret)
-	TurretCorr = round(500 * Dura_Turret)
+	TurretPhys = round(600 * Dura_Turret) //10
+	TurretTher = round(800 * Dura_Turret)
+	TurretCryo = round(300 * Dura_Turret)
+	TurretCorr = round(300 * Dura_Turret)
 	TurretRadi = round(1000 * Dura_Turret)
 	TurretElec = round(350 * Dura_Turret)
 	TurretHazm = round(1000 * Dura_Turret)
 	TurretWarp = round(0 * Dura_Turret)
 
 	var Dura_Hull = clamp(HullDurability/HullDurabilityMax,0.25,5)
-	HullPhys = round(700 * Dura_Hull) //20
-	HullTher = round(1000 * Dura_Hull)
-	HullCryo = round(500 * Dura_Hull)
-	HullCorr = round(500 * Dura_Hull)
+	HullPhys = round(500 * Dura_Hull) //20
+	HullTher = round(900 * Dura_Hull)
+	HullCryo = round(300 * Dura_Hull)
+	HullCorr = round(300 * Dura_Hull)
 	HullRadi = round(1000 * Dura_Hull)
 	HullElec = round(250 * Dura_Hull)
 	HullHazm = round(1000 * Dura_Hull)
@@ -183,17 +221,16 @@ var hull_list = ds_list_create()
 
 if(!dead and !invulnerable)
 {	
-	
 	var width = abs(bbox_left - bbox_right)
 	var Hangle = abs(image_angle-360)
 	var xL = bbox_left
 	var xR = bbox_right
 	var yT = bbox_top-lengthdir_y(width/4,Hangle)
 	var yB = bbox_bottom+lengthdir_y(width/2,Hangle)
-	var yHT = yB-240//hull top Y
-	var yTB = yB-220 //turret bot y
+	var yHT = yB-180 //hull top Y
+	var yTB = yB-180 //turret bot y
 	var XTRT1 = 50 var XTRT2 = 160 //x offsets for turret, changes with image xscale (see below)
-		
+	
 	if(image_xscale = -1) {var turret_impact = collision_rectangle_list(xL+XTRT1,yT,xR-XTRT2,yTB,obj_bullet,false,false,turret_list,true)}
 	else{var turret_impact = collision_rectangle_list(xL+XTRT2,yT,xR-XTRT1,yTB,obj_bullet,false,false,turret_list,true)}
 	var hull_impact = collision_ellipse_list(xL,yHT,xR,yB,obj_bullet,false,false,hull_list,true )

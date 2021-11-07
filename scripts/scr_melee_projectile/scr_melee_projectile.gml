@@ -22,6 +22,7 @@ if(_Dmg1)
 		DamageMult = (real(string_digits(other.wpn_melee[7]))/100 ) 
 		damage_base = scr_melee_damage_calc(other.id,other.wpn_melee)
 		damage = (damage_base*DamageMult) 
+		hp = damage/2
 		
 		force = other.wpn_melee[16]
 		penetration = other.wpn_melee[18]*damage
@@ -40,6 +41,7 @@ if(_Dmg1)
 		DamageMult = (real(string_digits(other.wpn_melee[6]))/100 ) 
 		damage_base = scr_melee_damage_calc(other.id,other.wpn_melee)
 		damage = (damage_base*DamageMult) 
+		hp = damage/2
 		
 		force = 0
 		penetration = other.wpn_melee[18]*damage
@@ -58,6 +60,7 @@ if(_Dmg1)
 		DamageMult = (real(string_digits(other.wpn_melee[5]))/100 ) 
 		damage_base = scr_melee_damage_calc(other.id,other.wpn_melee)
 		damage = (damage_base*DamageMult) 
+		hp = damage/2
 		
 		force = 0
 		penetration = other.wpn_melee[18]*damage

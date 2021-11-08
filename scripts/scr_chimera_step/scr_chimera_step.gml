@@ -4,6 +4,7 @@ function scr_chimera_step(){
 
 
 target = obj_player
+canmove = 1
 
 if(hp <= 0) {
 	dead = 1 
@@ -21,6 +22,7 @@ if(hp <= 0) {
 if(!dead){
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ FIRE CANNON +++++++++++++++++++++++++++++++++++++++++++++++++++++
+if(canshoot){
 var canx = bone_get_x("cannonbarrel")
 var cany = bone_get_y("cannonbarrel")
 LOSandRangeCannon = check_los_and_range(1,canx,cany,target,obj_platform,primary[28])
@@ -85,6 +87,7 @@ var hy = bone_get_y("hullgun")
 LOSandRangeHull = check_los_and_range(1,hx,hy,target,obj_platform,secondary[28])
 firing_hull = 0
 skeleton_attachment_set("hullflash",-1)
+skeleton_anim_set_step(secondary[16],4)
 if(canshoot_hull and LOSandRangeHull and !out_of_ele_hull) {firing_hull = 1} 
 
 if(firing_hull = 1){
@@ -142,11 +145,23 @@ if(cooldown_timer2 >= cooldown_length_hull){
 	burst_count_hull = irandom_range(-round(burst_size_hull/3),round(burst_size_hull/3))
 	hullfire_timer = 0
 }
-
+}//canshoot check
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DEPLOY TROOPS ++++++++++++++++++++++++++++++++++++++++
-deploy = 1
+
 if(deploy = 1){
-	skeleton_anim_set_step("ramp_deploy",5)
+	skeleton_anim_set_step("ramp_deploy",5)	
+	deploy = 0
+	ramp_deployed = 1
+}
+
+if(ramp_deployed = 1){
+	retract = timer_tick(deploy_timer,0)
+	canmove = 0
+}
+
+if(retract = 1){
+	retract = 0
+	skeleton_anim_set_step("ramp_retract",5)
 }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ EXHAUST ANIMATIONS +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -177,6 +192,7 @@ var Spd = hspeed*image_xscale
 if(Spd < 0) {skeleton_anim_set_step("move_backward",1) audio_emitter_gain(t_emit,1)}
 if(Spd > 0) {skeleton_anim_set_step("move_forward",1) audio_emitter_gain(t_emit,1)}
 if(Spd = 0) {skeleton_animation_clear(1) audio_emitter_gain(t_emit,0)}
+
 
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++ RESISTANCES +++++++++++++++++++++++++++++++++++++++++++++++++
@@ -355,11 +371,18 @@ if(dying = 1) {
 	skeleton_animation_clear(3) skeleton_animation_clear(4)
 	skeleton_attachment_set("hullflash",-1)	skeleton_attachment_set("cannonflash",-1)
 	skeleton_anim_set_step("die2",5)
-	if(death_anim_timer >= frames) {dying = 0 image_speed = 0}
+	if(death_anim_timer >= frames) {
+		dying = 0 
+		image_speed = 0
+		depth = -6
+		part_system_depth(prt_sys,depth+1)
+		death_anim_timer = 0
+		}
 	
 }
 
 if(dead = 1){
+	
 	if(hspeed > 0) {hspeed = hspeed*0.9} if(hspeed < 0.5) {hspeed = 0}
 	if(hspeed = 0) {instance_destroy(wheel1) instance_destroy(wheel2)}
 	skeleton_animation_clear(2)
@@ -392,7 +415,7 @@ if(dead = 1){
 
 if(particle_timer >= particle_max_timer) {audio_emitter_free(t_emit)}
 if(particle_timer >= particle_max_timer*1.1) {part_system_destroy(prt_sys)}
-if(particle_timer >= particle_max_timer*2) {visible = 0 layer =-1}
+if(particle_timer >= particle_max_timer*2) {instance_destroy(self)}
 
 
 

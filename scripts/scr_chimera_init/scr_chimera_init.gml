@@ -91,6 +91,8 @@ function scr_chimera_init(){
 	dead = 0 death_morale_toggle = 1 fleeing = 0 flee_path_toggle = 1 dying = 0 death_anim_timer = 0 death_depth_toggle = 1
 	radius_detection = 24000 target = 0 aware = 1
 	
+	canshoot = 1
+	
 	canshoot_cannon = 1
 	firing_cannon = 0
 	spread_ang_cannon = 0
@@ -229,16 +231,17 @@ wpn_ranged_hull = choose("hbolter")
 	cooldown_length_hull = secondary[13]
 	
 //+++++++++++++++++++++++++++++++++++++++++++++ TRANSPORT STUFF ++++++++++++++++++++++++++++++++++++++
-deploy_timer = timer_create(300,0)
+deploy_timer = timer_create(1000,0)
+deploy = 1
+ramp_deployed = 0
+retract = 0
 
 	
 //++++++++++++++++++++++++++++++++++++++++++++++ SOUND STUFF +++++++++++++++++++++++++++++++++++++++++++++
 
 sound_engine = snd_engine_tank1
 sound_tracks = snd_tracks1
-sound_ramp = snd_engine_tank1
-
-
+sound_ramp = 0
 
 tracks_snd_value = 0
 engine_snd_value = 0

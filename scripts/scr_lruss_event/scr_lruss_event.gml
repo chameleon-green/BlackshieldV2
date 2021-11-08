@@ -4,8 +4,7 @@ function scr_lruss_event(){
 
 var event = ds_map_find_value(event_data, "name")
 
-	if (event = "fire_cannon")
-	{
+	if (event = "fire_cannon"){
 	burst_count_cannon += 1
 	
 	

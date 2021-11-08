@@ -13,7 +13,9 @@ var Tx = target.x
 var Ty = target.y-abs(target.bbox_top-target.bbox_bottom)/2 //aim for center of mass
 var Tfacing = (image_xscale = -1 and Tleft) or (image_xscale = 1 and Tright) //are we facing our target?
 
-if(Tleft) {image_xscale = -1} if(Tright) {image_xscale = 1}
+if(Tleft and canmove) {image_xscale = -1} if(Tright and canmove) {image_xscale = 1}
+canshoot = 1
+if(!Tfacing) {canshoot = 0} 
 
 var iangle = (image_angle-360)*image_xscale
 
@@ -48,7 +50,6 @@ ds_map_destroy(hull_map)
 
 //+++++++++++++++++++++++++++++++++++++++++++++++ MOVEMENT TEST +++++++++++++++++++++++++++++++++++
 
-
 var yavg = (wheel1.y + wheel2.y)/2
 var yoff = tan(degtorad(abs(iangle)))*40
 var wangle = point_direction(wheel1.x,wheel1.y,wheel2.x,wheel2.y) + 180
@@ -69,13 +70,13 @@ out_of_ele_cannon = 0
 out_of_ele_hull = 0
 
 if(angle > ang and Tfacing){
-	if(Tleft) {Right = 1}
-	if(Tright) {Left= 1}
+	if(Tleft) {Right = 1*canmove}
+	if(Tright) {Left= 1*canmove}
 	out_of_ele_cannon = 1
 }
 if(angle < ang and Tfacing){
-	if(Tleft) {Right= 1}
-	if(Tright) {Left = 1}
+	if(Tleft) {Right= 1*canmove}
+	if(Tright) {Left = 1*canmove}
 	out_of_ele_cannon = 1
 }
 
@@ -91,6 +92,7 @@ if(Right and image_xscale = -1 and spd<Mspeed/2) {hspeed+=accel/2}
 
 if(!Left and !Right) {hspeed*=0.97 if(spd<0.5) {hspeed = 0}}
 if(spd > MaxSpd) {hspeed*=0.97}
+
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++ ASSAULT RAMP +++++++++++++++++++++++++++++++++++++++
 

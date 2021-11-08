@@ -318,7 +318,13 @@ if(dying = 1) {
 	skeleton_animation_clear(3) skeleton_animation_clear(4)
 	skeleton_attachment_set("hullflash",-1)	skeleton_attachment_set("cannonflash",-1)
 	skeleton_anim_set_step("die2",5)
-	if(death_anim_timer >= frames) {dying = 0 image_speed = 0}
+	if(death_anim_timer >= frames) {
+		dying = 0 
+		image_speed = 0
+		depth = -6
+		part_system_depth(prt_sys,depth+1)
+		death_anim_timer = 0
+		}
 	
 }
 
@@ -355,7 +361,7 @@ if(dead = 1){
 
 if(particle_timer >= particle_max_timer) {audio_emitter_free(t_emit)}
 if(particle_timer >= particle_max_timer*1.1) {part_system_destroy(prt_sys)}
-if(particle_timer >= particle_max_timer*2) {visible = 0 layer =-1}
+if(particle_timer >= particle_max_timer*2) {instance_destroy(self)}
 
 
 

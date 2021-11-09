@@ -69,6 +69,9 @@ if(firing_hull = 1){
 		
 		var Dir = angle2 + !image_xscale*(180 - 2*angle2) + random_range(-secondary[22],secondary[22]) + ((image_angle-360)*image_xscale)*image_xscale
 		with(instance_create_depth(hx,hy,depth+1,obj_enemy_bullet)) {
+		xcreator = hx
+		ycreator = hy
+		dcreator = Dir
 		speed = other.secondary[26]
 		base_speed = other.secondary[26]
 		direction = Dir  
@@ -85,6 +88,7 @@ if(firing_hull = 1){
 		penetration = other.secondary[25]
 		explosion_type = other.secondary[23]
 		fuse = 0 //this weapon does not explode, so it will die at 100% hp loss
+		max_range = other.secondary[28]
 		}
 	}
 }
@@ -179,13 +183,17 @@ var hull_list = ds_list_create()
 
 if(!dead and !invulnerable)
 {	
-
-	var xL = bbox_left var xR = bbox_right
-	var yT = bbox_top var yB = bbox_bottom 
-	var yHT = bbox_bottom-240 //hull top Y
-	var yTB = bbox_bottom-220 //turret bot y
-	var XTRT1 = 50 var XTRT2 = 160 //x offsets for turret, changes with image xscale (see below)
 	
+	var width = abs(bbox_left - bbox_right)
+	var Hangle = abs(image_angle-360)
+	var xL = bbox_left
+	var xR = bbox_right
+	var yT = bbox_top-lengthdir_y(width/4,Hangle)
+	var yB = bbox_bottom+lengthdir_y(width/2,Hangle)
+	var yHT = yB-240//hull top Y
+	var yTB = yB-220 //turret bot y
+	var XTRT1 = 50 var XTRT2 = 160 //x offsets for turret, changes with image xscale (see below)
+		
 	if(image_xscale = -1) {var turret_impact = collision_rectangle_list(xL+XTRT1,yT,xR-XTRT2,yTB,obj_bullet,false,false,turret_list,true)}
 	else{var turret_impact = collision_rectangle_list(xL+XTRT2,yT,xR-XTRT1,yTB,obj_bullet,false,false,turret_list,true)}
 	var hull_impact = collision_ellipse_list(xL,yHT,xR,yB,obj_bullet,false,false,hull_list,true )
@@ -310,7 +318,13 @@ if(dying = 1) {
 	skeleton_animation_clear(3) skeleton_animation_clear(4)
 	skeleton_attachment_set("hullflash",-1)	skeleton_attachment_set("cannonflash",-1)
 	skeleton_anim_set_step("die2",5)
-	if(death_anim_timer >= frames) {dying = 0 image_speed = 0}
+	if(death_anim_timer >= frames) {
+		dying = 0 
+		image_speed = 0
+		depth = -6
+		part_system_depth(prt_sys,depth+1)
+		death_anim_timer = 0
+		}
 	
 }
 
@@ -347,7 +361,7 @@ if(dead = 1){
 
 if(particle_timer >= particle_max_timer) {audio_emitter_free(t_emit)}
 if(particle_timer >= particle_max_timer*1.1) {part_system_destroy(prt_sys)}
-if(particle_timer >= particle_max_timer*2) {visible = 0 layer =-1}
+if(particle_timer >= particle_max_timer*2) {instance_destroy(self)}
 
 
 

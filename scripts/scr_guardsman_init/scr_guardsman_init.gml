@@ -29,8 +29,8 @@ function scr_guardsman_init(weapon="lasgun") {
 	remove = 0
 		
 	if(leader) {
-		booster = instance_create_depth(x,y,depth,obj_morale_booster)
-		with(booster) {creator = id}
+		booster = instance_create_depth(x,bbox_top,depth,obj_morale_booster)
+		with(booster) {creator = other.id}
 	}
 	else{booster = undefined}
 //++++++++++++++++++++++++++++++++++++++++++ MOVEMENT +++++++++++++++++++++++++++++++++++++++++++

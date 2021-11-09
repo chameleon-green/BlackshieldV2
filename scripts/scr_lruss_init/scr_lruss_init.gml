@@ -191,6 +191,7 @@ wpn_ranged_hull = choose("hbolter")
 	
 	if(wpn_ranged_hull = "hbolter") // S5 AP4 HEAVY3
 	{	
+		secondary[31] = 0.3
 		secondary[30] = 45 //damage
 		secondary[29] = "physical" //dmg type
 		secondary[28] = 2800 * random_range(1,1.5) //maxrange
@@ -260,8 +261,8 @@ particle_max_timer = irandom_range(800,1200)
 	StepScript = scr_lruss_step
 	AnimUpdateScript = scr_lruss_animation_update
 	AnimEventScript = scr_lruss_event
-	DestroyScript = scr_lruss_destroy
-	DrawScript = scr_lruss_draw
+	DestroyScript = scr_vehiclesmall_generic_destroy
+	DrawScript = scr_vehiclesmall_generic_draw
 	BeginStepScript = 0
 
 }

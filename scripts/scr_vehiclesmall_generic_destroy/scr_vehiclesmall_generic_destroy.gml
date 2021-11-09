@@ -1,8 +1,9 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function scr_lruss_destroy(){
+function scr_vehiclesmall_generic_destroy(){
 
 //free engine and tracks emitters to prevent memory leaks
+if(variable_instance_exists(self,"r_emit")) {audio_emitter_free(r_emit)}
 audio_emitter_free(e_emit)
 audio_emitter_free(t_emit)
 instance_destroy(wheel1)

@@ -2,8 +2,8 @@
 	
 //++++++++++++++++++++++++++++++++++++++++++++ Variables +++++++++++++++++++++++++++++++
 
-	var D = creator.Right //keyboard_check(ord("D"))//
-	var A = creator.Left //keyboard_check(ord("A"))//
+	var D = creator.Right*creator.canmove //keyboard_check(ord("D"))//
+	var A = creator.Left*creator.canmove //keyboard_check(ord("A"))//
 	//var S = keyboard_check(ord("S"))
 	//var Shift = keyboard_check(vk_shift)
 	

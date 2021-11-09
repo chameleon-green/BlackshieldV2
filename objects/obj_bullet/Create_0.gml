@@ -58,6 +58,8 @@ speed = base_speed + abs(obj_player.speed)
 //sets kill self alarm to range variable in weapon stats; higher the value, higher the timer and longer the bullet flies
 alarm[1] = wpn_ranged[wpn_ranged.Range]
 
+smoke_first_toggle = 1
+
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++ SOUNDS ++++++++++++++++++++++++++++++++++++++
 rocket_sound = 0
 rocket_toggle = 1

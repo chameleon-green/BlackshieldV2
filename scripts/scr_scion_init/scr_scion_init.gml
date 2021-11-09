@@ -1,4 +1,4 @@
-function scr_scion_init(weapon) {
+function scr_scion_init(weapon="hotshot") {
 
 //++++++++++++++++++++++++++++++++++++++++++++ UNIVERSAL TRAITS +++++++++++++++++++++++++++++++++++++
 

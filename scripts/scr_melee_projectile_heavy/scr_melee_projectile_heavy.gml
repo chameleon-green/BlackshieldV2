@@ -23,6 +23,7 @@ if(_Dmg1)
 		damage_base = scr_melee_damage_calc(other.id,other.wpn_melee) //base (full) damage of weapon
 		damage = round(damage_base*DamageMult*tick_multiplier) //final value, as portion of base damage multiplied by windup
 		damage_unticked = damage_base*DamageMult //damage unaffected by windup, for use with penetration calc
+		hp = damage/2
 		
 		force = other.wpn_melee[16]*tick_multiplier
 		penetration = other.wpn_melee[18]*damage_unticked
@@ -43,6 +44,7 @@ if(_Dmg1)
 		damage_base = scr_melee_damage_calc(other.id,other.wpn_melee) //base (full) damage of weapon
 		damage = round(damage_base*DamageMult*tick_multiplier) //final value, as portion of base damage multiplied by windup
 		damage_unticked = damage_base*DamageMult //damage unaffected by windup, for use with penetration calc
+		hp = damage/2
 		
 		force = 0
 		penetration = other.wpn_melee[18]*damage_unticked
@@ -63,6 +65,7 @@ if(_Dmg1)
 		damage_base = scr_melee_damage_calc(other.id,other.wpn_melee) //base (full) damage of weapon
 		damage = round(damage_base*DamageMult*tick_multiplier) //final value, as portion of base damage multiplied by windup
 		damage_unticked = damage_base*DamageMult //damage unaffected by windup, for use with penetration calc
+		hp = damage/2
 		
 		force = 0
 		penetration = other.wpn_melee[18]*damage_unticked

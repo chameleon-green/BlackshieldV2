@@ -8,7 +8,7 @@ function scr_lruss_init(){
 	sprite_index = (Sprite)
 	mask_index = Sprite
 	
-	mylayer = layer_create(-11)
+	mylayer = layer_create(-8)
 	layer = mylayer
 	
 	

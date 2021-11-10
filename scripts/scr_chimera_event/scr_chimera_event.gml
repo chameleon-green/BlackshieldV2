@@ -15,6 +15,7 @@ var event = ds_map_find_value(event_data, "name")
 		audio_play_sound_on(r_emit,snd_hydraulic_close,0,1)
 		audio_stop_sound(sound_ramp)
 		skeleton_animation_clear(5)
+		debark_toggle = 1
 	}
 	
 	if (event = "ramp_retracted"){
@@ -22,6 +23,7 @@ var event = ds_map_find_value(event_data, "name")
 		audio_stop_sound(sound_ramp)
 		skeleton_animation_clear(5)
 		ramp_deployed = 0
+		debark_toggle = 0
 		canmove = 1
 	}
 	

@@ -4,7 +4,6 @@ function scr_scion_init(weapon="hotshot") {
 
 	Sprite = spr_scion
 	sprite_index = (Sprite)
-	depth = -12
 	mask_index = spr_hitbox_human_small
 	
 	Type = "ig_stormtrooper" //what is this?
@@ -31,7 +30,12 @@ function scr_scion_init(weapon="hotshot") {
 	else{booster = undefined}
 		
 //++++++++++++++++++++++++++++++++++++++++++ MOVEMENT +++++++++++++++++++++++++++++++++++++++++++
-
+	
+	//deploying = 0
+	transportID = undefined
+	deploy_timer = timer_create(irandom_range(20,30),0)
+	deploy_toggle = 0
+	
 	state = "idle"
 
 	move_speed = 4*random_range(0.7,1.5)

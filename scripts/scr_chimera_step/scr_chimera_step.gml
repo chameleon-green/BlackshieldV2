@@ -148,10 +148,13 @@ if(cooldown_timer2 >= cooldown_length_hull){
 }//canshoot check
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DEPLOY TROOPS ++++++++++++++++++++++++++++++++++++++++
 
+if(LOSandRangeCannon or LOSandRangeHull) {deploy = 1 and !cargo_deployed}
+
 if(deploy = 1){
 	skeleton_anim_set_step("ramp_deploy",5)	
 	deploy = 0
 	ramp_deployed = 1
+	cargo_deployed = 1
 }
 
 if(ramp_deployed = 1){
@@ -163,6 +166,12 @@ if(retract = 1){
 	retract = 0
 	skeleton_anim_set_step("ramp_retract",5)
 }
+
+if(debark_toggle = 1) {timer_tick(debark_timer,1)}
+
+debark_count = debark_timer[0]
+//actual troop creation code is in animation update event, to prevent collision conflicts
+
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ EXHAUST ANIMATIONS +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 var emap = ds_map_create()
@@ -258,8 +267,8 @@ if(!dead and !invulnerable)
 			var inst = turret_list[| i3] //inst equals the instance stored in the head impact ds list referenced in head_impact
 			
 			if(instance_exists(inst)){
-			
-				if(ds_list_find_index(col_list,inst.id) = -1 and inst.IFF != IFF) 
+
+				if(ds_list_find_index(col_list,inst.id) = -1 and inst.IFF != IFF and !inst.flames) 
 					{
 							ds_list_add(col_list,inst.id)
 							var Damage = inst.damage //damage is based on the projectile
@@ -304,8 +313,8 @@ if(!dead and !invulnerable)
 			var inst = hull_list[| i3] //inst equals the instance stored in the head impact ds list referenced in head_impact
 			
 			if(instance_exists(inst)){
-			
-				if(ds_list_find_index(col_list,inst.id) = -1 and inst.IFF != IFF) 
+
+				if(ds_list_find_index(col_list,inst.id) = -1 and inst.IFF != IFF and !inst.flames) 
 					{
 							ds_list_add(col_list,inst.id)
 							var Damage = inst.damage //damage is based on the projectile
@@ -344,6 +353,8 @@ if(!dead and !invulnerable)
 	}
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++ DEPTH CHECK TO PREVENT VFX ODDITIES ++++++++++++++++++++++++++++++++++++++++++++++++
+
+
 if(place_meeting(x,y,obj_enemy)) {
 		if(instance_place(x,y,obj_enemy)) {
 			var enm = instance_place(x,y,obj_enemy)

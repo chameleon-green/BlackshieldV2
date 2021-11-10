@@ -3,7 +3,10 @@
 function scr_chimera_animation_update(){
 
 if(!dead){
-	
+
+//++++++++++++++++++++++++++++++++++++++++++ AIMING AND ALIGNMENT ++++++++++++++++++++++++++++++++++++++++
+
+
 if(instance_exists(obj_player)) {target = obj_player} else{target = undefined angle = 0}
 
 if(target != undefined){
@@ -94,9 +97,26 @@ if(!Left and !Right) {hspeed*=0.97 if(spd<0.5) {hspeed = 0}}
 if(spd > MaxSpd) {hspeed*=0.97}
 
 
-//++++++++++++++++++++++++++++++++++++++++++++++++++ ASSAULT RAMP +++++++++++++++++++++++++++++++++++++++
+//+++++++++++++++++++++++++++++++++++++++++++ TRANSPORT STUFF ++++++++++++++++++++++++++++++++++++++++++++++++
 
-
+if(debark_count/50 = debark_inc and debark_inc < 6){
+		var rx = bone_get_x("assault_ramp")
+		var ry = bone_get_y("assault_ramp")
+		with(instance_create_depth(rx,ry,depth+1,obj_enemy)){
+			MyType = scr_guardsman_init
+			transportID = other.id
+			deploying = 1
+			if(other.debark_inc = 1) {leader = 1 weapon = "bolter"} else{leader = 0}
+		}
+		with(instance_create_depth(rx,ry,depth+1,obj_enemy)){
+			MyType = scr_guardsman_init
+			transportID = other.id
+			deploying = 1
+			leader = 0
+		}
+		debark_inc += 1
+}
+if(debark_inc > 10) {timer_reset(debark_timer,0) debark_inc = 1 debark_count = 0}
 
 
 }//target defined end

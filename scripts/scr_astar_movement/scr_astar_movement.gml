@@ -84,9 +84,7 @@ if(NewPathTimer >= NewPathTick)
 
 //++++++++++++++++++++++++++++++++++++++++ Inputs and Collisions +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Left = 0 //keyboard_check(vk_left)
-Right = 0 //keyboard_check(vk_right)
-Up = 0 //keyboard_check(vk_up)
+
 var Down = 0
 var Ledge = 0
 var Move = canmove
@@ -202,12 +200,15 @@ if(Col_Left) {move_outside_solid(0,-1)}
 if(Col_Right) {move_outside_solid(180,-1)}
 //if(Col_Top) {vsp = Grav}
 
-if(!dead and Move and NodeNext != 0) 
+if(!dead and Move and NodeNext != 0) or (!dead and Move and deploying) 
 {	
 	var Speed2 = MoveSpeed*2
+	if(!deploying){
 	var Dist_X = abs(NodeNext.x - x) //horizontal distance to next node
 	var DFactor = Dist_X/Speed2 //multiplier for distance, the closer we are the small it is
 	var AdjSpeed = clamp(Speed2*DFactor,1,MoveSpeed*2)
+	}
+	else{AdjSpeed = Speed2}
 	
 	if(Left and !Col_Left) {
 		

@@ -8,7 +8,6 @@ function scr_guardsman_init(weapon="lasgun") {
 	
 	Sprite = spr_scion
 	sprite_index = (Sprite)
-	depth = -12
 	mask_index = spr_hitbox_human_small
 	
 	Type = "ig_trooper" //what is this?
@@ -35,6 +34,11 @@ function scr_guardsman_init(weapon="lasgun") {
 	else{booster = undefined}
 //++++++++++++++++++++++++++++++++++++++++++ MOVEMENT +++++++++++++++++++++++++++++++++++++++++++
 
+	//deploying = 0
+	transportID = undefined
+	deploy_timer = timer_create(irandom_range(20,30),0)
+	deploy_toggle = 0
+	
 	state = "idle"
 
 	move_speed = 3.5*random_range(0.9,1.5)

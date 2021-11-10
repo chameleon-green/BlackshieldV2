@@ -22,6 +22,24 @@ canmove = 0
 skeleton_anim_set_step(anim_die,2)
 }
 
+//++++++++++++++++++++++++++++++++++++++++++++++ TRANSPORTS ++++++++++++++++++++++++++++++++++++++++
+
+Left = 0 //keyboard_check(vk_left)
+Right = 0 //keyboard_check(vk_right)
+Up = 0 //keyboard_check(vk_up)
+
+depth = -12
+
+if(deploying) {
+	canshoot = 0
+	Left = 1
+	NewPath = 0
+	deploy_toggle = timer_tick(deploy_timer,1)
+	if(transportID != undefined){
+		depth = transportID.depth+1
+	}
+	if(deploy_toggle) {deploying = 0}
+}
 
 
 //+++++++++++++++++++++++++++++++++++++++++ COMBAT AI ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -8,7 +8,7 @@ function scr_chimera_init(){
 	sprite_index = (Sprite)
 	mask_index = Sprite
 	
-	mylayer = layer_create(-11)
+	mylayer = layer_create(-9)
 	layer = mylayer
 	
 	
@@ -151,14 +151,15 @@ function scr_chimera_init(){
 
 wpn_ranged = choose("multilaser")
 wpn_ranged_hull = choose("hbolter")
-	Crouch = 0
+Crouch = 0
+var range_mult = random_range(0.8,1.2)
 
 	if(wpn_ranged = "multilaser") //zap zap zap
 	{	
 		primary[31] = 0.97 //fuse, as portion of base damage. This weapon will detonate at 90% hp
 		primary[30] = 35 //damage
 		primary[29] = "thermal" //dmg type
-		primary[28] = 600 * random_range(0.8,1.5) //maxrange
+		primary[28] = 2200 * range_mult  //maxrange
 		primary[27] = 6 //rof
 		primary[26] = 160 //velocity
 		primary[25] = 0 //penetration
@@ -196,7 +197,7 @@ wpn_ranged_hull = choose("hbolter")
 		secondary[31] = 0.3 //fuse
 		secondary[30] = 45 //damage
 		secondary[29] = "physical" //dmg type
-		secondary[28] = 600 * random_range(1,1.5) //maxrange
+		secondary[28] = 2200 * range_mult //maxrange
 		secondary[27] = 8//rof
 		secondary[26] = 50 //velocity
 		secondary[25] = 0.25 //penetration
@@ -231,11 +232,16 @@ wpn_ranged_hull = choose("hbolter")
 	cooldown_length_hull = secondary[13]
 	
 //+++++++++++++++++++++++++++++++++++++++++++++ TRANSPORT STUFF ++++++++++++++++++++++++++++++++++++++
+
 deploy_timer = timer_create(1000,0)
-deploy = 1
+deploy = 0
 ramp_deployed = 0
 retract = 0
-
+debark_timer = timer_create(500,0)
+debark_toggle = 0
+debark_count = 0
+debark_inc = 1
+cargo_deployed = 0
 	
 //++++++++++++++++++++++++++++++++++++++++++++++ SOUND STUFF +++++++++++++++++++++++++++++++++++++++++++++
 

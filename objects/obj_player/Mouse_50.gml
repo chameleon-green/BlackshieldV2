@@ -79,7 +79,7 @@ if (
 	}
 	if(Spinny)
 	{
-	if(aud_spin = 0) {aud_spin = audio_play_sound(array[0], 1, 1)}
+	if(aud_spin = 0 and array[0] != -1) {aud_spin = audio_play_sound(array[0], 1, 1)}
 	if(aud_spin2 = 0) {aud_spin2 = audio_play_sound(array[1], 1, 1)}
 	if(Hi or Lo){
 	audio_sound_pitch(aud_spin,1/(1.5*Lo+Hi))

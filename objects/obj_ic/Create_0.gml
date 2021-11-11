@@ -104,6 +104,7 @@ btoggle[ibt] = 0;
 list_inv_ammo = ds_list_create()
 
 ds_list_add(list_inv_ammo,obj_vc.ammo_auto_ball)
+ds_list_add(list_inv_ammo,obj_vc.ammo_flamer_standard)
 
 grd_inv_ammo = ds_grid_create(inventory_size,11)
 pa = 0
@@ -126,8 +127,9 @@ armor_equip_button_status = ""
 
 //++++++++++++++++++++++++++++++++++++++++ weapon inv ++++++++++++++++++++++++++++++++
 test = ds_list_create()
-ds_list_add(test,obj_vc.bolter_phobos)
+ds_list_add(test,obj_vc.flamer_astartes)
 ds_list_add(test,obj_vc.rotorcannon_proteus)
+
 
 inventory = ds_grid_create(inventory_size,14)
 p = 0

@@ -1,3 +1,6 @@
+
+
+
 if(is_array(explosion_type)){
 
 if(explosion_type[3] = "no")

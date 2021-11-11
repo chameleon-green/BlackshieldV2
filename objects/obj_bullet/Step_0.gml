@@ -36,10 +36,11 @@ if(flames = 1) {
 }
 //----------------
 
-var xx = x+lengthdir_x(base_speed,direction)
-var yy = y+lengthdir_y(base_speed,direction)
+
+var xx = x+lengthdir_x(base_speed*2,direction)
+var yy = y+lengthdir_y(base_speed*2,direction)
 var col = collision_line(x,y,xx,yy,obj_platform,true,1)
-var col_enemy = collision_line(x,y,xx,yy,obj_enemy,1,1)
+var col_enemy = collision_line(x,y,xx,yy,obj_enemy,false,false) //SETTING THIS TO PRECISE BREAKS SHIT
 
 if(proximity > 0){	
 	var col2 = collision_circle(x+hspeed,y+vspeed,proximity,obj_enemy,0,1)
@@ -52,23 +53,24 @@ if(proximity > 0){
 //standard collisions
 if(col_enemy){	
 	
+	
 	if(flames = 1) {
 		var pick = irandom_range(1,9)
 		if(pick = 1 and lethal = 1){
 		var dmg = damage
-		with(instance_create_depth(col_enemy.x,col_enemy.bbox_bottom,depth-1,obj_groundfire)){damage = dmg}
+		with(instance_create_depth(col_enemy.x,col_enemy.bbox_bottom,depth-1,obj_groundfire)){damage = other.damage}
 		}
 	}
 	
 	if(col_enemy.dead = 0){
 	
 		visible = 0 gravity = 0
-		//speed = clamp(abs(col_enemy.hspeed),20,1000) //halts projectile on impact to allow collision to process
+		speed = clamp(abs(col_enemy.hspeed),20,1000) //halts projectile on impact to allow collision to process
 		//var width = abs(col_enemy.bbox_left - col_enemy.bbox_right) //gets width of collision object
-		var dirt = point_direction(x,y,xx,yy) //gets direction projectile is heading
-		var dist = distance_to_object(col_enemy) + width //for some reason this accelerates the projectile through the target while still giving enough time to process impacts?
-		x = x+lengthdir_x(dist,dirt)  //sets x and y according to weird distance calc, slowing the projectile down to allow for it to register
-		y = y+lengthdir_y(dist,dirt) 
+		//var dirt = point_direction(x,y,xx,yy) //gets direction projectile is heading
+		//var dist = distance_to_object(col_enemy) + width //for some reason this accelerates the projectile through the target while still giving enough time to process impacts?
+		//x = x+lengthdir_x(dist,dirt)  //sets x and y according to weird distance calc, slowing the projectile down to allow for it to register
+		//y = y+lengthdir_y(dist,dirt) 
 	}
 }
 

@@ -2,10 +2,7 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function scr_infantry_generic_impact(){
 
-
-
-if(!dead and !invulnerable)
-{	
+if(!dead and !invulnerable){	
 	
 	var head_list = ds_list_create()
 	var torso_list = ds_list_create()

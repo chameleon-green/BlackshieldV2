@@ -6,14 +6,14 @@ function scr_infantry_generic_morale(){
 	if(place_meeting(x,y,obj_groundfire)){
 	
 	var inst = instance_nearest(x,y,obj_groundfire)
+	var dmg = inst.damage
 	var resist = (HeadTher + TorsoTher + LegsTher)/3
-	var dmg = inst.damage - resist
-	var dmgfinal = clamp(dmg,0.17,inst.damage)
+	var dmgfinal = clamp(dmg-resist,0.15,dmg+1)
 	var pick = irandom_range(1,3)
 	
 	regen_morale = 0
-	morale -= 0.03
-	
+	morale -= 0.01
+
 	if(pick = 1) {HeadHp-=dmgfinal}
 	if(pick = 2) {TorsoHp-=dmgfinal}
 	if(pick = 3) {LegsHp-=dmgfinal}
@@ -30,8 +30,8 @@ function scr_infantry_generic_morale(){
 	
 	//morale stuff
 	if(morale < 0) {morale = 0}
-	if(morale < max_morale and !dead and morale > max_morale/4 and regen_morale) {morale += max_morale/1700} //morale above 25%? regen normally
-	if(morale <= max_morale/4 and !LOSandRange and regen_morale) {morale += max_morale/1700} //morale below 25%? regen only when out of LOS of player
+	if(morale < max_morale and !dead and morale > max_morale/4 and regen_morale) {morale += max_morale/2000} //morale above 25%? regen normally
+	if(morale <= max_morale/4 and !LOSandRange and regen_morale) {morale += max_morale/2000} //morale below 25%? regen only when out of LOS of player
 	if(morale >= max_morale) {fleeing = 0 flee_path_toggle = 1} //morale at or above max? stop fleeing, enable path toggle
 	if(morale <= 0 and !dead) {fleeing = 1} //morale less than 0? flee!
 	
@@ -48,7 +48,7 @@ function scr_infantry_generic_morale(){
 	if(Dcount > 0){
 	for (var i = 0; i < Dcount; i++){
 		var inst = Dlist[|i]
-		if(inst.dead = 0) {inst.morale -= 1 + 2*leader}
+		if(inst.dead = 0) {inst.morale -= (1 + 2*leader)}
 		}
 	}
 	ds_list_destroy(Dlist)

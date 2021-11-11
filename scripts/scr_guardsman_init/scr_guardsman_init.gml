@@ -4,7 +4,8 @@
 function scr_guardsman_init(weapon="lasgun") {
 
 //++++++++++++++++++++++++++++++++++++++++++++ UNIVERSAL TRAITS +++++++++++++++++++++++++++++++++++++
-	
+	leader = 0
+	deploying = 0
 	
 	Sprite = spr_scion
 	sprite_index = (Sprite)
@@ -184,8 +185,8 @@ function scr_guardsman_init(weapon="lasgun") {
 	
 		skeleton_attachment_set("gun",attachment_gun)
 	
-		base_burst_size = 6
-		base_cooldown_length = 40
+		base_burst_size = 3
+		base_cooldown_length = 80
 	
 		sound[5] = snd_hellgun1
 		sound[4] = snd_hellgun2
@@ -227,7 +228,7 @@ function scr_guardsman_init(weapon="lasgun") {
 		skeleton_attachment_set("gun",attachment_gun)
 	
 		base_burst_size = 2
-		base_cooldown_length = 20
+		base_cooldown_length = 80
 	
 		sound[5] = snd_bolter_light1
 		sound[4] = snd_bolter_light2

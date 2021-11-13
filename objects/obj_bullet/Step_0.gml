@@ -1,4 +1,4 @@
-depth = -9
+//depth = -9
 
 
 var Fuse = max_hp*fuse
@@ -40,6 +40,7 @@ if(flames = 1) {
 var xx = x+lengthdir_x(base_speed*2,direction)
 var yy = y+lengthdir_y(base_speed*2,direction)
 var col = collision_line(x,y,xx,yy,obj_platform,true,1)
+var col_barrier = collision_line(x,y,xx,yy,obj_barrier,true,1)
 var col_enemy = collision_line(x,y,xx,yy,obj_enemy,false,false) //SETTING THIS TO PRECISE BREAKS SHIT
 
 if(proximity > 0){	
@@ -75,20 +76,34 @@ if(col_enemy){
 }
 
 if(col){
-	speed = 0
-	var dirt = point_direction(x,y,xx,yy)
+
 	var dist = distance_to_object(col)
-	move_contact_solid(dirt,base_speed/2)
-	//var xxx = x+lengthdir_x(dist,direction)
-	//var yyy = y+lengthdir_y(dist,direction)
-	//x = xxx
-	//y = yyy
+
+	x=x+lengthdir_x(dist,direction)
+	y=y+lengthdir_y(dist,direction)
+
 	var dmg = damage
 	if(flames = 1) {with(instance_create_depth(x,y,depth-1,obj_groundfire)){damage = dmg}}
 	instance_destroy()
 }
 
-
+if(col_barrier and !flames){
+	var facing = sign(col_barrier.image_xscale)
+	var dist = distance_to_object(col_barrier)+random_range(0,200)
+	var killme = 0
+	
+	if(facing = 1 and x > col_barrier.bbox_right) {killme = 1}
+	if(facing =-1 and x < col_barrier.bbox_left) {killme = 1}
+	
+	if(killme){
+	depth = -53
+	x=x+lengthdir_x(dist,direction)
+	y=y+lengthdir_y(dist,direction)
+	damage = 0
+	instance_destroy(self)
+	}
+		
+}
 
 
 if(crit) {image_yscale = 2}

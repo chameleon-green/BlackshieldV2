@@ -22,15 +22,4 @@ if(speed < 3) {
 	instance_destroy()
 }
 
-/*
-if(place_meeting(x+hspeed,y,obj_platform))
-{
-	hspeed = -hspeed*random_range(0.5,0.8)
-}
-
-if(place_meeting(x,y+vspeed,obj_platform))
-{
-	vspeed = -vspeed*random_range(0.6,0.9)
-}
-*/
 image_angle = direction

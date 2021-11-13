@@ -4,8 +4,7 @@
 function scr_guardsman_init(weapon="lasgun") {
 
 //++++++++++++++++++++++++++++++++++++++++++++ UNIVERSAL TRAITS +++++++++++++++++++++++++++++++++++++
-	leader = 0
-	deploying = 0
+	
 	
 	Sprite = spr_scion
 	sprite_index = (Sprite)
@@ -14,9 +13,10 @@ function scr_guardsman_init(weapon="lasgun") {
 	Type = "ig_trooper" //what is this?
 	AI_Type = "humanoid" //broad category of AI type (humanoid, beast, turret, vehicle)
 	Disposition = "hostile" //shoot on sight? animal?
-	Tactics = choose("ranged2","ranged2") //shooty or choppy
+	Tactics = choose("ranged1","ranged2") //shooty or choppy
 	var rand = irandom_range(5,8)
-	max_morale = rand + rand*0.5*leader
+	max_morale = rand 
+	if(variable_instance_exists(self,"leader")) {max_morale = rand + rand*0.5}
 	morale = max_morale
 	IFF = "hostile_imperial"
 
@@ -28,13 +28,16 @@ function scr_guardsman_init(weapon="lasgun") {
 	remove_timer = timer_create(150,0)
 	remove = 0
 		
-	if(leader) {
+	if(variable_instance_exists(self,"leader")) {
 		booster = instance_create_depth(x,bbox_top,depth,obj_morale_booster)
 		with(booster) {creator = other.id}
 	}
 	else{booster = undefined}
 //++++++++++++++++++++++++++++++++++++++++++ MOVEMENT +++++++++++++++++++++++++++++++++++++++++++
-
+	
+	in_cover = 0
+	seeking_cover = 1
+	
 	//deploying = 0
 	transportID = undefined
 	deploy_timer = timer_create(irandom_range(20,30),0)
@@ -163,7 +166,7 @@ function scr_guardsman_init(weapon="lasgun") {
 		ranged_damage = 16 //30
 		ranged_damage_type = "thermal"
 		fuse = 0
-		max_range = 1550 * random_range(1,1.5)
+		max_range = 1100 * random_range(1,1.5)
 		rof = 6
 		velocity = 150
 		penetration = 0.1
@@ -206,7 +209,7 @@ function scr_guardsman_init(weapon="lasgun") {
 		ranged_damage = 30 
 		ranged_damage_type = "physical"
 		fuse = 0.75
-		max_range = 1800 * random_range(1,1.5)
+		max_range = 1300 * random_range(1,1.5)
 		rof = 9
 		velocity = 70
 		penetration = 0.1
@@ -282,8 +285,10 @@ outfit[13][1] = -1
 outfit[14][1] = "front hand_flak"
 outfit[15][1] = "holding hand_flak"
 
+if(variable_instance_exists(self,"leader")){
 if(leader) {outfit[0][1] = "head_flak_sarge"}
 if(leader) {outfit[2][1] = "front bicep_flak_sarge"}
+}
 
 for(var i = 0; i < array_length(outfit); i++){
 	skeleton_attachment_set(outfit[i][0],outfit[i][1])

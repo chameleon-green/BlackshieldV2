@@ -1,8 +1,9 @@
 //returns the nearest instance to input coordinates from a list of instance IDs
 //can only handle 299 instances at once
 //returns -1 if the input ds_list is empty
+//cover input allows you to specify if it should favor nodes in cover
 
-function ds_list_nearest(list,x,y)
+function ds_list_nearest(list,x,y,cover)
 {	
 var toggle = 1
 var distance_grid = ds_grid_create(2,300)
@@ -15,7 +16,8 @@ var i;
 	for(i=0; i<size; i++)
 	{
 	var instance = list[|i]
-	var distance = point_distance(x,y,instance.x,instance.y)
+	if(cover) {var distance = point_distance(x,y,instance.x,instance.y)-10000*instance.cover}
+	else{var distance = point_distance(x,y,instance.x,instance.y)}
 	ds_grid_add(distance_grid,0,i,instance)
 	ds_grid_add(distance_grid,1,i,distance)
 	}
@@ -34,7 +36,7 @@ return result
 
 //same thing, but now the farthest node in LOS
 
-function ds_list_farthest(list,x,y)
+function ds_list_farthest(list,x,y,cover)
 {	
 var toggle = 1
 var distance_grid = ds_grid_create(2,300)
@@ -47,7 +49,8 @@ var i;
 	for(i=0; i<size; i++)
 	{
 	var instance = list[|i]
-	var distance = point_distance(x,y,instance.x,instance.y)
+	if(cover) {var distance = point_distance(x,y,instance.x,instance.y)+10000*instance.cover}
+	else{var distance = point_distance(x,y,instance.x,instance.y)}
 	ds_grid_add(distance_grid,0,i,instance)
 	ds_grid_add(distance_grid,1,i,distance)
 	}
@@ -63,3 +66,4 @@ ds_grid_destroy(distance_grid)
 return result
 
 }
+

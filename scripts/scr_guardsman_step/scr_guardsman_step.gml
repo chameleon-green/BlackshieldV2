@@ -30,6 +30,7 @@ Up = 0 //keyboard_check(vk_up)
 
 depth = -12
 
+if(variable_instance_exists(self,"deploying")){
 if(deploying) {
 	canshoot = 0
 	Left = 1
@@ -40,20 +41,42 @@ if(deploying) {
 	}
 	if(deploy_toggle) {deploying = 0}
 }
-
+}
 //+++++++++++++++++++++++++++++++++++++++++ COMBAT AI AND MORALE++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 	var AI_Enabled = 1 
 	//if(instance_exists(obj_vc)) {AI_Enabled = global.AI_Enabled}
 	aware = 1//(distance_to_object(obj_player) < radius_detection) //* AI_Enabled
-	LOSandRange = check_los_and_range(aware,-1,-1,obj_player,obj_platform,max_range*0.9) //can we see target, and have range?
+	LOSandRange = check_los_and_range(aware,-1,-1,obj_player,obj_platform,max_range*1.75) //can we see target, and have range?
 	
 	if(LOSandRange and canshoot and !dead and !fleeing) {firing = 1} else{firing = 0}
 	
 	scr_infantry_generic_morale()
 
 //++++++++++++++++++++++++++++++++++++++++++++ MOVEMENT +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	
+in_cover = 0
+seeking_cover = 1
+ 
+//is it logical to seek cover? We don't want to run to cover behind the player.
+if(instance_exists(obj_cover)){
+var Ocover = instance_nearest(x,y,obj_cover)
+var CPdist = abs(point_distance(Ocover.x,Ocover.y,obj_player.x,obj_player.y))
+var Pdist = abs(point_distance(x,y,obj_player.x,obj_player.y))
+var Cdist = abs(point_distance(x,y,Ocover.x,Ocover.y))
+if(Ocover.x<x and obj_player.x<x and Pdist < Cdist){seeking_cover = 0}
+if(Ocover.x>x and obj_player.x>x and Pdist < Cdist){seeking_cover = 0}
+//if(CPdist > max_range*1.4) {seeking_cover = 0}
+}
+
+//are we actually in cover? If so, stop looking for now
+if(place_meeting(x,y,obj_cover)){
+		var Ocover = instance_place(x,y,obj_cover)
+		if(x > Ocover.bbox_left+40 and x < Ocover.bbox_right-40) {
+			in_cover = 1
+			seeking_cover = 0
+		}
+}
+
 scr_astar_movement()
 
 if(instance_exists(target) and !dead)
@@ -70,7 +93,7 @@ if(instance_exists(target) and !dead)
 
 
 //++++++++++++++++++++++++++++++++++++++++++++ STATES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+	
 
 
 	if(state = "idle") {skeleton_anim_set_step(anim_idle,1)}
@@ -154,7 +177,7 @@ if(instance_exists(target) and !dead)
 						hp = other.ranged_damage
 						base_speed = other.velocity
 						penetration = other.penetration*other.ranged_damage
-						max_range = other.max_range
+						max_range = other.max_range*2
 						projectile_type = other.projectile_type
 						explosion_type = other.explosion_type
 					

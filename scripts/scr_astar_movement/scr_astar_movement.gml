@@ -57,12 +57,15 @@ if(TargetNodeTimer >= 50) //refresh target node
 	
 	//some variety for ranged foes. some are more elusive
 	if(Tactics = "ranged1" and !fleeing){
-	var TargetNodeList = nodes_in_los(max_range*0.85,SolidObject,NodeObject,target.x,target.y-5,-1)
-	target_node = ds_list_farthest(TargetNodeList,target.x,target.y)}
+	var TargetDirection = "center"
+	if(target.x<x) {TargetDirection = "right"}
+	if(target.x>x) {TargetDirection = "left"}
+	var TargetNodeList = nodes_in_los((max_range/2)*0.65,SolidObject,NodeObject,target.x,target.y-15,-1,TargetDirection)
+	target_node = ds_list_farthest(TargetNodeList,target.x,target.y,seeking_cover)}
 	
 	if(Tactics = "ranged2" or Tactics = "melee" or fleeing){
-	var TargetNodeList = nodes_in_los(800,SolidObject,NodeObject,target.x,target.y-5,-1)
-	target_node = ds_list_nearest(TargetNodeList,target.x,target.y)}
+	var TargetNodeList = nodes_in_los((max_range/2)*0.65,SolidObject,NodeObject,target.x,target.y-15,-1)
+	target_node = ds_list_nearest(TargetNodeList,target.x,target.y,seeking_cover)}
 
 	ds_list_destroy(TargetNodeList)
 	}
@@ -71,7 +74,7 @@ if(StartNodeTimer >= NewPathTick)
 	{
 	StartNodeTimer = 0
 	var NodeList = nodes_in_los(search_radius,SolidObject,NodeObject,x,mid_y,-1) //gets valid nodes
-	StartNode = ds_list_nearest(NodeList,x,mid_y) //selects closest node as starting node
+	StartNode = ds_list_nearest(NodeList,x,mid_y,false) //selects closest node as starting node
 	ds_list_destroy(NodeList)
 	}
 	
@@ -130,7 +133,7 @@ if(NewPath) //find pathing nodelist
 	if(ds_exists(PathList,ds_type_list)) {ds_list_destroy(PathList)}
 	
 	var NodeList = nodes_in_los(search_radius,SolidObject,NodeObject,x,mid_y,-1) //gets valid nodes
-	StartNode = ds_list_nearest(NodeList,x,y) //selects closest node as starting node
+	StartNode = ds_list_nearest(NodeList,x,y,false) //selects closest node as starting node
 	ds_list_destroy(NodeList)
 	
 	PathList = nodes_calculate_cost_array(StartNode,max_jump_height,target_node)
@@ -199,11 +202,12 @@ if(Col_Bot) {vsp = 0 move_outside_solid(90,-1)}
 if(Col_Left) {move_outside_solid(0,-1)}
 if(Col_Right) {move_outside_solid(180,-1)}
 //if(Col_Top) {vsp = Grav}
+if(variable_instance_exists(self,"deploying")) {var DPL = deploying} else{var DPL = 0}
 
-if(!dead and Move and NodeNext != 0) or (!dead and Move and deploying) 
+if(!dead and Move and NodeNext != 0) or (!dead and Move and DPL) 
 {	
 	var Speed2 = MoveSpeed*2
-	if(!deploying){
+	if(!DPL){
 	var Dist_X = abs(NodeNext.x - x) //horizontal distance to next node
 	var DFactor = Dist_X/Speed2 //multiplier for distance, the closer we are the small it is
 	var AdjSpeed = clamp(Speed2*DFactor,1,MoveSpeed*2)
@@ -252,12 +256,18 @@ if(hspeed != 0 and !dead and !fleeing) {
 y += vsp
 //+++++++++++++++++++++++++++++++++++++++++++++++++++ AI Specific Stuff +++++++++++++++++++++++++++++++++++++++++
 
-//cancel pathing once we have LOS on target
-
-
+//cancel pathing once we have LOS on target, and are no longer seeking cover
 if(!dead) {
-	if((Tactics = "ranged1" or Tactics = "ranged2") and LOSandRange = 1 and Col_Bot and !fleeing) { if(ds_exists(PathList,ds_type_list)) {ds_list_clear(PathList)} NewPathTimer = -1}
-	}
+	var closest = instance_nearest(x,y,obj_node)
+	if(closest = target_node and distance_to_object(target_node) < 30 and Col_Bot) {
+		if(ds_exists(PathList,ds_type_list)) {
+			ds_list_clear(PathList)} NewPathTimer = -1
+			}
 	
+	if( ((Tactics = "ranged1" or Tactics = "ranged2") and !seeking_cover) and LOSandRange = 1 and Col_Bot and !fleeing) { 
+		if(ds_exists(PathList,ds_type_list)) {
+			ds_list_clear(PathList)} NewPathTimer = -1
+			}
+	}	
 }
 

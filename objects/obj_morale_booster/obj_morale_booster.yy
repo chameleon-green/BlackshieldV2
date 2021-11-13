@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_node",
-    "path": "sprites/spr_node/spr_node.yy",
+    "name": "spr_plasma_flash",
+    "path": "sprites/spr_plasma_flash/spr_plasma_flash.yy",
   },
   "solid": false,
   "visible": true,

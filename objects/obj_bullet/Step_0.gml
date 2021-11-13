@@ -107,7 +107,7 @@ if(col_barrier and !flames){
 		}
 	}
 	if(chance = 2){
-		ds_list_add(list,id)
+		if(ds_list_find_index(list,id)=-1) {ds_list_add(list,id)}
 	}
 }
 

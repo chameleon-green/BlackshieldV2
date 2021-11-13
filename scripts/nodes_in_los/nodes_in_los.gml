@@ -2,8 +2,11 @@
 //remember to delete ds grid in object's calling event to prevent memory leak
 //currently uses an ellipse to detect nodes within max jump height, but also far below so the AI can drop down off of high ledges 
 //max search range for nodes below is currently 2x jump height, configured in the collision_ellipse call
+//area argument allows us to define if the seeking is done left/right of target
+//for example, if the calling entity is to the left of the target, only seek nodes on left of target
 
-function nodes_in_los(search_radius,wall_object,node_object,x,y,closed_list)
+
+function nodes_in_los(search_radius,wall_object,node_object,x,y,closed_list,area="center")
 {
 
 var SearchList = ds_list_create();
@@ -11,8 +14,11 @@ var ValidList = ds_list_create();
 var IsClosedList = ds_exists(closed_list,ds_type_list)
 var i;
 
+var area_offset = 0
+if(area = "left") {area_offset = -search_radius*2.5}
+if(area = "right") {area_offset = search_radius*2.5}
 
-collision_ellipse_list(x+search_radius*2.5,y-search_radius,x-search_radius*2.5,y+search_radius*2,node_object,true,1,SearchList,true)
+collision_ellipse_list(x+search_radius*2.5+area_offset,y-search_radius,x-search_radius*2.5+area_offset,y+search_radius*2,node_object,true,1,SearchList,true)
 var SLSize = ds_list_size(SearchList);
 
 	for(i = 0; i < SLSize; i++)

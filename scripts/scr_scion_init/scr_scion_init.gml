@@ -11,7 +11,8 @@ function scr_scion_init(weapon="hotshot") {
 	Disposition = "hostile" //shoot on sight? animal?
 	Tactics = choose("ranged2","ranged2") //shooty or choppy
 	var rand = irandom_range(18,21)
-	max_morale = rand + rand*0.5*leader
+	max_morale = rand 
+	if(variable_instance_exists(self,"leader")) {max_morale = rand + rand*0.5}
 	morale = max_morale
 	IFF = "hostile_imperial"
 
@@ -23,15 +24,15 @@ function scr_scion_init(weapon="hotshot") {
 	remove_timer = timer_create(150,0)
 	remove = 0
 	
-	if(leader) {
-		booster = instance_create_depth(x,y,depth,obj_morale_booster)
-		with(booster) {creator = id}
+	if(variable_instance_exists(self,"leader")) {
+		booster = instance_create_depth(x,bbox_top,depth,obj_morale_booster)
+		with(booster) {creator = other.id}
 	}
 	else{booster = undefined}
-		
 //++++++++++++++++++++++++++++++++++++++++++ MOVEMENT +++++++++++++++++++++++++++++++++++++++++++
-	
-	//deploying = 0
+	in_cover = 0
+	seeking_cover = 1
+
 	transportID = undefined
 	deploy_timer = timer_create(irandom_range(20,30),0)
 	deploy_toggle = 0
@@ -160,7 +161,7 @@ wpn_ranged = argument0//choose("volleygun","hotshot","hotshot")//,"hotshot","thu
 		ranged_damage = 30 //30
 		ranged_damage_type = "thermal"
 		fuse = 0
-		max_range = 1750 * random_range(1,1.5)
+		max_range = 1000 * random_range(1,1.5)
 		rof = 7
 		velocity = 150
 		penetration = 0.5
@@ -202,7 +203,7 @@ wpn_ranged = argument0//choose("volleygun","hotshot","hotshot")//,"hotshot","thu
 		ranged_damage = 28 //28
 		ranged_damage_type = "thermal"
 		fuse = 0
-		max_range = 2500 * random_range(1,1.3)
+		max_range = 1200 * random_range(1,1.3)
 		rof = 4
 		velocity = 150
 		penetration = 0.5

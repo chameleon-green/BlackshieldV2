@@ -2,8 +2,11 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function scr_infantry_generic_draw()
 {
-	
-
+	/*AI DEBUG STUFF
+	if(target_node != 0){
+		draw_sprite(spr_console,0,target_node.x,target_node.y)
+	}
+	*/
 var left = bbox_left
 var right = bbox_right
 var top = bbox_top

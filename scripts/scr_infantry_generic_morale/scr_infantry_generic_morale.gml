@@ -30,7 +30,7 @@ function scr_infantry_generic_morale(){
 	
 	//morale stuff
 	if(morale < 0) {morale = 0}
-	if(morale < max_morale and !dead and morale > max_morale/4 and regen_morale) {morale += max_morale/2000} //morale above 25%? regen normally
+	if(morale < max_morale and !dead and morale > max_morale/4 and regen_morale) {morale += max_morale/2000 + (max_morale/6000)*in_cover} //morale above 25%? regen normally
 	if(morale <= max_morale/4 and !LOSandRange and regen_morale) {morale += max_morale/2000} //morale below 25%? regen only when out of LOS of player
 	if(morale >= max_morale) {fleeing = 0 flee_path_toggle = 1} //morale at or above max? stop fleeing, enable path toggle
 	if(morale <= 0 and !dead) {fleeing = 1} //morale less than 0? flee!
@@ -46,9 +46,10 @@ function scr_infantry_generic_morale(){
 	var Dcount = collision_circle_list(x,y-10,Drange,obj_enemy,false,true,Dlist,false)	//ds_list_size(Dlist) //count of nearby allies
 
 	if(Dcount > 0){
+	if(variable_instance_exists(self,"leader")){var LD = 1} else{LD = 0}
 	for (var i = 0; i < Dcount; i++){
 		var inst = Dlist[|i]
-		if(inst.dead = 0) {inst.morale -= (1 + 2*leader)}
+		if(inst.dead = 0) {inst.morale -= (1/(1+in_cover) + 2*LD)}
 		}
 	}
 	ds_list_destroy(Dlist)

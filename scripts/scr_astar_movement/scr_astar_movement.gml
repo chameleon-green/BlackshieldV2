@@ -60,12 +60,14 @@ if(TargetNodeTimer >= 50) //refresh target node
 	var TargetDirection = "center"
 	if(target.x<x) {TargetDirection = "right"}
 	if(target.x>x) {TargetDirection = "left"}
-	var TargetNodeList = nodes_in_los((max_range/2)*0.65,SolidObject,NodeObject,target.x,target.y-15,-1,TargetDirection)
-	target_node = ds_list_farthest(TargetNodeList,target.x,target.y,seeking_cover)}
+	var TargetNodeList = ds_list_create()
+	ds_list_read(TargetNodeList,nodes_in_los((max_range/2.5),SolidObject,NodeObject,target.x,target.y-15,-1,TargetDirection))
+	target_node = ds_list_farthest(TargetNodeList,target.x,target.y,true)}
 	
 	if(Tactics = "ranged2" or Tactics = "melee" or fleeing){
-	var TargetNodeList = nodes_in_los((max_range/2)*0.65,SolidObject,NodeObject,target.x,target.y-15,-1)
-	target_node = ds_list_nearest(TargetNodeList,target.x,target.y,seeking_cover)}
+	var TargetNodeList = ds_list_create()
+	ds_list_read(TargetNodeList,nodes_in_los((max_range/2.5)*1.5,SolidObject,NodeObject,target.x,target.y-15,-1))
+	target_node = ds_list_nearest(TargetNodeList,target.x,target.y,true)}
 
 	ds_list_destroy(TargetNodeList)
 	}
@@ -73,7 +75,8 @@ if(TargetNodeTimer >= 50) //refresh target node
 if(StartNodeTimer >= NewPathTick) 
 	{
 	StartNodeTimer = 0
-	var NodeList = nodes_in_los(search_radius,SolidObject,NodeObject,x,mid_y,-1) //gets valid nodes
+	var NodeList = ds_list_create();
+	ds_list_read(NodeList,nodes_in_los(search_radius,SolidObject,NodeObject,x,mid_y,-1)) //gets valid nodes
 	StartNode = ds_list_nearest(NodeList,x,mid_y,false) //selects closest node as starting node
 	ds_list_destroy(NodeList)
 	}
@@ -132,11 +135,13 @@ if(NewPath) //find pathing nodelist
 {
 	if(ds_exists(PathList,ds_type_list)) {ds_list_destroy(PathList)}
 	
-	var NodeList = nodes_in_los(search_radius,SolidObject,NodeObject,x,mid_y,-1) //gets valid nodes
+	var NodeList = ds_list_create()
+	ds_list_read(NodeList,nodes_in_los(search_radius,SolidObject,NodeObject,x,mid_y,-1)) //gets valid nodes
 	StartNode = ds_list_nearest(NodeList,x,y,false) //selects closest node as starting node
 	ds_list_destroy(NodeList)
 	
-	PathList = nodes_calculate_cost_array(StartNode,max_jump_height,target_node)
+	PathList = ds_list_create()
+	ds_list_read(PathList,nodes_calculate_cost_array(StartNode,max_jump_height,target_node))
 	if(ds_exists(PathList,ds_type_list))  {var StartNodeIndex = ds_list_find_index(PathList,StartNode)} else var StartNodeIndex = -1 //eliminate startnode from path so we don't have jumpy starts
 
 	if(StartNodeIndex != -1)  {
@@ -258,12 +263,13 @@ y += vsp
 
 //cancel pathing once we have LOS on target, and are no longer seeking cover
 if(!dead) {
+	/*
 	var closest = instance_nearest(x,y,obj_node)
 	if(closest = target_node and distance_to_object(target_node) < 30 and Col_Bot) {
 		if(ds_exists(PathList,ds_type_list)) {
 			ds_list_clear(PathList)} NewPathTimer = -1
 			}
-	
+	*/
 	if( ((Tactics = "ranged1" or Tactics = "ranged2") and !seeking_cover) and LOSandRange = 1 and Col_Bot and !fleeing) { 
 		if(ds_exists(PathList,ds_type_list)) {
 			ds_list_clear(PathList)} NewPathTimer = -1

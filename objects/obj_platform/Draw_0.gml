@@ -1,7 +1,7 @@
 draw_self()
 
 
-if(draw_tiles_top){
+if(draw_tiles_top = 1 and draw_tiles_top2){
 	
 var rounded = floor(tile_count)
 var diff = tile_count - rounded

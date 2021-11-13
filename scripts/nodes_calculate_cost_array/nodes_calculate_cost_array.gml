@@ -39,7 +39,8 @@ while (!PathComplete and ds_priority_size(OpenList) > 0) //while our target is n
 	if(Node[4] = target_node) {break}; //if we have added target to closed list, break the loop and stop expanding nodes
 	
 	//Find adjacent nodes and add them to our open list
-	var LOSList = nodes_in_los(search_radius,oSolid,oNode,Node[4].x,Node[4].y,-1);
+	var LOSList = ds_list_create();
+	ds_list_read(LOSList,nodes_in_los(search_radius,oSolid,oNode,Node[4].x,Node[4].y,-1));
 	var LOSListSize = ds_list_size(LOSList);
 	var i;
 	
@@ -62,7 +63,7 @@ while (!PathComplete and ds_priority_size(OpenList) > 0) //while our target is n
 		if(!ClosedNode) {ds_priority_add(OpenList,NodeArray,CostF)} ;
 		
 	};
-	
+	ds_list_destroy(LOSList);
 };
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ GENERATE A PATH ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -102,6 +103,7 @@ if(PathComplete)  //we got a path! return it in a list, inverting the pathlist. 
 	ds_list_destroy(ClosedParentList)
 	ds_priority_destroy(OpenList)
 	
+	
 	var FinalPath = ds_list_create() 
 	var PathListSize = ds_list_size(PathList)-1
 	for(var j = PathListSize; j > -1; j--)
@@ -112,8 +114,11 @@ if(PathComplete)  //we got a path! return it in a list, inverting the pathlist. 
 		
 	ds_list_destroy(PathList)
 	//draw_text(x+100,y-30,"PATH ACQUIRED")
-	ds_list_draw(FinalPath,x,y-300)
-	return FinalPath	
+	//ds_list_draw(FinalPath,x,y-300)
+	var PathText;
+	if(toggle = 1) {PathText = ds_list_write(FinalPath) toggle = 0};
+	ds_list_destroy(FinalPath);
+	return PathText;
 	};
 
 

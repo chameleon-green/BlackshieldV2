@@ -8,7 +8,8 @@
 
 function nodes_in_los(search_radius,wall_object,node_object,x,y,closed_list,area="center")
 {
-
+var text;
+var toggle = 1
 var SearchList = ds_list_create();
 var ValidList = ds_list_create();
 var IsClosedList = ds_exists(closed_list,ds_type_list)
@@ -38,7 +39,9 @@ var SLSize = ds_list_size(SearchList);
 	}
 	
 ds_list_destroy(SearchList)
-return ValidList
+if(toggle = 1) {text = ds_list_write(ValidList) toggle = 0}
 ds_list_destroy(ValidList)
+return text
+
 
 }

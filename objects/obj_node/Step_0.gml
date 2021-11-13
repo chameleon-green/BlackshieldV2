@@ -8,15 +8,15 @@ if(creator != undefined and timer) {
 			instance_destroy(self)
 			}
 		}
-	var Cover = place_meeting(x,y,obj_cover)
+	var Cover = instance_place(x,y,obj_cover)
 		if(Cover) {
 			cover = 1
+			cover_parent = Cover.id
+			if(hill) {image_index = 3}
+			else{image_index = 2}
 		}
 					
 	timer_reset(checktimer,1)
 }
 
-if(cover) {
-	if(hill) {image_index = 3}
-	else{image_index = 2}
-}
+

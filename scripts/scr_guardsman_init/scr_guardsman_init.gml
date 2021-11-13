@@ -13,7 +13,7 @@ function scr_guardsman_init(weapon="lasgun") {
 	Type = "ig_trooper" //what is this?
 	AI_Type = "humanoid" //broad category of AI type (humanoid, beast, turret, vehicle)
 	Disposition = "hostile" //shoot on sight? animal?
-	Tactics = choose("ranged1","ranged2") //shooty or choppy
+	Tactics = choose("ranged2","ranged2","ranged2") //shooty or choppy
 	var rand = irandom_range(5,8)
 	max_morale = rand 
 	if(variable_instance_exists(self,"leader")) {max_morale = rand + rand*0.5}
@@ -92,8 +92,9 @@ function scr_guardsman_init(weapon="lasgun") {
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++ GENERATE A STARTER NODE ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-	var NodeList = nodes_in_los(search_radius,SolidObject,NodeObject,x,y,closed_list) //gets valid nodes
-	StartNode = ds_list_nearest(NodeList,x,y) //selects closest node as starting node
+	var NodeList = ds_list_create()
+	ds_list_read(NodeList,nodes_in_los(search_radius,SolidObject,NodeObject,x,y,closed_list)) //gets valid nodes
+	StartNode = ds_list_nearest(NodeList,x,y,false) //selects closest node as starting node
 	ds_list_add(closed_list,StartNode)
 	ds_list_destroy(NodeList)
 

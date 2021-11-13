@@ -93,7 +93,7 @@ if(col_barrier and !flames){
 	var collided = ds_list_find_index(list,id)
 		if(chance = 1 and !collided){
 		var facing = sign(col_barrier.image_xscale)
-		var dist = distance_to_object(col_barrier)+random_range(0,200)
+		var dist = distance_to_object(col_barrier)+random_range(0,200)*sign(col_barrier.image_xscale)
 		//var killme = 0
 	
 		if(facing = 1 and x > col_barrier.bbox_right) {kill_barrier = 1}

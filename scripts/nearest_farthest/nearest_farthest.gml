@@ -16,7 +16,7 @@ var i;
 	for(i=0; i<size; i++)
 	{
 	var instance = list[|i]
-	if(cover) {var distance = point_distance(x,y,instance.x,instance.y)-10000*instance.cover}
+	if(cover) {var distance = point_distance(x,y,instance.x,instance.y)-8000*instance.cover}
 	else{var distance = point_distance(x,y,instance.x,instance.y)}
 	ds_grid_add(distance_grid,0,i,instance)
 	ds_grid_add(distance_grid,1,i,distance)
@@ -49,7 +49,7 @@ var i;
 	for(i=0; i<size; i++)
 	{
 	var instance = list[|i]
-	if(cover) {var distance = point_distance(x,y,instance.x,instance.y)+10000*instance.cover}
+	if(cover) {var distance = point_distance(x,y,instance.x,instance.y)+8000*instance.cover}
 	else{var distance = point_distance(x,y,instance.x,instance.y)}
 	ds_grid_add(distance_grid,0,i,instance)
 	ds_grid_add(distance_grid,1,i,distance)

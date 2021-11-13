@@ -1,4 +1,4 @@
-//depth = -9
+depth = -9
 
 
 var Fuse = max_hp*fuse
@@ -88,21 +88,27 @@ if(col){
 }
 
 if(col_barrier and !flames){
-	var facing = sign(col_barrier.image_xscale)
-	var dist = distance_to_object(col_barrier)+random_range(0,200)
-	var killme = 0
+	var chance = choose(1,2)
+	var list = col_barrier.col_list
+	var collided = ds_list_find_index(list,id)
+		if(chance = 1 and !collided){
+		var facing = sign(col_barrier.image_xscale)
+		var dist = distance_to_object(col_barrier)+random_range(0,200)
+		//var killme = 0
 	
-	if(facing = 1 and x > col_barrier.bbox_right) {killme = 1}
-	if(facing =-1 and x < col_barrier.bbox_left) {killme = 1}
+		if(facing = 1 and x > col_barrier.bbox_right) {kill_barrier = 1}
+		if(facing =-1 and x < col_barrier.bbox_left) {kill_barrier = 1}
 	
-	if(killme){
-	depth = -53
-	x=x+lengthdir_x(dist,direction)
-	y=y+lengthdir_y(dist,direction)
-	damage = 0
-	instance_destroy(self)
+		if(kill_barrier){
+		depth = -53
+		x=x+lengthdir_x(dist,direction)
+		y=y+lengthdir_y(dist,direction)
+		damage = 0
+		}
 	}
-		
+	if(chance = 2){
+		ds_list_add(list,id)
+	}
 }
 
 

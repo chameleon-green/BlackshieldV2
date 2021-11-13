@@ -4,7 +4,7 @@ depth = -3901
 var NodeObject = obj_node
 var SolidObject = obj_platform
 
-var resolution = clamp(5 * (image_xscale/2),160,400) //scales node spacing based on size of platform
+var resolution = clamp(5 * (image_xscale/2),275,450) //scales node spacing based on size of platform
 var y_offset = 30
 var x_offset = 0
 
@@ -45,7 +45,7 @@ if(x_nodes > 0)
 	for(i=0; i < x_nodes; i++)
 	{
 		if(image_xscale > 0) {var yyy = (hy_offset*(i+1))+y_offset+y_offset*(image_yscale/image_xscale)}
-		if(image_xscale < 0) {var yyy = (hy_offset*(x_nodes+1-i))+y_offset+y_offset*(image_yscale/image_xscale)}
+		if(image_xscale < 0) {var yyy = (hy_offset*(x_nodes+0-i))+y_offset+y_offset*(image_yscale/image_xscale)}
 		
 		with(instance_create_depth(left+resolution*(i+1),bbox_bottom-yyy, depth+1,NodeObject)) {image_index = 1 hill = 1 creator = other.id}
 		Ncount += 1

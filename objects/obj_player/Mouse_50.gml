@@ -9,6 +9,7 @@
 	var Spinny = array_length_1d(anim_array) = 8
 	
 	var overheat = (heat + wpn_ranged[wpn_ranged.Damage]) >= wpn_ranged[wpn_ranged.Heat_Capacity] and wpn_ranged[0] > 0 
+	//var TooHot = (heat + wpn_ranged[wpn_ranged.Damage] >= wpn_ranged[wpn_ranged.Heat_Capacity]*2)
 	
 	if(wpn_ranged[22] = "primary")
 	{
@@ -50,8 +51,7 @@ if (
 	(Firemode = "Auto" or Firemode = "Supercharge" or Firemode = "High" or Firemode = "Low")   and 
 	cycle = 1 and
 	!global.GUI and
-	(!overheat + (Firemode = "Supercharge" or Spinny)) 
-	
+	(!overheat + (Firemode = "Supercharge" or Spinny))
 	)
 {
 

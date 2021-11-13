@@ -26,7 +26,7 @@ var yy = y+lengthdir_y(base_speed/2,direction+180)
 with (instance_create_depth(xx,yy,depth-1,obj_explosion_scalable))
    {
    creator = other.id;
-   damage = clamp(other.damage,1,other.damage+1)
+   damage = clamp(other.damage,0,other.damage+1)
    explosion_type = other.explosion_type
    damage_type = other.damage_type
    IFF = other.IFF

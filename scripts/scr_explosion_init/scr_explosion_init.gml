@@ -1,5 +1,9 @@
 function scr_explosion_init() {
 	
+	
+	//+++++++++++++++++++++++++++++++++++++++ FLAMES ++++++++++++++++++++++++++++++++++++++++++
+
+	
 	exp_bolt_small[3] = "no" //we are not scalable
 	exp_bolt_small[2] = 0
 	exp_bolt_small[1] = spr_explosion_small //impact vfx

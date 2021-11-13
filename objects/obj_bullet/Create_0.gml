@@ -27,17 +27,6 @@ critmod = obj_player.CritMod
 critroll = irandom_range(0,100)
 if(critroll <= obj_player.CritChance) {crit = 1}
 
-
-//Sets projectile skin
-flames = 0
-if(is_real(ammo[ammo.Projectile_Skin])){
-image_index = ammo[ammo.Projectile_Skin]
-image_speed = 0
-}
-else{
-	if(ammo[ammo.Projectile_Skin] = "flame") {flames = 1}
-}
-
 //sets damage and pen values
 if(crit = 1) {
 	damage = wpn_ranged[wpn_ranged.Damage]*critmod*ammo[13] 
@@ -73,26 +62,37 @@ impact_sound = 1
 //++++++++++++++++++++++++++++++++++++++++++++ FLAME STUFF +++++++++++++++++++++++++++++++++++
 
 
+//Sets projectile skin
+flames = 0
 
-if(flames = 1){
+if(ammo[21] = "flame") {
+	flames = 1
+		
+	crit = 0
 	
-crit = 0
+	sprite = ammo[18]
+	sprite_index = sprite
+	
+	flameframes =  13//(sprite_get_number(spr_flames_dirty) - 1) 
+	
+	cycle_speed = 1
+	sprite_set_speed(sprite,flameframes*cycle_speed,spritespeed_framespersecond)
+	hspeed = 24
 
-sprite_index = spr_flames_dirty59
-flameframes =  13//(sprite_get_number(spr_flames_dirty) - 1) 
-sprite = spr_flames_dirty59
-cycle_speed = 1
-sprite_set_speed(sprite,flameframes*cycle_speed,spritespeed_framespersecond)
-hspeed = 24
+	impact_sound = 0
+	lethal = 1
 
-impact_sound = 0
-lethal = 1
+	image_xscale = clamp(5*cycle_speed,4,99)                //5
+	image_yscale = clamp(1.5*cycle_speed,1,99)
+	depth = -13
+	image_alpha = 1
+	image_speed = 1
+	
+	}
 
-image_xscale = clamp(5*cycle_speed,4,99)                //5
-image_yscale = clamp(1.5*cycle_speed,1,99)
-depth = -13
-image_alpha = 1
-
-
-image_speed = 1
+if(flames = 0){
+	image_index = ammo[18]
+	image_speed = 0
 }
+
+

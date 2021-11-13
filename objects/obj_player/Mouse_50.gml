@@ -95,8 +95,8 @@ if (
 	
 	var create = instance_create_depth(xx,yy-1*crouching,depth+1, obj_bullet)
 	var DIR = angle + !image_xscale*(180-(2*angle)) + spreadAngle*1.5
-	with create
-	{creator = id
+	with create{
+	creator = id
 	damage_type = other.ammo_type[4]
 	IFF = "player01"
 	depth = other.depth+1

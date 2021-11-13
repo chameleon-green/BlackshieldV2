@@ -1,6 +1,5 @@
 depth = -9
 
-
 var Fuse = max_hp*fuse
 
 if(!flames){

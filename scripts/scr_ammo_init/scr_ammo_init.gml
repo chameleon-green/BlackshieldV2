@@ -127,7 +127,7 @@ function scr_ammo_init() {
 	ammo_flamer_standard[21] = "flame" //guidance type
 	ammo_flamer_standard[20] = 0.02 //weight per round
 	ammo_flamer_standard[19] = "impact" //fuse type, can be used to define scatterguns
-	ammo_flamer_standard[18] = "flame" //projectile skin
+	ammo_flamer_standard[18] = spr_flames_dirty59 //projectile skin
 	ammo_flamer_standard[17] = "Flamer Fuel" //Name
 	ammo_flamer_standard[16] = 21 //icon sprite subimage
 	ammo_flamer_standard[15] = "none" //casing skin

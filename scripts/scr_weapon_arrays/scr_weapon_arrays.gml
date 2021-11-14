@@ -96,7 +96,7 @@ function scr_weapon_arrays() {
 	flamer_astartes[18] = sndg_flamer_med1 //sound array
 	flamer_astartes[17] = "Astartes Pattern Flamer" //name
 	flamer_astartes[16] = "flamer_astartes" //weapon attachment sprite
-	flamer_astartes[15] = "mag_flamer1" //magazine attachment sprite
+	flamer_astartes[15] = "mag_flamer_1" //magazine attachment sprite
 	flamer_astartes[14] = "flamer fuel" //ammo type
 	flamer_astartes[13] =  90 //angular offset
 	flamer_astartes[12] = flash_none //flash type

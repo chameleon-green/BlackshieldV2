@@ -12,7 +12,7 @@ function scr_infantry_generic_morale(){
 	var pick = irandom_range(1,3)
 	
 	regen_morale = 0
-	morale -= 0.01
+	morale -= 0.025
 
 	if(pick = 1) {HeadHp-=dmgfinal}
 	if(pick = 2) {TorsoHp-=dmgfinal}

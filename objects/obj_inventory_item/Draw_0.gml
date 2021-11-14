@@ -4,6 +4,7 @@ image_yscale = scale
 
 
 //+++++++++++++++++++++++++++++++++++++++ SCROLLBAR STUFF, MOVE AND HIDE SELF ++++++++++++++++++++++++++
+Draw_Text = 0
 if(creator.scrollbar != undefined){
 
 var MyScrollbar = creator.scrollbar

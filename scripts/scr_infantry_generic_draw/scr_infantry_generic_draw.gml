@@ -6,6 +6,8 @@ function scr_infantry_generic_draw()
 	if(target_node != 0){
 		draw_sprite(spr_console,0,target_node.x,target_node.y)
 	}
+		
+	draw_text(x,bbox_top,seeking_cover)
 	*/
 var left = bbox_left
 var right = bbox_right
@@ -25,8 +27,7 @@ if(hp < MaxHP and hp > 0)
 	draw_sprite_ext(spr_bars,4,xx,top,length,1,0,c_white,1)
 	}
 	
-	
-	draw_text(x,bbox_top,seeking_cover)
+
 if(morale < max_morale and morale > 0 and !dead)
 	{
 	var xx = x-30

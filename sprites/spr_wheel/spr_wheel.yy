@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Debug Sprites",
-    "path": "folders/Sprites/Debug Sprites.yy",
+    "name": "Actors",
+    "path": "folders/Sprites/Actors.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_wheel",

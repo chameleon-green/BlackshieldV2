@@ -23,12 +23,27 @@ function scr_player_movement() {
 	var x1 = bbox_left - 10 + cSpeed - 30*swinging
 	var x2 = bbox_right + 10 + cSpeed + 30*swinging
 	var y1 = bbox_bottom - 5
-	var y2 = bbox_bottom + abs(cSpeed) + 15
+	var y2 = bbox_bottom + abs(cSpeed)*2 + 15 
 	col_slope = collision_rectangle(x1,y1,x2,y2,obj_slope,true,0) 
 	
 	col_right = place_meeting(bbox_right+hspeed,y,obj_platform) and !place_meeting(bbox_right + 10 + cSpeed,y+abs(cSpeed)+15,obj_slope)
 	col_left =  place_meeting(bbox_left+hspeed,y,obj_platform) and !place_meeting(bbox_left - 10 + cSpeed,y+abs(cSpeed)+15,obj_slope)
 	col_top = place_meeting(x,y-1+clamp(vsp,-1000,0),obj_platform)
+
+	if(col_slope) {
+		var Slope = col_slope//instance_nearest(x,y,obj_slope)
+		var inside = 0
+		if(bbox_left > Slope.bbox_left and bbox_right < Slope.bbox_right) {var inside = 1}
+		if(inside) {mask_index = spr_collision_mask_human2}
+	}	
+	if(!col_slope) {
+		mask_index = spr_collision_mask_human
+		move_outside_solid(90,-1)
+	}
+	
+	
+	
+	
 	
 //+++++++++++++++++++++++++++++++++++++++++++++++++++ gravity ++++++++++++++++++++++++++++++++++++++++++++++++
 

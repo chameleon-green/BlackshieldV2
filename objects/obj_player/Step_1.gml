@@ -7,7 +7,7 @@ var D = keyboard_check(ord("D")) and !keyboard_check(ord("A"))
 var A = keyboard_check(ord("A")) and !keyboard_check(ord("D"))
 var cSpeed = 40*(D or A or swinging) //clamp hspeed for collision stuff, need a minimum
 
-col_bot = place_meeting(x,y+1+clamp(vsp,0,70),obj_platform) or place_meeting(x,y+10+3*cSpeed,obj_slope)
+col_bot = place_meeting(x,y+abs(hspeed)+30+clamp(vsp,0,70),obj_platform) or place_meeting(x,y+10+3*cSpeed,obj_slope)
  
  if (vsp < 64 and !col_bot) {
 	vsp += grav;

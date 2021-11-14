@@ -27,7 +27,7 @@ draw_sprite_general(sprite,0,0,0,ceil(35)+1,42,bbox_left+fdispf-35,y,1,1,0,c_whi
 for(var i = 0; i < rounded; i++){
 draw_sprite_ext(sprite,0,bbox_left+(xoff*i),y-(yoff*i),1,yscl,deg,c_white,1)
 }
-var xoff2 = (cos(angle)*(diff*70))
+var xoff2 = (cos(angle)*(diff*70)) 
 var yoff2 = (tan(angle)*xoff2)
 
 draw_sprite_general(sprite,0,0,0,ceil(diff*70)+1,42,bbox_left+xoff*rounded,y-yoff*rounded,1,yscl,deg,c_white,c_white,c_white,c_white,1)

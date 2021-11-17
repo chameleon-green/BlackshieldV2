@@ -1,6 +1,15 @@
 /// @description Player attributes 
 //create table of attributes
 
+depth=-100
+surf = 0
+if !surface_exists(surf){
+    surf = surface_create(1024, 1024);
+    surface_set_target(surf)
+	draw_clear_alpha(c_black,1.0)
+    surface_reset_target()
+    //view_surface_id[0] = surf;
+    }
 
 global.AI_Enabled = 1
 global.stats = ds_map_create()

@@ -59,8 +59,10 @@ seeking_cover = 1
 
 
 if(target_node != 0) {
-	if(target_node.cover = 0) {seeking_cover = 0}
-}
+	if(instance_exists(target_node)){
+		if(variable_instance_exists(target_node,"cover")){
+			if(target_node.cover = 0) {seeking_cover = 0}
+
  
 //is it logical to seek cover? We don't want to run to cover behind the player.
 if(instance_exists(obj_cover)){
@@ -81,6 +83,10 @@ if(place_meeting(x,y,obj_cover)){
 			in_cover = 1
 			seeking_cover = 0
 		}
+}
+
+		}
+	}
 }
 
 scr_astar_movement()

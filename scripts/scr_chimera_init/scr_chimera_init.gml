@@ -81,8 +81,9 @@ function scr_chimera_init(){
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++ GENERATE A STARTER NODE ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-	var NodeList = nodes_in_los(search_radius,SolidObject,NodeObject,x,y,closed_list) //gets valid nodes
-	StartNode = ds_list_nearest(NodeList,x,y) //selects closest node as starting node
+	var NodeList = ds_list_create()
+	ds_list_read(NodeList,nodes_in_los(search_radius,SolidObject,NodeObject,x,y,closed_list)) //gets valid nodes
+	StartNode = ds_list_nearest(NodeList,x,y,false) //selects closest node as starting node
 	ds_list_add(closed_list,StartNode)
 	ds_list_destroy(NodeList)
 

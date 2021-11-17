@@ -14,7 +14,8 @@ image_yscale = scale
 
 var white = (image_blend = c_white)
 
-lifetime = (mass*mass*mass)/(5-white) + ((mass*mass*mass)/(5-white))*!max_speed
+var lifetime_unclamped = (mass*mass*mass)/(5-white) + ((mass*mass*mass)/(5-white))*!max_speed
+lifetime = clamp(lifetime_unclamped,10,4500)
 life_timer += 1
 var A = life_timer/lifetime
 image_alpha = 0.9-A

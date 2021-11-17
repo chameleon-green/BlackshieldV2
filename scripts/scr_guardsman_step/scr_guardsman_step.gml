@@ -65,16 +65,14 @@ if(target_node != 0) {
 
  
 //is it logical to seek cover? We don't want to run to cover behind the player.
-if(instance_exists(obj_cover)){
+if(instance_exists(obj_cover) and seeking_cover){
 var Ocover = instance_nearest(x,y,obj_cover)
 var CPdist = abs(point_distance(Ocover.x,Ocover.y,obj_player.x,obj_player.y))
 var Pdist = abs(point_distance(x,y,obj_player.x,obj_player.y))
 var Cdist = abs(point_distance(x,y,Ocover.x,Ocover.y))
-if(Ocover.x<x and obj_player.x<x and Pdist < Cdist){seeking_cover = 0}
-if(Ocover.x>x and obj_player.x>x and Pdist < Cdist){seeking_cover = 0}
-//if(CPdist > max_range*1.4) {seeking_cover = 0}
+if(Ocover.x<=x and obj_player.x<=x and Pdist <= Cdist){seeking_cover = 0}
+if(Ocover.x>x and obj_player.x>x and Pdist <= Cdist){seeking_cover = 0}
 }
-
 //are we actually in cover? If so, stop looking for now
 if(place_meeting(x,y,obj_cover)){
 		var Ocover = instance_place(x,y,obj_cover)
@@ -85,9 +83,20 @@ if(place_meeting(x,y,obj_cover)){
 		}
 }
 
+if(target != 0){
+	if(variable_instance_exists(target,"cover_id")){
+		var EnemyCover = target.cover_id
+		if(EnemyCover != 0){
+			if(target_node.cover = 1 and EnemyCover = target_node.cover_parent){
+				seeking_cover = 0
+			}
 		}
 	}
 }
+
+} //cover variable exists check
+} //instance exists cover check
+} //target node != 0 check
 
 scr_astar_movement()
 

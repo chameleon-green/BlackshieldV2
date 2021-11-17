@@ -171,7 +171,7 @@ throw_power = 0
 col_list = ds_list_create() //collision list for bullets, see impact code
 col_timer = 0
 
-
+cover_id = 0
 
 //movement and counter vars
 i = 1

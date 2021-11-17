@@ -1,6 +1,7 @@
 direction = irandom_range(180, -180) 
 //alarm[0] = life //decay time for frags
 
+flames = 0
 base_speed = 30//30
 IFF = "none" //frag cares not for your allegiences
 penetration = 0

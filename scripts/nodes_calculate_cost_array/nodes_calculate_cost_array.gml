@@ -3,8 +3,11 @@
 //calculates a path using A* and returns a path of sequential nodes in a ds_list 
 //make sure to define wall and node objects properly or this will not work
 //parameters: start node, target node, search radius (How far each node can search for others. This is usually defined by maximum jump height)
+//max_search_size dictates max size of openlist data structure. The larger it is, the longer an AI
+//will search for a path before giving up. Higher values are more performance intensive, but may be
+//required for very complex level geometry/large levels with lots of nodes
 
-function nodes_calculate_cost_array(start_node,search_radius,target_node)
+function nodes_calculate_cost_array(start_node,search_radius,target_node,max_search_size)
 {
 //++++++++++++++++++++++++++++++++++++++++++++++++ DEFINE YOUR RELEVANT OBJECTS HERE+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -31,7 +34,7 @@ var PathComplete = (ds_list_find_index(ClosedList,target_node) != -1); //we foun
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++ PATHFINDING LOOP ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-while (!PathComplete and ds_priority_size(OpenList) < 30) //while our target is not found and we still have nodes unsearched, continue 
+while (!PathComplete and ds_priority_size(OpenList) < max_search_size) //while our target is not found and we still have nodes unsearched, continue 
 {
 	var Node = ds_priority_find_min(OpenList);//find cheapest node array 
 	ds_priority_delete_value(OpenList,Node); //remove our node from the openlist	

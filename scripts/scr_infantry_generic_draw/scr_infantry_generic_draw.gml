@@ -3,13 +3,13 @@
 function scr_infantry_generic_draw()
 {
 	
-	/*
+	
 	if(target_node != 0){
 		draw_sprite(spr_console,0,target_node.x,target_node.y)
 	}
 		
 	draw_text(x,bbox_top,seeking_cover)
-	*/
+	
 var left = bbox_left
 var right = bbox_right
 var top = bbox_top
@@ -18,7 +18,7 @@ var bot = bbox_bottom
 
 draw_self()
 
-if(ds_exists(PathList,ds_type_list)) {ds_list_draw(PathList,x,bbox_top)}
+
 
 if(hp < MaxHP and hp > 0)
 	{

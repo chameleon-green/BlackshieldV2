@@ -61,7 +61,7 @@ if(TargetNodeTimer >= 50) //refresh target node
 	if(target.x<x) {TargetDirection = "right"}
 	if(target.x>x) {TargetDirection = "left"}
 	var TargetNodeList = ds_list_create()
-	ds_list_read(TargetNodeList,nodes_in_los((max_range/2.5),SolidObject,NodeObject,target.x,target.y-15,-1,TargetDirection))
+	ds_list_read(TargetNodeList,nodes_in_los((max_range/2.5),SolidObject,NodeObject,target.x,target.y-15,-1))
 	target_node = ds_list_farthest(TargetNodeList,target.x,target.y,true)}
 	
 	if(Tactics = "ranged2" or Tactics = "melee" or fleeing){
@@ -140,8 +140,8 @@ if(NewPath) //find pathing nodelist
 	StartNode = ds_list_nearest(NodeList,x,y,false) //selects closest node as starting node
 	ds_list_destroy(NodeList)
 	
-	var Path = nodes_calculate_cost_array(StartNode,max_jump_height,target_node)
-	if (Path != -1) {ds_list_read(PathList,nodes_calculate_cost_array(StartNode,max_jump_height,target_node))} else{ds_list_clear(PathList)}
+	var Path = nodes_calculate_cost_array(StartNode,max_jump_height,target_node,175)
+	if (Path != -1) {ds_list_read(PathList,nodes_calculate_cost_array(StartNode,max_jump_height,target_node,175))} else{ds_list_clear(PathList)}
 	var StartNodeIndex = ds_list_find_index(PathList,StartNode)//eliminate startnode from path so we don't have jumpy starts
 
 	if(StartNodeIndex != -1)  {

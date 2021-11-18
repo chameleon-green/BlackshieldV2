@@ -4,7 +4,7 @@
 var NodeObject = obj_node
 var SolidObject = obj_platform
 
-var resolution = clamp(5 * (image_xscale/2),120,400) //scales node spacing based on size of platform
+var resolution = clamp(5 * (image_xscale/2),90,300) //scales node spacing based on size of platform
 var y_offset = 30
 var x_offset = 0
 

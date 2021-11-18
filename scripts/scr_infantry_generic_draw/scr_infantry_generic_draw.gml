@@ -2,6 +2,7 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function scr_infantry_generic_draw()
 {
+	
 	/*
 	if(target_node != 0){
 		draw_sprite(spr_console,0,target_node.x,target_node.y)
@@ -16,6 +17,8 @@ var bot = bbox_bottom
 //draw_rectangle(left,top,right,bot,1)
 
 draw_self()
+
+if(ds_exists(PathList,ds_type_list)) {ds_list_draw(PathList,x,bbox_top)}
 
 if(hp < MaxHP and hp > 0)
 	{

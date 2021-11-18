@@ -31,40 +31,46 @@ var PathComplete = (ds_list_find_index(ClosedList,target_node) != -1); //we foun
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++ PATHFINDING LOOP ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-while (!PathComplete and ds_priority_size(OpenList) > 0) //while our target is not found and we still have nodes unsearched, continue 
+while (!PathComplete and ds_priority_size(OpenList) < 30) //while our target is not found and we still have nodes unsearched, continue 
 {
 	var Node = ds_priority_find_min(OpenList);//find cheapest node array 
 	ds_priority_delete_value(OpenList,Node); //remove our node from the openlist	
-	if(ds_list_find_index(ClosedList,Node[4]) = -1) {ds_list_add(ClosedList,Node[4]) ds_list_add(ClosedParentList,Node[3])}; //add to the closed list
-	if(Node[4] = target_node) {break}; //if we have added target to closed list, break the loop and stop expanding nodes
+	
+	if(is_array(Node)){
+		if(ds_list_find_index(ClosedList,Node[4]) = -1) {ds_list_add(ClosedList,Node[4]) ds_list_add(ClosedParentList,Node[3])}; //add to the closed list
+		if(Node[4] = target_node) {break}; //if we have added target to closed list, break the loop and stop expanding nodes
+	
+	//if(ds_list_size(ClosedList) > 15) {return -1}
 	
 	//Find adjacent nodes and add them to our open list
-	var LOSList = ds_list_create();
-	ds_list_read(LOSList,nodes_in_los(search_radius,oSolid,oNode,Node[4].x,Node[4].y,-1));
-	var LOSListSize = ds_list_size(LOSList);
-	var i;
+		var LOSList = ds_list_create();
+		ds_list_read(LOSList,nodes_in_los(search_radius,oSolid,oNode,Node[4].x,Node[4].y,-1));
+		var LOSListSize = ds_list_size(LOSList);
+		var i;
 	
-	for(i = 0; i < LOSListSize; i++)
-	{
+		for(i = 0; i < LOSListSize; i++)
+		{
 		//find the cost of each node
-		var NodeArray = 0;
-		var NodeID = LOSList[| i];
-		var CostG = abs(point_distance(start_node.x,start_node.y,NodeID.x,NodeID.y)) + abs(point_distance(start_node.x,start_node.y,Node[4].x,Node[4].y))
-		var CostH = abs(point_distance(target_node.x,target_node.y,NodeID.x,NodeID.y));
-		var CostF = ( (1*CostG) + (3*CostH) )/4
+			var NodeArray = 0;
+			var NodeID = LOSList[| i];
+			var CostG = abs(point_distance(start_node.x,start_node.y,NodeID.x,NodeID.y)) + abs(point_distance(start_node.x,start_node.y,Node[4].x,Node[4].y))
+			var CostH = abs(point_distance(target_node.x,target_node.y,NodeID.x,NodeID.y));
+			var CostF = ( (1*CostG) + (3*CostH) )/4
 		
-		NodeArray[4] = NodeID; //set node itself
-		NodeArray[3] = Node[4]; //set parent
-		NodeArray[2] = CostG;
-		NodeArray[1] = CostH;
-		NodeArray[0] = CostF;
+			NodeArray[4] = NodeID; //set node itself
+			NodeArray[3] = Node[4]; //set parent
+			NodeArray[2] = CostG;
+			NodeArray[1] = CostH;
+			NodeArray[0] = CostF;
 		
-		var ClosedNode = (ds_list_find_index(ClosedList,NodeArray[4]) != -1);
-		if(!ClosedNode) {ds_priority_add(OpenList,NodeArray,CostF)} ;
+			var ClosedNode = (ds_list_find_index(ClosedList,NodeArray[4]) != -1);
+			if(!ClosedNode) {ds_priority_add(OpenList,NodeArray,CostF)} ;
 		
-	};
-	ds_list_destroy(LOSList);
-};
+		}
+		ds_list_destroy(LOSList)
+	}else{break} //is Node an array?
+	
+}
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ GENERATE A PATH ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -122,7 +128,7 @@ if(PathComplete)  //we got a path! return it in a list, inverting the pathlist. 
 	};
 
 
-if(ds_priority_size(OpenList) = 0 and !PathComplete)  //we didn't get a path, return -1
+if(!PathComplete)  //we didn't get a path, return -1
 	{	
 	ds_list_destroy(ClosedList)
 	ds_list_destroy(ClosedParentList)

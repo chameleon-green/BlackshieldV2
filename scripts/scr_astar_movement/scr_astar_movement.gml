@@ -133,20 +133,19 @@ if(!dead)
 {
 if(NewPath) //find pathing nodelist
 {
-	if(ds_exists(PathList,ds_type_list)) {ds_list_destroy(PathList)}
+	ds_list_clear(PathList)
 	
 	var NodeList = ds_list_create()
 	ds_list_read(NodeList,nodes_in_los(search_radius,SolidObject,NodeObject,x,mid_y,-1)) //gets valid nodes
 	StartNode = ds_list_nearest(NodeList,x,y,false) //selects closest node as starting node
 	ds_list_destroy(NodeList)
 	
-	PathList = ds_list_create()
-	ds_list_read(PathList,nodes_calculate_cost_array(StartNode,max_jump_height,target_node))
-	if(ds_exists(PathList,ds_type_list))  {var StartNodeIndex = ds_list_find_index(PathList,StartNode)} else var StartNodeIndex = -1 //eliminate startnode from path so we don't have jumpy starts
+	var Path = nodes_calculate_cost_array(StartNode,max_jump_height,target_node)
+	if (Path != -1) {ds_list_read(PathList,nodes_calculate_cost_array(StartNode,max_jump_height,target_node))} else{ds_list_clear(PathList)}
+	var StartNodeIndex = ds_list_find_index(PathList,StartNode)//eliminate startnode from path so we don't have jumpy starts
 
 	if(StartNodeIndex != -1)  {
-	var first_node = ds_list_find_value(PathList,0)
-	last_parent = -1234//first_node.creator
+	last_parent = -1
 	if(StartNodeIndex != -1 and sprinting) {ds_list_delete(PathList,StartNodeIndex)} //eliminate startnode from path so we don't have jumpy starts
 	}
 }

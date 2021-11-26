@@ -47,7 +47,11 @@ if(deploying) {
 	var AI_Enabled = 1 
 	//if(instance_exists(obj_vc)) {AI_Enabled = global.AI_Enabled}
 	aware = 1//(distance_to_object(obj_player) < radius_detection) //* AI_Enabled
+	LOSCheck = timer_tick(LOSTimer,0)
+	if(LOSCheck) {
 	LOSandRange = check_los_and_range(aware,-1,-1,obj_player,obj_platform,max_range*1.75) //can we see target, and have range?
+	timer_reset(LOSTimer,1)
+	}
 	
 	if(LOSandRange and canshoot and !dead and !fleeing) {firing = 1} else{firing = 0}
 	

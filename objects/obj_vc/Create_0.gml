@@ -1,7 +1,7 @@
 /// @description Player attributes 
 //create table of attributes
 
-depth=-100
+depth=-3950
 surf = 0
 if !surface_exists(surf){
     surf = surface_create(1024, 1024);

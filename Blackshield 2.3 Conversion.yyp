@@ -47,6 +47,7 @@
     {"id":{"name":"bg_ruins_clouds","path":"sprites/bg_ruins_clouds/bg_ruins_clouds.yy",},"order":0,},
     {"id":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"order":5,},
     {"id":{"name":"bg_ruins_back","path":"sprites/bg_ruins_back/bg_ruins_back.yy",},"order":1,},
+    {"id":{"name":"spr_light","path":"sprites/spr_light/spr_light.yy",},"order":27,},
     {"id":{"name":"snd_shell_fall_big","path":"sounds/snd_shell_fall_big/snd_shell_fall_big.yy",},"order":30,},
     {"id":{"name":"DBG_WHEEL","path":"objects/DBG_WHEEL/DBG_WHEEL.yy",},"order":8,},
     {"id":{"name":"bg_ruins_layer","path":"sprites/bg_ruins_layer/bg_ruins_layer.yy",},"order":2,},
@@ -1252,7 +1253,7 @@
     {"CopyToMask":-1,"filePath":"datafiles/Ammo Descriptions","resourceVersion":"1.0","name":"desc_ammo_autocannon_highex.txt","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
-    "IDEVersion": "2.3.6.595",
+    "IDEVersion": "2.3.7.603",
   },
   "resourceVersion": "1.4",
   "name": "Blackshield 2.3 Conversion",

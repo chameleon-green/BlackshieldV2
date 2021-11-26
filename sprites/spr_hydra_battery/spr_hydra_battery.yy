@@ -24,9 +24,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"6d17656a-253c-4351-99f3-06fa08c4dde9","path":"sprites/spr_hydra_battery/spr_hydra_battery.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"6d17656a-253c-4351-99f3-06fa08c4dde9","path":"sprites/spr_hydra_battery/spr_hydra_battery.yy",},"LayerId":{"name":"ed0aa142-8887-409c-8753-8a8e87b1be4e","path":"sprites/spr_hydra_battery/spr_hydra_battery.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_hydra_battery","path":"sprites/spr_hydra_battery/spr_hydra_battery.yy",},"resourceVersion":"1.0","name":"6d17656a-253c-4351-99f3-06fa08c4dde9","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"56a34098-d2d5-4b29-8965-e03ae834bf42","path":"sprites/spr_hydra_battery/spr_hydra_battery.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"56a34098-d2d5-4b29-8965-e03ae834bf42","path":"sprites/spr_hydra_battery/spr_hydra_battery.yy",},"LayerId":{"name":"a76256b7-d2f1-4d7d-ba40-c6a2a785808b","path":"sprites/spr_hydra_battery/spr_hydra_battery.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_hydra_battery","path":"sprites/spr_hydra_battery/spr_hydra_battery.yy",},"resourceVersion":"1.0","name":"56a34098-d2d5-4b29-8965-e03ae834bf42","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_hydra_battery","path":"sprites/spr_hydra_battery/spr_hydra_battery.yy",},
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"cc56b04b-dff0-4ceb-b700-b2cf61cdca2c","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"6d17656a-253c-4351-99f3-06fa08c4dde9","path":"sprites/spr_hydra_battery/spr_hydra_battery.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"bb2fb6e5-6f6e-4155-905d-fd0e9b5bf853","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"56a34098-d2d5-4b29-8965-e03ae834bf42","path":"sprites/spr_hydra_battery/spr_hydra_battery.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -65,7 +65,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"ed0aa142-8887-409c-8753-8a8e87b1be4e","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"a76256b7-d2f1-4d7d-ba40-c6a2a785808b","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {

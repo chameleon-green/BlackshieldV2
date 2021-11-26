@@ -100,6 +100,9 @@ function scr_guardsman_init(weapon="lasgun") {
 
 
 //+++++++++++++++++++++++++++++++++++++++++++ COMBAT STATS +++++++++++++++++++++++++++++++++++++++++++
+	LOSTimer = timer_create(30,0)
+	LOSCheck = 0
+	
 	dead = 0
 	death_morale_toggle = 1
 	

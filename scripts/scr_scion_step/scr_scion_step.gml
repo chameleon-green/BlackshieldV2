@@ -46,11 +46,14 @@ if(deploying) {
 
 
 	//if(instance_exists(obj_vc)) {AI_Enabled = global.AI_Enabled}
+	var fmap = ds_map_create()
+	skeleton_bone_state_get("muzzleflash",fmap)
+	var fx = fmap[? "worldX"]
+	var fy = fmap[? "worldY"]
 	aware = 1//(distance_to_object(obj_player) < radius_detection) //* AI_Enabled
-	LOSandRange = check_los_and_range(aware,-1,-1,obj_player,obj_platform,max_range*1.75) //can we see target, and have range?
-	
+	LOSandRange = check_los_and_range(aware,fx,fy,obj_player,obj_platform,max_range*1.75) //can we see target, and have range?
 	if(LOSandRange and canshoot and !dead and !fleeing) {firing = 1} else{firing = 0}
-	
+	ds_map_destroy(fmap)
 	scr_infantry_generic_morale()
 
 

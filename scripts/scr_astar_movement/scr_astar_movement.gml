@@ -57,9 +57,6 @@ if(TargetNodeTimer >= 50) //refresh target node
 	
 	//some variety for ranged foes. some are more elusive
 	if(Tactics = "ranged1" and !fleeing){
-	var TargetDirection = "center"
-	if(target.x<x) {TargetDirection = "right"}
-	if(target.x>x) {TargetDirection = "left"}
 	var TargetNodeList = ds_list_create()
 	ds_list_read(TargetNodeList,nodes_in_los((max_range/2.5),SolidObject,NodeObject,target.x,target.y-15,-1))
 	target_node = ds_list_farthest(TargetNodeList,target.x,target.y,true)}

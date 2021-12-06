@@ -90,7 +90,7 @@ if(NewPathTimer >= NewPathTick)
 
 var Down = 0
 var Ledge = 0
-var Move = canmove
+var Move = (canmove and NewPathTimer >= 0)
 
 var Mult = clamp((sprinting*2),2,99) //tell if we are sprinting
 var MoveSpeed = move_speed
@@ -239,14 +239,29 @@ if(!dead and !fleeing) {
 
 	
 	var clist = ds_list_create()
+	var dlist = ds_list_create()
 	var npc_list = collision_rectangle_list(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_enemy,false,true,clist,true)
 	var _count = ds_list_size(clist)
+	var _max = 3
 	
-	if(_count > 2) {
+	if(target_node != undefined and instance_exists(target_node)){
+	if(target_node.cover = 1 and !place_meeting(x,y,obj_cover)) { _max = 1}
+	}
+	
+	if(_count > _max) {
 		var npc = ds_list_find_value(clist,0)
+		var still_me = (hspeed = 0)
 		if(npc.hspeed = 0 and !npc.dead and npc.Col_Bot) {  
-			if(npc.Col_Left = 0) { npc.hspeed-=35*image_xscale}
-			else if(npc.Col_Right = 0){ npc.hspeed-=35*image_xscale}
+			var facing = x < npc.x
+			if(facing = 1) {//enemy is to our right
+				npc.x+=MoveSpeed*1.5
+				x-=MoveSpeed*1.5*still_me
+			}
+			else{
+				npc.x-=MoveSpeed*1.5
+				x+=MoveSpeed*1.5*still_me
+			}
+			
 		}
 	}
 	
@@ -267,16 +282,10 @@ y += vsp
 
 //cancel pathing once we have LOS on target, and are no longer seeking cover
 if(!dead) {
-	/*
-	var closest = instance_nearest(x,y,obj_node)
-	if(closest = target_node and distance_to_object(target_node) < 30 and Col_Bot) {
-		if(ds_exists(PathList,ds_type_list)) {
-			ds_list_clear(PathList)} NewPathTimer = -1
-			}
-	*/
+
 	if( ((Tactics = "ranged1" or Tactics = "ranged2") and !seeking_cover) and LOSandRange = 1 and Col_Bot and !fleeing) { 
 		if(ds_exists(PathList,ds_type_list)) {
-			ds_list_clear(PathList)} NewPathTimer = -1
+			ds_list_clear(PathList)} NewPathTimer = -2
 			}
 	}	
 }

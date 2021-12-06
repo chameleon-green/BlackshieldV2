@@ -234,15 +234,23 @@ if(!dead and Move and NodeNext != 0) or (!dead and Move and DPL)
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++ COLLISIONS FOR STOPPING STACKING ++++++++++++++++++++++
 
-if(hspeed != 0 and !dead and !fleeing) {
-	var npc = collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_enemy,false,true)
+//if(hspeed != 0 and !dead and !fleeing) {
+if(!dead and !fleeing) {
 
-	if(npc) {
+	
+	var clist = ds_list_create()
+	var npc_list = collision_rectangle_list(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_enemy,false,true,clist,true)
+	var _count = ds_list_size(clist)
+	
+	if(_count > 2) {
+		var npc = ds_list_find_value(clist,0)
 		if(npc.hspeed = 0 and !npc.dead and npc.Col_Bot) {  
-			if(hspeed < 0 and npc.Col_Left = 0) { npc.hspeed-=25*image_xscale}
-			if(hspeed > 0 and npc.Col_Right = 0){ npc.hspeed-=25*image_xscale}
+			if(npc.Col_Left = 0) { npc.hspeed-=35*image_xscale}
+			else if(npc.Col_Right = 0){ npc.hspeed-=35*image_xscale}
 		}
 	}
+	
+	ds_list_destroy(clist)
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++ SLOPES + Y GRAV ADDITION +++++++++++++++++++++++++++++++++++++++++++++++++++

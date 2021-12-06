@@ -1,6 +1,6 @@
 {
   "resources": [
-    {"id":{"name":"spr_ruins","path":"sprites/spr_ruins/spr_ruins.yy",},"order":9,},
+    {"id":{"name":"spr_ruins","path":"sprites/spr_ruins/spr_ruins.yy",},"order":1,},
     {"id":{"name":"scr_spindown","path":"scripts/scr_spindown/scr_spindown.yy",},"order":7,},
     {"id":{"name":"snd_repair_1","path":"sounds/snd_repair_1/snd_repair_1.yy",},"order":1,},
     {"id":{"name":"obj_hydra_battery","path":"objects/obj_hydra_battery/obj_hydra_battery.yy",},"order":7,},
@@ -122,6 +122,7 @@
     {"id":{"name":"snd_step2a","path":"sounds/snd_step2a/snd_step2a.yy",},"order":5,},
     {"id":{"name":"snd_step3a","path":"sounds/snd_step3a/snd_step3a.yy",},"order":6,},
     {"id":{"name":"snd_step4a","path":"sounds/snd_step4a/snd_step4a.yy",},"order":7,},
+    {"id":{"name":"obj_cover_bg","path":"objects/obj_cover_bg/obj_cover_bg.yy",},"order":11,},
     {"id":{"name":"snd_sword_chain1","path":"sounds/snd_sword_chain1/snd_sword_chain1.yy",},"order":0,},
     {"id":{"name":"scr_melee_projectile_heavy","path":"scripts/scr_melee_projectile_heavy/scr_melee_projectile_heavy.yy",},"order":4,},
     {"id":{"name":"snd_sword_chain2","path":"sounds/snd_sword_chain2/snd_sword_chain2.yy",},"order":1,},
@@ -141,6 +142,7 @@
     {"id":{"name":"snd_hellgun2","path":"sounds/snd_hellgun2/snd_hellgun2.yy",},"order":1,},
     {"id":{"name":"snd_hellgun3","path":"sounds/snd_hellgun3/snd_hellgun3.yy",},"order":2,},
     {"id":{"name":"snd_lasgun1","path":"sounds/snd_lasgun1/snd_lasgun1.yy",},"order":3,},
+    {"id":{"name":"spr_ruins_bg","path":"sprites/spr_ruins_bg/spr_ruins_bg.yy",},"order":2,},
     {"id":{"name":"spr_hitbox_human_small","path":"sprites/spr_hitbox_human_small/spr_hitbox_human_small.yy",},"order":5,},
     {"id":{"name":"GridAlphabetizer","path":"scripts/GridAlphabetizer/GridAlphabetizer.yy",},"order":12,},
     {"id":{"name":"snd_lasgun2","path":"sounds/snd_lasgun2/snd_lasgun2.yy",},"order":4,},
@@ -220,7 +222,7 @@
     {"id":{"name":"scr_armor_durability_heat","path":"scripts/scr_armor_durability_heat/scr_armor_durability_heat.yy",},"order":1,},
     {"id":{"name":"scr_stats_monitor","path":"scripts/scr_stats_monitor/scr_stats_monitor.yy",},"order":2,},
     {"id":{"name":"spr_container","path":"sprites/spr_container/spr_container.yy",},"order":25,},
-    {"id":{"name":"spr_platform_tile","path":"sprites/spr_platform_tile/spr_platform_tile.yy",},"order":6,},
+    {"id":{"name":"spr_platform_tile","path":"sprites/spr_platform_tile/spr_platform_tile.yy",},"order":0,},
     {"id":{"name":"check_los_and_range","path":"scripts/check_los_and_range/check_los_and_range.yy",},"order":0,},
     {"id":{"name":"spr_block","path":"sprites/spr_block/spr_block.yy",},"order":16,},
     {"id":{"name":"scr_lruss_event","path":"scripts/scr_lruss_event/scr_lruss_event.yy",},"order":3,},
@@ -380,6 +382,7 @@
     {"folderPath":"folders/Sprites/Actors.yy","order":26,"resourceVersion":"1.0","name":"Actors","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Scripts/Enemy Definitions/Chimera.yy","order":4,"resourceVersion":"1.0","name":"Chimera","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Scripts/Enemy Definitions/@General Use Scripts/Generic Vehicle Scripts.yy","order":7,"resourceVersion":"1.0","name":"Generic Vehicle Scripts","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Sprites/Terrain/Imperial Ruins Terrain.yy","order":11,"resourceVersion":"1.0","name":"Imperial Ruins Terrain","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},

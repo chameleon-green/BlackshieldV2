@@ -80,8 +80,8 @@ if(Ocover.x>x and obj_player.x>x and Pdist <= Cdist){seeking_cover = 0}
 //are we actually in cover? If so, stop looking for now
 if(place_meeting(x,y,obj_cover)){
 		var Ocover = instance_place(x,y,obj_cover)
-		//if(target_node.cover = 1){var MyCover = (Ocover.id = target_node.cover_parent)} else{var MyCover = 1}
-		var MyCover = 1
+		if(target_node.cover = 1){var MyCover = (Ocover.id = target_node.cover_parent)} else{var MyCover = 1}
+		//var MyCover = 1
 		if(x > Ocover.bbox_left+20 and x < Ocover.bbox_right-20 and MyCover) {
 			in_cover = 1
 			seeking_cover = 0

@@ -59,12 +59,12 @@ if(TargetNodeTimer >= 50) //refresh target node
 	if(Tactics = "ranged1" and !fleeing){
 	var TargetNodeList = ds_list_create()
 	ds_list_read(TargetNodeList,nodes_in_los((max_range/2.5),SolidObject,NodeObject,target.x,target.y-15,-1))
-	target_node = ds_list_farthest(TargetNodeList,target.x,target.y,true)}
+	target_node = ds_list_farthest(TargetNodeList,target.x,target.y,true,4)}
 	
 	if(Tactics = "ranged2" or Tactics = "melee" or fleeing){
 	var TargetNodeList = ds_list_create()
 	ds_list_read(TargetNodeList,nodes_in_los((max_range/2.5)*1.5,SolidObject,NodeObject,target.x,target.y-15,-1))
-	target_node = ds_list_nearest(TargetNodeList,target.x,target.y,true)}
+	target_node = ds_list_nearest(TargetNodeList,target.x,target.y,true,4)}
 
 	ds_list_destroy(TargetNodeList)
 	}
@@ -90,7 +90,7 @@ if(NewPathTimer >= NewPathTick)
 
 var Down = 0
 var Ledge = 0
-var Move = (canmove and NewPathTimer >= 0)
+var Move = canmove//(canmove and NewPathTimer >= 0)
 
 var Mult = clamp((sprinting*2),2,99) //tell if we are sprinting
 var MoveSpeed = move_speed
@@ -248,10 +248,11 @@ if(!dead and !fleeing) {
 	if(target_node.cover = 1 and !place_meeting(x,y,obj_cover)) { _max = 1}
 	}
 	
-	if(_count > _max) {
+	if(_count > _max and !seeking_cover) {
 		var npc = ds_list_find_value(clist,0)
 		var still_me = (hspeed = 0)
-		if(npc.hspeed = 0 and !npc.dead and npc.Col_Bot) {  
+		var same_target = (target_node = npc.target_node)
+		if(npc.hspeed = 0 and !npc.dead and npc.Col_Bot and same_target) {  
 			var facing = x < npc.x
 			if(facing = 1) {//enemy is to our right
 				npc.x+=MoveSpeed*1.5
@@ -283,10 +284,17 @@ y += vsp
 //cancel pathing once we have LOS on target, and are no longer seeking cover
 if(!dead) {
 
-	if( ((Tactics = "ranged1" or Tactics = "ranged2") and !seeking_cover) and LOSandRange = 1 and Col_Bot and !fleeing) { 
+	if(LOSandRange = 1 and Col_Bot and !seeking_cover) { 
 		if(ds_exists(PathList,ds_type_list)) {
-			ds_list_clear(PathList)} NewPathTimer = -2
-			}
-	}	
+			ds_list_clear(PathList)} 
+			
+		NewPathTimer = -2
+		StartNodeTimer = -2
+		TargetNodeTimer = -2
+	}
+
+}	
+	
+	
 }
 

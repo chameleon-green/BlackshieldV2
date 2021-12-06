@@ -2,8 +2,10 @@
 //can only handle 299 instances at once
 //returns -1 if the input ds_list is empty
 //cover input allows you to specify if it should favor nodes in cover
+//popcap allows you to specify to exclude nodes that are too crowded
 
-function ds_list_nearest(list,x,y,cover)
+
+function ds_list_nearest(list,x,y,cover,popcap=-1)
 {	
 var toggle = 1
 var distance_grid = ds_grid_create(2,300)
@@ -15,9 +17,22 @@ var i;
 
 	for(i=0; i<size; i++)
 	{
-	var instance = list[|i]
+	var instance = list[|i]		
 	if(cover) {var distance = point_distance(x,y,instance.x,instance.y)-8000*instance.cover}
 	else{var distance = point_distance(x,y,instance.x,instance.y)}
+	
+	if(popcap != -1) {
+		var plist = ds_list_create()
+		var circ = collision_ellipse_list(instance.x-100,instance.y-50,instance.x+100,instance.y+50,obj_enemy,0,true,plist,true)
+		var count1 = ds_list_size(plist)	
+			if(count1 > 0){
+				for(var c=0; c < count1; c++){
+					var npc = plist[|c]
+					if(npc.hspeed = 0) {distance+=500}
+				}
+			}
+	}
+			
 	ds_grid_add(distance_grid,0,i,instance)
 	ds_grid_add(distance_grid,1,i,distance)
 	}
@@ -36,7 +51,7 @@ return result
 
 //same thing, but now the farthest node in LOS
 
-function ds_list_farthest(list,x,y,cover)
+function ds_list_farthest(list,x,y,cover,popcap=-1)
 {	
 var toggle = 1
 var distance_grid = ds_grid_create(2,300)
@@ -51,6 +66,19 @@ var i;
 	var instance = list[|i]
 	if(cover) {var distance = point_distance(x,y,instance.x,instance.y)+8000*instance.cover}
 	else{var distance = point_distance(x,y,instance.x,instance.y)}
+	
+		if(popcap != -1) {
+		var plist = ds_list_create()
+		var circ = collision_ellipse_list(instance.x-100,instance.y-50,instance.x+100,instance.y+50,obj_enemy,0,true,plist,true)
+		var count1 = ds_list_size(plist)	
+			if(count1 > 0){
+				for(var c=0; c < count1; c++){
+					var npc = plist[|c]
+					if(npc.hspeed = 0) {distance-=500}
+				}
+			}
+	}
+	
 	ds_grid_add(distance_grid,0,i,instance)
 	ds_grid_add(distance_grid,1,i,distance)
 	}

@@ -13,8 +13,6 @@ if(keyboard_check(ord("G")))
 draw_sprite_ext(spr_icon_grenade_throw,throw_power,x+30*image_xscale,y-140,1,1,rot,c_white,255)
 }
 
-
-
 //+++++++++++++++++++++++++++++++++++++++++ debug stuff below ++++++++++++++++++++++++++++++++++
 
 /*
@@ -38,18 +36,16 @@ draw_rectangle(x1,y1,x2,y2,1)
 //draw_text(x,y-200,ds_list_find_value(col_list,clamp(size-1,0,900000000000000000000)))
 //draw_text(x,y-200,timer_max)
 
-
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
 
-
-
+/*
 if(draw_hbox = 1)
 {
 draw_rectangle(bbox_left-hbox_width_mod,hbox_head_top,bbox_right+hbox_width_mod,hbox_head_bottom,1)
 draw_rectangle(bbox_left-hbox_width_mod,hbox_torso_top,bbox_right+hbox_width_mod,hbox_torso_bottom,1)
 draw_rectangle(bbox_left-hbox_width_mod,hbox_legs_top,bbox_right+hbox_width_mod,hbox_legs_bottom,1)
 }
-
+*/
 
 /*
 draw_text(x,y-100,attack)
@@ -59,8 +55,6 @@ draw_text(x,y-150,ds_list_find_value(AfflictionsList,2))
 draw_text(x,y-175,ds_list_find_value(AfflictionsList,3))
 draw_text(x,y-200,ds_list_find_value(AfflictionsList,4))
 draw_text(x,y-225,ds_list_find_value(AfflictionsList,5))
-
-
 
 //+++++++++++++++++++++++++++++++++++++++++ DEBUG SECTION ++++++++++++++++++++++++++++++++++++++++++
 /*
@@ -72,6 +66,5 @@ draw_rectangle_colour(bbox_left - 40+ hspeed,y+vspeed-90+Crouch,bbox_right + 40+
 draw_rectangle_colour(bbox_left - 40+ hspeed,y+vspeed-148+Crouch*2,bbox_right + 40+ hspeed,y-166+Crouch*2+vspeed,c_green,c_green,c_green,c_green,false)
 
 draw_text(x,y-100,hp_body_torso)
-
 
 /*

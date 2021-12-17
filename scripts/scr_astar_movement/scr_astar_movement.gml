@@ -13,6 +13,7 @@ move_speed = 9
 PathList = ds_list_create() //list of nodes for pathfinding
 closed_list = ds_list_create()
 search_radius = max_jump_height
+search_radius = max_jump_height
 target_node = undefined
 NodeNext = 0
 NodeObject = obj_node
@@ -59,14 +60,18 @@ if(TargetNodeTimer >= 50) //refresh target node
 	if(Tactics = "ranged1" and !fleeing){
 	var TargetNodeList = ds_list_create()
 	ds_list_read(TargetNodeList,nodes_in_los((max_range/2.5),SolidObject,NodeObject,target.x,target.y-15,-1))
-	target_node = ds_list_farthest(TargetNodeList,target.x,target.y,true,4)}
+	target_node = ds_list_farthest(TargetNodeList,target.x,target.y,true,4)
+	ds_list_destroy(TargetNodeList)
+	}
 	
 	if(Tactics = "ranged2" or Tactics = "melee" or fleeing){
 	var TargetNodeList = ds_list_create()
 	ds_list_read(TargetNodeList,nodes_in_los((max_range/2.5)*1.5,SolidObject,NodeObject,target.x,target.y-15,-1))
-	target_node = ds_list_nearest(TargetNodeList,target.x,target.y,true,4)}
-
+	target_node = ds_list_nearest(TargetNodeList,target.x,target.y,true,4)
 	ds_list_destroy(TargetNodeList)
+	}
+
+	
 	}
 
 if(StartNodeTimer >= NewPathTick) 
@@ -239,8 +244,7 @@ if(!dead and !fleeing) {
 
 	
 	var clist = ds_list_create()
-	var dlist = ds_list_create()
-	var npc_list = collision_rectangle_list(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_enemy,false,true,clist,true)
+	collision_rectangle_list(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_enemy,false,true,clist,true)
 	var _count = ds_list_size(clist)
 	var _max = 3
 	
@@ -282,9 +286,9 @@ y += vsp
 //+++++++++++++++++++++++++++++++++++++++++++++++++++ AI Specific Stuff +++++++++++++++++++++++++++++++++++++++++
 
 //cancel pathing once we have LOS on target, and are no longer seeking cover
-if(!dead) {
+if(!dead and !fleeing) {
 
-	if(LOSandRange = 1 and Col_Bot and !seeking_cover) { 
+	if(LOSandRange = 1 && Col_Bot && !seeking_cover) { 
 		if(ds_exists(PathList,ds_type_list)) {
 			ds_list_clear(PathList)} 
 			

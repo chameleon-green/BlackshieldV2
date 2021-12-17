@@ -20,7 +20,7 @@ if(wavestart) {
 	wavestart = 0
 	timer_reset(break_timer,0)
 	
-	repeat (9) {with(instance_create_depth(112,3700,1,obj_enemy)) {MyType = scr_guardsman_init}}
+	repeat (99) {with(instance_create_depth(112,3700,1,obj_enemy)) {MyType = scr_guardsman_init}}
 	
 	var Leader = instance_create_depth(112,3700,1,obj_enemy)
 	with(Leader) {MyType = scr_guardsman_init leader = 1 weapon = "bolter"}

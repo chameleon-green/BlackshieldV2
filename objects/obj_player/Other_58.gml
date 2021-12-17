@@ -7,16 +7,16 @@ if  (swinging or melee_power > 2 or wpn_ranged[22] = "secondary") and (!reloadin
 if(sprinting) {skeleton_animation_clear(8)}
 
 //change body facing based on mouse position
-if (mouse_x > x and !swinging and !rolling)
+if (mouse_x > x && !swinging && !rolling)
 	{
 	image_xscale = 1
 	}
-if (mouse_x < x and !swinging and !rolling)
+if (mouse_x < x && !swinging && !rolling)
 	{
 	image_xscale = -1
 	}
 
-if (!sprinting and wpn_ranged != -1 and !reloading and !reloading and !rolling and !crawling and !(swinging or melee_power > 2) )
+if (!sprinting && wpn_ranged != -1 && !reloading && !reloading && !rolling && !crawling && !(swinging or melee_power > 2) )
 {
 
 //aim at mouse
@@ -129,14 +129,12 @@ ds_map_destroy(flash_map);
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ARMOR/MELEE COSMETIC UPDATES ++++++++++++++++++++++++++++++++++++++++++++++++
 
-if(is_array(armor_head_item)) 
-{
+if(is_array(armor_head_item)){
 skeleton_attachment_set("slot_head" , obj_player.armor_head_item[1])
 skeleton_attachment_set("slot_eyes" , obj_player.armor_head_item[23])
 }
 
-if(is_array(armor_torso_item)) 
-{
+if(is_array(armor_torso_item)){
 skeleton_attachment_set("slot_torso" , obj_player.armor_torso_item[1])
 skeleton_attachment_set("slot_collar" , obj_player.armor_torso_item[23])
 skeleton_attachment_set("slot_backpack" , obj_player.armor_torso_item[24])
@@ -144,8 +142,7 @@ skeleton_attachment_set("slot_backpack trim" , obj_player.armor_torso_item[25])
 skeleton_attachment_set("slot_pelvis" , obj_player.armor_torso_item[26])
 }
 
-if(is_array(armor_armL_item)) 
-{
+if(is_array(armor_armL_item)){
 skeleton_attachment_set("slot_pauldron", "pauldron")
 skeleton_attachment_set("slot_front bicep", "front bicep")
 skeleton_attachment_set("slot_pauldron trim",  obj_player.armor_armL_item[1])
@@ -153,16 +150,14 @@ skeleton_attachment_set("slot_front forearm", obj_player.armor_armL_item[23])
 skeleton_attachment_set("slot_front hand", "front hand")
 }
 
-if(is_array(armor_armR_item)) 
-{
+if(is_array(armor_armR_item)){
 skeleton_attachment_set("slot_rear pauldron", "rear pauldron")
 skeleton_attachment_set("slot_rear bicep", "rear bicep")
 skeleton_attachment_set("slot_rear forearm", obj_player.armor_armR_item[23])
 //skeleton_attachment_set("slot_pauldron trim",  obj_player.armor_armL_item[1])
 }
 
-if(is_array(armor_legL_item)) 
-{
+if(is_array(armor_legL_item)){
 skeleton_attachment_set("slot_front thigh", obj_player.armor_legL_item[26])
 skeleton_attachment_set("slot_front knee", obj_player.armor_legL_item[25])
 skeleton_attachment_set("slot_front shin",  obj_player.armor_legL_item[24])
@@ -170,8 +165,7 @@ skeleton_attachment_set("slot_front foot",  obj_player.armor_legL_item[23])
 skeleton_attachment_set("slot_front thigh_trim1",  obj_player.armor_legL_item[27])
 }
 
-if(is_array(armor_legR_item)) 
-{
+if(is_array(armor_legR_item)){
 skeleton_attachment_set("slot_rear thigh", obj_player.armor_legR_item[26])
 skeleton_attachment_set("slot_rear knee", obj_player.armor_legR_item[25])
 skeleton_attachment_set("slot_rear shin",  obj_player.armor_legR_item[24])

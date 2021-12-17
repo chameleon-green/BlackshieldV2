@@ -3,19 +3,19 @@
 function scr_infantry_generic_draw()
 {
 	
-	
+	/*
 	if(target_node != 0){
 		draw_sprite(spr_console,0,target_node.x,target_node.y)
 	}
 		
 	draw_text(x,bbox_top,seeking_cover)
 	
-var left = bbox_left
-var right = bbox_right
-var top = bbox_top
-var bot = bbox_bottom
-//draw_rectangle(left,top,right,bot,1)
-
+	var left = bbox_left
+	var right = bbox_right
+	var top = bbox_top
+	var bot = bbox_bottom
+	draw_rectangle(left,top,right,bot,1)
+*/
 draw_self()
 
 
@@ -40,7 +40,6 @@ if(morale < max_morale and morale > 0 and !dead)
 	draw_sprite(spr_bars,5,xx,top)
 	draw_sprite_ext(spr_bars,6,xx,top,length,1,0,c_white,1)
 	}
-	
 
 	//draw_text(x-50,y-200,"right " +string(Right))
 	//draw_text(x,y-200,"up " + string(Up))
@@ -79,7 +78,4 @@ if(morale < max_morale and morale > 0 and !dead)
 	draw_rectangle(x1,y_torso_top,x2,y_torso_bot,1)
 	draw_rectangle(x1,y_leg_top,x2,y+vspeed,1)
 	*/
-	
-
-
 }

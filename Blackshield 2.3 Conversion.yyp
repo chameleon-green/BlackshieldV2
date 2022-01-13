@@ -21,6 +21,7 @@
     {"id":{"name":"spr_EKG","path":"sprites/spr_EKG/spr_EKG.yy",},"order":8,},
     {"id":{"name":"spr_status_body","path":"sprites/spr_status_body/spr_status_body.yy",},"order":9,},
     {"id":{"name":"spr_items_guns","path":"sprites/spr_items_guns/spr_items_guns.yy",},"order":0,},
+    {"id":{"name":"squad_creation","path":"scripts/squad_creation/squad_creation.yy",},"order":5,},
     {"id":{"name":"scr_melee_damage_calc","path":"scripts/scr_melee_damage_calc/scr_melee_damage_calc.yy",},"order":3,},
     {"id":{"name":"spr_items_ammo","path":"sprites/spr_items_ammo/spr_items_ammo.yy",},"order":1,},
     {"id":{"name":"spr_items_armor","path":"sprites/spr_items_armor/spr_items_armor.yy",},"order":2,},

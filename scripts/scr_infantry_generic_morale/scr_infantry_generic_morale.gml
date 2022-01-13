@@ -45,11 +45,15 @@ function scr_infantry_generic_morale(){
 	var Dlist = ds_list_create() //list of nearby allies
 	var Dcount = collision_circle_list(x,y-10,Drange,obj_enemy,false,true,Dlist,false)	//ds_list_size(Dlist) //count of nearby allies
 
-	if(Dcount > 0){
+	
+if(Dcount > 0){
 	if(variable_instance_exists(self,"leader")){var LD = 1} else{LD = 0}
 	for (var i = 0; i < Dcount; i++){
 		var inst = Dlist[|i]
-		if(inst.dead = 0) {inst.morale -= (1/(1+in_cover) + 2*LD)}
+		if(instance_exists(inst)){
+			if(inst.SquadID = SquadID and inst.dead = 0) {inst.morale -= (1/(1+inst.in_cover) + 2*LD)}
+			else{inst.morale -= (0.33/1+inst.in_cover)}
+			}
 		}
 	}
 	ds_list_destroy(Dlist)

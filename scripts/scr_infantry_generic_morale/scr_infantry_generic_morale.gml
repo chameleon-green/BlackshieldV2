@@ -19,6 +19,9 @@ function scr_infantry_generic_morale(){
 	if(pick = 3) {LegsHp-=dmgfinal}
 	}	
 	
+	
+	if(morale >= max_morale) {morale = max_morale regen_morale = 0}
+	
 	//leader boosts morale while nearby
 	if(instance_exists(obj_morale_booster)){
 		var nearest = instance_nearest(x,y,obj_morale_booster)
@@ -35,27 +38,39 @@ function scr_infantry_generic_morale(){
 	if(morale >= max_morale) {fleeing = 0 flee_path_toggle = 1} //morale at or above max? stop fleeing, enable path toggle
 	if(morale <= 0 and !dead) {fleeing = 1} //morale less than 0? flee!
 	
+
+	
 	// morale reductions when dead
 	if(dead and death_morale_toggle = 1){
 
 	if(XPToggle) {XPToggle = 0 obj_player.thrones+=XPValue}
 
 	death_morale_toggle = 0
-	var Drange = 1700 //range that morale affects allies
+	var Drange = 1200 //range that morale affects allies
 	var Dlist = ds_list_create() //list of nearby allies
 	var Dcount = collision_circle_list(x,y-10,Drange,obj_enemy,false,true,Dlist,false)	//ds_list_size(Dlist) //count of nearby allies
 
 	
 if(Dcount > 0){
-	if(variable_instance_exists(self,"leader")){var LD = 1} else{LD = 0}
 	for (var i = 0; i < Dcount; i++){
 		var inst = Dlist[|i]
 		if(instance_exists(inst)){
-			if(inst.SquadID = SquadID and inst.dead = 0) {inst.morale -= (1/(1+inst.in_cover) + 2*LD)}
-			else{inst.morale -= (0.33/1+inst.in_cover)}
+			if(variable_instance_exists(inst,"SquadID") && 
+			   variable_instance_exists(inst,"SquadMembers") && 
+			   variable_instance_exists(inst,"SquadSize")){
+					if(inst.SquadID = SquadID and inst.dead = 0) {
+					   inst.morale -= (1.5/(1+inst.in_cover) + 1.5*leader)
+					   inst.SquadMembers -=1
+					   var MModifier = inst.SquadMembers/inst.SquadSize
+					   inst.max_morale = inst.base_morale*clamp(MModifier,0.33,1)
+					   }
+					else{inst.morale -= (0.66/1+inst.in_cover)}
+			   }
+			
 			}
 		}
 	}
 	ds_list_destroy(Dlist)
 	}
+
 }

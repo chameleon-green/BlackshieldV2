@@ -3,12 +3,12 @@
 function scr_infantry_generic_draw()
 {
 	
-	/*
+	
 	if(target_node != 0){
 		draw_sprite(spr_console,0,target_node.x,target_node.y)
 	}
 		
-	draw_text(x,bbox_top,seeking_cover)
+	/*
 	
 	var left = bbox_left
 	var right = bbox_right
@@ -18,7 +18,9 @@ function scr_infantry_generic_draw()
 */
 draw_self()
 
-
+ds_list_draw(PathList,x,bbox_top)
+//draw_text(x,bbox_top,seeking_cover)
+draw_text(x,bbox_top,NewPath)
 
 if(hp < MaxHP and hp > 0)
 	{

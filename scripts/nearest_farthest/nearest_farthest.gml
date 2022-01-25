@@ -11,14 +11,14 @@ var toggle = 1
 var distance_grid = ds_grid_create(2,300)
 var size = ds_list_size(list);
 
-	if(size = 0) {return -1}
+	if(size = 0) {return 0}
 
 var i;
 
 	for(i=0; i<size; i++)
 	{
 	var instance = list[|i]		
-	if(cover) {var distance = point_distance(x,y,instance.x,instance.y)-8000*instance.cover}
+	if(cover) {var distance = point_distance(x,y,instance.x,instance.y)-90000*instance.cover}
 	else{var distance = point_distance(x,y,instance.x,instance.y)}
 	
 	if(popcap != -1) {
@@ -46,7 +46,6 @@ if(toggle = 1) {var result = nearest_instance toggle = 0} //weird bit needed to 
 ds_grid_destroy(distance_grid)
 
 return result
-
 }
 
 //same thing, but now the farthest node in LOS
@@ -57,14 +56,14 @@ var toggle = 1
 var distance_grid = ds_grid_create(2,300)
 var size = ds_list_size(list);
 
-	if(size = 0) {return -1}
+	if(size = 0) {return 0}
 
 var i;
 
 	for(i=0; i<size; i++)
 	{
 	var instance = list[|i]
-	if(cover) {var distance = point_distance(x,y,instance.x,instance.y)+8000*instance.cover}
+	if(cover) {var distance = point_distance(x,y,instance.x,instance.y)+90000*instance.cover}
 	else{var distance = point_distance(x,y,instance.x,instance.y)}
 	
 		if(popcap != -1) {
@@ -92,6 +91,5 @@ if(toggle = 1) {var result = farthest_instance toggle = 0} //weird bit needed to
 ds_grid_destroy(distance_grid)
 
 return result
-
 }
 

@@ -14,7 +14,7 @@ PathList = ds_list_create() //list of nodes for pathfinding
 closed_list = ds_list_create()
 search_radius = max_jump_height
 search_radius = max_jump_height
-target_node = undefined
+target_node = 0
 NodeNext = 0
 NodeObject = obj_node
 SolidObject = obj_platform
@@ -133,7 +133,7 @@ if(place_meeting(x,y,SolidObject) and vsp >= 0 and !col_slope){
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Pathfinding +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 if(!dead)
 {
-if(NewPath) //find pathing nodelist
+if(NewPath and target_node != 0) //find pathing nodelist
 {
 	ds_list_clear(PathList)
 	
@@ -248,7 +248,7 @@ if(!dead and !fleeing) {
 	var _count = ds_list_size(clist)
 	var _max = 3
 	
-	if(target_node != undefined and instance_exists(target_node)){
+	if(target_node != 0 and instance_exists(target_node)){
 	if(target_node.cover = 1 and !place_meeting(x,y,obj_cover)) { _max = 1}
 	}
 	
@@ -294,7 +294,7 @@ if(!dead and !fleeing) {
 			
 		NewPathTimer = -2
 		StartNodeTimer = -2
-		TargetNodeTimer = -2
+		//TargetNodeTimer = -2
 	}
 
 }	

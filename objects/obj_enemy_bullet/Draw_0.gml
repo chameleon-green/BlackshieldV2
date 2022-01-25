@@ -4,21 +4,17 @@ draw_self()
 
 if(hp <= 0) {instance_destroy(self)}
 if(hp <= (base_damage*fuse)) {instance_destroy()}
-damage = clamp(hp,0,40000)
+hp = clamp(damage,0,40000)
 
 speed = base_speed
 image_angle = direction
 gravity = base_gravity
 
-var xx = x+lengthdir_x(base_speed,direction)
-var yy = y+lengthdir_y(base_speed,direction)
+var xx = x+lengthdir_x(base_speed*1.5,direction)
+var yy = y+lengthdir_y(base_speed*1.5,direction)
 var col_wall = collision_line(x,y,xx,yy,obj_platform,true,0) 
 var col_player = collision_line(x,y,xx,yy,obj_player,0,0)
-
-
-
-
-
+var col_barrier = collision_line(x,y,xx,yy,obj_barrier,false,1)
 
 if(col_player)
 {	
@@ -61,6 +57,30 @@ if(col_wall)
 	
 }
 
+if(col_barrier and !flames){
+	var chance = choose(1,2)
+	var list = col_barrier.col_list
+	var collided = ds_list_find_index(list,id)
+		if(chance = 1 and !collided){
+		var facing = sign(col_barrier.image_xscale)
+		var dist = distance_to_object(col_barrier)+random_range(0,200)
+	
+		if(facing = 1 and x > col_barrier.bbox_right) {kill_barrier = 1}
+		if(facing =-1 and x < col_barrier.bbox_left) {kill_barrier = 1}
+	
+		if(kill_barrier){
+		depth = -53
+		speed = 0
+		x=x+lengthdir_x(dist,direction)
+		y=y+lengthdir_y(dist,direction)
+		damage = 0
+		}
+	}
+	if(chance = 2){
+		if(ds_list_find_index(list,id)=-1) {ds_list_add(list,id)}
+	}
+}
+
 
 
 if(projectile_type = "beam")
@@ -73,3 +93,9 @@ if(projectile_type = "beam")
 	image_alpha = 0
 	}
 
+var Fuse = base_damage*fuse
+
+if(!flames){
+	if(hp <= 0) {instance_destroy()}
+	if(hp < Fuse) {instance_destroy()}
+}

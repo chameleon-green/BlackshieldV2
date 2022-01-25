@@ -8,6 +8,8 @@ function scr_squad_infantry_create(unit,size,x,y,depth){
 		MyType = unit
 		SquadID = id
 		leader = 1
+		SquadSize = size
+		SquadMembers = size
 		}
 
 	variable_instance_set(id,Leader,ds_list_create())
@@ -18,6 +20,8 @@ function scr_squad_infantry_create(unit,size,x,y,depth){
 			MyType = unit
 			leader = 0 
 			SquadID = Leader.id
+			SquadSize = size
+			SquadMembers = size
 		}
 	
 	}

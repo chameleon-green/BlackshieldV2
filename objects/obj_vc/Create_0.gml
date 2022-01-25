@@ -146,7 +146,9 @@ part_type_sprite(prt_spark1,spr_fragment,0,0,0)
 part_type_orientation(prt_spark1,180,180,0,0,1)
 part_type_size(prt_spark1,1,1,0,0)
 
+
 //----
 scr_squad_infantry_create(scr_guardsman_init,10,x,y,depth)
+//scr_squad_infantry_create(scr_guardsman_init,10,x,y,depth)
 
 

@@ -20,6 +20,9 @@ draw_tiles_top = !place_meeting(x,y-1,obj_platform)
 
 //++++++++++++++++++++++++++++++++++++++++++++ NODE GENERATION +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+if(make_nodes = 1){
+
+
 //corner nodes, always make these
 var Node1 = instance_create_depth(left+x_offset,bbox_top-y_offset,depth+1,NodeObject)
 var Node2 = instance_create_depth(right-x_offset,bbox_top-y_offset,depth+1,NodeObject)
@@ -50,4 +53,8 @@ if(x_nodes > 0)
 		Ncount += 1
 		//with(instance_create_depth(left+resolution*(i+1),bbox_bottom+y_offset,depth+1,NodeObject)) {ledge = 0}
 	}
+}
+
+
+
 }

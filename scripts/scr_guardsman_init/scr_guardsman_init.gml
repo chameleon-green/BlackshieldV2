@@ -15,10 +15,12 @@ function scr_guardsman_init(weapon="lasgun") {
 	Disposition = "hostile" //shoot on sight? animal?
 	Tactics = choose("ranged1","ranged2") //shooty or choppy
 	var rand = irandom_range(10,15)
-	max_morale = rand 
-	if(variable_instance_exists(self,"leader")) {max_morale = rand + rand*0.5}
+	max_morale = rand
+	base_morale = max_morale
+	if(leader = 1) {max_morale = rand + rand*0.5}
 	morale = max_morale
 	IFF = "hostile_imperial"
+
 
 	PerksList = ds_list_create()
 	col_list = ds_list_create()

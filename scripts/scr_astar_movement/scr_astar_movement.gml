@@ -59,7 +59,7 @@ if(TargetNodeTimer >= 50) //refresh target node
 	//some variety for ranged foes. some are more elusive
 	if(Tactics = "ranged1" and !fleeing){
 	var TargetNodeList = ds_list_create()
-	ds_list_read(TargetNodeList,nodes_in_los((max_range/2.5),SolidObject,NodeObject,target.x,target.y-15,-1))
+	ds_list_read(TargetNodeList,nodes_in_los(max_range*0.8,SolidObject,NodeObject,target.x,target.y-15,-1))
 	target_node = ds_list_farthest(TargetNodeList,target.x,target.y,true,4)
 	ds_list_destroy(TargetNodeList)
 	}
@@ -67,10 +67,10 @@ if(TargetNodeTimer >= 50) //refresh target node
 	if(Tactics = "ranged2" or Tactics = "melee" or fleeing){
 	var TargetNodeList = ds_list_create()
 	ds_list_read(TargetNodeList,nodes_in_los((max_range/2.5)*1.5,SolidObject,NodeObject,target.x,target.y-15,-1))
-	target_node = ds_list_nearest(TargetNodeList,target.x,target.y,true,4)
+	target_node = ds_list_nearest(TargetNodeList,target.x,target.y,false)
 	ds_list_destroy(TargetNodeList)
 	}
-
+	
 	
 	}
 

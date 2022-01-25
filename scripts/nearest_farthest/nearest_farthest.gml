@@ -18,7 +18,7 @@ var i;
 	for(i=0; i<size; i++)
 	{
 	var instance = list[|i]		
-	if(cover) {var distance = point_distance(x,y,instance.x,instance.y)-90000*instance.cover}
+	if(cover) {var distance = point_distance(x,y,instance.x,instance.y)-900000*instance.cover}
 	else{var distance = point_distance(x,y,instance.x,instance.y)}
 	
 	if(popcap != -1) {
@@ -31,11 +31,13 @@ var i;
 					if(npc.hspeed = 0) {distance+=500}
 				}
 			}
+			ds_list_destroy(plist)
 	}
 			
 	ds_grid_add(distance_grid,0,i,instance)
 	ds_grid_add(distance_grid,1,i,distance)
 	}
+	
 
 
 var min_distance = ds_grid_get_min(distance_grid,1,0,1,size-1)
@@ -63,7 +65,7 @@ var i;
 	for(i=0; i<size; i++)
 	{
 	var instance = list[|i]
-	if(cover) {var distance = point_distance(x,y,instance.x,instance.y)+90000*instance.cover}
+	if(cover) {var distance = point_distance(x,y,instance.x,instance.y)+900000*instance.cover}
 	else{var distance = point_distance(x,y,instance.x,instance.y)}
 	
 		if(popcap != -1) {
@@ -76,11 +78,13 @@ var i;
 					if(npc.hspeed = 0) {distance-=500}
 				}
 			}
+			ds_list_destroy(plist)
 	}
 	
 	ds_grid_add(distance_grid,0,i,instance)
 	ds_grid_add(distance_grid,1,i,distance)
 	}
+	
 
 
 var max_distance = ds_grid_get_max(distance_grid,1,0,1,size-1)

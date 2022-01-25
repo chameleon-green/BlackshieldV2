@@ -10,8 +10,8 @@ speed = base_speed
 image_angle = direction
 gravity = base_gravity
 
-var xx = x+lengthdir_x(base_speed*1.5,direction)
-var yy = y+lengthdir_y(base_speed*1.5,direction)
+var xx = x+lengthdir_x(base_speed,direction)
+var yy = y+lengthdir_y(base_speed,direction)
 var col_wall = collision_line(x,y,xx,yy,obj_platform,true,0) 
 var col_player = collision_line(x,y,xx,yy,obj_player,0,0)
 var col_barrier = collision_line(x,y,xx,yy,obj_barrier,false,1)
@@ -58,10 +58,10 @@ if(col_wall)
 }
 
 if(col_barrier and !flames){
-	var chance = choose(1,2)
+	var chance = choose(1,2,3,4)
 	var list = col_barrier.col_list
 	var collided = ds_list_find_index(list,id)
-		if(chance = 1 and !collided){
+		if(chance < 4 and !collided){
 		var facing = sign(col_barrier.image_xscale)
 		var dist = distance_to_object(col_barrier)+random_range(0,200)
 	
@@ -76,7 +76,7 @@ if(col_barrier and !flames){
 		damage = 0
 		}
 	}
-	if(chance = 2){
+	if(chance != 4){
 		if(ds_list_find_index(list,id)=-1) {ds_list_add(list,id)}
 	}
 }

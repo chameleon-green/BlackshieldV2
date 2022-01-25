@@ -69,8 +69,8 @@ if(target_node != 0) {
 
  
 //is it logical to seek cover? We don't want to run to cover behind the player.
-if(instance_exists(obj_cover) and seeking_cover){
-var Ocover = instance_nearest(x,y,obj_cover)
+if(target_node.cover_parent != undefined and seeking_cover){
+var Ocover = target_node.cover_parent
 var CPdist = abs(point_distance(Ocover.x,Ocover.y,obj_player.x,obj_player.y))
 var Pdist = abs(point_distance(x,y,obj_player.x,obj_player.y))
 var Cdist = abs(point_distance(x,y,Ocover.x,Ocover.y))

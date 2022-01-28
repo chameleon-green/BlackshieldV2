@@ -39,8 +39,7 @@ function scr_astar_movement()
 //+++++++++++++++++++++++++++++++++++++++++ Debug Node Labelling ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 if(!dead)
 {
-var NewPathTick = 80
-if(fleeing) {NewPathTick = 500}
+if(fleeing) {AST_NewPath = 500} else{AST_NewPath = AST_NewPathMax}
 TargetNodeTimer += 1
 StartNodeTimer += 1
 NewPathTimer += 1
@@ -52,7 +51,7 @@ if(!fleeing) {target = obj_player} else{target = instance_nearest(x,y,obj_exfil)
 var _height = abs(bbox_top-bbox_bottom)
 var mid_y = bbox_bottom - _height/2
 
-if(TargetNodeTimer >= 50) //refresh target node
+if(TargetNodeTimer >= AST_StartTarget) //refresh target node
 	{
 	TargetNodeTimer = 0
 	
@@ -67,14 +66,14 @@ if(TargetNodeTimer >= 50) //refresh target node
 	if(Tactics = "ranged2" or Tactics = "melee" or fleeing){
 	var TargetNodeList = ds_list_create()
 	ds_list_read(TargetNodeList,nodes_in_los((max_range/2.5)*1.5,SolidObject,NodeObject,target.x,target.y-15,-1))
-	target_node = ds_list_nearest(TargetNodeList,target.x,target.y,false)
+	target_node = ds_list_nearest(TargetNodeList,target.x,target.y,true,4)
 	ds_list_destroy(TargetNodeList)
 	}
 	
 	
 	}
 
-if(StartNodeTimer >= NewPathTick) 
+if(StartNodeTimer >= AST_NewPath) 
 	{
 	StartNodeTimer = 0
 	var NodeList = ds_list_create();
@@ -83,7 +82,7 @@ if(StartNodeTimer >= NewPathTick)
 	ds_list_destroy(NodeList)
 	}
 	
-if(NewPathTimer >= NewPathTick) 
+if(NewPathTimer >= AST_NewPath) 
 	{
 	NewPathTimer = 0
 	NewPath = 1

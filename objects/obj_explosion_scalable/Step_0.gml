@@ -21,7 +21,7 @@ repeat(count) {
 with(instance_create_depth(x,y,depth+1,oprt_dust_ball)) {image_blend = array[1] image_angle = angle2 direction = angle2 max_speed = 0 mass = Mass max_scale = Mass/3}
 }	
 	
-//++++++++++++++++++++++++++++++++++++++++++++++++++ throw frags ++++++++++++++++++++++++++++++++++++
+ //++++++++++++++++++++++++++++++++++++++++++++++++++ throw frags ++++++++++++++++++++++++++++++++++++
 
 if(exploded = 0 and array[0] > 0) {
 		exploded = 1

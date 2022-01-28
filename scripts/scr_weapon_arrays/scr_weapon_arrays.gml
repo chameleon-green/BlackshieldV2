@@ -314,7 +314,7 @@ function scr_weapon_arrays() {
 	rotorcannon_proteus[6] = 1000 //magazine size
 	rotorcannon_proteus[5] = 0.75 //spread
 	rotorcannon_proteus[4] = 160 //range
-	rotorcannon_proteus[3] = 55 //muzzle velocity
+	rotorcannon_proteus[3] = 150//55 //muzzle velocity
 	rotorcannon_proteus[2] = 1000 //durability max
 	rotorcannon_proteus[1] = 8
 	rotorcannon_proteus[0] = 1800

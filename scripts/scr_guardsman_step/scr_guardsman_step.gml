@@ -60,7 +60,7 @@ if(deploying) {
 //++++++++++++++++++++++++++++++++++++++++++++ MOVEMENT +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 in_cover = 0
 seeking_cover = 1
-
+//Tactics = "ranged1"
 
 if(target_node != 0) {
 	if(instance_exists(target_node)){
@@ -71,20 +71,22 @@ if(target_node != 0) {
 //is it logical to seek cover? We don't want to run to cover behind the player.
 if(target_node.cover_parent != undefined and seeking_cover){
 var Ocover = target_node.cover_parent
-var CPdist = abs(point_distance(Ocover.x,Ocover.y,obj_player.x,obj_player.y))
-var Pdist = abs(point_distance(x,y,obj_player.x,obj_player.y))
-var Cdist = abs(point_distance(x,y,Ocover.x,Ocover.y))
-if(Ocover.x<=x and obj_player.x<=x and Pdist <= Cdist){seeking_cover = 0}
-if(Ocover.x>x and obj_player.x>x and Pdist <= Cdist){seeking_cover = 0}
+var Pdist = abs(point_distance(x,y,obj_player.x,obj_player.y)) //distance to player
+var Cdist = abs(point_distance(x,y,Ocover.x,Ocover.y)) //distance to cover
+var CoverFartherThanPlayer = ((Ocover.x<x && obj_player.x<x && Pdist < Cdist) or  (Ocover.x>x && obj_player.x>x && Pdist < Cdist))
+if(CoverFartherThanPlayer) {
+	seeking_cover = 0
+	if(Tactics = "ranged1"){Tactics = "ranged2"} 
+	}
 }
 //are we actually in cover? If so, stop looking for now
 if(place_meeting(x,y,obj_cover)){
 		var Ocover = instance_place(x,y,obj_cover)
 		if(target_node.cover = 1){var MyCover = (Ocover.id = target_node.cover_parent)} else{var MyCover = 1}
-		//var MyCover = 1
-		if(x > Ocover.bbox_left+20 and x < Ocover.bbox_right-20 and MyCover) {
+		if(x > Ocover.bbox_left+20 and x < Ocover.bbox_right-20 and MyCover and abs(point_distance(x,y,target_node.x,target_node.y) < 100)) {
 			in_cover = 1
 			seeking_cover = 0
+			Tactics = "ranged1"
 		}
 }
 

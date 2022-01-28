@@ -3,8 +3,8 @@ image_speed = 0
 
 array[8] = 7//right yscale
 array[7] = 4 //left yscale
-array[6] = 210//right limit, "none" for none
-array[5] = -210 //left limit, "none" for none
+array[6] = 220//right limit, "none" for none
+array[5] = -220 //left limit, "none" for none
 
 array[4] = 2 //bg count
 array[3] = spr_ruins_bg //bg sprite

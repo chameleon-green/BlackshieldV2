@@ -36,7 +36,7 @@ function scr_player_impact() {
 	 for (var i3 = 0; i3 < head_impact; ++i3;) //start off i3 (counter) at 0. While i3 is less than head impacts, increase by 1
 	        {
 			var inst = head_list[| i3] //inst equals the instance stored in the head impact ds list referenced in head_impact
-			if(inst.IFF != IFF and inst.damage > 0)
+			if(inst.IFF != IFF and inst.depth > -53)
 			{
 			var Damage = inst.damage //damage is based on the projectile
 						
@@ -109,7 +109,7 @@ function scr_player_impact() {
 	        {
 			var pick2 = irandom(1)
 			var inst = leg_list[| i2]
-			if(inst.IFF != IFF and inst.damage > 0)
+			if(inst.IFF != IFF and inst.depth > -53)
 			{
 				if(pick2 = 0) 			
 				{
@@ -251,7 +251,7 @@ function scr_player_impact() {
 	        {
 			var pick1 = irandom(3)
 			var inst = torso_list[| i]
-			if(inst.IFF != IFF and inst.damage > 0)
+			if(inst.IFF != IFF and inst.depth > -53)
 			{
 				if(pick1 = 0) 
 				{

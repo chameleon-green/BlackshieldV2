@@ -13,7 +13,7 @@ function scr_guardsman_init(weapon="lasgun") {
 	Type = "ig_trooper" //what is this?
 	AI_Type = "humanoid" //broad category of AI type (humanoid, beast, turret, vehicle)
 	Disposition = "hostile" //shoot on sight? animal?
-	Tactics = "ranged1"//choose("ranged1","ranged1") //shooty or choppy
+	Tactics = "ranged1"//choose("ranged1","ranged2") //shooty or choppy 1=farthest, 2=closest
 	var rand = irandom_range(10,15)
 	max_morale = rand
 	base_morale = max_morale
@@ -68,6 +68,11 @@ function scr_guardsman_init(weapon="lasgun") {
 	vsp = 0 ///essential to pathing and gravity
 	jump_force = 33 //essential to pathing
 	max_jump_height = (jump_force*jump_force) / (2*grav) //essential to pathing
+	
+	AST_NewPath = irandom_range(80,105) //new path timer length for astar
+	AST_NewPathMax = AST_NewPath  //duplicate of previous for fleeing
+	AST_StartTarget = irandom_range(20,45) //start and target node timer for astar
+	
 	
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++ PATHFINDING VARIABLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	

@@ -7,20 +7,20 @@ function scr_infantry_generic_draw()
 	if(target_node != 0){
 		draw_sprite(spr_console,0,target_node.x,target_node.y)
 	}
-		
-	/*
 	
-	var left = bbox_left
+/*	var left = bbox_left
 	var right = bbox_right
 	var top = bbox_top
 	var bot = bbox_bottom
 	draw_rectangle(left,top,right,bot,1)
-*/
-draw_self()
+	ds_list_draw(PathList,x,bbox_top)
+	draw_text(x,bbox_top,seeking_cover)
+	draw_text(x,bbox_top,NewPath)
 
-ds_list_draw(PathList,x,bbox_top)
-//draw_text(x,bbox_top,seeking_cover)
-draw_text(x,bbox_top,NewPath)
+*/
+
+draw_self()
+draw_text(x,bbox_top-50,Tactics)
 
 if(hp < MaxHP and hp > 0)
 	{

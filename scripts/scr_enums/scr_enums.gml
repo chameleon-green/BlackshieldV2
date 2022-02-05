@@ -1,7 +1,6 @@
 function scr_enums() {
 	//sets up enumerator, to translate data from weapon arrays
-	enum wpn_ranged
-	{	
+	enum wpn_ranged {	
 		Weapon_Hand = 22, //primary or secondary?
 		Firemode = 21,  //array of firemodes
 		Weight = 20,
@@ -27,8 +26,7 @@ function scr_enums() {
 		Heat_Capacity = 0,
 	}
 
-	enum wpn_melee
-	{
+	enum wpn_melee {
 		Animations = 21, //array of idles, reloads, etc. and weapon effects (powerfield etc)
 		Weapon_Sprite = 20, //attachment sprite
 		Swing_Sound = 19,
@@ -41,9 +39,7 @@ function scr_enums() {
 		Hands = 12, //one or two handed?
 	}
 
-	enum wpn_sidearm
-
-	{	
+	enum wpn_sidearm {	
 		Firemode = 21,  //array of firemodes
 		Weight = 20,
 		Animations = 19,     //array of idles, reloads, etc.
@@ -68,9 +64,7 @@ function scr_enums() {
 		Heat_Capacity = 0,
 	}
 
-	enum ammo
-
-	{
+	enum ammo {
 		Guidance_Type = 21,	
 		Weight = 20,
 		Fuse_Type = 19,
@@ -106,9 +100,7 @@ function scr_enums() {
 		
 	}
 
-	enum grenade
-
-	{
+	enum grenade {
 		Damage = 0,
 		Damage_Type = 1,
 		Explosion_Type = 2, //how does it boom? See scr_explosion_init
@@ -121,8 +113,26 @@ function scr_enums() {
 		Name = 6, //what is it??
 		Sound = 7, //explosion sound
 		Sprite = 8, //subimage for grenade itself
-
 	}
 
+	enum trn{
+		curb = 0,
+		wndw_100 = 1,
+		wndw_95 = 2,
+		wndw_75 = 3,
+		wndw_50 = 4,
+		wndw_30 = 5,
+		wndw_20 = 6,
+		
+		plr_10 = 7,
+		plr_20 = 8,
+		plr_35 = 9,
+		plr_100 = 10,
+		
+		
+		
+		
+			
+	}
 
 }

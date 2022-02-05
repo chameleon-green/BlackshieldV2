@@ -44,11 +44,15 @@ if(equalize = 1)
 
 
 //track xhair and player
+
+
 if(instance_exists(obj_player) and instance_exists(obj_crosshair))
 	{
+	var F = keyboard_check(ord("F")) 
 	
-	var pl_mult = 3
-	var mouse_mult = 4
+	if(F) {if(mouse_mult < 12) {mouse_mult+=1}} else{pl_mult = 3 mouse_mult = 4}
+	
+	
 	var total_mult = pl_mult+mouse_mult
 	var ply = obj_player.bbox_top - obj_player.bbox_bottom + obj_player.y
 	
@@ -60,12 +64,7 @@ if(instance_exists(obj_player) and instance_exists(obj_crosshair))
 	var track = id
 	
 	if(!global.GUI) {camera_set_view_target(view_camera[0],track)}
-	else{camera_set_view_target(view_camera[0],noone)}
-	
-	
-	
-	
-	
+	else{camera_set_view_target(view_camera[0],noone)}	
 	
 	}
 

@@ -1,6 +1,7 @@
 depth = -50
 image_speed = 0
 
+array[9] = 224 //width of one unit for this terrain
 array[8] = 7//right yscale
 array[7] = 4 //left yscale
 array[6] = 220//right limit, "none" for none

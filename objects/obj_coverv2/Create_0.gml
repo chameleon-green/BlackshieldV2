@@ -1,0 +1,83 @@
+
+//+++++++++++++++++++++++++++++++++++++++++++ SIZE AND OTHER COVER COLLISIONS ++++++++++++++++++++++++++++++++++++++++
+//one cover with pillars = 224 x 224
+sizex = round(image_xscale)//round( (image_xscale*64)/224 )
+sizey = round(image_yscale)//round( (image_yscale*64)/224 )
+
+cells = array_create(sizex,0) //array populated by our terrain segments
+pillars = array_create(sizex+1,0)
+
+col_bot = 0
+col_top = 0
+col_ground = 0
+bot_obj = 0
+top_obj = 0
+
+//one pillar = 48px, one window = 128px, one pillar+window = 176px
+//had to use 176px because drawing pillars seperately between the windows
+if(place_meeting(x,y+1,obj_coverv2)) {
+	bot_obj = instance_place(x,y+1,obj_coverv2)
+	col_bot = 1}
+
+if(place_meeting(x,y-1,obj_coverv2)) {
+	top_obj = instance_place(x,y-1,obj_coverv2)
+	col_top = 1
+	for(var c=0; c<array_length(cells); c++){
+		if(top_obj.bbox_left = bbox_left + 176*c) {cells[c] = 1}
+		}
+	}
+	
+if(place_meeting(x,y+1,obj_platform)) {
+	col_ground = 1}
+
+//+++++++++++++++++++++++++++++++++++++++++++++ INITIALIZE SELF +++++++++++++++++++++++++++++++++++++++++++++++++
+
+depth = -50
+image_speed = 0
+
+array[8] = 7//right yscale
+array[7] = 4 //left yscale
+array[6] = 220//right limit, "none" for none
+array[5] = -220 //left limit, "none" for none
+
+array[4] = 2 //bg count
+array[3] = spr_ruins_bg //bg sprite
+array[2] = 0 //subimage
+array[1] = spr_ruins //sprite
+array[0] = "ruins_imp_2_top" //type, faction, number of modules, floor
+
+type = array
+
+//sprite_index = type[1]
+//image_index = type[2]
+
+
+if(is_real(type[6])){
+	barrier_right = instance_create_depth(x,y,50,obj_barrier)
+	with (barrier_right){
+		image_xscale = 1
+		image_yscale = other.type[8]
+		x = other.bbox_right + 48
+		y = other.y
+	}
+}
+
+
+if(is_real(type[5])){
+	barrier_left = instance_create_depth(x,y,50,obj_barrier)
+	with (barrier_left){
+		image_xscale = -1
+		image_yscale = other.type[7]
+		x = other.bbox_left
+		y = other.y
+	}
+}
+
+/*
+my_bg = instance_create_depth(x,y,50,obj_cover_bg)
+with (my_bg){
+	bg_count = other.type[4]
+	name = other.type[0]
+	image_index = other.type[2]
+	sprite_index = other.type[3]
+}	

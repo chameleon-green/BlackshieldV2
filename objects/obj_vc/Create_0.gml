@@ -1,5 +1,8 @@
 /// @description Player attributes 
 //create table of attributes
+pl_mult = 3
+mouse_mult = 4
+
 
 depth=-3950
 surf = 0

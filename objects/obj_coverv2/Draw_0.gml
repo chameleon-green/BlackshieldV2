@@ -10,6 +10,10 @@ draw_set_halign(fa_left)
 if(col_bot = 1) {draw_text(x,y-middle+20,"BOT: " + string(bot_obj.image_xscale))}
 if(col_top = 1) {draw_text(x+40,y-middle+20,"TOP: " + string(top_obj.image_xscale))}
 draw_text(x+100,y-middle+20,"GRD: " +string(col_ground))
+
+
+
+
 */
 
 //draw_self()
@@ -30,10 +34,15 @@ for(var i=0; i<sizex; i++){
 		draw_sprite(Me[1],10,bbox_left+(176*(i+1)),y-32*col_ground+4*!col_ground) //draw right cell pillar
 		}
 }	
-if(!cells[array_length(cells)-1]) {draw_sprite(Me[1],8,bbox_left+(176*i),y-32*col_ground+4*!col_ground)}
+if(!cells[array_length(cells)-1]) {draw_sprite(Me[1],8,bbox_left+(176*i),y-32*col_ground+4*!col_ground)} //draw the last pillar, if it's not already drawn 
 
 
 
 for(var i=0; i<array_length(cells); i++){
 	draw_text(x,y-100+(15*i),cells[i])
 	}
+	
+	
+	//var top_width = abs(top_obj.bbox_left-top_obj.bbox_right)
+	//var top_cell_count = top_width/176
+//if(top_cell_count != undefined)	{draw_text(x,y-100,top_cell_count)}

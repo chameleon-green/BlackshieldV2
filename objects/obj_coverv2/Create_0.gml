@@ -13,6 +13,8 @@ col_ground = 0
 bot_obj = 0
 top_obj = 0
 
+
+
 //one pillar = 48px, one window = 128px, one pillar+window = 176px
 //had to use 176px because drawing pillars seperately between the windows
 if(place_meeting(x,y+1,obj_coverv2)) {
@@ -22,10 +24,18 @@ if(place_meeting(x,y+1,obj_coverv2)) {
 if(place_meeting(x,y-1,obj_coverv2)) {
 	top_obj = instance_place(x,y-1,obj_coverv2)
 	col_top = 1
+	var top_width = abs(top_obj.bbox_left-top_obj.bbox_right)
+	var top_cell_count = round(top_width/176)
+	
 	for(var c=0; c<array_length(cells); c++){
-		if(top_obj.bbox_left = bbox_left + 176*c) {cells[c] = 1}
+		if(top_obj.bbox_left = bbox_left + 176*c) {
+			cells[c]=1 
+			for(var t=0; t<top_cell_count; t++){
+				cells[c+t] = 1
+			}
 		}
 	}
+}
 	
 if(place_meeting(x,y+1,obj_platform)) {
 	col_ground = 1}

@@ -15,29 +15,25 @@ draw_text(x+100,y-middle+20,"GRD: " +string(col_ground))
 //draw_self()
 
 var Me = array
-var cntcell = array_length(cells)
-var cntpillar = array_length(pillars)
 
-for(var i=0; i<cntpillar; i++){	
+for(var i=0; i<sizex; i++){	
 	
-	//draw pillars, accounting for gaps
-	draw_sprite(Me[1],8,bbox_left+(176*i),y-32*col_ground+4*!col_ground)	
-	
-	if(i<cntcell) {
-			if (col_ground) {draw_sprite(Me[1],0,bbox_left+(176*i),y)} //draw curb
-			if (!cells[i]) {
-				draw_sprite(Me[1],3,bbox_left+48+(176*i),y-28*col_ground+4*!col_ground) //draw windows, offset for curb if applicable
-				}
-				else {
-					draw_sprite(Me[1],1,bbox_left+48+(176*i),y-28*col_ground+4*!col_ground) //draw solid window, plus solid pillars
-					draw_sprite(Me[1],10,bbox_left+(176*i),y-32*col_ground+4*!col_ground)
-					draw_sprite(Me[1],10,bbox_left+(176*(i+1)),y-32*col_ground+4*!col_ground)
-				}
-	}	
-	
-}
+	if (col_ground) {draw_sprite(Me[1],0,bbox_left+(176*i),y)} //draw curb
+	if (!cells[i]) {	
+		var pillar_check = clamp(i-1,0,array_length(cells))	
+		draw_sprite(Me[1],3,bbox_left+48+(176*i),y-28*col_ground+4*!col_ground) //draw windows, offset for curb if applicable
+		if(cells[pillar_check] = 0) {draw_sprite(Me[1],8,bbox_left+(176*i),y-32*col_ground+4*!col_ground)} //draw pillars, accounting for gaps
+		} 
+	else {
+		draw_sprite(Me[1],1,bbox_left+48+(176*i),y-28*col_ground+4*!col_ground) //draw solid window
+		draw_sprite(Me[1],10,bbox_left+(176*i),y-32*col_ground+4*!col_ground) //draw left cell pillar
+		draw_sprite(Me[1],10,bbox_left+(176*(i+1)),y-32*col_ground+4*!col_ground) //draw right cell pillar
+		}
+}	
+if(!cells[array_length(cells)-1]) {draw_sprite(Me[1],8,bbox_left+(176*i),y-32*col_ground+4*!col_ground)}
+
 
 
 for(var i=0; i<array_length(cells); i++){
-draw_text(x,y-100+(15*i),cells[i])
-}
+	draw_text(x,y-100+(15*i),cells[i])
+	}

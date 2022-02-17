@@ -4,7 +4,7 @@ killtick = 0
 kill = 0
 kill_barrier = 0
 scale = 1
-
+kill_sound = 0
 
 
 frame = 0 //for animating contrails on rockets

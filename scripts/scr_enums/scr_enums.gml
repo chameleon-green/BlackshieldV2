@@ -129,10 +129,11 @@ function scr_enums() {
 		plr_35 = 9,
 		plr_100 = 10,
 		
-		
-		
-		
-			
+		rbl_1 = 11,
+		rbl_2 = 12,
+		rbl_3 = 13,
+		rbl_4 = 14,
+		rbl_5 = 15,			
 	}
 
 }

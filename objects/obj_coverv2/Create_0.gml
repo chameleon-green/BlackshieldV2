@@ -5,7 +5,12 @@ sizex = round(image_xscale)//round( (image_xscale*64)/224 )
 sizey = round(image_yscale)//round( (image_yscale*64)/224 )
 
 cells = array_create(sizex,0) //array populated by our terrain segments
-pillars = array_create(sizex+1,0)
+pillars = array_create(sizex+1,0) //array for our pillars
+rubble = array_create(sizex,0)
+
+for(var r=0; r<array_length(rubble); r++){
+	rubble[r] = choose(trn.rbl_1, trn.rbl_2, trn.rbl_3, trn.rbl_4, trn.rbl_5)
+}
 
 col_bot = 0
 col_top = 0
@@ -13,13 +18,12 @@ col_ground = 0
 bot_obj = 0
 top_obj = 0
 
-
-
 //one pillar = 48px, one window = 128px, one pillar+window = 176px
 //had to use 176px because drawing pillars seperately between the windows
 if(place_meeting(x,y+1,obj_coverv2)) {
 	bot_obj = instance_place(x,y+1,obj_coverv2)
-	col_bot = 1}
+	col_bot = 1
+	}
 
 if(place_meeting(x,y-1,obj_coverv2)) {
 	top_obj = instance_place(x,y-1,obj_coverv2)
@@ -37,8 +41,9 @@ if(place_meeting(x,y-1,obj_coverv2)) {
 	}
 }
 	
-if(place_meeting(x,y+1,obj_platform)) {
-	col_ground = 1}
+if(place_meeting(x,y+33,obj_platform)) {
+	col_ground = 1
+	}
 
 //+++++++++++++++++++++++++++++++++++++++++++++ INITIALIZE SELF +++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -58,9 +63,13 @@ array[0] = "ruins_imp_2_top" //type, faction, number of modules, floor
 
 type = array
 
+sound[3] = snd_impact_stone1
+sound[2] = snd_impact_stone2
+sound[1] = snd_impact_stone3
+sound[0] = snd_impact_stone4
+
 //sprite_index = type[1]
 //image_index = type[2]
-
 
 if(is_real(type[6])){
 	barrier_right = instance_create_depth(x,y,50,obj_barrier)
@@ -69,9 +78,9 @@ if(is_real(type[6])){
 		image_yscale = other.type[8]
 		x = other.bbox_right + 48
 		y = other.y
+		sound = other.sound
 	}
 }
-
 
 if(is_real(type[5])){
 	barrier_left = instance_create_depth(x,y,50,obj_barrier)
@@ -80,14 +89,7 @@ if(is_real(type[5])){
 		image_yscale = other.type[7]
 		x = other.bbox_left
 		y = other.y
+		sound = other.sound
 	}
 }
 
-/*
-my_bg = instance_create_depth(x,y,50,obj_cover_bg)
-with (my_bg){
-	bg_count = other.type[4]
-	name = other.type[0]
-	image_index = other.type[2]
-	sprite_index = other.type[3]
-}	

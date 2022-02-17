@@ -151,7 +151,7 @@ part_type_size(prt_spark1,1,1,0,0)
 
 
 //----
-scr_squad_infantry_create(scr_guardsman_init,10,x-250,y,depth)
+//scr_squad_infantry_create(scr_guardsman_init,10,x-250,y,depth)
 //scr_squad_infantry_create(scr_guardsman_init,10,x,y,depth)
 
 

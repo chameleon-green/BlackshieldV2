@@ -34,6 +34,7 @@ if(col_barrier and !flames){
 		x=x+lengthdir_x(dist,direction)
 		y=y+lengthdir_y(dist,direction)
 		damage = 0
+		kill_sound = col_barrier.sound[irandom_range(0,3)]	
 		}
 	}
 	if(chance != 4){

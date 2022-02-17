@@ -1,4 +1,11 @@
 
+if(kill_sound != 0){
+audio_falloff_set_model(audio_falloff_linear_distance)
+var KSND = audio_play_sound_at(kill_sound,x,y,0,20,2500,1,0,1)
+audio_sound_pitch(KSND, random_range(0.8,1))
+}
+
+
 if(projectile_type = "beam" && kill_barrier)
 	{
 	var dist = point_distance(x,y,xcreator,ycreator)

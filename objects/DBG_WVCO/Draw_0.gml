@@ -23,8 +23,8 @@ if(col and wavecount < 1) {
 		var Carray = sprite_get_uvs(sprite_index, image_index)	
 		var height = abs(Carray[1] - Carray[3])*4096
 		draw_set_halign(fa_center)
-		//draw_text_color(x,y-height-50,cString,c_outline,c_outline,c_outline,c_outline,1)
-		draw_text_color(x,y-height-30,text,c_outline,c_outline,c_outline,c_outline,1)
+		//draw_text_color(x,y-height-30,text,c_outline,c_outline,c_outline,c_outline,1)
+		draw_text_color(x,bbox_top-40,text,c_outline,c_outline,c_outline,c_outline,1)
 		draw_set_halign(fa_left)
 		}
 		

@@ -12,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_impact_stone2.wav",
-  "duration": 1.022744,
+  "duration": 0.942948,
   "parent": {
     "name": "Impacts",
     "path": "folders/Sounds/Impacts.yy",

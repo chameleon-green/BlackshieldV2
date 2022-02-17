@@ -4,6 +4,8 @@ function scr_lruss_step(){
 
 
 target = obj_player
+
+
 if(hp <= 0) {
 	dead = 1 
 	dying = 1
@@ -14,7 +16,22 @@ if(hp <= 0) {
 	part_emitter_region(prt_sys,prt_e_engine,ex-off,ex+off,ey-off,ey+off,ps_shape_ellipse,ps_distr_gaussian)
 	part_emitter_region(prt_sys,prt_e_turret,tx-off,tx+off,ty-off,ty+off,ps_shape_ellipse,ps_distr_gaussian)
 	part_emitter_region(prt_sys,prt_e_interior,ix-off,ix+off,iy-off,iy+off,ps_shape_ellipse,ps_distr_gaussian)
-	if(XPToggle) {XPToggle = 0 obj_player.thrones+=XPValue}
+	
+	
+	if(XPToggle) {
+		XPToggle = 0 
+		obj_player.thrones+=XPValue
+		var _height = abs(bbox_top - bbox_bottom)
+		var _boom = instance_create_depth(x,y-(_height/2),depth-1,obj_explosion_scalable)
+		with(_boom) {
+			damage = 300
+			explosion_type = obj_vc.exp_scalable_firey_med
+			damage_type = "physical"
+			IFF = other.IFF
+			depth = other.depth-1
+		}	 
+	}
+	
 }
 
 if(!dead){
@@ -110,6 +127,8 @@ if(cooldown_timer2 >= cooldown_length_hull){
 	cooldown_timer2 = 0
 	burst_count_hull = irandom_range(-round(burst_size_hull/3),round(burst_size_hull/3))
 	hullfire_timer = 0
+	var ratio = distance_to_object(target)/secondary[28] //enemies will shoot faster the closer you get
+	cooldown_length_hull = (cooldown_length_hull_base*2*ratio)*random_range(0.6,1.2)
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ EXHAUST ANIMATIONS +++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -6,8 +6,9 @@ image_xscale = size/5
 image_yscale = size/5
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++ generate smoke and dust ++++++++++++++++++++++++++++++++++++++++++
-
+var _special = "none"
 if(array[0] > 0) {var Mass = size} else{var Mass = array[2]}
+if(array_length(array) >= 6) {_special = array[5]}
 var count = 10
 var angle = 360/count
 
@@ -15,10 +16,24 @@ if(counter < count){
 repeat(count) {
 	counter+=1 
 	var angle2 = other.image_angle + angle*other.counter
-	with(instance_create_depth(x,y,depth+1,oprt_dust_ball)) {image_blend = array[1] image_angle = angle2 direction = angle2 mass = Mass max_scale = Mass/3}
+	with(instance_create_depth(x,y,depth+1,oprt_dust_ball)) {
+		image_blend = array[1] 
+		image_angle = angle2 
+		direction = angle2 
+		mass = Mass max_scale = Mass/3
+		if(_special = "firey") {firey = 1}
+		}
 }
 
-with(instance_create_depth(x,y,depth+1,oprt_dust_ball)) {image_blend = array[1] image_angle = angle2 direction = angle2 max_speed = 0 mass = Mass max_scale = Mass/3}
+with(instance_create_depth(x,y,depth+1,oprt_dust_ball)) {
+	image_blend = array[1] 
+	image_angle = angle2 
+	direction = angle2 
+	max_speed = 0 
+	mass = Mass 
+	max_scale = Mass/3
+	if(_special = "firey") {firey = 1}
+	}
 }	
 	
  //++++++++++++++++++++++++++++++++++++++++++++++++++ throw frags ++++++++++++++++++++++++++++++++++++

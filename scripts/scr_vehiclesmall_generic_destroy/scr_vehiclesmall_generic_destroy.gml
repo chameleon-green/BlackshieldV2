@@ -24,5 +24,4 @@ if(ds_exists(ds_type_list,closed_list)) {ds_list_destroy(closed_list)}
 
 if(ds_exists(ds_type_grid,Loot_Table)) {ds_grid_destroy(Loot_Table)}
 
-
 }

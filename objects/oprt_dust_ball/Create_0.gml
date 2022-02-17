@@ -15,3 +15,5 @@ image_blend = c_gray
 image_speed = 0
 
 depth = -15
+
+firey = 0

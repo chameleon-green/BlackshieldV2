@@ -24,13 +24,18 @@ function scr_explosion_init() {
 	exp_scalable_smoke_small[1] = c_white //smoke color
 	exp_scalable_smoke_small[0] = 0 //number of frags
 	
-		
+	exp_scalable_firey_med[5] = "firey" //specials?
+	exp_scalable_firey_med[4] = snd_explode_small1
+	exp_scalable_firey_med[3] = 13 //explosion size
+	exp_scalable_firey_med[2] = 25 //frag lifetime
+	exp_scalable_firey_med[1] = c_white //smoke color
+	exp_scalable_firey_med[0] = 30 //frag count
+	
 	exp_scalable_frag_tiny[4] = snd_explode_small1
 	exp_scalable_frag_tiny[3] = 4 //explosion size
 	exp_scalable_frag_tiny[2] = 13 //frag lifetime
 	exp_scalable_frag_tiny[1] = c_dkgray //smoke color
 	exp_scalable_frag_tiny[0] = 30 //frag count
-	
 	
 	exp_scalable_frag_small[4] = snd_explode_small1
 	exp_scalable_frag_small[3] = 5 //explosion size
@@ -45,7 +50,7 @@ function scr_explosion_init() {
 	exp_scalable_frag_med[0] = 30 //frag count
 	
 	exp_scalable_frag_large[4] = snd_explode_small1
-	exp_scalable_frag_large[3] = 12 //explosion size
+	exp_scalable_frag_large[3] = 13 //explosion size
 	exp_scalable_frag_large[2] = 35 //frag lifetime
 	exp_scalable_frag_large[1] = c_gray //smoke color
 	exp_scalable_frag_large[0] = 30 //frag count

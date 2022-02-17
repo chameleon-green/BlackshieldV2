@@ -161,7 +161,7 @@ wpn_ranged_hull = choose("hbolter")
 		primary[26] = 80 //velocity
 		primary[25] = 0 //penetration
 		primary[24] = 0 //round gravity
-		primary[23] = obj_vc.exp_scalable_frag_large
+		primary[23] = obj_vc.exp_scalable_firey_med //obj_vc.exp_scalable_frag_large
 		primary[22] = 2 //spread
 		primary[21] = "normal" //projectile type, beam etc
 		primary[20] = 0 //projectile skin
@@ -226,6 +226,7 @@ wpn_ranged_hull = choose("hbolter")
 	}
 
 	burst_size_hull = secondary[14]
+	cooldown_length_hull_base = secondary[13]
 	cooldown_length_hull = secondary[13]
 	
 //++++++++++++++++++++++++++++++++++++++++++++++ SOUND STUFF +++++++++++++++++++++++++++++++++++++++++++++

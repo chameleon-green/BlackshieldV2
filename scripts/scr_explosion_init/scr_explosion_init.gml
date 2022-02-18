@@ -44,13 +44,13 @@ function scr_explosion_init() {
 	exp_scalable_frag_small[0] = 30 //frag count
 	
 	exp_scalable_frag_med[4] = snd_explode_small1
-	exp_scalable_frag_med[3] = 8 //explosion size
+	exp_scalable_frag_med[3] = 10 //explosion size
 	exp_scalable_frag_med[2] = 25 //frag lifetime
 	exp_scalable_frag_med[1] = c_gray //smoke color
 	exp_scalable_frag_med[0] = 30 //frag count
 	
 	exp_scalable_frag_large[4] = snd_explode_small1
-	exp_scalable_frag_large[3] = 13 //explosion size
+	exp_scalable_frag_large[3] = 14 //explosion size
 	exp_scalable_frag_large[2] = 35 //frag lifetime
 	exp_scalable_frag_large[1] = c_gray //smoke color
 	exp_scalable_frag_large[0] = 30 //frag count

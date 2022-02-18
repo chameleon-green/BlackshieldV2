@@ -1,6 +1,6 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function scr_chimera_animation_update(){
+function scr_vehiclesmall_generic_animation_update(){
 
 if(!dead){
 
@@ -20,7 +20,9 @@ if(Tleft and canmove) {image_xscale = -1} if(Tright and canmove) {image_xscale =
 canshoot = 1
 if(!Tfacing) {canshoot = 0} 
 
-var iangle = (image_angle-360)*image_xscale
+var iangle = image_angle
+if(iangle >= 90) {iangle = -360-image_angle}
+if(iangle <= -90) {iangle = -360+image_angle}
 
 //cannon aiming
 var cannon_map = ds_map_create()
@@ -30,7 +32,7 @@ var cy = ds_map_find_value(cannon_map,"worldY")
 var adjacent = (cx - Tx)
 var opposite = (cy - Ty)*image_xscale
 var ang = -radtodeg(arctan(opposite/adjacent)) - iangle
-if(Tfacing) {angle = clamp(ang,-15,30)} else{angle = 0}
+if(Tfacing) {angle = clamp(ang,primary[32],primary[33])} else{angle = 0}
 ds_map_replace(cannon_map,"angle",angle)
 skeleton_bone_state_set("cannonmount",cannon_map)
 ds_map_destroy(cannon_map)
@@ -43,7 +45,7 @@ var hy = ds_map_find_value(hull_map,"worldY")
 var adjacent = (hx - Tx)
 var opposite = (hy - Ty)*image_xscale
 var ang2 = -radtodeg(arctan(opposite/adjacent)) - iangle 
-if(Tfacing) {angle2 = clamp(ang2,-25,25)} else{angle2 = 0}
+if(Tfacing) {angle2 = clamp(ang2,secondary[32],secondary[33])} else{angle2 = 0}
 ds_map_replace(hull_map,"angle",angle2)
 skeleton_bone_state_set("hullgun",hull_map)
 ds_map_destroy(hull_map)
@@ -55,7 +57,7 @@ ds_map_destroy(hull_map)
 
 var yavg = (wheel1.y + wheel2.y)/2
 var yoff = tan(degtorad(abs(iangle)))*40
-var wangle = point_direction(wheel1.x,wheel1.y,wheel2.x,wheel2.y) + 180
+var wangle = point_direction(wheel1.x,wheel1.y,wheel2.x,wheel2.y)*image_xscale + 180
 
 wtimer += 1
 if(wtimer >= 3) {wtimer = 0 image_angle = wangle}
@@ -93,11 +95,14 @@ if(Left and image_xscale = 1 and spd<Mspeed/2) {hspeed-=accel/2}
 if(Right and image_xscale = 1 and spd<Mspeed) {hspeed+=accel}
 if(Right and image_xscale = -1 and spd<Mspeed/2) {hspeed+=accel/2}
 
+//decelerate when not moving, and cap speed
 if(!Left and !Right) {hspeed*=0.97 if(spd<0.5) {hspeed = 0}}
 if(spd > MaxSpd) {hspeed*=0.97}
 
 
 //+++++++++++++++++++++++++++++++++++++++++++ TRANSPORT STUFF ++++++++++++++++++++++++++++++++++++++++++++++++
+
+if(variable_instance_exists(self,"cargo_deployed")){
 
 if(debark_count/50 = debark_inc and debark_inc < 6){
 		var rx = bone_get_x("assault_ramp")
@@ -117,6 +122,8 @@ if(debark_count/50 = debark_inc and debark_inc < 6){
 		debark_inc += 1
 }
 if(debark_inc > 10) {timer_reset(debark_timer,0) debark_inc = 1 debark_count = 0}
+
+}//are we a transport check
 
 
 }//target defined end

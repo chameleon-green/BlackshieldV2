@@ -23,6 +23,8 @@ if(!dead){
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ FIRE CANNON +++++++++++++++++++++++++++++++++++++++++++++++++++++
 if(canshoot){
+	
+
 var canx = bone_get_x("cannonbarrel")
 var cany = bone_get_y("cannonbarrel")
 LOSandRangeCannon = check_los_and_range(1,canx,cany,target,obj_platform,primary[28])
@@ -41,7 +43,7 @@ if(firing_cannon = 1){
 		audio_sound_gain(snd,2,0)
 		skeleton_attachment_set("cannonflash",primary[4+i])
 		
-		var Dir = angle + !image_xscale*(180 - 2*angle) + random_range(-primary[22],primary[22]) + ((image_angle-360)*image_xscale)*image_xscale
+		var Dir = angle + !image_xscale*(180 - 2*angle) + random_range(-primary[22],primary[22]) + image_angle*image_xscale
 		with(instance_create_depth(canx,cany,depth+1,obj_enemy_bullet)) {
 		xcreator = canx
 		ycreator = cany
@@ -101,7 +103,7 @@ if(firing_hull = 1){
 		audio_sound_gain(snd,2,0)
 		skeleton_attachment_set("hullflash",secondary[4+i])
 		
-		var Dir = angle2 + !image_xscale*(180 - 2*angle2) + random_range(-secondary[22],secondary[22]) + ((image_angle-360)*image_xscale)*image_xscale
+		var Dir = angle2 + !image_xscale*(180 - 2*angle2) + random_range(-secondary[22],secondary[22]) + image_angle*image_xscale
 		with(instance_create_depth(hx,hy,depth+1,obj_enemy_bullet)) {
 		xcreator = hx
 		ycreator = hy

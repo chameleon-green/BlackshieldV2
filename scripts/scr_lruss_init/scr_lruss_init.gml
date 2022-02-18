@@ -153,6 +153,8 @@ wpn_ranged_hull = choose("hbolter")
 
 	if(wpn_ranged = "battlecannon") //big boomer
 	{	
+		primary[33] = 30 //max elevation
+		primary[32] = -25 //maximum depression
 		primary[31] = 0.97 //fuse, as portion of base damage. This weapon will detonate at 90% hp
 		primary[30] = 600 //damage
 		primary[29] = "physical" //dmg type
@@ -191,6 +193,8 @@ wpn_ranged_hull = choose("hbolter")
 	
 	if(wpn_ranged_hull = "hbolter") // S5 AP4 HEAVY3
 	{	
+		secondary[33] = 30 //max elevation
+		secondary[32] = -25 //max depression
 		secondary[31] = 0.3
 		secondary[30] = 45 //damage
 		secondary[29] = "physical" //dmg type
@@ -260,7 +264,7 @@ particle_max_timer = irandom_range(800,1200)
 //+++++++++++++++++++++++++++++++++++++++++++++ RELEVANT SCRIPTS ++++++++++++++++++++++++++++++++++++++++
 	
 	StepScript = scr_lruss_step
-	AnimUpdateScript = scr_lruss_animation_update
+	AnimUpdateScript = scr_vehiclesmall_generic_animation_update
 	AnimEventScript = scr_lruss_event
 	DestroyScript = scr_vehiclesmall_generic_destroy
 	DrawScript = scr_vehiclesmall_generic_draw

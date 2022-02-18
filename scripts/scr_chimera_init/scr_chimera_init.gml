@@ -12,6 +12,7 @@ function scr_chimera_init(){
 	layer = mylayer
 	
 	
+	
 	Type = "ig_chimera" //what is this?
 	AI_Type = "vehicle" //broad category of AI type (humanoid, beast, turret, vehicle)
 	Disposition = "hostile" //shoot on sight? animal?
@@ -157,6 +158,8 @@ var range_mult = random_range(0.8,1.2)
 
 	if(wpn_ranged = "multilaser") //zap zap zap
 	{	
+		primary[33] = 30 //max elevation
+		primary[32] = -15 //maximum depression
 		primary[31] = 0.97 //fuse, as portion of base damage. This weapon will detonate at 90% hp
 		primary[30] = 35 //damage
 		primary[29] = "thermal" //dmg type
@@ -195,6 +198,8 @@ var range_mult = random_range(0.8,1.2)
 	
 	if(wpn_ranged_hull = "hbolter") // S5 AP4 HEAVY3
 	{	
+		secondary[33] = 30 //max elevation
+		secondary[32] = -25 //max depression
 		secondary[31] = 0.3 //fuse
 		secondary[30] = 45 //damage
 		secondary[29] = "physical" //dmg type
@@ -278,7 +283,7 @@ particle_max_timer = irandom_range(800,1200)
 //+++++++++++++++++++++++++++++++++++++++++++++ RELEVANT SCRIPTS ++++++++++++++++++++++++++++++++++++++++
 	
 	StepScript = scr_chimera_step
-	AnimUpdateScript = scr_chimera_animation_update
+	AnimUpdateScript = scr_vehiclesmall_generic_animation_update
 	AnimEventScript = scr_chimera_event
 	DestroyScript = scr_vehiclesmall_generic_destroy
 	DrawScript = scr_vehiclesmall_generic_draw

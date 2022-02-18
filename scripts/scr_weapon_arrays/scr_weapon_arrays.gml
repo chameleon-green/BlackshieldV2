@@ -220,7 +220,7 @@ function scr_weapon_arrays() {
 	missile_astartes[11] = 1 //subimage for item screen (spr_items)
 	missile_astartes[10] =  ammo_missile_krak //default ammo type, for to brand new weapon
 	missile_astartes[9] = 30 //Y offset for crosshair, used for low/high slung weapons
-	missile_astartes[8] = 6000//800 //DMG
+	missile_astartes[8] = 800 //DMG
 	missile_astartes[7] = 100 //ROF
 	missile_astartes[6] = 1 //magazine size
 	missile_astartes[5] = 0.5 //spread

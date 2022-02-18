@@ -8,6 +8,12 @@ if(particle_timer >= particle_max_timer*2 and layer =-1) {layer_destroy(mylayer)
 draw_self()
 
 
+var iangle = image_angle
+if(iangle >= 90) {iangle = -360-image_angle}
+if(iangle <= -90) {iangle = -360+image_angle}
+draw_text(x,bbox_top,iangle)
+
+
 //draw_text(x,y-600,depth)
 //draw_text(x,y-600,HullPhys)
 //draw_text(x,y-650,layer_get_name(layer))

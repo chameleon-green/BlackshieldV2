@@ -10,6 +10,7 @@ function scr_squad_infantry_create(unit,size,x,y,depth){
 		leader = 1
 		SquadSize = size
 		SquadMembers = size
+		weapon = "bolter"
 		}
 
 	variable_instance_set(id,Leader,ds_list_create())

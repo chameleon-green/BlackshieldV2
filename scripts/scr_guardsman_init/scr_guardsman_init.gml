@@ -69,9 +69,9 @@ function scr_guardsman_init(weapon="lasgun") {
 	jump_force = 33 //essential to pathing
 	max_jump_height = (jump_force*jump_force) / (2*grav) //essential to pathing
 	
-	AST_NewPath = irandom_range(80,105) //new path timer length for astar
+	AST_NewPath = irandom_range(90,140) //new path timer length for astar
 	AST_NewPathMax = AST_NewPath  //duplicate of previous for fleeing
-	AST_StartTarget = irandom_range(20,45) //start and target node timer for astar
+	AST_StartTarget = irandom_range(20,60) //start and target node timer for astar
 	
 	
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++ PATHFINDING VARIABLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++

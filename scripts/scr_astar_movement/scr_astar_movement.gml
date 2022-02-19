@@ -37,36 +37,48 @@ function scr_astar_movement()
 {
 
 //+++++++++++++++++++++++++++++++++++++++++ Debug Node Labelling ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-if(!dead)
-{
-if(fleeing) {AST_NewPath = 500} else{AST_NewPath = AST_NewPathMax}
-TargetNodeTimer += 1
-StartNodeTimer += 1
-NewPathTimer += 1
+if(!dead){
+	
+target = obj_player
+
+if(!LOSandRange or seeking_cover or fleeing){
+	TargetNodeTimer += 1
+	StartNodeTimer += 1
+	NewPathTimer += 1
+}
+
 NewPath = 0
-if(fleeing and flee_path_toggle) {TargetNodeTimer = 51 NewPath = 1 flee_path_toggle = 0}  //instant new path when we are fleeing
-if(!fleeing) {target = obj_player} else{target = instance_nearest(x,y,obj_exfil)}
+if(fleeing) {
+	AST_NewPath = 500 
+	target = instance_nearest(x,y,obj_exfil)
+	} 
+else{AST_NewPath = AST_NewPathMax}
+if(fleeing and flee_path_toggle) {TargetNodeTimer = 100 NewPath = 1 flee_path_toggle = 0}  //instant new path when we are fleeing
+
 
 //this is the vertical center of the object. allows us to use objects with origins in other places.
 var _height = abs(bbox_top-bbox_bottom)
 var mid_y = bbox_bottom - _height/2
 
-if(TargetNodeTimer >= AST_StartTarget) //refresh target node
-	{
+if(TargetNodeTimer >= AST_StartTarget){ //refresh target node
+	
 	TargetNodeTimer = 0
+	var _sector = "center" //choose area relative to target to search in
+	if(target.x > x) {_sector = "left"}
+	if(target.x < x) {_sector = "right"}
 	
 	//some variety for ranged foes. some are more elusive
 	if(Tactics = "ranged1" and !fleeing){
 	var TargetNodeList = ds_list_create()
-	ds_list_read(TargetNodeList,nodes_in_los(max_range*0.8,SolidObject,NodeObject,target.x,target.y-15,-1))
-	target_node = ds_list_farthest(TargetNodeList,target.x,target.y,true,4)
+	ds_list_read(TargetNodeList,nodes_in_los(max_range*0.8,SolidObject,NodeObject,target.x,target.y-15,-1,_sector))
+	target_node = ds_list_farthest(TargetNodeList,target.x,target.y,!fleeing,6*!fleeing)
 	ds_list_destroy(TargetNodeList)
 	}
 	
 	if(Tactics = "ranged2" or Tactics = "melee" or fleeing){
 	var TargetNodeList = ds_list_create()
-	ds_list_read(TargetNodeList,nodes_in_los((max_range/2.5)*1.5,SolidObject,NodeObject,target.x,target.y-15,-1))
-	target_node = ds_list_nearest(TargetNodeList,target.x,target.y,true,4)
+	ds_list_read(TargetNodeList,nodes_in_los((max_range/2.5)*1.5,SolidObject,NodeObject,target.x,target.y-15,-1,_sector))
+	target_node = ds_list_nearest(TargetNodeList,target.x,target.y,!fleeing,6*!fleeing)
 	ds_list_destroy(TargetNodeList)
 	}
 	

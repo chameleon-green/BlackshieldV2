@@ -18,12 +18,12 @@ var i;
 	for(i=0; i<size; i++)
 	{
 	var instance = list[|i]		
-	if(cover) {var distance = point_distance(x,y,instance.x,instance.y)-900000*instance.cover}
+	if(cover) {var distance = point_distance(x,y,instance.x,instance.y)-90000*instance.cover}
 	else{var distance = point_distance(x,y,instance.x,instance.y)}
 	
-	if(popcap != -1) {
+	if(popcap > 0) {
 		var plist = ds_list_create()
-		var circ = collision_ellipse_list(instance.x-100,instance.y-50,instance.x+100,instance.y+50,obj_enemy,0,true,plist,true)
+		var circ = collision_ellipse_list(instance.x-16,instance.y-16,instance.x+16,instance.y+16,obj_enemy,0,true,plist,true)
 		var count1 = ds_list_size(plist)	
 			if(count1 > 0){
 				for(var c=0; c < count1; c++){
@@ -65,10 +65,10 @@ var i;
 	for(i=0; i<size; i++)
 	{
 	var instance = list[|i]
-	if(cover) {var distance = point_distance(x,y,instance.x,instance.y)+900000*instance.cover}
+	if(cover) {var distance = point_distance(x,y,instance.x,instance.y)+90000*instance.cover}
 	else{var distance = point_distance(x,y,instance.x,instance.y)}
 	
-		if(popcap != -1) {
+		if(popcap > 0) {
 		var plist = ds_list_create()
 		var circ = collision_ellipse_list(instance.x-100,instance.y-50,instance.x+100,instance.y+50,obj_enemy,0,true,plist,true)
 		var count1 = ds_list_size(plist)	

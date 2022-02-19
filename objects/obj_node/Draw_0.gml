@@ -3,6 +3,7 @@ if(draw = 1)
 draw_self()
 draw_text(x,bbox_top-40,id)
 draw_text(x,y-90,cover)
+depth = -9000
 }
 
 

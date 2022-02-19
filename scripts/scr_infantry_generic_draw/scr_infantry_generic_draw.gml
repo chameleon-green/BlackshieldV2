@@ -20,7 +20,7 @@ function scr_infantry_generic_draw()
 */
 
 draw_self()
-draw_text(x,bbox_top-50,Tactics)
+draw_text(x,bbox_top-50,fleeing)
 
 if(hp < MaxHP and hp > 0)
 	{

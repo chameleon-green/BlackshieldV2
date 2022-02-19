@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_ruins",
-    "path": "sprites/spr_ruins/spr_ruins.yy",
+    "name": "spr_cover_scalable",
+    "path": "sprites/spr_cover_scalable/spr_cover_scalable.yy",
   },
   "solid": false,
   "visible": true,

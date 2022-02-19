@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_cover_scalable",
-    "path": "sprites/spr_cover_scalable/spr_cover_scalable.yy",
+    "name": "spr_ruins",
+    "path": "sprites/spr_ruins/spr_ruins.yy",
   },
   "solid": false,
   "visible": true,
@@ -31,7 +31,7 @@
     "path": "folders/Objects/Terrain.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_coverv2",
+  "name": "obj_cover_old",
   "tags": [],
   "resourceType": "GMObject",
 }

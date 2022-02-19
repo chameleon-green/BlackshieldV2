@@ -72,12 +72,13 @@ if(target_node != 0) {
 if(target_node.cover_parent != undefined and seeking_cover){
 var Ocover = target_node.cover_parent
 var Pdist = abs(point_distance(x,y,obj_player.x,obj_player.y)) //distance to player
-var Cdist = abs(point_distance(x,y,Ocover.x,Ocover.y)) //distance to cover
-var CoverFartherThanPlayer = ((Ocover.x<x && obj_player.x<x && Pdist < Cdist) or  (Ocover.x>x && obj_player.x>x && Pdist < Cdist))
+var Cdist = abs(point_distance(x,y,target_node.x,target_node.y)) //distance to cover
+var CoverFartherThanPlayer = ((target_node.x<x && obj_player.x<x && Pdist < Cdist) or  (target_node.x>x && obj_player.x>x && Pdist < Cdist))
 if(CoverFartherThanPlayer) {
 	seeking_cover = 0
-	if(Tactics = "ranged1"){Tactics = "ranged2"} 
+	//if(Tactics = "ranged1") {Tactics = "ranged2"}
 	}
+
 }
 //are we actually in cover? If so, stop looking for now
 if(place_meeting(x,y,obj_cover)){
@@ -86,7 +87,7 @@ if(place_meeting(x,y,obj_cover)){
 		if(x > Ocover.bbox_left+20 and x < Ocover.bbox_right-20 and MyCover and abs(point_distance(x,y,target_node.x,target_node.y) < 100)) {
 			in_cover = 1
 			seeking_cover = 0
-			Tactics = "ranged1"
+			//Tactics = "ranged1"
 		}
 }
 

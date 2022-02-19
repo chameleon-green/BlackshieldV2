@@ -19,7 +19,12 @@ var area_offset = 0
 if(area = "left") {area_offset = -search_radius*2.5}
 if(area = "right") {area_offset = search_radius*2.5}
 
-collision_ellipse_list(x+search_radius*2.5+area_offset,y-search_radius,x-search_radius*2.5+area_offset,y+search_radius*2,node_object,true,1,SearchList,true)
+collision_ellipse_list(
+	x+search_radius*2.5+area_offset,
+	y-search_radius,
+	x-search_radius*2.5+area_offset,
+	y+search_radius*2,
+	node_object,true,1,SearchList,true)
 var SLSize = ds_list_size(SearchList);
 
 	for(i = 0; i < SLSize; i++)

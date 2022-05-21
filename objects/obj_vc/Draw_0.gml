@@ -39,6 +39,7 @@ if(surface_exists(surf)){
 }
 
 
+
 /*
 var cx = obj_crosshair.x - camera_get_view_x(view_camera[0])
 var cy = obj_crosshair.y - camera_get_view_y(view_camera[0])

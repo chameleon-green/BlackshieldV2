@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_abilities_firesupport","path":"sprites/spr_abilities_firesupport/spr_abilities_firesupport.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_abilities_firesupport",
     "tags": [],
     "resourceType": "GMSequence",

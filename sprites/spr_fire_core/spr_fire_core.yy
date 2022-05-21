@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_fire_core","path":"sprites/spr_fire_core/spr_fire_core.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_fire_core",
     "tags": [],
     "resourceType": "GMSequence",

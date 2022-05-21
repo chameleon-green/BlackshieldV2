@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_projectiles_large","path":"sprites/spr_projectiles_large/spr_projectiles_large.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_projectiles_large",
     "tags": [],
     "resourceType": "GMSequence",

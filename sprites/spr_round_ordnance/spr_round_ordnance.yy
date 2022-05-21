@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_round_ordnance","path":"sprites/spr_round_ordnance/spr_round_ordnance.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_round_ordnance",
     "tags": [],
     "resourceType": "GMSequence",

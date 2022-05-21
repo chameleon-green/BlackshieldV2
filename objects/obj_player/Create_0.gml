@@ -1,11 +1,27 @@
 
-/*
-skeleton_animation_mix("roll_fast", "sprint_full_rifle", 0.5)
-skeleton_animation_mix("sprint_full_rifle", "roll_fast", 0.5)
-skeleton_animation_mix("roll_fast", "walk_rifle", 0.5)
-skeleton_animation_mix("walk_rifle", "roll_fast", 0.5)
-skeleton_animation_mix("idle_sword_thunderedge", "idle_pistol_sunspite", 0.5)
-*/
+
+
+//movement and counter vars
+i = 1
+canmove = 1
+crouching = 0
+rolling = 0
+invulnerable = 1
+walking = 0
+sprinting = 0
+crawling = 0
+cansprint = 1
+canroll = 1
+canjump = 1
+air_timer = 0
+swinging = 0
+MoveSpeed = 10
+
+audio_debug(1)
+
+col_bot = 1
+col_right = 0
+col_left = 0
 Climb = 0
 angle = 0
 boom = 0
@@ -19,6 +35,10 @@ rotor_fire_loop = 1
 aud_spin = 0
 aud_spin2 = 0
 spindown_check = 0
+walk[3] = -1
+walk[2] = -1
+walk[1] = -1
+walk[0] = -1
 
 //++++++++++++++++++++++++++++++++++++++++STATS MONITOR++++++++++++++++++++++++++++++++++++
 LegsCrippled = 0
@@ -62,6 +82,8 @@ octate = 10000 //tau octate
 teef = 10000 //ork teef
 repu = 10000 //reputation
 
+
+
 //++++++++++++++++++++++++++++++++++++++++++++++++++++ARMOR AND BODY VARS++++++++++++++++++++++++++++++++++++++++++++
 IFF = "player01" //our IFF code, to differentiate projectiles
 
@@ -102,6 +124,7 @@ canreload = 1
 spinup = 0
 spindown = 0
 spindown_frames = 0
+
 
 //primary ranged weapon vars
 switch_weapons = 0
@@ -173,19 +196,7 @@ col_timer = 0
 
 cover_id = 0
 
-//movement and counter vars
-i = 1
-canmove = 1
-crouching = 0
-rolling = 0
-invulnerable = 1
-walking = 0
-sprinting = 0
-crawling = 0
-cansprint = 1
-canroll = 1
-canjump = 1
-air_timer = 0
+
 
 //define firemode functions, and set weapon on spawn to default mode
 var farray = wpn_ranged[wpn_ranged.Firemode]
@@ -194,7 +205,6 @@ var mode0 = farray[0]
 Firemode = mode0
 
 //set attachments for armor and guns
-//skeleton_attachment_set("slot_head" , "2000_head")
 skeleton_attachment_set("slot_gun" , wpn_ranged[wpn_ranged.Weapon_Sprite])
 skeleton_attachment_set("slot_gun magazine" , wpn_ranged[wpn_ranged.Magazine_Sprite])
 

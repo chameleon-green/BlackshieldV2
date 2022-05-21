@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_plasma_flash","path":"sprites/spr_plasma_flash/spr_plasma_flash.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_plasma_flash",
     "tags": [],
     "resourceType": "GMSequence",

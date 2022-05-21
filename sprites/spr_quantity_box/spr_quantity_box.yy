@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_quantity_box","path":"sprites/spr_quantity_box/spr_quantity_box.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_quantity_box",
     "tags": [],
     "resourceType": "GMSequence",

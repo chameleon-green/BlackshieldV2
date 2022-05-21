@@ -1,4 +1,5 @@
 {
+  "conversionMode": 0,
   "compression": 0,
   "volume": 0.5,
   "preload": false,
@@ -11,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_step1a",
-  "duration": 0.648447,
+  "duration": 0.643447,
   "parent": {
     "name": "step",
     "path": "folders/Sounds/step.yy",

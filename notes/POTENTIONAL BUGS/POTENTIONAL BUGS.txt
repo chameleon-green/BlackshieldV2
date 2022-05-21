@@ -13,15 +13,15 @@
 	Heavy attack swing includes gun anim for some reason?
 	
 	
--8/2/2020
+-8/2/2020 [MOST LIKELY FIXED]
 	memory leaks from ds_maps and lists not being destroyed, enemy and impact code being huge offenders
 	not impact code! enemy code is flawed, ENEMY IMPACT CODE is not deleting lists and a few grids. See profiler for all calls
 	
--1/10/2021
+-1/10/2021 [FIXED]
 	ramps are generally buggy
 	enemies killed in mid air do weird shit, floating around and not playing death animation 
 	FIXED: disabled walking/sprinting when dead. gravity was tied to astar pathing as well.
 	
--1/14/2021
+-1/14/2021 [FIXED]
 	scrolling with mousewheel in inventory when fully zoomed in cuts of bottom inventory item
 	when clicking and dragging scrollbar, bug does not occur

@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_container","path":"sprites/spr_container/spr_container.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_container",
     "tags": [],
     "resourceType": "GMSequence",

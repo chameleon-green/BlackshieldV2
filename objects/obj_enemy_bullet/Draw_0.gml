@@ -18,17 +18,18 @@ var col_barrier = collision_line(x,y,xx,yy,obj_barrier,false,1)
 
 
 if(col_barrier and !flames){
-	var chance = choose(1,2,3,4)
+	var chance = choose(1,2,3,4,5,6,7,8)
 	var list = col_barrier.col_list
 	var collided = ds_list_find_index(list,id)
-		if(chance < 4 and !collided){
+		if(chance < 8 and !collided){
 		var facing = sign(col_barrier.image_xscale)
-		var dist = distance_to_object(col_barrier)+random_range(0,200)
+		var dist = distance_to_object(col_barrier)+random_range(0,50)
 	
 		if(facing = 1 and x > col_barrier.bbox_right) {kill_barrier = 1}
 		if(facing =-1 and x < col_barrier.bbox_left) {kill_barrier = 1}
 	
 		if(kill_barrier){
+		col_player = 0
 		depth = -53
 		speed = 0
 		x=x+lengthdir_x(dist,direction)

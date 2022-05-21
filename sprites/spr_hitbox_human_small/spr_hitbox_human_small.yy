@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_hitbox_human_small","path":"sprites/spr_hitbox_human_small/spr_hitbox_human_small.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_hitbox_human_small",
     "tags": [],
     "resourceType": "GMSequence",

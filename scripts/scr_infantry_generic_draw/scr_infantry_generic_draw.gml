@@ -3,11 +3,11 @@
 function scr_infantry_generic_draw()
 {
 	
-	
+	/*
 	if(target_node != 0){
 		draw_sprite(spr_console,0,target_node.x,target_node.y)
 	}
-	
+	*/
 /*	var left = bbox_left
 	var right = bbox_right
 	var top = bbox_top
@@ -18,9 +18,10 @@ function scr_infantry_generic_draw()
 	draw_text(x,bbox_top,NewPath)
 
 */
+if(Up) {draw_set_color(c_red)}
 
 draw_self()
-draw_text(x,bbox_top-50,fleeing)
+draw_text(x,bbox_top-50,Up)
 
 if(hp < MaxHP and hp > 0)
 	{
@@ -43,6 +44,7 @@ if(morale < max_morale and morale > 0 and !dead)
 	draw_sprite_ext(spr_bars,6,xx,top,length,1,0,c_white,1)
 	}
 
+	
 	//draw_text(x-50,y-200,"right " +string(Right))
 	//draw_text(x,y-200,"up " + string(Up))
 	//draw_text(x+50,y-200,Right)

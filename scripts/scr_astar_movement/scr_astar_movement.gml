@@ -82,6 +82,10 @@ if(TargetNodeTimer >= AST_StartTarget){ //refresh target node
 	ds_list_destroy(TargetNodeList)
 	}
 	
+	if(SentryNode != -1 && distance_to_point(SentryNode.x,SentryNode.y) > 3000){
+	target_node = SentryNode
+	}
+	
 	
 	}
 
@@ -115,7 +119,7 @@ var Grav = grav
 var Width = abs(bbox_left-bbox_right)
 var Height = abs(bbox_top - bbox_bottom)
 
-cSpeed = 30*Right + -30*Left //clamp hspeed for collision stuff, need a minimum
+cSpeed = 20*Right + -20*Left //clamp hspeed for collision stuff, need a minimum
 	
 	var x1 = bbox_left - 10 + cSpeed
 	var x2 = bbox_right + 10 + cSpeed
@@ -126,19 +130,6 @@ cSpeed = 30*Right + -30*Left //clamp hspeed for collision stuff, need a minimum
 Col_Right = place_meeting(bbox_right+hspeed,y,obj_platform) and !place_meeting(bbox_right + 10 + cSpeed,y+abs(cSpeed)+15,obj_slope) and vsp >= 0
 Col_Left =  place_meeting(bbox_left+hspeed,y,obj_platform) and !place_meeting(bbox_left - 10 + cSpeed,y+abs(cSpeed)+15,obj_slope) and vsp >= 0
 Col_Top =   place_meeting(x,y-1+clamp(vsp,-1000,0),obj_platform)
-
-/*
-var Col_Bot = place_meeting(x,y+2+clamp(vsp,0,9999),SolidObject) and vsp >= 0
-var Col_Top = place_meeting(x,y-1+clamp(vsp,-9999,0),SolidObject) and vsp >= 0
-var Col_Left = place_meeting(x-MoveSpeed*Mult-1,y,SolidObject) and vsp >= 0
-var Col_Right = place_meeting(x+MoveSpeed*Mult+1,y,SolidObject) and vsp >= 0
-*/
-
-if(place_meeting(x,y,SolidObject) and vsp >= 0 and !col_slope){
-	var col = instance_place(x,y,SolidObject)
-	if(col.y > y) {move_outside_solid(270,-1)}
-	if(col.y < y) {move_outside_solid(90,-1)}	
-	}
 
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Pathfinding +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -214,11 +205,8 @@ hspeed = 0
 walking = 0
 sprinting = 0
 
-
-if(Col_Bot) {vsp = 0 move_outside_solid(90,-1)}
-if(Col_Left) {move_outside_solid(0,-1)}
-if(Col_Right) {move_outside_solid(180,-1)}
-//if(Col_Top) {vsp = Grav}
+//if(Col_Bot) {vsp = 0}// move_outside_solid(90,-1)}
+if(Col_Top) {vsp = Grav}
 if(variable_instance_exists(self,"deploying")) {var DPL = deploying} else{var DPL = 0}
 
 if(!dead and Move and NodeNext != 0) or (!dead and Move and DPL) 
@@ -241,7 +229,7 @@ if(!dead and Move and NodeNext != 0) or (!dead and Move and DPL)
 		hspeed = AdjSpeed sprinting = 1 image_xscale = -1
 	}
 	
-	if(Up and Col_Bot) {
+	if(Up and Col_Bot and !place_meeting(x,y,obj_slope)) {
 		vsp = -JumpForceMod
 		skeleton_animation_clear(9)
 		skeleton_anim_set_step("jump_normal",9)
@@ -289,7 +277,7 @@ if(!dead and !fleeing) {
 	
 	move_outside_solid(90,-1)
 	var Grade = abs(col_slope.image_yscale)/abs(col_slope.image_xscale)//determines slope of slope
-	Climb = ceil(abs(hspeed))*ceil(Grade*1.6) + 1.5
+	Climb = ceil(abs(hspeed))*ceil(Grade*1.6) + 3
 	y -= Climb  //multiplies our vertical increase by slope, rounding up
   } 
 

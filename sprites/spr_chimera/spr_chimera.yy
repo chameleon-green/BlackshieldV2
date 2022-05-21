@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_chimera","path":"sprites/spr_chimera/spr_chimera.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_chimera",
     "tags": [],
     "resourceType": "GMSequence",

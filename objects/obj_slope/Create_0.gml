@@ -5,8 +5,8 @@ var NodeObject = obj_node
 var SolidObject = obj_platform
 
 var resolution = clamp(5 * (image_xscale/2),275,450) //scales node spacing based on size of platform
-var y_offset = 30
-var x_offset = 0
+var y_offset = 50
+var x_offset = -20
 
 var left = bbox_left
 var right = bbox_right
@@ -26,6 +26,7 @@ sprite = spr_platform_tile
 //++++++++++++++++++++++++++++++++++++++++++++ CORNER NODE GENERATION +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 //corner nodes, always make these. note that bottom node is pushed up 1 pixel to match platforms, so npcs don't jump to the initial bottom slope node (check y value vs a platform node)
+
 if(image_xscale > 0) {
 var Node1 = instance_create_depth(left+x_offset,bbox_bottom-y_offset+1,depth+1,NodeObject) with Node1{image_index = 1 hill = 1 creator = other.id}
 var Node2 = instance_create_depth(right-x_offset,bbox_top-y_offset,depth+1,NodeObject) with Node2{image_index = 1 hill = 1 creator = other.id}
@@ -35,6 +36,7 @@ if(image_xscale < 0) {
 var Node1 = instance_create_depth(left+x_offset,bbox_top-y_offset,depth+1,NodeObject) with Node1{image_index = 1 hill = 1 creator = other.id}
 var Node2 = instance_create_depth(right-x_offset,bbox_bottom-y_offset+1,depth+1,NodeObject) with Node2{image_index = 1 hill = 1 creator = other.id}
 }
+
 
 //++++++++++++++++++++++++++++++++++++++++++++ MIDDLE NODES GENERATION +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

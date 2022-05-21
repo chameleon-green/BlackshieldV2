@@ -30,18 +30,21 @@ function scr_player_movement() {
 	col_left =  place_meeting(bbox_left+hspeed,y,obj_platform) and !place_meeting(bbox_left - 10 + cSpeed,y+abs(cSpeed)+15,obj_slope)
 	col_top = place_meeting(x,y-1+clamp(vsp,-1000,0),obj_platform)
 
+
 	if(col_slope) {
 		var Slope = col_slope//instance_nearest(x,y,obj_slope)
 		var inside = 0
 		if(bbox_left > Slope.bbox_left and bbox_right < Slope.bbox_right) {var inside = 1}
 		if(inside) {mask_index = spr_collision_mask_human2}
 	}	
+	
+
 	if(!col_slope) {
 		mask_index = spr_collision_mask_human
 		move_outside_solid(90,-1)
 	}
 	
-	
+
 	
 	
 	
@@ -63,7 +66,7 @@ function scr_player_movement() {
 
 	//mask_index = 1
   } 
- 
+	 
  //++++++++++++++++++++++++++++++++++++++++++++++++ JUMPING ++++++++++++++++++++++++++++++++
 
 

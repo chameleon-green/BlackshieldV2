@@ -107,7 +107,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_flames_dirty59","path":"sprites/spr_flames_dirty59/spr_flames_dirty59.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_flames_dirty",
     "tags": [],
     "resourceType": "GMSequence",

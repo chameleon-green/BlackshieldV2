@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_lruss","path":"sprites/spr_lruss/spr_lruss.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_lruss",
     "tags": [],
     "resourceType": "GMSequence",

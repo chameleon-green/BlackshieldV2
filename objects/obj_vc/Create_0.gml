@@ -3,7 +3,6 @@
 pl_mult = 3
 mouse_mult = 4
 
-
 depth=-3950
 surf = 0
 if !surface_exists(surf){
@@ -40,6 +39,14 @@ yy = camera_get_view_height(view_camera[0])
 camera_xprev = 0
 camera_x = 0
 camera_xspd = 0
+
+//define terrain randomization seed
+randomize()
+terrain_seed = ""
+for(var i=0;i<6;i++){
+	var temp = irandom(9)
+	terrain_seed += string(temp)
+}
 
 
 //define sound groups, firemode arrays and animation group arrays (nested stuff)
@@ -99,6 +106,7 @@ global.Selected = undefined//we have not clicked an item to view in our inventor
 // +++++++++++++++++++++++++++++++++++++++ CREATE GAME ENTITIES ++++++++++++++++++++++++++++++++++++++
 instance_create_depth(x,y,-4000,obj_ic)
 wpn_primary = ds_grid_get(obj_ic.inventory,0,0)
+wpn_primary = bolter_phobos
 wpn_sidearm  = undefined
 wpn_melee = sword_chain_thunderedge
 wpn_ranged  = wpn_primary

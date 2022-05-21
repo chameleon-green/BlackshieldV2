@@ -30,13 +30,13 @@ if(place_meeting(x,y-1,obj_cover)) {
 	top_obj = instance_place(x,y-1,obj_cover)
 	col_top = 1
 	var top_width = abs(top_obj.bbox_left-top_obj.bbox_right)
-	var top_cell_count = round(top_width/176)
+	var top_cell_count = round(top_width/192)
 	
 	for(var c=0; c<array_length(cells); c++){
-		if(top_obj.bbox_left = bbox_left + 176*c) {
-			cells[c]=1 
+		if(top_obj.bbox_left = bbox_left + 192*c) {
+			cells[c] = -1
 			for(var t=0; t<top_cell_count; t++){
-				cells[c+t] = 1
+				cells[c+t] = -1
 			}
 		}
 	}
@@ -47,29 +47,41 @@ if(place_meeting(x,y+33,obj_platform)) {
 	}
 	
 if(!col_ground) {
-	myplatform = instance_create_depth(x+24+(176*sizex)/2,y,depth,obj_platform)
+	myplatform = instance_create_depth(x+24+(192*sizex)/2,y,depth,obj_platform)
 	with (myplatform) {
-		image_xscale = other.sizex*(176/32)*0.9
+		image_xscale = other.sizex*(192/32)*0.9
 		image_yscale = 0.5
 		draw_tiles_top = 0
+		creator = other
 	}
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++ INITIALIZE SELF +++++++++++++++++++++++++++++++++++++++++++++++++
 
+
+
 depth = -50
 image_speed = 0
 
+array[10] = 6 //high range for cell subimage
+array[9] = 3 //low range for cell subimage
 array[8] = 7//right yscale
 array[7] = 4 //left yscale
 array[6] = 220//right limit, "none" for none
 array[5] = -220 //left limit, "none" for none
-
 array[4] = 2 //bg count
 array[3] = spr_ruins_bg //bg sprite
 array[2] = 0 //subimage
 array[1] = spr_ruins //sprite
 array[0] = "ruins_imp_2_top" //type, faction, number of modules, floor
+
+Tseed = obj_vc.terrain_seed
+seed[5] = string_char_at(Tseed,6)//clamp(string_char_at(Tseed,6), array[9], array[10]) 
+seed[4] = string_char_at(Tseed,5)//clamp(string_char_at(Tseed,5), array[9], array[10]) if(seed[4] = seed[5]) {seed[4]++}
+seed[3] = string_char_at(Tseed,4)//clamp(string_char_at(Tseed,4), array[9], array[10]) if(seed[3] = seed[2]) {seed[3]--}
+seed[2] = string_char_at(Tseed,3)//clamp(string_char_at(Tseed,3), array[9], array[10]) if(seed[2] = seed[1]) {seed[2]++}
+seed[1] = string_char_at(Tseed,2)//clamp(string_char_at(Tseed,2), array[9], array[10]) if(seed[1] = seed[0]) {seed[1]--}
+seed[0] = string_char_at(Tseed,1)//clamp(string_char_at(Tseed,1), array[9], array[10])
 
 type = array
 
@@ -77,9 +89,6 @@ sound[3] = snd_impact_stone1
 sound[2] = snd_impact_stone2
 sound[1] = snd_impact_stone3
 sound[0] = snd_impact_stone4
-
-//sprite_index = type[1]
-//image_index = type[2]
 
 if(is_real(type[6])){
 	barrier_right = instance_create_depth(x,y,50,obj_barrier)

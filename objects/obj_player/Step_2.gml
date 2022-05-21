@@ -1,5 +1,7 @@
 ///@description limb HP delta and injuries
 //+++++++++++++++++++++++++++++++++++++++++ Shorthand for long ass perk recognition +++++++++++
+
+
 var HPhead = hp_body_head/hp_body_head_max
 var HPtorso = hp_body_torso/hp_body_torso_max
 var HPlarm = hp_body_llarm/hp_body_llarm_max

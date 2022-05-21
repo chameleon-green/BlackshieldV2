@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_smoke_20","path":"sprites/spr_smoke_20/spr_smoke_20.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_smoke_20",
     "tags": [],
     "resourceType": "GMSequence",

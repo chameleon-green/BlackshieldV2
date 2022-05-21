@@ -17,7 +17,6 @@ function scr_explosion_init() {
 
 	//+++++++++++++++++++++++++++++++++++ SCALABLES +++++++++++++++++++++++++++++++++++++++
 	
-	
 	exp_scalable_smoke_small[4] = snd_grenade_smoke_burst //sound
 	exp_scalable_smoke_small[3] = 5 //explosion size
 	exp_scalable_smoke_small[2] = 22 //frag lifetime, else smoke mass override
@@ -32,7 +31,7 @@ function scr_explosion_init() {
 	exp_scalable_firey_med[0] = 30 //frag count
 	
 	exp_scalable_frag_tiny[4] = snd_explode_small1
-	exp_scalable_frag_tiny[3] = 4 //explosion size
+	exp_scalable_frag_tiny[3] = 7 //explosion size
 	exp_scalable_frag_tiny[2] = 13 //frag lifetime
 	exp_scalable_frag_tiny[1] = c_dkgray //smoke color
 	exp_scalable_frag_tiny[0] = 30 //frag count

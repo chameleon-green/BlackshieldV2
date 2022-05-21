@@ -13,7 +13,7 @@ var event = ds_map_find_value(event_data, "name")
 	var ex = ds_map_find_value(emap,"worldX")
 	var ey = ds_map_find_value(emap,"worldY")
 	var Mass = irandom_range(8,12)
-	var Dir = angle + !image_xscale*(180 - 2*angle) + random_range(-primary[22],primary[22]) + ((image_angle-360)*image_xscale)*image_xscale
+	var Dir = angle + !image_xscale*(180 - 2*angle) + random_range(-primary[22],primary[22]) + image_angle*image_xscale
 	
 	audio_play_sound_at(snd_battlecannon,ex,ey,0,700,5000,1,0,1)
 	

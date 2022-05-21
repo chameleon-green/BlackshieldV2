@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_items_melee","path":"sprites/spr_items_melee/spr_items_melee.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_items_melee",
     "tags": [],
     "resourceType": "GMSequence",

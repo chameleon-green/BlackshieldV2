@@ -1,3 +1,0 @@
-
--Counter for medkits and armor repair kits on status screen
--armor repair kits work like medkits. constant armor status warnings which can be toggled in status screen

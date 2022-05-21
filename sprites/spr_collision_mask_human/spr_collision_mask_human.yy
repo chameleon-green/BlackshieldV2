@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_collision_mask_human","path":"sprites/spr_collision_mask_human/spr_collision_mask_human.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_collision_mask_human",
     "tags": [],
     "resourceType": "GMSequence",

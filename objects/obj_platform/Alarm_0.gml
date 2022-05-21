@@ -1,12 +1,14 @@
- depth = -3900
- created_by_cover = 0
+ 
+
 //+++++++++++++++++++++++++++++++++++++++++ ESTABLISH VARIABLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+if(creator != undefined) {depth = creator.depth+1}
 
 var NodeObject = obj_node
 var SolidObject = obj_platform
 
-var resolution = clamp(5 * (image_xscale/2),140,350) //scales node spacing based on size of platform
-var y_offset = 30
+var resolution = clamp(5 * (image_xscale/2),200,350) //scales node spacing based on size of platform
+var y_offset = 50
 var x_offset = 0
 
 var left = bbox_left
@@ -16,8 +18,6 @@ width = right-left
 x_nodes = round(width/resolution)-1 //horizontal node count
 Ncount = 0 //nodecount
 tile_count = width/70
-
-draw_tiles_top = !place_meeting(x,y-1,obj_platform)
 
 //++++++++++++++++++++++++++++++++++++++++++++ NODE GENERATION +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

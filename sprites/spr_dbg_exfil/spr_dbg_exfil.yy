@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_dbg_exfil","path":"sprites/spr_dbg_exfil/spr_dbg_exfil.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_dbg_exfil",
     "tags": [],
     "resourceType": "GMSequence",

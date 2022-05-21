@@ -84,7 +84,7 @@ if(firing_hull = 1){
 		audio_sound_gain(snd,2,0)
 		skeleton_attachment_set("hullflash",secondary[4+i])
 		
-		var Dir = angle2 + !image_xscale*(180 - 2*angle2) + random_range(-secondary[22],secondary[22]) + ((image_angle-360)*image_xscale)*image_xscale
+		var Dir = angle2 + !image_xscale*(180 - 2*angle2) + random_range(-secondary[22],secondary[22]) + image_angle*image_xscale
 		with(instance_create_depth(hx,hy,depth+1,obj_enemy_bullet)) {
 		xcreator = hx
 		ycreator = hy

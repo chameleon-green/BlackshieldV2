@@ -5,7 +5,6 @@ function scr_guardsman_init(weapon="lasgun") {
 
 //++++++++++++++++++++++++++++++++++++++++++++ UNIVERSAL TRAITS +++++++++++++++++++++++++++++++++++++
 	
-	
 	Sprite = spr_scion
 	sprite_index = (Sprite)
 	mask_index = spr_hitbox_human_small
@@ -21,7 +20,6 @@ function scr_guardsman_init(weapon="lasgun") {
 	morale = max_morale
 	IFF = "hostile_imperial"
 
-
 	PerksList = ds_list_create()
 	col_list = ds_list_create()
 	Keywords = ds_list_create() //list of keywords for perks and such
@@ -35,6 +33,7 @@ function scr_guardsman_init(weapon="lasgun") {
 		with(booster) {creator = other.id}
 	}
 	else{booster = undefined}
+	
 //++++++++++++++++++++++++++++++++++++++++++ MOVEMENT +++++++++++++++++++++++++++++++++++++++++++
 	
 	in_cover = 0
@@ -63,15 +62,14 @@ function scr_guardsman_init(weapon="lasgun") {
 	anim_backwalk = "backwalk_rifle"
 	anim_die = choose("die_1","die_2")
 
-
 	grav = 1.5//1.5 //essential to pathing and gravity
 	vsp = 0 ///essential to pathing and gravity
 	jump_force = 33 //essential to pathing
 	max_jump_height = (jump_force*jump_force) / (2*grav) //essential to pathing
 	
-	AST_NewPath = irandom_range(90,140) //new path timer length for astar
+	AST_NewPath = irandom_range(90,200) //new path timer length for astar
 	AST_NewPathMax = AST_NewPath  //duplicate of previous for fleeing
-	AST_StartTarget = irandom_range(20,60) //start and target node timer for astar
+	AST_StartTarget = irandom_range(20,90) //start and target node timer for astar
 	
 	
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++ PATHFINDING VARIABLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -81,6 +79,7 @@ function scr_guardsman_init(weapon="lasgun") {
 	Col_Bot = 1
 	Left = 0
 	Right = 0
+	Up = 0
 	
 	PathList = ds_list_create() //list of nodes for pathfinding
 	closed_list = ds_list_create()
@@ -90,6 +89,12 @@ function scr_guardsman_init(weapon="lasgun") {
 	NodeObject = obj_node
 	SolidObject = obj_platform
 
+	SentryNode = -1
+	//sentry = 1
+	if(variable_instance_exists(self,"sentry") and instance_exists(obj_node)) {
+		SentryNode = instance_nearest(x,y,obj_node)
+	}
+	
 	TargetNodeTimer = 0 //refresh target node, allows time for nodes to generate before checking. 15 ticks
 	StartNodeTimer = 0 //update start node, allows time for nodes to generate before checking. 30 ticks
 	NewPathTimer = 0 //autopathing timer, for test purposes. 100 ticks
@@ -104,7 +109,6 @@ function scr_guardsman_init(weapon="lasgun") {
 	StartNode = ds_list_nearest(NodeList,x,y,false) //selects closest node as starting node
 	ds_list_add(closed_list,StartNode)
 	ds_list_destroy(NodeList)
-
 
 //+++++++++++++++++++++++++++++++++++++++++++ COMBAT STATS +++++++++++++++++++++++++++++++++++++++++++
 	LOSTimer = timer_create(30,0)

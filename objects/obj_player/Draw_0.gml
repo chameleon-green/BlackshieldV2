@@ -1,7 +1,4 @@
 //+++++++++++++++++++++++++++++++++++++++++++++ grenade throwing meter ++++++++++++++++++++++++++++++++
-//draw_circle(active_ab1[5],active_ab1[4],30,false)
-draw_text(x,y-200,col_slope)
-//draw_sprite_ext(mask_index,0,x,y,1,1,0,c_aqua,0.5)
 
 draw_hbox = 0
 

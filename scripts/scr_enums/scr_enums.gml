@@ -26,6 +26,7 @@ function scr_enums() {
 		Heat_Capacity = 0,
 	}
 
+
 	enum wpn_melee {
 		Animations = 21, //array of idles, reloads, etc. and weapon effects (powerfield etc)
 		Weapon_Sprite = 20, //attachment sprite

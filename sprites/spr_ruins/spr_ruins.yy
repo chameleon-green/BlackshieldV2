@@ -119,7 +119,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_ruins","path":"sprites/spr_ruins/spr_ruins.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_ruins",
     "tags": [],
     "resourceType": "GMSequence",

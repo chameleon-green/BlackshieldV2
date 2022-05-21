@@ -179,7 +179,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_status_body","path":"sprites/spr_status_body/spr_status_body.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "",
     "tags": [],
     "resourceType": "GMSequence",

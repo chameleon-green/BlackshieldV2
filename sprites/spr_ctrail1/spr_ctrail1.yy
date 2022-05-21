@@ -75,7 +75,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_ctrail1","path":"sprites/spr_ctrail1/spr_ctrail1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_ctrail1",
     "tags": [],
     "resourceType": "GMSequence",

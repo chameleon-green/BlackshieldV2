@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_hydra_battery","path":"sprites/spr_hydra_battery/spr_hydra_battery.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_hydra_battery",
     "tags": [],
     "resourceType": "GMSequence",

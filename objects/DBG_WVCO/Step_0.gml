@@ -20,7 +20,7 @@ if(wavestart) {
 	timer_reset(break_timer,0)
 	
 	scr_squad_infantry_create(scr_guardsman_init,10,100,1000,depth)
-	scr_squad_infantry_create(scr_guardsman_init,10,10000,1000,depth)
+	scr_squad_infantry_create(scr_guardsman_init,10,11500,1000,depth)
 	
 	/*
 	repeat (9) {with(instance_create_depth(11900,3700,1,obj_enemy)) {MyType = scr_guardsman_init}}

@@ -2,6 +2,7 @@
 /// @description gravity and delta HP
 
 
+
 //++++++++++++++++++++++++++++++++++++++++++++++++++++ GRAVITY +++++++++++++++++++++++++++++++++++++++++++
 var D = keyboard_check(ord("D")) and !keyboard_check(ord("A"))
 var A = keyboard_check(ord("A")) and !keyboard_check(ord("D"))
